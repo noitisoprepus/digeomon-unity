@@ -1,6 +1,5 @@
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using Unity.Barracuda;
 using UnityEngine;
@@ -12,7 +11,7 @@ public class Classification : MonoBehaviour
     [Header("Classification Model")]
     public NNModel modelFile;
     public TextAsset classesTxt;
-    public Preprocessor preprocess;
+    public Material preprocessMaterial;
 
     [Header("UI")]
     public TextMeshProUGUI detectedObjText;
@@ -20,19 +19,24 @@ public class Classification : MonoBehaviour
     public ARCameraBackground m_ARCameraBackground;
     public RawImage cameraOutput;
 
-    const int IMAGE_SIZE = 224;
-    const string INPUT_NAME = "images";
-    const string OUTPUT_NAME = "Softmax";
-
     private IWorker worker;
+    private Model model;
+    private Dictionary<string, Tensor> inputs = new Dictionary<string, Tensor>();
+    private RenderTexture targetRT;
     private Texture2D cameraTexture;
     private string[] classLabels;
 
     private void Start()
     {
-        Model model = ModelLoader.Load(modelFile);
-        worker = WorkerFactory.CreateWorker(WorkerFactory.Type.ComputePrecompiled, model);
-        LoadClasses();
+        Application.targetFrameRate = 60;
+        Screen.orientation = ScreenOrientation.Portrait;
+
+        string fileContents = classesTxt.text;
+        classLabels = fileContents.Split('\n');
+        model = ModelLoader.Load(modelFile);
+
+        worker = WorkerFactory.CreateWorker(WorkerFactory.Type.CSharpBurst, model);
+        targetRT = RenderTexture.GetTemporary(224, 224, 0, RenderTextureFormat.ARGBHalf);
         cameraTexture = new Texture2D(1080, 1920, TextureFormat.RGB24, false);
     }
 
@@ -49,67 +53,49 @@ public class Classification : MonoBehaviour
 
         // Re-outputs the Camera image texture, so it can be seen in-game
         cameraOutput.texture = cameraTexture;
-        //preprocess.PreprocessImage(cameraTexture, IMAGE_SIZE, RunModel);
-    }
-
-    void RunModel(byte[] pixels)
-    {
-        StartCoroutine(RunModelRoutine(pixels));
-    }
-
-    IEnumerator RunModelRoutine(byte[] pixels)
-    {
-        Tensor tensor = TransformInput(pixels);
-
-        var inputs = new Dictionary<string, Tensor> {
-            { INPUT_NAME, tensor }
-        };
-
-        worker.Execute(inputs);
-        Tensor outputTensor = worker.PeekOutput(OUTPUT_NAME);
-
-        //get largest output
-        List<float> temp = outputTensor.ToReadOnlyArray().ToList();
-        float max = temp.Max();
-        int index = temp.IndexOf(max);
-
-        //set UI text
-        detectedObjText.text = classLabels[index];
-
-        //dispose tensors
-        tensor.Dispose();
-        outputTensor.Dispose();
-        yield return null;
-    }
-
-    //transform from 0-255 to -1 to 1
-    Tensor TransformInput(byte[] pixels)
-    {
-        float[] transformedPixels = new float[pixels.Length];
-
-        for (int i = 0; i < pixels.Length; i++)
-        {
-            transformedPixels[i] = (pixels[i] - 127f) / 128f;
-        }
-        return new Tensor(1, IMAGE_SIZE, IMAGE_SIZE, 3, transformedPixels);
     }
 
     private void OnDestroy()
     {
         worker?.Dispose();
+
+        foreach (var key in inputs.Keys)
+        {
+            inputs[key].Dispose();
+        }
+
+        inputs.Clear();
     }
 
-    void LoadClasses()
+    private void ExecuteML()
     {
-        if (classesTxt != null)
-        {
-            string fileContents = classesTxt.text;
-            classLabels = fileContents.Split('\n');
-        }
+        // Preprocessing
+        var input = new Tensor(PrepareTextureForInput(cameraTexture), 3);
+
+        // Executing
+        worker.Execute(input);
+
+        // Reading Output
+        var output = worker.PeekOutput();
+        var res = output.ArgMax()[0];
+        var label = classLabels[res];
+        var accuracy = output[res];
+        detectedObjText.text = $"{label}\n{Math.Round(accuracy * 100, 1)}%";
+    }
+
+    Texture PrepareTextureForInput(Texture2D src)
+    {
+        RenderTexture.active = targetRT;
+        Graphics.Blit(src, targetRT, preprocessMaterial);
+
+        var result = new Texture2D(targetRT.width, targetRT.height, TextureFormat.RGBAHalf, false);
+        result.ReadPixels(new Rect(0, 0, targetRT.width, targetRT.height), 0, 0);
+        result.Apply();
+        return result;
     }
 
     public void OnCaptureButtonPressed()
     {
-        preprocess.PreprocessImage(cameraTexture, IMAGE_SIZE, RunModel);
+        ExecuteML();
     }
 }
