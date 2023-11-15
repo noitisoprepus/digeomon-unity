@@ -49,7 +49,7 @@ public class Classification : MonoBehaviour
 
         // Re-outputs the Camera image texture, so it can be seen in-game
         cameraOutput.texture = cameraTexture;
-        preprocess.PreprocessImage(cameraTexture, IMAGE_SIZE, RunModel);
+        //preprocess.PreprocessImage(cameraTexture, IMAGE_SIZE, RunModel);
     }
 
     void RunModel(byte[] pixels)
@@ -106,5 +106,10 @@ public class Classification : MonoBehaviour
             string fileContents = classesTxt.text;
             classLabels = fileContents.Split('\n');
         }
+    }
+
+    public void OnCaptureButtonPressed()
+    {
+        preprocess.PreprocessImage(cameraTexture, IMAGE_SIZE, RunModel);
     }
 }

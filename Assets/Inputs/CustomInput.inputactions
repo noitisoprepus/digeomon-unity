@@ -1,0 +1,34 @@
+{
+    "name": "CustomInput",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "3b00ed02-b228-41d6-964c-d9dfe7b59ab0",
+            "actions": [
+                {
+                    "name": "Dialogue Actions",
+                    "type": "Button",
+                    "id": "02fbaee2-a6ad-4248-812e-82c719c23104",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "344be2ca-d275-4701-8520-fc2d0fa302a8",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dialogue Actions",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
