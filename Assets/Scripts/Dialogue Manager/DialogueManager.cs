@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     private List<string> currLines;
     private int currLineIndex = 0;
     private bool isRunning = false;
+    private bool isPlaying = false;
 
     private void Update()
     {
@@ -53,6 +54,14 @@ public class DialogueManager : MonoBehaviour
 
     public void NextDialogue()
     {
+        if (isPlaying)
+        {
+            isPlaying = false;
+            StopCoroutine(dialogueCoroutine);
+            dialogueText.maxVisibleCharacters = currLines[currLineIndex].Length;
+            return;
+        }
+
         if (currLineIndex.Equals(currLines.Count - 1))
         {
             isRunning = false;
@@ -61,7 +70,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         currLineIndex++;
-        StartCoroutine(PlayDialogue(currLines[currLineIndex]));
+        dialogueCoroutine = StartCoroutine(PlayDialogue(currLines[currLineIndex]));
     }
 
     private void RunDialogue(Dialogue dialogue)
@@ -69,12 +78,13 @@ public class DialogueManager : MonoBehaviour
         charNameText.SetText(dialogue.charName);
 
         currLines = new List<string>(dialogue.dialogues);
-        StartCoroutine(PlayDialogue(currLines[0]));
+        dialogueCoroutine = StartCoroutine(PlayDialogue(currLines[0]));
         currLineIndex = 0;
     }
 
     private IEnumerator PlayDialogue(string line)
     {
+        isPlaying = true;
         dialogueText.SetText(line);
         dialogueText.maxVisibleCharacters = 0;
 
@@ -83,7 +93,6 @@ public class DialogueManager : MonoBehaviour
             dialogueText.maxVisibleCharacters++;
             yield return new WaitForSeconds(textSpeed);
         }
-
-        
+        isPlaying = false;
     }
 }
