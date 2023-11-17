@@ -222,6 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogues:
   - {fileID: 11400000, guid: 2d067313c835fe44c929aee9c9eae8d9, type: 2}
+  - {fileID: 11400000, guid: 2d067313c835fe44c929aee9c9eae8d9, type: 2}
+  - {fileID: 11400000, guid: 2d067313c835fe44c929aee9c9eae8d9, type: 2}
   textSpeed: 0.05
   dialoguePanel: {fileID: 1637788247}
   charNameText: {fileID: 1792455796}

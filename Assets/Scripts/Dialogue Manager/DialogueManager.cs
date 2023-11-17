@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     private Coroutine dialogueCoroutine;
     private Dialogue currDialogue;
     private List<string> currLines;
+    private int currDialogueIndex = 0;
     private int currLineIndex = 0;
     private bool isRunning = false;
     private bool isPlaying = false;
@@ -43,13 +44,13 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue()
     {
-        if (dialogues.Count.Equals(0)) return;
+        if (dialogues.Count.Equals(currDialogueIndex)) return;
         isRunning = true;
         dialoguePanel.SetActive(true);
 
-        currDialogue = dialogues[0];
+        currDialogue = dialogues[currDialogueIndex];
         RunDialogue(currDialogue);
-        dialogues.RemoveAt(0);
+        currDialogueIndex++;
     }
 
     public void NextDialogue()
