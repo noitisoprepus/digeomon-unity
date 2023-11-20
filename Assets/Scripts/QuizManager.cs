@@ -27,6 +27,9 @@ public class QuizManager : MonoBehaviour
     public Button choiceDButton;
     public TextMeshProUGUI questionText;
     public TextMeshProUGUI scoreText;
+    public Color normalCol;
+    public Color correctCol;
+    public Color wrongCol;
 
     private TextMeshProUGUI choiceAText;
     private TextMeshProUGUI choiceBText;
@@ -34,6 +37,7 @@ public class QuizManager : MonoBehaviour
     private TextMeshProUGUI choiceDText;
     private List<Question> currQuestions;
     private List<int> userAnswers;
+    private Image[] choiceButtonImages = new Image[4];
     private int currQIndex;
     private int score;
 
@@ -43,6 +47,11 @@ public class QuizManager : MonoBehaviour
         choiceBText = choiceBButton.GetComponentInChildren<TextMeshProUGUI>();
         choiceCText = choiceCButton.GetComponentInChildren<TextMeshProUGUI>();
         choiceDText = choiceDButton.GetComponentInChildren<TextMeshProUGUI>();
+
+        choiceButtonImages[0] = choiceAButton.GetComponent<Image>();
+        choiceButtonImages[1] = choiceBButton.GetComponent<Image>();
+        choiceButtonImages[2] = choiceCButton.GetComponent<Image>();
+        choiceButtonImages[3] = choiceDButton.GetComponent<Image>();
     }
 
     private void Start()
@@ -88,11 +97,52 @@ public class QuizManager : MonoBehaviour
             choicesBox.SetActive(false);
             scoreText.text = "SCORE: " + score;
             scoreBox.SetActive(true);
-            // TODO: Review answers
             return;
         }
 
         ShowQuestion(currQuestions[currQIndex]);
+    }
+
+    public void StartRecap()
+    {
+        currQIndex = 0;
+        ShowRecapQuestion(currQuestions[currQIndex]);
+        questionBox.SetActive(true);
+        choicesBox.SetActive(true);
+    }
+
+    private void ShowRecapQuestion(Question q)
+    {
+        ShowQuestion(q);
+        
+        choiceAButton.interactable = false;
+        choiceBButton.interactable = false;
+        choiceCButton.interactable = false;
+        choiceDButton.interactable = false;
+
+        for (int i = 0; i < 4; i++)
+            choiceButtonImages[i].color = normalCol;
+
+        if (q.answerIndex == userAnswers[currQIndex])
+            choiceButtonImages[userAnswers[currQIndex]].color = correctCol;
+        else
+        {
+            choiceButtonImages[userAnswers[currQIndex]].color = wrongCol;
+            choiceButtonImages[q.answerIndex].color = correctCol;
+        }
+    }
+
+    private void NextRecapQuestion()
+    {
+        currQIndex++;
+
+        if (currQIndex == currQuestions.Count)
+        {
+            panel.SetActive(false);
+            return;
+        }
+
+        ShowRecapQuestion(currQuestions[currQIndex]);
     }
 
     public void OnAnswerButtonPressed(int index)
@@ -101,5 +151,15 @@ public class QuizManager : MonoBehaviour
         if (index == currQuestions[currQIndex].answerIndex)
             score++;
         NextQuestion();
+    }
+
+    public void OnRecapButtonPressed()
+    {
+        StartRecap();
+    }
+
+    public void OnNextRecapButtonPressed()
+    {
+        NextRecapQuestion();
     }
 }

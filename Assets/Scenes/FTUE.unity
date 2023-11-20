@@ -221,9 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues:
-  - {fileID: 11400000, guid: 2d067313c835fe44c929aee9c9eae8d9, type: 2}
-  - {fileID: 11400000, guid: 2d067313c835fe44c929aee9c9eae8d9, type: 2}
-  - {fileID: 11400000, guid: 2d067313c835fe44c929aee9c9eae8d9, type: 2}
+  - {fileID: 11400000, guid: 8b20c3c2e14ac5c46ad75e550711cf38, type: 2}
   textSpeed: 0.05
   dialoguePanel: {fileID: 1637788247}
   charNameText: {fileID: 1792455796}
@@ -774,7 +772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1637788248
 RectTransform:
   m_ObjectHideFlags: 0
