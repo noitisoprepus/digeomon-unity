@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Barracuda;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
 public class Classification : MonoBehaviour
@@ -17,7 +16,6 @@ public class Classification : MonoBehaviour
     public TextMeshProUGUI detectedObjText;
     public RenderTexture cameraRenderTexture;
     public ARCameraBackground m_ARCameraBackground;
-    public RawImage cameraOutput;
 
     private IWorker worker;
     private Model model;
@@ -50,9 +48,6 @@ public class Classification : MonoBehaviour
         cameraTexture.ReadPixels(new Rect(0, 0, cameraRenderTexture.width, cameraRenderTexture.height), 0, 0);
         cameraTexture.Apply();
         RenderTexture.active = null;
-
-        // Re-outputs the Camera image texture, so it can be seen in-game
-        cameraOutput.texture = cameraTexture;
     }
 
     private void OnDestroy()
