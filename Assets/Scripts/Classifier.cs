@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using Unity.Barracuda;
 using UnityEngine;
@@ -17,6 +16,7 @@ public class Classification : MonoBehaviour
     public RenderTexture cameraRenderTexture;
     public ARCameraBackground m_ARCameraBackground;
 
+    private Capture capture;
     private IWorker worker;
     private Model model;
     private Dictionary<string, Tensor> inputs = new Dictionary<string, Tensor>();
@@ -75,7 +75,7 @@ public class Classification : MonoBehaviour
         var res = output.ArgMax()[0];
         var label = classLabels[res];
         var accuracy = output[res];
-        SearchDigeomon(label, accuracy);
+        capture.SearchDigeomon(label, accuracy);
     }
 
     Texture PrepareTextureForInput(Texture2D src)
@@ -87,11 +87,6 @@ public class Classification : MonoBehaviour
         result.ReadPixels(new Rect(0, 0, targetRT.width, targetRT.height), 0, 0);
         result.Apply();
         return result;
-    }
-
-    private void SearchDigeomon(string key, double acc)
-    {
-        double accuracy = Math.Round(acc * 100, 1);
     }
 
     public void OnCaptureButtonPressed()
