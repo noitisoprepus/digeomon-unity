@@ -75,7 +75,7 @@ public class Classification : MonoBehaviour
         var res = output.ArgMax()[0];
         var label = classLabels[res];
         var accuracy = output[res];
-        detectedObjText.text = $"{label}\n{Math.Round(accuracy * 100, 1)}%";
+        SearchDigeomon(label, accuracy);
     }
 
     Texture PrepareTextureForInput(Texture2D src)
@@ -87,6 +87,11 @@ public class Classification : MonoBehaviour
         result.ReadPixels(new Rect(0, 0, targetRT.width, targetRT.height), 0, 0);
         result.Apply();
         return result;
+    }
+
+    private void SearchDigeomon(string key, double acc)
+    {
+        double accuracy = Math.Round(acc * 100, 1);
     }
 
     public void OnCaptureButtonPressed()

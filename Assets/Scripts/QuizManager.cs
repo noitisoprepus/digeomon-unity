@@ -69,9 +69,28 @@ public class QuizManager : MonoBehaviour
         currQIndex = 0;
 
         if (useQuiz)
+        {
             currQuestions = new List<Question>(quiz.questions);
+        }
         else if (useCustom)
-            currQuestions = new List<Question>(questions);
+        {
+            if (isRandom)
+            {
+                List<Question> tempList = new List<Question>(questions);
+                for (int i = 0; i < tempList.Count; i++)
+                {
+                    Question temp = tempList[i];
+                    int randomIndex = Random.Range(i, tempList.Count);
+                    tempList[i] = tempList[randomIndex];
+                    tempList[randomIndex] = temp;
+                }
+
+                for (int i = 0; i < itemNumbers; i++)
+                {
+                    currQuestions.Add(tempList[i]);
+                }
+            }
+        }
 
         ShowQuestion(currQuestions[currQIndex]);
     }
