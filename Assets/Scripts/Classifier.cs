@@ -24,6 +24,11 @@ public class Classification : MonoBehaviour
     private Texture2D cameraTexture;
     private string[] classLabels;
 
+    private void Awake()
+    {
+        capture = GetComponent<Capture>();
+    }
+
     private void Start()
     {
         Application.targetFrameRate = 60;
@@ -76,6 +81,9 @@ public class Classification : MonoBehaviour
         var label = classLabels[res];
         var accuracy = output[res];
         capture.SearchDigeomon(label, accuracy);
+
+        // FOR DEBUGGING
+        // detectedObjText.text = $"{label}\n{Mathf.Round(accuracy * 100)}%";
     }
 
     Texture PrepareTextureForInput(Texture2D src)
