@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832428c249f030043a47ae6bb0480cb6, type: 3}
   m_Name: FTUE_Assistant
   m_EditorClassIdentifier: 
-  charName: Dr. Ben
+  charName: Professor Euclid
   dialogues:
-  - Hello! Welcome to the world of Digeomon.
-  - Blah blah blah.
-  - That's it!
+  - Welcome to the world of <b>DiGeoMon</b>! I'm <b>Professor Euclid</b>, your guide
+    on this exciting journey.
+  - DiGeoMon or Digital Geometric Monsters come to life through the magic of camera
+    scanning.
+  - As a new DiGeoMon Trainer, your journey begins with the ability to bring these
+    monsters into life by scanning everyday objects.
+  - But first, tell me about yourself. What grade level are you in?
+  - <<GradeLevel>>
+  - "Great! Let\u2019s get you started."
