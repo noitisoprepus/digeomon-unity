@@ -61,8 +61,8 @@ public class Capture : MonoBehaviour
     {
         failDialogRT.anchoredPosition = new Vector2(300f, failDialogRT.anchoredPosition.y);
         failDialog.SetActive(true);
-        failDialogRT.DOAnchorPosX(-300f, 1.5f).SetEase(Ease.OutQuad);
-        failDialogRT.DOAnchorPosX(300f, 1.5f).SetEase(Ease.InQuad).SetDelay(3f);
+        failDialogRT.DOAnchorPosX(-300f, 1.25f).SetEase(Ease.OutQuad);
+        failDialogRT.DOAnchorPosX(300f, 0.75f).SetEase(Ease.InQuad).SetDelay(3f);
     }
 
     public void OnSummonButtonPressed()

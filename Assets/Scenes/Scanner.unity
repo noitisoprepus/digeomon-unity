@@ -157,6 +157,14 @@ MonoBehaviour:
     type: 3}
   classesTxt: {fileID: 4900000, guid: 987dcb6c33fd1b040a4dab4d5e991aa0, type: 3}
   preprocessMaterial: {fileID: 2100000, guid: adf9bc017eac04893a7736db6e05a86d, type: 2}
+  scanButton: {fileID: 4466936100500265666}
+  scanFrameSprites:
+  - {fileID: 5643872107941196604}
+  - {fileID: 1674238090039413567}
+  - {fileID: 6444901568463320595}
+  - {fileID: 4939948764541972090}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
   detectedObjText: {fileID: 4837705506719134711}
   cameraRenderTexture: {fileID: 8400000, guid: d73f6f58784fd804b9cf67029d8c2a44, type: 2}
   m_ARCameraBackground: {fileID: 778948418}
@@ -3642,7 +3650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

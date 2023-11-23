@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using Unity.Barracuda;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
 public class Classification : MonoBehaviour
@@ -12,6 +14,10 @@ public class Classification : MonoBehaviour
     public Material preprocessMaterial;
 
     [Header("UI")]
+    public Button scanButton;
+    public List<Image> scanFrameSprites;
+    public Color normalColor;
+    public Color disabledColor;
     public TextMeshProUGUI detectedObjText;
     public RenderTexture cameraRenderTexture;
     public ARCameraBackground m_ARCameraBackground;
@@ -82,6 +88,7 @@ public class Classification : MonoBehaviour
         var accuracy = output[res];
         capture.SearchDigeomon(label, accuracy);
 
+        StartCoroutine(ScanDelay());
         // FOR DEBUGGING
         // detectedObjText.text = $"{label}\n{Mathf.Round(accuracy * 100)}%";
     }
@@ -99,6 +106,19 @@ public class Classification : MonoBehaviour
 
     public void OnCaptureButtonPressed()
     {
+        scanButton.interactable = false;
+        scanButton.GetComponentInChildren<TextMeshProUGUI>().text = ". . .";
+        foreach (Image img in scanFrameSprites)
+            img.color = disabledColor;
         ExecuteML();
+    }
+
+    private IEnumerator ScanDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        scanButton.interactable = true;
+        scanButton.GetComponentInChildren<TextMeshProUGUI>().text = "SCAN";
+        foreach (Image img in scanFrameSprites)
+            img.color = normalColor;
     }
 }
