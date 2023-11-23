@@ -5,6 +5,7 @@ using UnityEngine;
 public class Dialogue : ScriptableObject
 {
     public string charName;
+    public Sprite charSprite;
     [TextArea(3, 5)]
     public List<string> dialogues;
 }

@@ -1,9 +1,10 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -13,9 +14,13 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Dialogue GUI")]
     public GameObject dialoguePanel;
+    public RectTransform dialogueCharImageRT;
+    public RectTransform dialogueArrowRT;
     public TextMeshProUGUI charNameText;
     public TextMeshProUGUI dialogueText;
 
+    private Image dialogueCharImage;
+    private Sequence arrowSequence;
     private Coroutine dialogueCoroutine;
     private Dialogue currDialogue;
     private List<string> currLines;
@@ -23,6 +28,19 @@ public class DialogueManager : MonoBehaviour
     private int currLineIndex = 0;
     private bool isRunning = false;
     private bool isPlaying = false;
+
+    private void Awake()
+    {
+        dialogueCharImage = dialogueCharImageRT.gameObject.GetComponent<Image>();
+    }
+
+    private void Start()
+    {
+        arrowSequence = DOTween.Sequence();
+        arrowSequence.Append(dialogueArrowRT.DOAnchorPosX(-80f, 0.5f));
+        arrowSequence.Append(dialogueArrowRT.DOAnchorPosX(-100f, 0.5f));
+        arrowSequence.SetLoops(-1, LoopType.Yoyo).SetSpeedBased();
+    }
 
     private void Update()
     {
@@ -46,7 +64,11 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogues.Count.Equals(currDialogueIndex)) return;
         isRunning = true;
+
+        dialogueCharImage.sprite = dialogues[currDialogueIndex].charSprite;
+        dialogueCharImageRT.anchoredPosition = new Vector2(0, -1030f);
         dialoguePanel.SetActive(true);
+        dialogueCharImageRT.DOAnchorPosY(0, 1.5f).SetEase(Ease.OutQuint);
 
         currDialogue = dialogues[currDialogueIndex];
         RunDialogue(currDialogue);
@@ -57,9 +79,8 @@ public class DialogueManager : MonoBehaviour
     {
         if (isPlaying)
         {
-            isPlaying = false;
             StopCoroutine(dialogueCoroutine);
-            dialogueText.maxVisibleCharacters = currLines[currLineIndex].Length;
+            OnDialogueFinished();
             return;
         }
 
@@ -85,6 +106,7 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator PlayDialogue(string line)
     {
+        dialogueArrowRT.gameObject.SetActive(false);
         isPlaying = true;
         dialogueText.SetText(line);
         dialogueText.maxVisibleCharacters = 0;
@@ -94,6 +116,15 @@ public class DialogueManager : MonoBehaviour
             dialogueText.maxVisibleCharacters++;
             yield return new WaitForSeconds(textSpeed);
         }
+
+        OnDialogueFinished();
+    }
+
+    private void OnDialogueFinished()
+    {
+        dialogueText.maxVisibleCharacters = currLines[currLineIndex].Length;
+        dialogueArrowRT.gameObject.SetActive(true);
+        arrowSequence.Play();
         isPlaying = false;
     }
 }
