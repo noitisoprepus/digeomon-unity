@@ -116,8 +116,31 @@ public class DialogueManager : MonoBehaviour
             dialogueText.maxVisibleCharacters++;
             yield return new WaitForSeconds(textSpeed);
         }
-
+        CheckFuncToken(line);
         OnDialogueFinished();
+    }
+
+    private void CheckFuncToken(string line)
+    {
+        if (line.Contains("[") && line.Contains("]"))
+        {
+            int startIndex = line.IndexOf("[") + "[".Length;
+            int endIndex = line.IndexOf("]");
+
+            string functionName = line.Substring(startIndex, endIndex - startIndex);
+
+            if (!string.IsNullOrEmpty(functionName))
+            {
+                switch (functionName)
+                {
+                    case "InputGradeLevel":
+                        //InputGradeLevel();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 
     private void OnDialogueFinished()
