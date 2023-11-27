@@ -56,10 +56,11 @@ public class QuizManager : MonoBehaviour
 
     private void Start()
     {
-        panel.SetActive(false);
         scoreBox.SetActive(false);
 
-        // For testing
+        //For testing
+        useQuiz = true;
+        quiz = PersistentData.targetDigeomon.quiz;
         StartQuiz();
     }
 
@@ -157,7 +158,8 @@ public class QuizManager : MonoBehaviour
 
         if (currQIndex == currQuestions.Count)
         {
-            panel.SetActive(false);
+            // TODO: Show capturing of Digeomon
+            OnHomeButtonPressed();
             return;
         }
 
@@ -180,5 +182,10 @@ public class QuizManager : MonoBehaviour
     public void OnNextRecapButtonPressed()
     {
         NextRecapQuestion();
+    }
+
+    public void OnHomeButtonPressed()
+    {
+        GameManager.Instance.GoToScene("Scanner");
     }
 }

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ddc2241def1e6448a83b08368027d83, type: 3}
-  m_Name: TestQuestion1
+  m_Name: TestQ2
   m_EditorClassIdentifier: 
-  question: Sino ka?
+  question: 1 + 1 = ?
   choices:
-  - Ako
-  - Sino ko?
-  - IDK
-  - All of the above
-  answerIndex: 0
+  - 0
+  - 1
+  - 2
+  - 11
+  answerIndex: 2

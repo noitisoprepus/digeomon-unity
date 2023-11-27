@@ -7,6 +7,10 @@ public class ARPlaceObject : MonoBehaviour
 {
     public GameObject placementIndicator;
 
+    [Header("Capture UI")]
+    public GameObject helpPanel;
+    public GameObject captureButton;
+
     private GameObject arObject;
     private GameObject spawnedObject;
     private ARRaycastManager raycastManager;
@@ -22,6 +26,8 @@ public class ARPlaceObject : MonoBehaviour
     private void Start()
     {
         placementIndicator.SetActive(false);
+        helpPanel.SetActive(false);
+        captureButton.SetActive(false);
     }
 
     public void InitializeARObject(GameObject objPrefab)
@@ -29,6 +35,8 @@ public class ARPlaceObject : MonoBehaviour
         spawnedObject = null;
         arObject = objPrefab;
         isInitialized = true;
+        helpPanel.SetActive(true);
+        captureButton.SetActive(false);
     }
 
     private void Update()
@@ -75,5 +83,7 @@ public class ARPlaceObject : MonoBehaviour
     {
         spawnedObject = Instantiate(arObject, placementPose.position, placementPose.rotation);
         isInitialized = false;
+        helpPanel.SetActive(false);
+        captureButton.SetActive(true);
     }
 }

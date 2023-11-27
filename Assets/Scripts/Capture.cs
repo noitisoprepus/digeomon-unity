@@ -8,6 +8,7 @@ public class Capture : MonoBehaviour
 {
     [Header("Capture GUI")]
     public XROrigin xrOrigin;
+    public GameObject scannerPanel;
     public GameObject successPanel;
     public GameObject captureDialog;
     public GameObject failDialog;
@@ -70,11 +71,18 @@ public class Capture : MonoBehaviour
     public void OnSummonButtonPressed()
     {
         arPlaceObject.InitializeARObject(currDigeomon.modelPrefab);
+        scannerPanel.SetActive(false);
         OnCloseButtonPressed();
     }
 
     public void OnCloseButtonPressed()
     {
         successPanel.SetActive(false);
+    }
+
+    public void OnCaptureButtonPressed()
+    {
+        PersistentData.targetDigeomon = currDigeomon;
+        GameManager.Instance.GoToScene("Sandbox");
     }
 }

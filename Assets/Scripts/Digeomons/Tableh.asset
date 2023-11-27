@@ -20,4 +20,4 @@ MonoBehaviour:
     type: 3}
   modelSprite: {fileID: 21300000, guid: b18ef504f5f7527438840e7e567a19a3, type: 3}
   introDialogue: {fileID: 0}
-  quiz: {fileID: 0}
+  quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
