@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR.Interaction.Toolkit.AR;
 using DG.Tweening;
+using Unity.XR.CoreUtils;
 
 public class Capture : MonoBehaviour
 {
     [Header("Capture GUI")]
-    public ARPlacementInteractable placementInteractable;
+    public XROrigin xrOrigin;
     public GameObject successPanel;
     public GameObject captureDialog;
     public GameObject failDialog;
@@ -16,10 +16,13 @@ public class Capture : MonoBehaviour
     [Header("Digeomon Data")]
     public List<Digeomon> digeomons;
 
+    private ARPlaceObject arPlaceObject;
     private RectTransform failDialogRT;
+    private Digeomon currDigeomon;
 
     private void Awake()
     {
+        arPlaceObject = xrOrigin.gameObject.GetComponent<ARPlaceObject>();
         failDialogRT = failDialog.GetComponent<RectTransform>();
     }
 
@@ -50,11 +53,11 @@ public class Capture : MonoBehaviour
 
     private void ShowCaptureDialog(Digeomon digeomon)
     {
+        currDigeomon = digeomon;
         successPanel.SetActive(true);
-        silhouette.sprite = digeomon.modelSprite;
+        silhouette.sprite = currDigeomon.modelSprite;
         captureDialog.transform.localScale = Vector3.zero;
         captureDialog.transform.DOScale(Vector3.one, 1f).SetEase(Ease.OutCubic);
-        placementInteractable.placementPrefab = digeomon.modelPrefab;
     }
 
     private void ShowFailDialog()
@@ -67,6 +70,7 @@ public class Capture : MonoBehaviour
 
     public void OnSummonButtonPressed()
     {
+        arPlaceObject.InitializeARObject(currDigeomon.modelPrefab);
         OnCloseButtonPressed();
     }
 

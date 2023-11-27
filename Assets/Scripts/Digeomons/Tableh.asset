@@ -16,6 +16,9 @@ MonoBehaviour:
   keys:
   - table
   - desk
+  - keyboard
+  - mouse
+  - monitor
   modelPrefab: {fileID: 3399232411543423267, guid: bad8915da73c02e42825166618d90893,
     type: 3}
   modelSprite: {fileID: 21300000, guid: b18ef504f5f7527438840e7e567a19a3, type: 3}
