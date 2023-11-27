@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -35,6 +34,7 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         dialogueCharImage = dialogueCharImageRT.gameObject.GetComponent<Image>();
+        dialoguePanel.GetComponentInChildren<DialogueInput>().onClick.AddListener(OnDialogueBoxTapped);
     }
 
     private void Start()
@@ -50,22 +50,10 @@ public class DialogueManager : MonoBehaviour
             dialoguePanel.SetActive(false);
     }
 
-    private void Update()
+    private void OnDialogueBoxTapped()
     {
         if (isRunning)
-        {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                NextDialogue();
-            }
-        }
-        else
-        {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                StartDialogue();
-            }
-        }
+            NextDialogue();
     }
 
     public void StartDialogue()
@@ -94,9 +82,9 @@ public class DialogueManager : MonoBehaviour
 
         if (currLineIndex.Equals(currLines.Count - 1))
         {
+            onDialogueFinished?.Invoke();
             isRunning = false;
             dialoguePanel.SetActive(false);
-            onDialogueFinished?.Invoke();
             return;
         }
 
