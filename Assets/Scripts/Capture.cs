@@ -70,7 +70,7 @@ public class Capture : MonoBehaviour
 
     public void OnSummonButtonPressed()
     {
-        arPlaceObject.InitializeARObject(currDigeomon.modelPrefab);
+        arPlaceObject.InitializeARObject(currDigeomon);
         scannerPanel.SetActive(false);
         OnCloseButtonPressed();
     }

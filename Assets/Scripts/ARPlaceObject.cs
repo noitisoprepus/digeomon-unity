@@ -6,14 +6,16 @@ using UnityEngine.XR.ARSubsystems;
 public class ARPlaceObject : MonoBehaviour
 {
     public GameObject placementIndicator;
+    public DialogueManager dialogueManager;
 
     [Header("Capture UI")]
     public GameObject helpPanel;
     public GameObject captureButton;
 
+    private Digeomon currDigeomon;
+    private ARRaycastManager raycastManager;
     private GameObject arObject;
     private GameObject spawnedObject;
-    private ARRaycastManager raycastManager;
     private Pose placementPose;
     private bool poseIsValid = false;
     private bool isInitialized = false;
@@ -30,10 +32,11 @@ public class ARPlaceObject : MonoBehaviour
         captureButton.SetActive(false);
     }
 
-    public void InitializeARObject(GameObject objPrefab)
+    public void InitializeARObject(Digeomon digeomon)
     {
         spawnedObject = null;
-        arObject = objPrefab;
+        currDigeomon = digeomon;
+        arObject = currDigeomon.modelPrefab;
         isInitialized = true;
         helpPanel.SetActive(true);
         captureButton.SetActive(false);
@@ -82,6 +85,7 @@ public class ARPlaceObject : MonoBehaviour
     private void PlaceObject()
     {
         spawnedObject = Instantiate(arObject, placementPose.position, placementPose.rotation);
+        dialogueManager.StartDialogue(currDigeomon.introDialogue);
         isInitialized = false;
         helpPanel.SetActive(false);
         captureButton.SetActive(true);

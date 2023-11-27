@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 1006683738}
   - component: {fileID: 1006683740}
   m_Layer: 0
-  m_Name: FTUEManager
+  m_Name: FTUE Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -881,51 +881,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DialoguePanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 3584065837945045766, guid: bdcf20fa9a0ec8c4891aeb11194d08e1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7364293314832453431, guid: bdcf20fa9a0ec8c4891aeb11194d08e1,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 324.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 7364293314832453431, guid: bdcf20fa9a0ec8c4891aeb11194d08e1,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 156.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8135002850790057674, guid: bdcf20fa9a0ec8c4891aeb11194d08e1,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8135002850790057674, guid: bdcf20fa9a0ec8c4891aeb11194d08e1,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8135002850790057674, guid: bdcf20fa9a0ec8c4891aeb11194d08e1,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 204.23999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8135002850790057674, guid: bdcf20fa9a0ec8c4891aeb11194d08e1,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 96.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8135002850790057674, guid: bdcf20fa9a0ec8c4891aeb11194d08e1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 162.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 8135002850790057674, guid: bdcf20fa9a0ec8c4891aeb11194d08e1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -78.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

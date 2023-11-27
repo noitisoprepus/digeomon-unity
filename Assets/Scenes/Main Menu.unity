@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 1157589981}
   - component: {fileID: 1157589980}
   m_Layer: 0
-  m_Name: 'MainMenu '
+  m_Name: Main Menu Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

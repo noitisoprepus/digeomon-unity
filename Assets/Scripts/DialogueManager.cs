@@ -53,25 +53,34 @@ public class DialogueManager : MonoBehaviour
     private void OnDialogueBoxTapped()
     {
         if (isRunning)
-            NextDialogue();
+            NextLine();
     }
 
     public void StartDialogue()
     {
-        if (dialogues.Count.Equals(currDialogueIndex)) return;
-        isRunning = true;
+        currDialogueIndex = 0;
+        SetupDialogueUI(dialogues[currDialogueIndex]);
+        currDialogue = dialogues[currDialogueIndex];
+        RunDialogue(currDialogue);
+    }
 
-        dialogueCharImage.sprite = dialogues[currDialogueIndex].charSprite;
+    public void StartDialogue(Dialogue dialogue)
+    {
+        SetupDialogueUI(dialogue);
+        RunDialogue(dialogue);
+    }
+
+    private void SetupDialogueUI(Dialogue dialogue)
+    {
+        dialogueCharImage.sprite = dialogue.charSprite;
         dialogueCharImageRT.anchoredPosition = new Vector2(0, -1030f);
         dialoguePanel.SetActive(true);
         dialogueCharImageRT.DOAnchorPosY(0, 1.5f).SetEase(Ease.OutQuint);
 
-        currDialogue = dialogues[currDialogueIndex];
-        RunDialogue(currDialogue);
-        currDialogueIndex++;
+        isRunning = true;
     }
 
-    public void NextDialogue()
+    private void NextLine()
     {
         if (isPlaying)
         {
@@ -82,6 +91,7 @@ public class DialogueManager : MonoBehaviour
 
         if (currLineIndex.Equals(currLines.Count - 1))
         {
+            currDialogueIndex++;
             onDialogueFinished?.Invoke();
             isRunning = false;
             dialoguePanel.SetActive(false);
@@ -89,7 +99,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         currLineIndex++;
-        dialogueCoroutine = StartCoroutine(PlayDialogue(currLines[currLineIndex]));
+        dialogueCoroutine = StartCoroutine(PlayLine(currLines[currLineIndex]));
     }
 
     private void RunDialogue(Dialogue dialogue)
@@ -97,11 +107,11 @@ public class DialogueManager : MonoBehaviour
         charNameText.SetText(dialogue.charName);
 
         currLines = new List<string>(dialogue.dialogues);
-        dialogueCoroutine = StartCoroutine(PlayDialogue(currLines[0]));
+        dialogueCoroutine = StartCoroutine(PlayLine(currLines[0]));
         currLineIndex = 0;
     }
 
-    private IEnumerator PlayDialogue(string line)
+    private IEnumerator PlayLine(string line)
     {
         dialogueArrowRT.gameObject.SetActive(false);
         isPlaying = true;
