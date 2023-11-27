@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue Data")]
     public List<Dialogue> dialogues;
     public float textSpeed = 0.2f;
+    public bool startOnReady;
+    public UnityEvent onDialogueFinished;
 
     [Header("Dialogue GUI")]
     public GameObject dialoguePanel;
@@ -40,6 +43,11 @@ public class DialogueManager : MonoBehaviour
         arrowSequence.Append(dialogueArrowRT.DOAnchorPosX(-80f, 0.5f));
         arrowSequence.Append(dialogueArrowRT.DOAnchorPosX(-100f, 0.5f));
         arrowSequence.SetLoops(-1, LoopType.Yoyo).SetSpeedBased();
+
+        if (startOnReady)
+            StartDialogue();
+        else
+            dialoguePanel.SetActive(false);
     }
 
     private void Update()
@@ -80,7 +88,7 @@ public class DialogueManager : MonoBehaviour
         if (isPlaying)
         {
             StopCoroutine(dialogueCoroutine);
-            OnDialogueFinished();
+            OnLineFinished();
             return;
         }
 
@@ -88,6 +96,7 @@ public class DialogueManager : MonoBehaviour
         {
             isRunning = false;
             dialoguePanel.SetActive(false);
+            onDialogueFinished?.Invoke();
             return;
         }
 
@@ -117,7 +126,7 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(textSpeed);
         }
         CheckFuncToken(line);
-        OnDialogueFinished();
+        OnLineFinished();
     }
 
     private void CheckFuncToken(string line)
@@ -143,7 +152,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void OnDialogueFinished()
+    private void OnLineFinished()
     {
         dialogueText.maxVisibleCharacters = currLines[currLineIndex].Length;
         dialogueArrowRT.gameObject.SetActive(true);

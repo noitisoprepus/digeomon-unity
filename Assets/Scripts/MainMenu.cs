@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
     public void LoadFTUE()
     {
-        SceneManager.LoadScene("FTUE", LoadSceneMode.Single);
+        GameManager.Instance.GoToScene("FTUE");
     }
 }
