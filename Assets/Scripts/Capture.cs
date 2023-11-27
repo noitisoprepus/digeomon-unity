@@ -13,9 +13,7 @@ public class Capture : MonoBehaviour
     public GameObject failDialog;
     public Image silhouette;
 
-    [Header("Digeomon Data")]
-    public List<Digeomon> digeomons;
-
+    private List<Digeomon> digeomons;
     private ARPlaceObject arPlaceObject;
     private RectTransform failDialogRT;
     private Digeomon currDigeomon;
@@ -30,6 +28,7 @@ public class Capture : MonoBehaviour
     {
         successPanel.SetActive(false);
         failDialog.SetActive(false);
+        digeomons = GameManager.Instance.GetDigeomonList();
     }
 
     public void SearchDigeomon(string label, double acc)

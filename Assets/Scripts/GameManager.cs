@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    private DigeomonData digeomonData;
+
     private void Awake()
     {
         if (Instance != null)
@@ -18,10 +20,17 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        digeomonData = GetComponent<DigeomonData>();
     }
 
     public void GoToScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+    }
+
+    public List<Digeomon> GetDigeomonList()
+    {
+        return digeomonData.digeomons;
     }
 }
