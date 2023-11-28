@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -25,6 +26,8 @@ public class QuizManager : MonoBehaviour
     public Button choiceBButton;
     public Button choiceCButton;
     public Button choiceDButton;
+    public Button reviewButton;
+    public Button nextReviewButton;
     public TextMeshProUGUI questionText;
     public TextMeshProUGUI scoreText;
     public Color normalCol;
@@ -58,7 +61,6 @@ public class QuizManager : MonoBehaviour
     {
         scoreBox.SetActive(false);
 
-        //For testing
         useQuiz = true;
         quiz = PersistentData.targetDigeomon.quiz;
         StartQuiz();
@@ -113,10 +115,7 @@ public class QuizManager : MonoBehaviour
 
         if (currQIndex == currQuestions.Count)
         {
-            questionBox.SetActive(false);
-            choicesBox.SetActive(false);
-            scoreText.text = "SCORE: " + score;
-            scoreBox.SetActive(true);
+            ShowScoreDialog();
             return;
         }
 
@@ -129,6 +128,23 @@ public class QuizManager : MonoBehaviour
         ShowRecapQuestion(currQuestions[currQIndex]);
         questionBox.SetActive(true);
         choicesBox.SetActive(true);
+        reviewButton.gameObject.SetActive(false);
+        nextReviewButton.gameObject.SetActive(true);
+    }
+
+    private void ShowScoreDialog()
+    {
+        RectTransform scoreBoxRect = scoreBox.GetComponent<RectTransform>();
+        scoreBoxRect.anchoredPosition = new Vector2(0f, 250f);
+
+        questionBox.SetActive(false);
+        choicesBox.SetActive(false);
+        reviewButton.gameObject.SetActive(true);
+        nextReviewButton.gameObject.SetActive(false);
+
+        scoreText.text = "SCORE: " + score;
+        scoreBox.SetActive(true);
+        scoreBoxRect.DOAnchorPosY(-250f, 1f).SetEase(Ease.OutQuad);
     }
 
     private void ShowRecapQuestion(Question q)
