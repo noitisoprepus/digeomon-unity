@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 832428c249f030043a47ae6bb0480cb6, type: 3}
-  m_Name: Tableh_Intro
+  m_Name: Wanos_Intro
   m_EditorClassIdentifier: 
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 2d394f6a1d583224b884cbb70997bb69, type: 3}
   dialogues:
-  - Cool! You found <b>Tableh, the table DiGeoMon</b>.
-  - Tableh is based on the 2D shape, <b>Rectangle</b>, and 3D shape, <b>Cuboid</b>.
-  - Be careful not to touch his tongue. It's quite sensitive.
+  - Ding-dong! It's time for the <b>clock Digeomon, Wanos</b>!
+  - <i>Heh</i>
+  - Wanos is based on the 2D shape, <b>Circle</b>, which does not have any sides.
+    Can you believe that?
+  - Now go capture that guy before the time runs out.

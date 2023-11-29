@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 832428c249f030043a47ae6bb0480cb6, type: 3}
-  m_Name: Tableh_Intro
+  m_Name: Vampage_Intro
   m_EditorClassIdentifier: 
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 2d394f6a1d583224b884cbb70997bb69, type: 3}
   dialogues:
-  - Cool! You found <b>Tableh, the table DiGeoMon</b>.
-  - Tableh is based on the 2D shape, <b>Rectangle</b>, and 3D shape, <b>Cuboid</b>.
-  - Be careful not to touch his tongue. It's quite sensitive.
+  - "Do you like reading? Well you just found <b>Vampage, the book DiGeoMon</b>.\t"
+  - Here's a joke for you.
+  - Why do you think the book go to the gym?
+  - Because it wanted to work on its four "covers"!
+  - Not funny, huh? Well books has four sides. That's why.
+  - I'll go now.

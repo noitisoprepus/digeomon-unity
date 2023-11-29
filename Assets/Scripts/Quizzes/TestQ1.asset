@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ddc2241def1e6448a83b08368027d83, type: 3}
   m_Name: TestQ1
   m_EditorClassIdentifier: 
-  question: Sino ka?
+  question: What is the shape of a clock?
   choices:
-  - Ako
-  - Sino ko?
-  - IDK
-  - All of the above
-  answerIndex: 0
+  - Square
+  - Circle
+  - Triangle
+  - Rectangle
+  answerIndex: 1

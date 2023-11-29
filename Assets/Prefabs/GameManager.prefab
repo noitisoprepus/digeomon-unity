@@ -59,6 +59,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   digeomons:
   - {fileID: 11400000, guid: 2d166a10708099f4083efd8fb57c2674, type: 2}
-  - {fileID: 11400000, guid: 399eef69ad05b4c40afe16de126a5ecf, type: 2}
   - {fileID: 11400000, guid: 8f1df1cf56cafa74999eabbc342110e1, type: 2}
   - {fileID: 11400000, guid: 7e45654b52db5e24c9b1f182aa03b810, type: 2}

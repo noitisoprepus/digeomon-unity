@@ -18,4 +18,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f1b1fca86a3681d44a541b2a41540d64, type: 2}
   - {fileID: 11400000, guid: aff4a56c2f3d9c248b6751cfaf2a0e16, type: 2}
   - {fileID: 11400000, guid: cbd00ebba82d794438ace150fb93e304, type: 2}
-  passingScore: 3
+  - {fileID: 11400000, guid: e487edf1410e2ec44a2a27cbb39a8a35, type: 2}
+  passingScore: 4

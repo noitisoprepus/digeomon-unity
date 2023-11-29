@@ -20,7 +20,12 @@ MonoBehaviour:
   - binder
   - notepad
   - notebook
-  modelPrefab: {fileID: 0}
-  modelSprite: {fileID: 0}
-  introDialogue: {fileID: 0}
-  quiz: {fileID: 0}
+  - diary
+  - journal
+  - logbook
+  - memo pad
+  modelPrefab: {fileID: 9142499175294605807, guid: a5dd81537b06e4e4daf262ca630d2bb3,
+    type: 3}
+  modelSprite: {fileID: 21300000, guid: 363b35ad1d7a90046823ade113c3d07f, type: 3}
+  introDialogue: {fileID: 11400000, guid: 28145b55d468b50438eaa5ea0b6fd475, type: 2}
+  quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
