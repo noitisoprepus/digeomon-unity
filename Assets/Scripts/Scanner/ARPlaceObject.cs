@@ -85,6 +85,7 @@ public class ARPlaceObject : MonoBehaviour
     private void PlaceObject()
     {
         spawnedObject = Instantiate(arObject, placementPose.position, placementPose.rotation);
+        // Populate hologram screen
         dialogueManager.StartDialogue(currDigeomon.introDialogue);
         isInitialized = false;
         helpPanel.SetActive(false);

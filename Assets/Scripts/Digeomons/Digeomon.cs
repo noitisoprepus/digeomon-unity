@@ -9,9 +9,9 @@ public class Digeomon : ScriptableObject
     public List<string> keys;
     public GameObject modelPrefab;
     public Sprite modelSprite;
+    public DigeomonType type;
 
     [Header("Capturing Info")]
     public Dialogue introDialogue;
     public Quiz quiz;
-    // TODO: Add other info
 }
