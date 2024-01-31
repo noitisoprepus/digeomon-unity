@@ -3,86 +3,90 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using Unity.XR.CoreUtils;
+using Core;
 
-public class Capture : MonoBehaviour
+namespace Scanner
 {
-    [Header("Capture GUI")]
-    public XROrigin xrOrigin;
-    public GameObject scannerPanel;
-    public GameObject successPanel;
-    public GameObject captureDialog;
-    public GameObject failDialog;
-    public Image silhouette;
-
-    private List<Digeomon> digeomons;
-    private ARPlaceObject arPlaceObject;
-    private RectTransform failDialogRT;
-    private Digeomon currDigeomon;
-
-    private void Awake()
+    public class Capture : MonoBehaviour
     {
-        arPlaceObject = xrOrigin.gameObject.GetComponent<ARPlaceObject>();
-        failDialogRT = failDialog.GetComponent<RectTransform>();
-    }
+        [Header("Capture GUI")]
+        public XROrigin xrOrigin;
+        public GameObject scannerPanel;
+        public GameObject successPanel;
+        public GameObject captureDialog;
+        public GameObject failDialog;
+        public Image silhouette;
 
-    private void Start()
-    {
-        successPanel.SetActive(false);
-        failDialog.SetActive(false);
-        digeomons = GameManager.Instance.GetDigeomonList();
-    }
+        private List<DigeomonData> digeomons;
+        private ARPlaceObject arPlaceObject;
+        private RectTransform failDialogRT;
+        private DigeomonData currDigeomon;
 
-    public void SearchDigeomon(string label, double acc)
-    {
-        //double accuracy = Mathf.Round(acc * 100);
-
-        foreach (Digeomon digeomon in digeomons)
+        private void Awake()
         {
-            foreach (string key in digeomon.keys)
-            {
-                if (label.Contains(key))
-                {
-                    ShowCaptureDialog(digeomon);
-                    return;
-                }
-            }
+            arPlaceObject = xrOrigin.gameObject.GetComponent<ARPlaceObject>();
+            failDialogRT = failDialog.GetComponent<RectTransform>();
         }
 
-        ShowFailDialog();
-    }
+        private void Start()
+        {
+            successPanel.SetActive(false);
+            failDialog.SetActive(false);
+            digeomons = GameManager.Instance.GetDigeomonList();
+        }
 
-    private void ShowCaptureDialog(Digeomon digeomon)
-    {
-        currDigeomon = digeomon;
-        successPanel.SetActive(true);
-        silhouette.sprite = currDigeomon.modelSprite;
-        captureDialog.transform.localScale = Vector3.zero;
-        captureDialog.transform.DOScale(Vector3.one, 1f).SetEase(Ease.OutCubic);
-    }
+        public void SearchDigeomon(string label, double acc)
+        {
+            //double accuracy = Mathf.Round(acc * 100);
 
-    private void ShowFailDialog()
-    {
-        failDialogRT.anchoredPosition = new Vector2(300f, failDialogRT.anchoredPosition.y);
-        failDialog.SetActive(true);
-        failDialogRT.DOAnchorPosX(-300f, 1.25f).SetEase(Ease.OutQuad);
-        failDialogRT.DOAnchorPosX(300f, 0.75f).SetEase(Ease.InQuad).SetDelay(3f);
-    }
+            foreach (DigeomonData digeomon in digeomons)
+            {
+                foreach (string key in digeomon.keys)
+                {
+                    if (label.Contains(key))
+                    {
+                        ShowCaptureDialog(digeomon);
+                        return;
+                    }
+                }
+            }
 
-    public void OnSummonButtonPressed()
-    {
-        arPlaceObject.InitializeARObject(currDigeomon);
-        scannerPanel.SetActive(false);
-        OnCloseButtonPressed();
-    }
+            ShowFailDialog();
+        }
 
-    public void OnCloseButtonPressed()
-    {
-        successPanel.SetActive(false);
-    }
+        private void ShowCaptureDialog(DigeomonData digeomon)
+        {
+            currDigeomon = digeomon;
+            successPanel.SetActive(true);
+            silhouette.sprite = currDigeomon.modelSprite;
+            captureDialog.transform.localScale = Vector3.zero;
+            captureDialog.transform.DOScale(Vector3.one, 1f).SetEase(Ease.OutCubic);
+        }
 
-    public void OnCaptureButtonPressed()
-    {
-        PersistentData.targetDigeomon = currDigeomon;
-        GameManager.Instance.GoToScene("Sandbox");
+        private void ShowFailDialog()
+        {
+            failDialogRT.anchoredPosition = new Vector2(300f, failDialogRT.anchoredPosition.y);
+            failDialog.SetActive(true);
+            failDialogRT.DOAnchorPosX(-300f, 1.25f).SetEase(Ease.OutQuad);
+            failDialogRT.DOAnchorPosX(300f, 0.75f).SetEase(Ease.InQuad).SetDelay(3f);
+        }
+
+        public void OnSummonButtonPressed()
+        {
+            arPlaceObject.InitializeARObject(currDigeomon);
+            scannerPanel.SetActive(false);
+            OnCloseButtonPressed();
+        }
+
+        public void OnCloseButtonPressed()
+        {
+            successPanel.SetActive(false);
+        }
+
+        public void OnCaptureButtonPressed()
+        {
+            PersistentData.targetDigeomon = currDigeomon;
+            GameManager.Instance.GoToScene("Sandbox");
+        }
     }
 }

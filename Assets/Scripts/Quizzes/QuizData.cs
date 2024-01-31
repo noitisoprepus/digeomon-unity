@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "quiz", menuName = "QuizData/QuizObject", order = 1)]
-public class Quiz : ScriptableObject
+public class QuizData : ScriptableObject
 {
     public string key;
-    public List<Question> questions;
+    public List<QuestionData> questions;
     public int passingScore;
 }

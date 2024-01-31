@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class KeepLookingAtScreen : MonoBehaviour
+namespace Helper
 {
-    void Update()
+    public class KeepLookingAtScreen : MonoBehaviour
     {
-        this.transform.LookAt(Camera.main.transform);
+        void Update()
+        {
+            transform.LookAt(Camera.main.transform);
+        }
     }
 }

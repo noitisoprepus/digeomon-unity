@@ -1,0 +1,17 @@
+{
+    "name": "Digeomon",
+    "rootNamespace": "",
+    "references": [
+        "GUID:12cb6d6a015c9804e8bcf6e963b1ed59",
+        "GUID:d30970479191bd4408e73c809463108f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

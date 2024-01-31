@@ -6,7 +6,7 @@ public class Sandbox : MonoBehaviour
 
     private void Start()
     {
-        Digeomon digeomon = PersistentData.targetDigeomon;
+        DigeomonData digeomon = PersistentData.targetDigeomon;
         Instantiate(digeomon.modelPrefab, digeomonModelT);
     }
 }
