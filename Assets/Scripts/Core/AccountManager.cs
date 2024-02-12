@@ -1,4 +1,5 @@
 using Firebase.Auth;
+using System.Collections;
 using UnityEngine;
 
 namespace Core
@@ -9,14 +10,14 @@ namespace Core
 
         private void OnEnable()
         {
-            AccountUI.OnRegisterAction += CreateAccount;
-            AccountUI.OnLoginAction += LoginAccount;
+            AccountUI.OnRegisterAction += HandleAccountRegistration;
+            AccountUI.OnLoginAction += HandleAccountLogin;
         }
 
         private void OnDisable()
         {
-            AccountUI.OnRegisterAction -= CreateAccount;
-            AccountUI.OnLoginAction -= LoginAccount;
+            AccountUI.OnRegisterAction -= HandleAccountRegistration;
+            AccountUI.OnLoginAction -= HandleAccountLogin;
         }
 
         private void Start()
@@ -24,45 +25,53 @@ namespace Core
             auth = FirebaseAuth.DefaultInstance;
         }
 
-        private void CreateAccount(string email, string password)
+        private void HandleAccountRegistration(string email, string password)
         {
-            auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
-                if (task.IsCanceled)
-                {
-                    Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
-                    return;
-                }
-                if (task.IsFaulted)
-                {
-                    Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
-                    return;
-                }
+            StartCoroutine(CreateAccount(email, password));
+        }
 
+        private void HandleAccountLogin(string email, string password)
+        {
+            StartCoroutine(LoginAccount(email, password));
+        }
+
+        private IEnumerator CreateAccount(string email, string password)
+        {
+            var task = auth.CreateUserWithEmailAndPasswordAsync(email, password);
+            yield return new WaitUntil(() => task.IsCompleted);
+
+            if (task.Exception != null)
+            {
+                Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+            }
+            else
+            {
                 // Firebase user has been created.
                 Firebase.Auth.AuthResult result = task.Result;
                 Debug.LogFormat("Firebase user created successfully: {0} ({1})",
                     result.User.DisplayName, result.User.UserId);
-            });
+
+                GameManager.Instance.GoToScene("Main Menu");
+            }
         }
 
-        private void LoginAccount(string email, string password)
+        private IEnumerator LoginAccount(string email, string password)
         {
-            auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
-                if (task.IsCanceled)
-                {
-                    Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
-                    return;
-                }
-                if (task.IsFaulted)
-                {
-                    Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
-                    return;
-                }
-
+            var task = auth.SignInWithEmailAndPasswordAsync(email, password);
+            yield return new WaitUntil(() => task.IsCompleted);
+            
+            if (task.Exception != null)
+            {
+                Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+            }
+            else
+            {
                 Firebase.Auth.AuthResult result = task.Result;
                 Debug.LogFormat("User signed in successfully: {0} ({1})",
                     result.User.DisplayName, result.User.UserId);
-            });
+
+                GameManager.Instance.GoToScene("Main Menu");
+            }
         }
     }
 }
