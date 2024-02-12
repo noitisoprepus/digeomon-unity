@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class AccountUI : MonoBehaviour
 {
-    public delegate void RegisterDelegate(string email, string password);
+    public delegate void RegisterDelegate(string email, string password, string username);
     public static event RegisterDelegate OnRegisterAction;
 
     public delegate void LoginDelegate(string email, string password);
@@ -18,12 +16,13 @@ public class AccountUI : MonoBehaviour
 
     [Header("Registration UI")]
     [SerializeField] private GameObject registrationForm;
+    [SerializeField] private TMP_InputField usernameInputFieldR;
     [SerializeField] private TMP_InputField emailInputFieldR;
     [SerializeField] private TMP_InputField passwordInputFieldR;
 
     public void OnRegisterButtonPress()
     {
-        OnRegisterAction?.Invoke(emailInputFieldR.text, passwordInputFieldR.text);
+        OnRegisterAction?.Invoke(emailInputFieldR.text, passwordInputFieldR.text, usernameInputFieldR.text);
     }
 
     public void OnLoginButtonPress()
