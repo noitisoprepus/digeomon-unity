@@ -6,7 +6,8 @@ namespace Core
 {
     public class JournalManager : MonoBehaviour
     {
-        [SerializeField] private GameObject journalPanel;
+        // TODO: Move UI stuff to separate script. This will now be a Global script which will remember the captured digeomons.
+        [SerializeField] private GameObject journalContent;
         [SerializeField] private GameObject entryBox;
 
         private Dictionary<DigeomonData, bool> caughtDigeomons;
@@ -33,7 +34,7 @@ namespace Core
         {
             foreach (KeyValuePair<DigeomonData, bool> digeomon in caughtDigeomons)
             {
-                GameObject entry = Instantiate(entryBox, journalPanel.transform);
+                GameObject entry = Instantiate(entryBox, journalContent.transform);
                 JournalEntryButton entryButton = entry.GetComponent<JournalEntryButton>();
                 entryButton.SetPreviewImage(digeomon.Key.modelSprite, digeomon.Value);
             }

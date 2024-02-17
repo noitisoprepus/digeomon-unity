@@ -1,46 +1,49 @@
 using TMPro;
 using UnityEngine;
 
-public class AccountUI : MonoBehaviour
+namespace UI
 {
-    public delegate void RegisterDelegate(string email, string password, string username);
-    public static event RegisterDelegate OnRegisterAction;
-
-    public delegate void LoginDelegate(string email, string password);
-    public static event LoginDelegate OnLoginAction;
-
-    [Header("Login UI")]
-    [SerializeField] private GameObject loginForm;
-    [SerializeField] private TMP_InputField emailInputFieldL;
-    [SerializeField] private TMP_InputField passwordInputFieldL;
-
-    [Header("Registration UI")]
-    [SerializeField] private GameObject registrationForm;
-    [SerializeField] private TMP_InputField usernameInputFieldR;
-    [SerializeField] private TMP_InputField emailInputFieldR;
-    [SerializeField] private TMP_InputField passwordInputFieldR;
-
-    public void OnRegisterButtonPress()
+    public class AccountUI : MonoBehaviour
     {
-        OnRegisterAction?.Invoke(emailInputFieldR.text, passwordInputFieldR.text, usernameInputFieldR.text);
-    }
+        public delegate void RegisterDelegate(string email, string password, string username);
+        public static event RegisterDelegate OnRegisterAction;
 
-    public void OnLoginButtonPress()
-    {
-        OnLoginAction?.Invoke(emailInputFieldL.text, passwordInputFieldL.text);
-    }
+        public delegate void LoginDelegate(string email, string password);
+        public static event LoginDelegate OnLoginAction;
 
-    public void SwitchToRegistrationForm()
-    {
-        loginForm.SetActive(false);
-        registrationForm.SetActive(true);
-        Debug.Log("Register now");
-    }
+        [Header("Login UI")]
+        [SerializeField] private GameObject loginForm;
+        [SerializeField] private TMP_InputField emailInputFieldL;
+        [SerializeField] private TMP_InputField passwordInputFieldL;
 
-    public void SwitchToLoginForm()
-    {
-        loginForm.SetActive(true);
-        registrationForm.SetActive(false);
-        Debug.Log("Login now");
+        [Header("Registration UI")]
+        [SerializeField] private GameObject registrationForm;
+        [SerializeField] private TMP_InputField usernameInputFieldR;
+        [SerializeField] private TMP_InputField emailInputFieldR;
+        [SerializeField] private TMP_InputField passwordInputFieldR;
+
+        public void OnRegisterButtonPress()
+        {
+            OnRegisterAction?.Invoke(emailInputFieldR.text, passwordInputFieldR.text, usernameInputFieldR.text);
+        }
+
+        public void OnLoginButtonPress()
+        {
+            OnLoginAction?.Invoke(emailInputFieldL.text, passwordInputFieldL.text);
+        }
+
+        public void SwitchToRegistrationForm()
+        {
+            loginForm.SetActive(false);
+            registrationForm.SetActive(true);
+            Debug.Log("Register now");
+        }
+
+        public void SwitchToLoginForm()
+        {
+            loginForm.SetActive(true);
+            registrationForm.SetActive(false);
+            Debug.Log("Login now");
+        }
     }
 }

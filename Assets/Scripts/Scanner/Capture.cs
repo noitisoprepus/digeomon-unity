@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 using Unity.XR.CoreUtils;
 using Core;
+using Firebase.Database;
+using Firebase.Auth;
 
 namespace Scanner
 {
@@ -16,6 +18,9 @@ namespace Scanner
         public GameObject captureDialog;
         public GameObject failDialog;
         public Image silhouette;
+
+        FirebaseDatabase database;
+        DatabaseReference captureDataReference;
 
         private List<DigeomonData> digeomons;
         private ARPlaceObject arPlaceObject;
@@ -30,6 +35,12 @@ namespace Scanner
 
         private void Start()
         {
+            FirebaseUser currUser = FirebaseAuth.DefaultInstance.CurrentUser;
+
+            string databaseUri = GameManager.Instance.databaseUri;
+            database = FirebaseDatabase.GetInstance(databaseUri);
+            captureDataReference = database.GetReference("users/" + currUser.UserId + "/captureData");
+
             successPanel.SetActive(false);
             failDialog.SetActive(false);
             digeomons = GameManager.Instance.GetDigeomonList();
@@ -86,7 +97,11 @@ namespace Scanner
         public void OnCaptureButtonPressed()
         {
             PersistentData.targetDigeomon = currDigeomon;
-            GameManager.Instance.GoToScene("Sandbox");
+            //GameManager.Instance.GoToScene("Sandbox");
+            
+
+            
+            OnCloseButtonPressed();
         }
     }
 }

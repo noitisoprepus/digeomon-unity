@@ -1,5 +1,7 @@
 using Firebase.Auth;
+using Firebase.Database;
 using System.Collections;
+using UI;
 using UnityEngine;
 
 namespace Core
@@ -7,6 +9,8 @@ namespace Core
     public class AccountManager : MonoBehaviour
     {
         FirebaseAuth auth;
+        FirebaseDatabase database;
+        DatabaseReference databaseReference;
 
         private void OnEnable()
         {
@@ -23,6 +27,10 @@ namespace Core
         private void Start()
         {
             auth = FirebaseAuth.DefaultInstance;
+
+            string databaseUri = GameManager.Instance.databaseUri;
+            database = FirebaseDatabase.GetInstance(databaseUri);
+            databaseReference = database.RootReference;
         }
 
         private void HandleAccountRegistration(string email, string password, string username)
@@ -47,25 +55,41 @@ namespace Core
             else
             {
                 // Firebase user has been created.
-                Firebase.Auth.AuthResult result = task.Result;
+                AuthResult result = task.Result;
                 Debug.LogFormat("Firebase user created successfully: {0} ({1})",
                     result.User.DisplayName, result.User.UserId);
+                StartCoroutine(CreateUserProfile(username));
+            }
+        }
 
-                // Update the user's display name
-                Firebase.Auth.FirebaseUser user = result.User;
-                Firebase.Auth.UserProfile profile = new Firebase.Auth.UserProfile
-                {
-                    DisplayName = username,
-                };
-                var profileTask = user.UpdateUserProfileAsync(profile);
-                yield return new WaitUntil(() => profileTask.IsCompleted);
+        private IEnumerator CreateUserProfile(string username)
+        {
+            FirebaseUser user = auth.CurrentUser;
+            UserProfile profile = new UserProfile
+            {
+                DisplayName = username,
+            };
+            var profileTask = user.UpdateUserProfileAsync(profile);
+            yield return new WaitUntil(() => profileTask.IsCompleted);
 
-                if (profileTask.Exception != null)
+            if (profileTask.Exception != null)
+            {
+                Debug.LogError("UpdateUserProfileAsync encountered an error: " + profileTask.Exception);
+            }
+            else
+            {
+                UserData newUser = new UserData(username, GameManager.Instance.GetDigeomonList());
+                string userDataJson = JsonUtility.ToJson(newUser);
+                
+                var databaseTask = databaseReference.Child("users").Child(user.UserId).SetRawJsonValueAsync(userDataJson);
+                yield return new WaitUntil(() => databaseTask.IsCompleted);
+                if (databaseTask.Exception != null)
                 {
-                    Debug.LogError("UpdateUserProfileAsync encountered an error: " + profileTask.Exception);
+                    Debug.LogError("SetRawJsonValueAsync encountered an error: " + databaseTask.Exception);
                 }
                 else
                 {
+                    Debug.Log("Data successfully saved to the database.");
                     GameManager.Instance.GoToScene("Main Menu");
                 }
             }
