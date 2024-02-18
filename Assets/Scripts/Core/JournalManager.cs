@@ -1,17 +1,16 @@
 using Firebase.Database;
 using Firebase.Extensions;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Core
 {
     public class JournalManager : MonoBehaviour
     {
-        GameManager gameManager;
-        DatabaseReference databaseReference;
+        public List<string> capturedDigeomons { get; set; }
 
-        public Dictionary<DigeomonData, bool> caughtDigeomons;
+        private GameManager gameManager;
+        private DatabaseReference databaseReference;
 
         private void Start()
         {
@@ -36,42 +35,24 @@ namespace Core
                     DataSnapshot snapshot = task.Result;
                     if (snapshot.Exists && snapshot.HasChildren)
                     {
-                        // Convert the snapshot to a List<string>
-                        List<string> captureData = snapshot.Children
-                            .Select(childSnapshot => childSnapshot.Value.ToString())
-                            .ToList();
-
-                        // Use the captureData list as needed
-                        foreach (string capture in captureData) Debug.Log(capture); 
+                        capturedDigeomons = new List<string>();
+                        foreach (DataSnapshot childSnapshot in snapshot.Children)
+                        {
+                            capturedDigeomons.Add(childSnapshot.Value.ToString());
+                        }
                     }
                     else
                     {
-                        Debug.LogError("Snapshot does not exist or has no children.");
+                        Debug.LogError("'captureData' does not exist or has no children.");
                     }
-
-                    //caughtDigeomons = new Dictionary<DigeomonData, bool>();
-                    //List<DigeomonData> availableDigeomons = gameManager.GetDigeomonList();
-                    //foreach (DigeomonData digeomon in availableDigeomons)
-                    //{
-                    //    if (captureData.Contains(digeomon.name))
-                    //    {
-                    //        caughtDigeomons.Add(digeomon, true);
-                    //        continue;
-                    //    }
-                    //    caughtDigeomons.Add(digeomon, false);
-                    //}
                 }
             });
         }
 
-        public void TestCapture()
+        public void AddDigeomon(string newDigeomon)
         {
-            // Testing
-            List<string> testCapture = new List<string>
-            {
-                "Tableh"
-            };
-            databaseReference.SetValueAsync(testCapture).ContinueWith(task => 
+            capturedDigeomons.Add(newDigeomon);
+            databaseReference.SetValueAsync(newDigeomon).ContinueWith(task =>
             {
                 if (task.IsFaulted)
                 {
@@ -79,7 +60,7 @@ namespace Core
                 }
                 else if (task.IsCompleted)
                 {
-                    Debug.Log("Test Capture Success");
+                    // Upload success
                 }
             });
         }

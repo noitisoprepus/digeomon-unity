@@ -12,6 +12,7 @@ namespace Core
         public string userID { get; set; } = null;
 
         private DigeomonList digeomonData;
+        private JournalManager journalManager;
 
         private void Awake()
         {
@@ -36,6 +37,16 @@ namespace Core
         public List<DigeomonData> GetDigeomonList()
         {
             return digeomonData.digeomons;
+        }
+
+        public List<string> GetDigeomonCaptures()
+        {
+            return journalManager.capturedDigeomons;
+        }
+
+        public void CaptureDigeomon(DigeomonData digeomon)
+        {
+            journalManager.AddDigeomon(digeomon.name);
         }
     }
 }

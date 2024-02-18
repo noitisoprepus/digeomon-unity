@@ -1,7 +1,5 @@
 using Firebase.Auth;
-using Firebase.Database;
 using System.Collections;
-using System.Collections.Generic;
 using UI;
 using UnityEngine;
 
@@ -9,9 +7,8 @@ namespace Core
 {
     public class AccountManager : MonoBehaviour
     {
-        GameManager gameManager;
-        FirebaseAuth auth;
-        DatabaseReference databaseReference;
+        private GameManager gameManager;
+        private FirebaseAuth auth;
 
         private void OnEnable()
         {
@@ -30,9 +27,6 @@ namespace Core
             gameManager = GameManager.Instance;
 
             auth = FirebaseAuth.DefaultInstance;
-            
-            string databaseUri = gameManager.databaseUri;
-            databaseReference = FirebaseDatabase.GetInstance(databaseUri).RootReference;
         }
 
         private void HandleAccountRegistration(string email, string password, string username)
@@ -80,19 +74,7 @@ namespace Core
             }
             else
             {
-                UserData newUser = new UserData(username, new List<string>());
-                string userDataJson = JsonUtility.ToJson(newUser);
-                
-                var databaseTask = databaseReference.Child("users").Child(user.UserId).SetRawJsonValueAsync(userDataJson);
-                yield return new WaitUntil(() => databaseTask.IsCompleted);
-                if (databaseTask.Exception != null)
-                {
-                    Debug.LogError("SetRawJsonValueAsync encountered an error: " + databaseTask.Exception);
-                }
-                else
-                {
-                    gameManager.GoToScene("Main Menu");
-                }
+                gameManager.GoToScene("Main Menu");
             }
         }
 
