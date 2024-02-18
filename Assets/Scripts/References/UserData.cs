@@ -4,15 +4,11 @@ using System.Collections.Generic;
 public class UserData
 {
     public string username;
-    public CaptureData captureData;
+    public List<string> captureData;
 
-    public UserData(string username, List<DigeomonData> digeomonList)
+    public UserData(string username, List<string> captureData)
     {
         this.username = username;
-        this.captureData = new CaptureData();
-        foreach (DigeomonData digeomon in digeomonList)
-        {
-            captureData.entries.Add(new CaptureEntry(digeomon.name, false));
-        }
+        this.captureData = captureData;
     }
 }

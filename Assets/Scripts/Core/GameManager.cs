@@ -8,7 +8,8 @@ namespace Core
     {
         public static GameManager Instance;
 
-        public string databaseUri = "https://digeomon-default-rtdb.asia-southeast1.firebasedatabase.app/";
+        public string databaseUri { get; } = "https://digeomon-default-rtdb.asia-southeast1.firebasedatabase.app/";
+        public string userID { get; set; } = null;
 
         private DigeomonList digeomonData;
 

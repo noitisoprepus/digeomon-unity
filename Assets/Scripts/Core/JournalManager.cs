@@ -1,43 +1,87 @@
+using Firebase.Database;
+using Firebase.Extensions;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UI;
 
 namespace Core
 {
     public class JournalManager : MonoBehaviour
     {
-        // TODO: Move UI stuff to separate script. This will now be a Global script which will remember the captured digeomons.
-        [SerializeField] private GameObject journalContent;
-        [SerializeField] private GameObject entryBox;
+        GameManager gameManager;
+        DatabaseReference databaseReference;
 
-        private Dictionary<DigeomonData, bool> caughtDigeomons;
+        public Dictionary<DigeomonData, bool> caughtDigeomons;
 
         private void Start()
         {
+            gameManager = GameManager.Instance;
+
+            databaseReference = FirebaseDatabase.GetInstance(gameManager.databaseUri)
+                .GetReference("users").Child(gameManager.userID).Child("captureData");
+
             GetCaughtDigeomonData();
         }
 
         private void GetCaughtDigeomonData()
         {
-            caughtDigeomons = new Dictionary<DigeomonData, bool>();
-            List<DigeomonData> availableDigeomons = GameManager.Instance.GetDigeomonList();
-            foreach (DigeomonData digeomon in availableDigeomons)
+            databaseReference.GetValueAsync().ContinueWithOnMainThread(task =>
             {
-                caughtDigeomons.Add(digeomon, false);
-                // Sync value with database (use digeomon.name as reference key)
-            }
-            // Populate Journal once data is finished syncing
-            PopulateJournal();
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("An error has occurred: " + task.Exception.ToString());
+                }
+                else if (task.IsCompleted)
+                {
+                    DataSnapshot snapshot = task.Result;
+                    if (snapshot.Exists && snapshot.HasChildren)
+                    {
+                        // Convert the snapshot to a List<string>
+                        List<string> captureData = snapshot.Children
+                            .Select(childSnapshot => childSnapshot.Value.ToString())
+                            .ToList();
+
+                        // Use the captureData list as needed
+                        foreach (string capture in captureData) Debug.Log(capture); 
+                    }
+                    else
+                    {
+                        Debug.LogError("Snapshot does not exist or has no children.");
+                    }
+
+                    //caughtDigeomons = new Dictionary<DigeomonData, bool>();
+                    //List<DigeomonData> availableDigeomons = gameManager.GetDigeomonList();
+                    //foreach (DigeomonData digeomon in availableDigeomons)
+                    //{
+                    //    if (captureData.Contains(digeomon.name))
+                    //    {
+                    //        caughtDigeomons.Add(digeomon, true);
+                    //        continue;
+                    //    }
+                    //    caughtDigeomons.Add(digeomon, false);
+                    //}
+                }
+            });
         }
 
-        private void PopulateJournal()
+        public void TestCapture()
         {
-            foreach (KeyValuePair<DigeomonData, bool> digeomon in caughtDigeomons)
+            // Testing
+            List<string> testCapture = new List<string>
             {
-                GameObject entry = Instantiate(entryBox, journalContent.transform);
-                JournalEntryButton entryButton = entry.GetComponent<JournalEntryButton>();
-                entryButton.SetPreviewImage(digeomon.Key.modelSprite, digeomon.Value);
-            }
+                "Tableh"
+            };
+            databaseReference.SetValueAsync(testCapture).ContinueWith(task => 
+            {
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("An error has occurred: " + task.Exception.ToString());
+                }
+                else if (task.IsCompleted)
+                {
+                    Debug.Log("Test Capture Success");
+                }
+            });
         }
     }
 }

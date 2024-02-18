@@ -1,6 +1,7 @@
 using Firebase.Auth;
 using Firebase.Database;
 using System.Collections;
+using System.Collections.Generic;
 using UI;
 using UnityEngine;
 
@@ -8,8 +9,8 @@ namespace Core
 {
     public class AccountManager : MonoBehaviour
     {
+        GameManager gameManager;
         FirebaseAuth auth;
-        FirebaseDatabase database;
         DatabaseReference databaseReference;
 
         private void OnEnable()
@@ -26,11 +27,12 @@ namespace Core
 
         private void Start()
         {
-            auth = FirebaseAuth.DefaultInstance;
+            gameManager = GameManager.Instance;
 
-            string databaseUri = GameManager.Instance.databaseUri;
-            database = FirebaseDatabase.GetInstance(databaseUri);
-            databaseReference = database.RootReference;
+            auth = FirebaseAuth.DefaultInstance;
+            
+            string databaseUri = gameManager.databaseUri;
+            databaseReference = FirebaseDatabase.GetInstance(databaseUri).RootReference;
         }
 
         private void HandleAccountRegistration(string email, string password, string username)
@@ -78,7 +80,7 @@ namespace Core
             }
             else
             {
-                UserData newUser = new UserData(username, GameManager.Instance.GetDigeomonList());
+                UserData newUser = new UserData(username, new List<string>());
                 string userDataJson = JsonUtility.ToJson(newUser);
                 
                 var databaseTask = databaseReference.Child("users").Child(user.UserId).SetRawJsonValueAsync(userDataJson);
@@ -89,8 +91,7 @@ namespace Core
                 }
                 else
                 {
-                    Debug.Log("Data successfully saved to the database.");
-                    GameManager.Instance.GoToScene("Main Menu");
+                    gameManager.GoToScene("Main Menu");
                 }
             }
         }
@@ -106,11 +107,11 @@ namespace Core
             }
             else
             {
-                Firebase.Auth.AuthResult result = task.Result;
+                AuthResult result = task.Result;
                 Debug.LogFormat("User signed in successfully: {0} ({1})",
                     result.User.DisplayName, result.User.UserId);
 
-                GameManager.Instance.GoToScene("Main Menu");
+                gameManager.GoToScene("Main Menu");
             }
         }
     }
