@@ -10,31 +10,31 @@ namespace Core
     {
         [Header("Quiz Data (Check only one)")]
         [Header("Pre-made Quiz")]
-        public bool useQuiz;
-        public QuizData quiz;
+        [SerializeField] private bool useQuiz;
+        [SerializeField] private QuizData quiz;
         [Header("Custom Quiz")]
-        public bool useCustom;
-        public List<QuestionData> questions;
-        public bool isRandom;
-        public int itemNumbers;
-        public int passingScore;
+        [SerializeField] private bool useCustom;
+        [SerializeField] private List<QuestionData> questions;
+        [SerializeField] private bool isRandom;
+        [SerializeField] private int itemNumbers;
+        [SerializeField] private int passingScore;
 
         [Header("Quiz GUI")]
-        public GameObject panel;
-        public GameObject questionBox;
-        public GameObject choicesBox;
-        public GameObject scoreBox;
-        public Button choiceAButton;
-        public Button choiceBButton;
-        public Button choiceCButton;
-        public Button choiceDButton;
-        public Button reviewButton;
-        public Button nextReviewButton;
-        public TextMeshProUGUI questionText;
-        public TextMeshProUGUI scoreText;
-        public Color normalCol;
-        public Color correctCol;
-        public Color wrongCol;
+        [SerializeField] private GameObject panel;
+        [SerializeField] private GameObject questionBox;
+        [SerializeField] private GameObject choicesBox;
+        [SerializeField] private GameObject scoreBox;
+        [SerializeField] private Button choiceAButton;
+        [SerializeField] private Button choiceBButton;
+        [SerializeField] private Button choiceCButton;
+        [SerializeField] private Button choiceDButton;
+        [SerializeField] private Button reviewButton;
+        [SerializeField] private Button nextReviewButton;
+        [SerializeField] private TextMeshProUGUI questionText;
+        [SerializeField] private TextMeshProUGUI scoreText;
+        [SerializeField] private Color normalCol;
+        [SerializeField] private Color correctCol;
+        [SerializeField] private Color wrongCol;
 
         private TextMeshProUGUI choiceAText;
         private TextMeshProUGUI choiceBText;

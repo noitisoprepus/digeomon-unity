@@ -10,12 +10,12 @@ namespace Scanner
     public class Capture : MonoBehaviour
     {
         [Header("Capture GUI")]
-        public XROrigin xrOrigin;
-        public GameObject scannerPanel;
-        public GameObject successPanel;
-        public GameObject captureDialog;
-        public GameObject failDialog;
-        public Image silhouette;
+        [SerializeField] private XROrigin xrOrigin;
+        [SerializeField] private GameObject scannerPanel;
+        [SerializeField] private GameObject successPanel;
+        [SerializeField] private GameObject captureDialog;
+        [SerializeField] private GameObject failDialog;
+        [SerializeField] private Image silhouette;
 
         private GameManager gameManager;
 

@@ -6,7 +6,7 @@ namespace UI
 {
     public class MainMenu : MonoBehaviour
     {
-        FirebaseAuth auth;
+        private FirebaseAuth auth;
 
         private void Awake()
         {

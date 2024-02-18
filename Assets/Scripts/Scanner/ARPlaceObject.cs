@@ -8,12 +8,12 @@ namespace Scanner
 {
     public class ARPlaceObject : MonoBehaviour
     {
-        public GameObject placementIndicator;
-        public DialogueManager dialogueManager;
+        [SerializeField] private GameObject placementIndicator;
+        [SerializeField] private DialogueManager dialogueManager;
 
         [Header("Capture UI")]
-        public GameObject helpPanel;
-        public GameObject captureButton;
+        [SerializeField] private GameObject helpPanel;
+        [SerializeField] private GameObject captureButton;
 
         private DigeomonData currDigeomon;
         private ARRaycastManager raycastManager;

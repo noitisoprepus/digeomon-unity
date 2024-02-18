@@ -12,17 +12,17 @@ namespace Core
     public class DialogueManager : MonoBehaviour
     {
         [Header("Dialogue Data")]
-        public List<DialogueData> dialogues;
-        public float textSpeed = 0.2f;
-        public bool startOnReady;
-        public UnityEvent onDialogueFinished;
+        [SerializeField] private List<DialogueData> dialogues;
+        [SerializeField] private float textSpeed = 0.2f;
+        [SerializeField] private bool startOnReady;
+        [SerializeField] private UnityEvent onDialogueFinished;
 
         [Header("Dialogue GUI")]
-        public GameObject dialoguePanel;
-        public RectTransform dialogueCharImageRT;
-        public RectTransform dialogueArrowRT;
-        public TextMeshProUGUI charNameText;
-        public TextMeshProUGUI dialogueText;
+        [SerializeField] private GameObject dialoguePanel;
+        [SerializeField] private RectTransform dialogueCharImageRT;
+        [SerializeField] private RectTransform dialogueArrowRT;
+        [SerializeField] private TextMeshProUGUI charNameText;
+        [SerializeField] private TextMeshProUGUI dialogueText;
 
         private Image dialogueCharImage;
         private Sequence arrowSequence;

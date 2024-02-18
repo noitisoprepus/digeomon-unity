@@ -11,18 +11,18 @@ namespace Scanner
     public class Classification : MonoBehaviour
     {
         [Header("Classification Model")]
-        public NNModel modelFile;
-        public TextAsset classesTxt;
-        public Material preprocessMaterial;
+        [SerializeField] private NNModel modelFile;
+        [SerializeField] private TextAsset classesTxt;
+        [SerializeField] private Material preprocessMaterial;
 
         [Header("UI")]
-        public Button scanButton;
-        public List<Image> scanFrameSprites;
-        public Color normalColor;
-        public Color disabledColor;
-        public TextMeshProUGUI detectedObjText;
-        public RenderTexture cameraRenderTexture;
-        public ARCameraBackground m_ARCameraBackground;
+        [SerializeField] private Button scanButton;
+        [SerializeField] private List<Image> scanFrameSprites;
+        [SerializeField] private Color normalColor;
+        [SerializeField] private Color disabledColor;
+        [SerializeField] private TextMeshProUGUI detectedObjText;
+        [SerializeField] private RenderTexture cameraRenderTexture;
+        [SerializeField] private ARCameraBackground m_ARCameraBackground;
 
         private Capture capture;
         private IWorker worker;
