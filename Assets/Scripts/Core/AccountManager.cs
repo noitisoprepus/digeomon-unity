@@ -73,7 +73,7 @@ namespace Core
             }
             else
             {
-                mainMenuManager.OnLoginAccount();
+                mainMenuManager.MainMenuHome();
             }
         }
 
@@ -92,7 +92,7 @@ namespace Core
                 Debug.LogFormat("User signed in successfully: {0} ({1})",
                     result.User.DisplayName, result.User.UserId);
 
-                mainMenuManager.OnLoginAccount();
+                mainMenuManager.MainMenuHome();
             }
         }
     }

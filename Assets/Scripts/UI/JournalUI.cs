@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +5,15 @@ namespace UI
 {
     public class JournalUI : MonoBehaviour
     {
+        public delegate void JournalDelegate();
+        public static event JournalDelegate OnJournalAction;
+
         [SerializeField] private GameObject journalContent;
         [SerializeField] private GameObject entryBox;
-
+        
         private void OnEnable()
         {
-            
+            OnJournalAction?.Invoke();
         }
 
         private void PopulateJournal(Dictionary<DigeomonData, bool> captureData)

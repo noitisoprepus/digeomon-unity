@@ -27,6 +27,7 @@ namespace Core
             }
 
             digeomonData = GetComponent<DigeomonList>();
+            journalManager = GetComponent<JournalManager>();
         }
 
         public void GoToScene(string sceneName)
@@ -37,6 +38,11 @@ namespace Core
         public List<DigeomonData> GetDigeomonList()
         {
             return digeomonData.digeomons;
+        }
+
+        public void SyncCaptureData()
+        {
+            journalManager.InitializeCaptureData();
         }
 
         public List<string> GetDigeomonCaptures()
