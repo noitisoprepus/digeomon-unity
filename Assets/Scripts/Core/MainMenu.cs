@@ -6,6 +6,9 @@ namespace UI
 {
     public class MainMenu : MonoBehaviour
     {
+        [SerializeField] private GameObject mainMenuGroup;
+        [SerializeField] private GameObject accountMenuGroup;
+
         private FirebaseAuth auth;
 
         private void Awake()
@@ -13,7 +16,7 @@ namespace UI
             auth = FirebaseAuth.DefaultInstance;
 
             if (auth.CurrentUser == null)
-                LoadAccount();
+                ShowAccountMenu();
             else
                 GameManager.Instance.userID = auth.CurrentUser.UserId;
         }
@@ -26,12 +29,19 @@ namespace UI
         public void OnLogoutButtonPressed()
         {
             auth.SignOut();
-            LoadAccount();
+            ShowAccountMenu();
         }
 
-        private void LoadAccount()
+        public void OnLoginAccount()
         {
-            GameManager.Instance.GoToScene("Account");
+            accountMenuGroup.SetActive(false);
+            mainMenuGroup.SetActive(true);
+        }
+
+        private void ShowAccountMenu()
+        {
+            mainMenuGroup.SetActive(false);
+            accountMenuGroup.SetActive(true);
         }
     }
 }

@@ -16,10 +16,37 @@ namespace Core
         {
             gameManager = GameManager.Instance;
 
-            databaseReference = FirebaseDatabase.GetInstance(gameManager.databaseUri)
-                .GetReference("users").Child(gameManager.userID).Child("captureData");
+            InitializeCaptureData();
+        }
 
-            GetCaughtDigeomonData();
+        public void InitializeCaptureData()
+        {
+            if (gameManager.userID == null)
+                return;
+
+            if (databaseReference == null)
+            {
+                databaseReference = FirebaseDatabase.GetInstance(gameManager.databaseUri)
+                    .GetReference("users").Child(gameManager.userID).Child("captureData");
+
+                GetCaughtDigeomonData();
+            }
+        }
+
+        public void AddDigeomon(string newDigeomon)
+        {
+            capturedDigeomons.Add(newDigeomon);
+            databaseReference.SetValueAsync(newDigeomon).ContinueWith(task =>
+            {
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("An error has occurred: " + task.Exception.ToString());
+                }
+                else if (task.IsCompleted)
+                {
+                    // Upload success
+                }
+            });
         }
 
         private void GetCaughtDigeomonData()
@@ -45,22 +72,6 @@ namespace Core
                     {
                         Debug.LogError("'captureData' does not exist or has no children.");
                     }
-                }
-            });
-        }
-
-        public void AddDigeomon(string newDigeomon)
-        {
-            capturedDigeomons.Add(newDigeomon);
-            databaseReference.SetValueAsync(newDigeomon).ContinueWith(task =>
-            {
-                if (task.IsFaulted)
-                {
-                    Debug.LogError("An error has occurred: " + task.Exception.ToString());
-                }
-                else if (task.IsCompleted)
-                {
-                    // Upload success
                 }
             });
         }

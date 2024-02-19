@@ -7,8 +7,8 @@ namespace Core
 {
     public class AccountManager : MonoBehaviour
     {
-        private GameManager gameManager;
         private FirebaseAuth auth;
+        private MainMenu mainMenuManager;
 
         private void OnEnable()
         {
@@ -24,9 +24,8 @@ namespace Core
 
         private void Start()
         {
-            gameManager = GameManager.Instance;
-
             auth = FirebaseAuth.DefaultInstance;
+            mainMenuManager = GetComponent<MainMenu>();
         }
 
         private void HandleAccountRegistration(string email, string password, string username)
@@ -74,7 +73,7 @@ namespace Core
             }
             else
             {
-                gameManager.GoToScene("Main Menu");
+                mainMenuManager.OnLoginAccount();
             }
         }
 
@@ -93,7 +92,7 @@ namespace Core
                 Debug.LogFormat("User signed in successfully: {0} ({1})",
                     result.User.DisplayName, result.User.UserId);
 
-                gameManager.GoToScene("Main Menu");
+                mainMenuManager.OnLoginAccount();
             }
         }
     }
