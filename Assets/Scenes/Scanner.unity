@@ -201,6 +201,8 @@ MonoBehaviour:
   captureDialog: {fileID: 117179310929956480}
   failDialog: {fileID: 5190280629637315698}
   silhouette: {fileID: 1200198781388538655}
+  digeomonCaptureData: {fileID: 11400000, guid: 9d893d9c73b019f4f9695295f390f5e2,
+    type: 2}
 --- !u!1 &88540193
 GameObject:
   m_ObjectHideFlags: 0

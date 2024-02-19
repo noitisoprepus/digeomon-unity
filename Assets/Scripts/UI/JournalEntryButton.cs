@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,13 +8,24 @@ namespace UI
     {
         [SerializeField] private Image previewImage;
         [SerializeField] private GameObject checkmarkObj;
+        [SerializeField] private TextMeshProUGUI nameText;
 
-        public void SetPreviewImage(Sprite image, bool isCaught)
+        private DigeomonData digeomon;
+
+        public void InitializeJournalEntry(DigeomonData data, bool isCaught)
         {
-            previewImage.sprite = image;
+            digeomon = data;
+            previewImage.sprite = digeomon.modelSprite;
+            UpdateJournalEntry(isCaught);
+        }
 
+        public void UpdateJournalEntry(bool isCaught)
+        {
             previewImage.color = isCaught ? Color.white : Color.black;
+
             checkmarkObj.SetActive(!isCaught);
+
+            nameText.text = (isCaught) ? digeomon.name : "???";
         }
     }
 }

@@ -36,14 +36,12 @@ namespace UI
         {
             loginForm.SetActive(false);
             registrationForm.SetActive(true);
-            Debug.Log("Register now");
         }
 
         public void SwitchToLoginForm()
         {
             loginForm.SetActive(true);
             registrationForm.SetActive(false);
-            Debug.Log("Login now");
         }
     }
 }

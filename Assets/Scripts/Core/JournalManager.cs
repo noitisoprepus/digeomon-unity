@@ -1,13 +1,18 @@
 using Firebase.Database;
 using Firebase.Extensions;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
 {
     public class JournalManager : MonoBehaviour
     {
-        public List<string> capturedDigeomons { get; set; }
+        public delegate void FetchSuccessDelegate();
+        public static event FetchSuccessDelegate OnFetchSuccessAction;
+
+        public delegate void CaptureSuccessDelegate();
+        public static event CaptureSuccessDelegate OnCaptureSuccessAction;
+
+        [SerializeField] DigeomonCaptureData digeomonCaptureData;
 
         private GameManager gameManager;
         private DatabaseReference databaseReference;
@@ -33,10 +38,9 @@ namespace Core
             }
         }
 
-        public void AddDigeomon(string newDigeomon)
+        public void AddDigeomon(string digeomonName)
         {
-            capturedDigeomons.Add(newDigeomon);
-            databaseReference.SetValueAsync(newDigeomon).ContinueWith(task =>
+            databaseReference.Push().SetValueAsync(digeomonName).ContinueWith(task =>
             {
                 if (task.IsFaulted)
                 {
@@ -44,7 +48,7 @@ namespace Core
                 }
                 else if (task.IsCompleted)
                 {
-                    // Upload success
+                    OnCaptureSuccessAction?.Invoke();
                 }
             });
         }
@@ -62,16 +66,12 @@ namespace Core
                     DataSnapshot snapshot = task.Result;
                     if (snapshot.Exists && snapshot.HasChildren)
                     {
-                        capturedDigeomons = new List<string>();
                         foreach (DataSnapshot childSnapshot in snapshot.Children)
                         {
-                            capturedDigeomons.Add(childSnapshot.Value.ToString());
+                            digeomonCaptureData.SyncDigeomonData(childSnapshot.Value.ToString());
                         }
                     }
-                    else
-                    {
-                        Debug.LogError("'captureData' does not exist or has no children.");
-                    }
+                    OnFetchSuccessAction?.Invoke();
                 }
             });
         }

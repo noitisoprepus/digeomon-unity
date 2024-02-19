@@ -17,7 +17,11 @@ namespace Scanner
         [SerializeField] private GameObject failDialog;
         [SerializeField] private Image silhouette;
 
+        [Header("Capture Data")]
+        [SerializeField] private DigeomonCaptureData digeomonCaptureData;
+
         private GameManager gameManager;
+        private JournalManager journalManager;
 
         private List<DigeomonData> digeomons;
         private ARPlaceObject arPlaceObject;
@@ -28,15 +32,26 @@ namespace Scanner
         {
             arPlaceObject = xrOrigin.gameObject.GetComponent<ARPlaceObject>();
             failDialogRT = failDialog.GetComponent<RectTransform>();
+
+            gameManager = GameManager.Instance;
+            journalManager = gameManager.gameObject.GetComponent<JournalManager>();
         }
 
         private void Start()
         {
-            GameManager gameManager = GameManager.Instance;
-
             successPanel.SetActive(false);
             failDialog.SetActive(false);
             digeomons = gameManager.GetDigeomonList();
+        }
+
+        private void OnEnable()
+        {
+            digeomonCaptureData.OnDigeomonCapture.AddListener(journalManager.AddDigeomon);
+        }
+
+        private void OnDisable()
+        {
+            digeomonCaptureData.OnDigeomonCapture.RemoveListener(journalManager.AddDigeomon);
         }
 
         public void SearchDigeomon(string label, double acc)
@@ -48,7 +63,7 @@ namespace Scanner
                 if (!digeomon.keys.Contains(label))
                     continue;
 
-                if (!gameManager.GetDigeomonCaptures().Contains(digeomon.name))
+                if (!digeomonCaptureData.captureData.ContainsKey(digeomon.name))
                 {
                     ShowCaptureDialog(digeomon);
                     return;
@@ -94,8 +109,10 @@ namespace Scanner
         public void OnCaptureButtonPressed()
         {
             PersistentData.targetDigeomon = currDigeomon;
+
             // gameManager.GoToScene("Sandbox");
-            gameManager.CaptureDigeomon(currDigeomon);
+            // Direct catch
+            digeomonCaptureData.CaptureDigeomon(currDigeomon);
             OnCloseButtonPressed();
         }
     }

@@ -1,22 +1,28 @@
-using Core;
 using Firebase.Auth;
+using UI;
 using UnityEngine;
 
-namespace UI
+namespace Core
 {
-    public class MainMenu : MonoBehaviour
+    public class MainMenuManager : MonoBehaviour
     {
         [SerializeField] private GameObject mainMenuGroup;
         [SerializeField] private GameObject accountMenuGroup;
         [SerializeField] private GameObject journalGroup;
 
         private GameManager gameManager;
+        private JournalManager journalManager;
         private FirebaseAuth auth;
+        
+        private JournalUI journalUI;
 
         private void Awake()
         {
             gameManager = GameManager.Instance;
+            journalManager = gameManager.gameObject.GetComponent<JournalManager>();
             auth = FirebaseAuth.DefaultInstance;
+
+            journalUI = GetComponent<JournalUI>();
 
             if (auth.CurrentUser == null)
                 ShowAccountMenu();
@@ -26,12 +32,14 @@ namespace UI
 
         private void OnEnable()
         {
-            JournalUI.OnJournalAction += gameManager.SyncCaptureData;
+            AccountManager.OnLoginSuccessAction += journalManager.InitializeCaptureData;
+            JournalManager.OnFetchSuccessAction += journalUI.PopulateJournal;
         }
 
         private void OnDisable()
         {
-            JournalUI.OnJournalAction -= gameManager.SyncCaptureData;
+            AccountManager.OnLoginSuccessAction -= journalManager.InitializeCaptureData;
+            JournalManager.OnFetchSuccessAction -= journalUI.PopulateJournal;
         }
 
         public void MainMenuHome()

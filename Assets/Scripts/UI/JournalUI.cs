@@ -5,24 +5,30 @@ namespace UI
 {
     public class JournalUI : MonoBehaviour
     {
-        public delegate void JournalDelegate();
-        public static event JournalDelegate OnJournalAction;
+        [Header("Capture Data")]
+        [SerializeField] private DigeomonCaptureData digeomonCaptureData;
 
+        [Header("GUI")]
         [SerializeField] private GameObject journalContent;
         [SerializeField] private GameObject entryBox;
         
-        private void OnEnable()
+        public void PopulateJournal()
         {
-            OnJournalAction?.Invoke();
-        }
-
-        private void PopulateJournal(Dictionary<DigeomonData, bool> captureData)
-        {
-            foreach (KeyValuePair<DigeomonData, bool> digeomon in captureData)
+            foreach (KeyValuePair<string, DigeomonData> digeomon in digeomonCaptureData.digeomonData)
             {
                 GameObject entry = Instantiate(entryBox, journalContent.transform);
                 JournalEntryButton entryButton = entry.GetComponent<JournalEntryButton>();
-                entryButton.SetPreviewImage(digeomon.Key.modelSprite, digeomon.Value);
+                DigeomonData data = digeomon.Value;
+                entryButton.InitializeJournalEntry(data, digeomonCaptureData.captureData[data.name]);
+            }
+        }
+
+        public void UpdateJournal()
+        {
+            foreach (Transform entry in transform)
+            {
+                // TODO: Repopulation/Updating
+                //entry.GetComponent<JournalEntryButton>().UpdateJournalEntry();
             }
         }
     }

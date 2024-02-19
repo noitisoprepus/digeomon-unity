@@ -12,7 +12,6 @@ namespace Core
         public string userID { get; set; } = null;
 
         private DigeomonList digeomonData;
-        private JournalManager journalManager;
 
         private void Awake()
         {
@@ -27,7 +26,6 @@ namespace Core
             }
 
             digeomonData = GetComponent<DigeomonList>();
-            journalManager = GetComponent<JournalManager>();
         }
 
         public void GoToScene(string sceneName)
@@ -38,21 +36,6 @@ namespace Core
         public List<DigeomonData> GetDigeomonList()
         {
             return digeomonData.digeomons;
-        }
-
-        public void SyncCaptureData()
-        {
-            journalManager.InitializeCaptureData();
-        }
-
-        public List<string> GetDigeomonCaptures()
-        {
-            return journalManager.capturedDigeomons;
-        }
-
-        public void CaptureDigeomon(DigeomonData digeomon)
-        {
-            journalManager.AddDigeomon(digeomon.name);
         }
     }
 }

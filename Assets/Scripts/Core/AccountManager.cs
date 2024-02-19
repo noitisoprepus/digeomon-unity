@@ -7,8 +7,11 @@ namespace Core
 {
     public class AccountManager : MonoBehaviour
     {
+        public delegate void LoginSuccessDelegate();
+        public static event LoginSuccessDelegate OnLoginSuccessAction;
+
         private FirebaseAuth auth;
-        private MainMenu mainMenuManager;
+        private MainMenuManager mainMenuManager;
 
         private void OnEnable()
         {
@@ -25,7 +28,7 @@ namespace Core
         private void Start()
         {
             auth = FirebaseAuth.DefaultInstance;
-            mainMenuManager = GetComponent<MainMenu>();
+            mainMenuManager = GetComponent<MainMenuManager>();
         }
 
         private void HandleAccountRegistration(string email, string password, string username)
@@ -73,6 +76,7 @@ namespace Core
             }
             else
             {
+                OnLoginSuccessAction?.Invoke();
                 mainMenuManager.MainMenuHome();
             }
         }
@@ -92,6 +96,7 @@ namespace Core
                 Debug.LogFormat("User signed in successfully: {0} ({1})",
                     result.User.DisplayName, result.User.UserId);
 
+                OnLoginSuccessAction?.Invoke();
                 mainMenuManager.MainMenuHome();
             }
         }
