@@ -6,6 +6,8 @@ namespace Core
 {
     public class QuizManager : MonoBehaviour
     {
+        [SerializeField] DigeomonCaptureData digeomonCaptureData;
+
         [Header("Quiz Data (Check only one)")]
         [Header("Pre-made Quiz")]
         [SerializeField] private bool useQuiz;
@@ -18,6 +20,8 @@ namespace Core
         [SerializeField] private int passingScore;
 
         private QuizUI quizUI;
+        private JournalManager journalManager;
+        private DigeomonData targetDigeomon;
         private List<QuestionData> currQuestions;
         private List<int> userAnswers;
         private int currQIndex;
@@ -26,10 +30,12 @@ namespace Core
         private void Awake()
         {
             quizUI = GetComponent<QuizUI>();
+            journalManager = GameManager.Instance.gameObject.GetComponent<JournalManager>();
         }
 
         private void OnEnable()
         {
+            DigeomonCaptureData.OnDigeomonCapture += journalManager.AddDigeomon;
             QuizUI.OnAnswerAction += CheckAnswer;
             QuizUI.OnStartRecapAction += StartRecap;
             QuizUI.OnNextRecapAction += NextRecapQuestion;
@@ -38,6 +44,7 @@ namespace Core
 
         private void OnDisable()
         {
+            DigeomonCaptureData.OnDigeomonCapture -= journalManager.AddDigeomon;
             QuizUI.OnAnswerAction -= CheckAnswer;
             QuizUI.OnStartRecapAction -= StartRecap;
             QuizUI.OnNextRecapAction -= NextRecapQuestion;
@@ -46,8 +53,9 @@ namespace Core
 
         private void Start()
         {
+            targetDigeomon = PersistentData.targetDigeomon;
+            quiz = targetDigeomon.quiz;
             useQuiz = true;
-            quiz = PersistentData.targetDigeomon.quiz;
             StartQuiz();
         }
 
@@ -109,6 +117,7 @@ namespace Core
             if (currQIndex == currQuestions.Count)
             {
                 // TODO: Show capturing of Digeomon
+                digeomonCaptureData.CaptureDigeomon(targetDigeomon);
                 quizUI.OnHomeButtonPressed();
                 return;
             }

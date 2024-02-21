@@ -563,6 +563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e1883c5d3aa154c87f5bbdd2779f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  digeomonCaptureData: {fileID: 11400000, guid: 9d893d9c73b019f4f9695295f390f5e2,
+    type: 2}
   useQuiz: 0
   quiz: {fileID: 0}
   useCustom: 0
