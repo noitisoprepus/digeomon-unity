@@ -1,22 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using DG.Tweening;
 using Unity.XR.CoreUtils;
 using Core;
+using UI;
 
 namespace Scanner
 {
     public class Capture : MonoBehaviour
     {
-        [Header("Capture GUI")]
         [SerializeField] private XROrigin xrOrigin;
-        [SerializeField] private GameObject scannerPanel;
-        [SerializeField] private GameObject successPanel;
-        [SerializeField] private GameObject captureDialog;
-        [SerializeField] private GameObject failDialog;
-        [SerializeField] private Image silhouette;
-
+        [SerializeField] private CaptureUI captureUI;
+        
         [Header("Capture Data")]
         [SerializeField] private DigeomonCaptureData digeomonCaptureData;
 
@@ -25,13 +19,11 @@ namespace Scanner
 
         private List<DigeomonData> digeomons;
         private ARPlaceObject arPlaceObject;
-        private RectTransform failDialogRT;
         private DigeomonData currDigeomon;
 
         private void Awake()
         {
             arPlaceObject = xrOrigin.gameObject.GetComponent<ARPlaceObject>();
-            failDialogRT = failDialog.GetComponent<RectTransform>();
 
             gameManager = GameManager.Instance;
             journalManager = gameManager.gameObject.GetComponent<JournalManager>();
@@ -39,19 +31,23 @@ namespace Scanner
 
         private void Start()
         {
-            successPanel.SetActive(false);
-            failDialog.SetActive(false);
             digeomons = gameManager.GetDigeomonList();
         }
 
         private void OnEnable()
         {
             digeomonCaptureData.OnDigeomonCapture.AddListener(journalManager.AddDigeomon);
+            
+            CaptureUI.OnSummonAction += SummonDigeomon;
+            CaptureUI.OnGoToSceneRequested += gameManager.GoToScene;
         }
 
         private void OnDisable()
         {
             digeomonCaptureData.OnDigeomonCapture.RemoveListener(journalManager.AddDigeomon);
+
+            CaptureUI.OnSummonAction -= SummonDigeomon;
+            CaptureUI.OnGoToSceneRequested -= gameManager.GoToScene;
         }
 
         public void SearchDigeomon(string label, double acc)
@@ -65,7 +61,8 @@ namespace Scanner
 
                 if (!digeomonCaptureData.captureData.ContainsKey(digeomon.name))
                 {
-                    ShowCaptureDialog(digeomon);
+                    PersistentData.targetDigeomon = digeomon;
+                    captureUI.ShowCaptureDialog(digeomon);
                     return;
                 }
                 else
@@ -74,46 +71,14 @@ namespace Scanner
                 }
             }
 
-            ShowFailDialog();
+            captureUI.ShowFailDialog();
         }
 
-        private void ShowCaptureDialog(DigeomonData digeomon)
-        {
-            currDigeomon = digeomon;
-            successPanel.SetActive(true);
-            silhouette.sprite = currDigeomon.modelSprite;
-            captureDialog.transform.localScale = Vector3.zero;
-            captureDialog.transform.DOScale(Vector3.one, 1f).SetEase(Ease.OutCubic);
-        }
-
-        private void ShowFailDialog()
-        {
-            failDialogRT.anchoredPosition = new Vector2(300f, failDialogRT.anchoredPosition.y);
-            failDialog.SetActive(true);
-            failDialogRT.DOAnchorPosX(-300f, 1.25f).SetEase(Ease.OutQuad);
-            failDialogRT.DOAnchorPosX(300f, 0.75f).SetEase(Ease.InQuad).SetDelay(3f);
-        }
-
-        public void OnSummonButtonPressed()
+        private void SummonDigeomon()
         {
             arPlaceObject.InitializeARObject(currDigeomon);
-            scannerPanel.SetActive(false);
-            OnCloseButtonPressed();
         }
 
-        public void OnCloseButtonPressed()
-        {
-            successPanel.SetActive(false);
-        }
-
-        public void OnCaptureButtonPressed()
-        {
-            PersistentData.targetDigeomon = currDigeomon;
-
-            // gameManager.GoToScene("Sandbox");
-            // Direct catch
-            digeomonCaptureData.CaptureDigeomon(currDigeomon);
-            OnCloseButtonPressed();
-        }
+        
     }
 }
