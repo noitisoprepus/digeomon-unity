@@ -482,8 +482,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1213532100}
-        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+      - m_Target: {fileID: 1213532103}
+        m_TargetAssemblyTypeName: UI.QuizUI, UI
         m_MethodName: OnHomeButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -543,6 +543,7 @@ GameObject:
   - component: {fileID: 1213532101}
   - component: {fileID: 1213532102}
   - component: {fileID: 1213532100}
+  - component: {fileID: 1213532103}
   m_Layer: 0
   m_Name: Sandbox Manager
   m_TagString: Untagged
@@ -569,21 +570,6 @@ MonoBehaviour:
   isRandom: 0
   itemNumbers: 0
   passingScore: 0
-  panel: {fileID: 6761905484262008927}
-  questionBox: {fileID: 5317026979574978080}
-  choicesBox: {fileID: 4826359887474252190}
-  scoreBox: {fileID: 9009656470008118642}
-  choiceAButton: {fileID: 8059255521173360867}
-  choiceBButton: {fileID: 5547490110656602003}
-  choiceCButton: {fileID: 9053789132750241511}
-  choiceDButton: {fileID: 6093004067392036240}
-  reviewButton: {fileID: 8853295408560948740}
-  nextReviewButton: {fileID: 915040036024951010}
-  questionText: {fileID: 683130168704166009}
-  scoreText: {fileID: 7234602025492267559}
-  normalCol: {r: 0.9843138, g: 0.9921569, b: 1, a: 1}
-  correctCol: {r: 0.3890174, g: 0.8867924, b: 0.3890174, a: 1}
-  wrongCol: {r: 0.6509804, g: 0.23921569, b: 0.2509804, a: 1}
 --- !u!4 &1213532101
 Transform:
   m_ObjectHideFlags: 0
@@ -612,6 +598,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   digeomonModelT: {fileID: 1449933197}
+--- !u!114 &1213532103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213532099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5c87cffeb038d409c1293c64880684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 6761905484262008927}
+  questionBox: {fileID: 5317026979574978080}
+  choicesBox: {fileID: 4826359887474252190}
+  choiceAButton: {fileID: 8059255521173360867}
+  choiceBButton: {fileID: 5547490110656602003}
+  choiceCButton: {fileID: 9053789132750241511}
+  choiceDButton: {fileID: 6093004067392036240}
+  questionText: {fileID: 683130168704166009}
+  scoreBox: {fileID: 9009656470008118642}
+  reviewButton: {fileID: 8853295408560948740}
+  nextReviewButton: {fileID: 915040036024951010}
+  scoreText: {fileID: 7234602025492267559}
+  normalCol: {r: 0.9843137, g: 0.99215686, b: 1, a: 1}
+  correctCol: {r: 0.3882353, g: 0.8862745, b: 0.3882353, a: 1}
+  wrongCol: {r: 0.6509804, g: 0.23921569, b: 0.2509804, a: 1}
 --- !u!1 &1449933196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,8 +1241,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1213532100}
-        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+      - m_Target: {fileID: 1213532103}
+        m_TargetAssemblyTypeName: UI.QuizUI, UI
         m_MethodName: OnNextRecapButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -2335,8 +2348,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1213532100}
-        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+      - m_Target: {fileID: 1213532103}
+        m_TargetAssemblyTypeName: UI.QuizUI, UI
         m_MethodName: OnAnswerButtonPressed
         m_Mode: 3
         m_Arguments:
@@ -2523,8 +2536,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1213532100}
-        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+      - m_Target: {fileID: 1213532103}
+        m_TargetAssemblyTypeName: UI.QuizUI, UI
         m_MethodName: OnAnswerButtonPressed
         m_Mode: 3
         m_Arguments:
@@ -2952,8 +2965,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1213532100}
-        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+      - m_Target: {fileID: 1213532103}
+        m_TargetAssemblyTypeName: UI.QuizUI, UI
         m_MethodName: OnAnswerButtonPressed
         m_Mode: 3
         m_Arguments:
@@ -3112,8 +3125,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1213532100}
-        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+      - m_Target: {fileID: 1213532103}
+        m_TargetAssemblyTypeName: UI.QuizUI, UI
         m_MethodName: OnRecapButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -3229,8 +3242,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1213532100}
-        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+      - m_Target: {fileID: 1213532103}
+        m_TargetAssemblyTypeName: UI.QuizUI, UI
         m_MethodName: OnAnswerButtonPressed
         m_Mode: 3
         m_Arguments:

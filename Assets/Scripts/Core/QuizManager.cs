@@ -1,8 +1,6 @@
-using DG.Tweening;
 using System.Collections.Generic;
-using TMPro;
+using UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Core
 {
@@ -19,50 +17,35 @@ namespace Core
         [SerializeField] private int itemNumbers;
         [SerializeField] private int passingScore;
 
-        [Header("Quiz GUI")]
-        [SerializeField] private GameObject panel;
-        [SerializeField] private GameObject questionBox;
-        [SerializeField] private GameObject choicesBox;
-        [SerializeField] private GameObject scoreBox;
-        [SerializeField] private Button choiceAButton;
-        [SerializeField] private Button choiceBButton;
-        [SerializeField] private Button choiceCButton;
-        [SerializeField] private Button choiceDButton;
-        [SerializeField] private Button reviewButton;
-        [SerializeField] private Button nextReviewButton;
-        [SerializeField] private TextMeshProUGUI questionText;
-        [SerializeField] private TextMeshProUGUI scoreText;
-        [SerializeField] private Color normalCol;
-        [SerializeField] private Color correctCol;
-        [SerializeField] private Color wrongCol;
-
-        private TextMeshProUGUI choiceAText;
-        private TextMeshProUGUI choiceBText;
-        private TextMeshProUGUI choiceCText;
-        private TextMeshProUGUI choiceDText;
+        private QuizUI quizUI;
         private List<QuestionData> currQuestions;
         private List<int> userAnswers;
-        private Image[] choiceButtonImages = new Image[4];
         private int currQIndex;
         private int score;
 
         private void Awake()
         {
-            choiceAText = choiceAButton.GetComponentInChildren<TextMeshProUGUI>();
-            choiceBText = choiceBButton.GetComponentInChildren<TextMeshProUGUI>();
-            choiceCText = choiceCButton.GetComponentInChildren<TextMeshProUGUI>();
-            choiceDText = choiceDButton.GetComponentInChildren<TextMeshProUGUI>();
+            quizUI = GetComponent<QuizUI>();
+        }
 
-            choiceButtonImages[0] = choiceAButton.GetComponent<Image>();
-            choiceButtonImages[1] = choiceBButton.GetComponent<Image>();
-            choiceButtonImages[2] = choiceCButton.GetComponent<Image>();
-            choiceButtonImages[3] = choiceDButton.GetComponent<Image>();
+        private void OnEnable()
+        {
+            QuizUI.OnAnswerAction += CheckAnswer;
+            QuizUI.OnStartRecapAction += StartRecap;
+            QuizUI.OnNextRecapAction += NextRecapQuestion;
+            QuizUI.OnGoToSceneRequested += GameManager.Instance.GoToScene;
+        }
+
+        private void OnDisable()
+        {
+            QuizUI.OnAnswerAction -= CheckAnswer;
+            QuizUI.OnStartRecapAction -= StartRecap;
+            QuizUI.OnNextRecapAction -= NextRecapQuestion;
+            QuizUI.OnGoToSceneRequested -= GameManager.Instance.GoToScene;
         }
 
         private void Start()
         {
-            scoreBox.SetActive(false);
-
             useQuiz = true;
             quiz = PersistentData.targetDigeomon.quiz;
             StartQuiz();
@@ -97,18 +80,7 @@ namespace Core
                 }
             }
 
-            ShowQuestion(currQuestions[currQIndex]);
-        }
-
-        private void ShowQuestion(QuestionData q)
-        {
-            questionText.text = q.question;
-            choiceAText.text = q.choices[0];
-            choiceBText.text = q.choices[1];
-            choiceCText.text = q.choices[2];
-            choiceDText.text = q.choices[3];
-
-            panel.SetActive(true);
+            quizUI.ShowQuestion(currQuestions[currQIndex]);
         }
 
         private void NextQuestion()
@@ -117,57 +89,17 @@ namespace Core
 
             if (currQIndex == currQuestions.Count)
             {
-                ShowScoreDialog();
+                quizUI.ShowScoreDialog(score);
                 return;
             }
 
-            ShowQuestion(currQuestions[currQIndex]);
+            quizUI.ShowQuestion(currQuestions[currQIndex]);
         }
 
-        public void StartRecap()
+        private void StartRecap()
         {
             currQIndex = 0;
-            ShowRecapQuestion(currQuestions[currQIndex]);
-            questionBox.SetActive(true);
-            choicesBox.SetActive(true);
-            reviewButton.gameObject.SetActive(false);
-            nextReviewButton.gameObject.SetActive(true);
-        }
-
-        private void ShowScoreDialog()
-        {
-            RectTransform scoreBoxRect = scoreBox.GetComponent<RectTransform>();
-            scoreBoxRect.anchoredPosition = new Vector2(0f, 250f);
-
-            questionBox.SetActive(false);
-            choicesBox.SetActive(false);
-            reviewButton.gameObject.SetActive(true);
-            nextReviewButton.gameObject.SetActive(false);
-
-            scoreText.text = "SCORE: " + score;
-            scoreBox.SetActive(true);
-            scoreBoxRect.DOAnchorPosY(-250f, 1f).SetEase(Ease.OutQuad);
-        }
-
-        private void ShowRecapQuestion(QuestionData q)
-        {
-            ShowQuestion(q);
-
-            choiceAButton.interactable = false;
-            choiceBButton.interactable = false;
-            choiceCButton.interactable = false;
-            choiceDButton.interactable = false;
-
-            for (int i = 0; i < 4; i++)
-                choiceButtonImages[i].color = normalCol;
-
-            if (q.answerIndex == userAnswers[currQIndex])
-                choiceButtonImages[userAnswers[currQIndex]].color = correctCol;
-            else
-            {
-                choiceButtonImages[userAnswers[currQIndex]].color = wrongCol;
-                choiceButtonImages[q.answerIndex].color = correctCol;
-            }
+            quizUI.ShowRecapQuestion(currQuestions[currQIndex], userAnswers[currQIndex]);
         }
 
         private void NextRecapQuestion()
@@ -177,34 +109,19 @@ namespace Core
             if (currQIndex == currQuestions.Count)
             {
                 // TODO: Show capturing of Digeomon
-                OnHomeButtonPressed();
+                quizUI.OnHomeButtonPressed();
                 return;
             }
 
-            ShowRecapQuestion(currQuestions[currQIndex]);
+            quizUI.ShowRecapQuestion(currQuestions[currQIndex], userAnswers[currQIndex]);
         }
 
-        public void OnAnswerButtonPressed(int index)
+        private void CheckAnswer(int index)
         {
             userAnswers.Add(index);
             if (index == currQuestions[currQIndex].answerIndex)
                 score++;
             NextQuestion();
-        }
-
-        public void OnRecapButtonPressed()
-        {
-            StartRecap();
-        }
-
-        public void OnNextRecapButtonPressed()
-        {
-            NextRecapQuestion();
-        }
-
-        public void OnHomeButtonPressed()
-        {
-            GameManager.Instance.GoToScene("Scanner");
         }
     }
 }
