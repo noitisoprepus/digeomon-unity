@@ -23,13 +23,12 @@ namespace UI
             }
         }
 
-        public void UpdateJournal()
-        {
-            foreach (Transform entry in transform)
-            {
-                // TODO: Repopulation/Updating
-                //entry.GetComponent<JournalEntryButton>().UpdateJournalEntry();
-            }
-        }
+        //public void UpdateJournal()
+        //{
+        //    foreach (Transform entry in transform)
+        //    {
+        //        entry.GetComponent<JournalEntryButton>().UpdateJournalEntry();
+        //    }
+        //}
     }
 }

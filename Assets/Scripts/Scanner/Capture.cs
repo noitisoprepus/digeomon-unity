@@ -11,24 +11,25 @@ namespace Scanner
 
         private GameManager gameManager;
         private JournalManager journalManager;
+        private JournalUI journalUI;
         private ScannerUI scannerUI;
-
         private List<DigeomonData> digeomons;
         private ARPlaceObject arPlaceObject;
         private DigeomonData currDigeomon;
 
         private void Awake()
         {
-            arPlaceObject = GetComponent<ARPlaceObject>();
-
             gameManager = GameManager.Instance;
             journalManager = gameManager.gameObject.GetComponent<JournalManager>();
+            arPlaceObject = GetComponent<ARPlaceObject>();
             scannerUI = GetComponent<ScannerUI>();
+            journalUI = GetComponent<JournalUI>();
         }
 
         private void Start()
         {
             digeomons = gameManager.GetDigeomonList();
+            journalUI.PopulateJournal();
         }
 
         private void OnEnable()

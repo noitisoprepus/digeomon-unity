@@ -16,16 +16,20 @@ namespace UI
         {
             digeomon = data;
             previewImage.sprite = digeomon.modelSprite;
-            UpdateJournalEntry(isCaught);
-        }
-
-        public void UpdateJournalEntry(bool isCaught)
-        {
             previewImage.color = isCaught ? Color.white : Color.black;
 
             checkmarkObj.SetActive(!isCaught);
 
             nameText.text = (isCaught) ? digeomon.name : "???";
         }
+
+        //public void UpdateJournalEntry(bool isCaught)
+        //{
+        //    previewImage.color = isCaught ? Color.white : Color.black;
+
+        //    checkmarkObj.SetActive(!isCaught);
+
+        //    nameText.text = (isCaught) ? digeomon.name : "???";
+        //}
     }
 }
