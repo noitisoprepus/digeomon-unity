@@ -45,10 +45,9 @@ namespace Scanner
             ScannerUI.OnGoToSceneRequested -= gameManager.GoToScene;
         }
 
-        public void SearchDigeomon(string label, double acc)
+        public void SearchDigeomon(string label)
         {
-            //double accuracy = Mathf.Round(acc * 100);
-
+            //detectedObjText.text = $"{label}\n{Mathf.Round(accuracy * 100)}%";
             foreach (DigeomonData digeomon in digeomons)
             {
                 if (!digeomon.keys.Contains(label))

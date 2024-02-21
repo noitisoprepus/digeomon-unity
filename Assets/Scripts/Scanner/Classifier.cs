@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Core;
+using System.Collections;
 using System.Collections.Generic;
 using UI;
 using Unity.Barracuda;
@@ -94,11 +95,12 @@ namespace Scanner
             var res = output.ArgMax()[0];
             var label = classLabels[res];
             var accuracy = output[res];
-            capture.SearchDigeomon(label, accuracy);
+            capture.SearchDigeomon(label);
+            
+            if (GameManager.Instance.scannerDebugMode)
+                scannerUI.ShowScanResults(label, accuracy);
 
             StartCoroutine(ScanDelay());
-            // FOR DEBUGGING
-            // detectedObjText.text = $"{label}\n{Mathf.Round(accuracy * 100)}%";
         }
 
         Texture PrepareTextureForInput(Texture2D src)

@@ -56,6 +56,7 @@ namespace UI
             scanButton.GetComponentInChildren<TextMeshProUGUI>().text = ". . .";
             foreach (Image img in scanFrameSprites)
                 img.color = disabledColor;
+            detectedObjText.gameObject.SetActive(false);
             OnScanAction?.Invoke();
         }
 
@@ -65,6 +66,12 @@ namespace UI
             scanButton.GetComponentInChildren<TextMeshProUGUI>().text = "SCAN";
             foreach (Image img in scanFrameSprites)
                 img.color = normalColor;
+        }
+
+        public void ShowScanResults(string label, float accuracy)
+        {
+            detectedObjText.text = $"{label}\n{Mathf.Round(accuracy * 100)}%";
+            detectedObjText.gameObject.SetActive(true);
         }
 
         public void ShowCaptureDialog(DigeomonData digeomon)

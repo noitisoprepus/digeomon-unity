@@ -11,6 +11,8 @@ namespace Core
         public string databaseUri { get; } = "https://digeomon-default-rtdb.asia-southeast1.firebasedatabase.app/";
         public string userID { get; set; } = null;
 
+        public bool scannerDebugMode = false;
+
         private DigeomonList digeomonData;
 
         private void Awake()
