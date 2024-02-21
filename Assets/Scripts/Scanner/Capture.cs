@@ -9,13 +9,13 @@ namespace Scanner
     public class Capture : MonoBehaviour
     {
         [SerializeField] private XROrigin xrOrigin;
-        [SerializeField] private CaptureUI captureUI;
         
         [Header("Capture Data")]
         [SerializeField] private DigeomonCaptureData digeomonCaptureData;
 
         private GameManager gameManager;
         private JournalManager journalManager;
+        private CaptureUI captureUI;
 
         private List<DigeomonData> digeomons;
         private ARPlaceObject arPlaceObject;
@@ -27,6 +27,7 @@ namespace Scanner
 
             gameManager = GameManager.Instance;
             journalManager = gameManager.gameObject.GetComponent<JournalManager>();
+            captureUI = GetComponent<CaptureUI>();
         }
 
         private void Start()
