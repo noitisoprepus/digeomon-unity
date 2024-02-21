@@ -8,9 +8,6 @@ namespace Scanner
 {
     public class Capture : MonoBehaviour
     {
-        [SerializeField] private XROrigin xrOrigin;
-        
-        [Header("Capture Data")]
         [SerializeField] private DigeomonCaptureData digeomonCaptureData;
 
         private GameManager gameManager;
@@ -23,7 +20,7 @@ namespace Scanner
 
         private void Awake()
         {
-            arPlaceObject = xrOrigin.gameObject.GetComponent<ARPlaceObject>();
+            arPlaceObject = GetComponent<ARPlaceObject>();
 
             gameManager = GameManager.Instance;
             journalManager = gameManager.gameObject.GetComponent<JournalManager>();

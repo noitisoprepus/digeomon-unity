@@ -1,5 +1,6 @@
 using Core;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -8,15 +9,12 @@ namespace Scanner
 {
     public class ARPlaceObject : MonoBehaviour
     {
+        [SerializeField] private ARRaycastManager raycastManager;
         [SerializeField] private GameObject placementIndicator;
         [SerializeField] private DialogueManager dialogueManager;
 
-        [Header("Capture UI")]
-        [SerializeField] private GameObject helpPanel;
-        [SerializeField] private GameObject captureButton;
-
         private DigeomonData currDigeomon;
-        private ARRaycastManager raycastManager;
+        private CaptureUI captureUI;
         private GameObject arObject;
         private GameObject spawnedObject;
         private Pose placementPose;
@@ -25,14 +23,12 @@ namespace Scanner
 
         private void Awake()
         {
-            raycastManager = GetComponent<ARRaycastManager>();
+            captureUI = GetComponent<CaptureUI>();
         }
 
         private void Start()
         {
             placementIndicator.SetActive(false);
-            helpPanel.SetActive(false);
-            captureButton.SetActive(false);
         }
 
         public void InitializeARObject(DigeomonData digeomon)
@@ -41,8 +37,7 @@ namespace Scanner
             currDigeomon = digeomon;
             arObject = currDigeomon.modelPrefab;
             isInitialized = true;
-            helpPanel.SetActive(true);
-            captureButton.SetActive(false);
+            captureUI.ShowSummonHelp();
         }
 
         private void Update()
@@ -91,8 +86,7 @@ namespace Scanner
             // Populate hologram screen
             dialogueManager.StartDialogue(currDigeomon.introDialogue);
             isInitialized = false;
-            helpPanel.SetActive(false);
-            captureButton.SetActive(true);
+            captureUI.ShowCaptureButton();
         }
     }
 }

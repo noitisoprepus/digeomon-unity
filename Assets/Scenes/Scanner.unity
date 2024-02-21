@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 51421844}
   - component: {fileID: 51421846}
   - component: {fileID: 51421847}
+  - component: {fileID: 51421848}
   m_Layer: 0
   m_Name: Scanner Manager
   m_TagString: Untagged
@@ -196,7 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25525aac47af50a4fb95021657aec032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xrOrigin: {fileID: 348371571}
   digeomonCaptureData: {fileID: 11400000, guid: 9d893d9c73b019f4f9695295f390f5e2,
     type: 2}
 --- !u!114 &51421847
@@ -216,6 +216,23 @@ MonoBehaviour:
   captureDialog: {fileID: 117179310929956480}
   failDialog: {fileID: 5190280629637315698}
   silhouette: {fileID: 1200198781388538655}
+  helpPanel: {fileID: 88540193}
+  captureButton: {fileID: 674814882}
+--- !u!114 &51421848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51421842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb915eddfd7fd145ab4f5e99c8605cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastManager: {fileID: 348371574}
+  placementIndicator: {fileID: 507672721}
+  dialogueManager: {fileID: 1316460830}
 --- !u!1 &88540193
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +381,6 @@ GameObject:
   - component: {fileID: 348371570}
   - component: {fileID: 348371575}
   - component: {fileID: 348371574}
-  - component: {fileID: 348371576}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
   m_TagString: Untagged
@@ -446,22 +462,6 @@ MonoBehaviour:
   m_PlanePrefab: {fileID: 4776765576899091622, guid: 3738bd65ede154463b2c35064b9e5fdb,
     type: 3}
   m_DetectionMode: 1
---- !u!114 &348371576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348371569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eb915eddfd7fd145ab4f5e99c8605cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  placementIndicator: {fileID: 507672721}
-  dialogueManager: {fileID: 1316460830}
-  helpPanel: {fileID: 88540193}
-  captureButton: {fileID: 674814882}
 --- !u!1 &378304414
 GameObject:
   m_ObjectHideFlags: 0
