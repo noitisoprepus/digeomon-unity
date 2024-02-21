@@ -1,30 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using UI;
 using Unity.Barracuda;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
 namespace Scanner
 {
     public class Classification : MonoBehaviour
     {
+        [SerializeField] private RenderTexture cameraRenderTexture;
+        [SerializeField] private ARCameraBackground m_ARCameraBackground;
+
         [Header("Classification Model")]
         [SerializeField] private NNModel modelFile;
         [SerializeField] private TextAsset classesTxt;
         [SerializeField] private Material preprocessMaterial;
 
-        [Header("UI")]
-        [SerializeField] private Button scanButton;
-        [SerializeField] private List<Image> scanFrameSprites;
-        [SerializeField] private Color normalColor;
-        [SerializeField] private Color disabledColor;
-        [SerializeField] private TextMeshProUGUI detectedObjText;
-        [SerializeField] private RenderTexture cameraRenderTexture;
-        [SerializeField] private ARCameraBackground m_ARCameraBackground;
-
         private Capture capture;
+        private ScannerUI scannerUI;
+
         private IWorker worker;
         private Model model;
         private Dictionary<string, Tensor> inputs = new Dictionary<string, Tensor>();
@@ -35,6 +30,17 @@ namespace Scanner
         private void Awake()
         {
             capture = GetComponent<Capture>();
+            scannerUI = GetComponent<ScannerUI>();
+        }
+
+        private void OnEnable()
+        {
+            ScannerUI.OnScanAction += ExecuteML;
+        }
+
+        private void OnDisable()
+        {
+            ScannerUI.OnScanAction -= ExecuteML;
         }
 
         private void Start()
@@ -106,22 +112,10 @@ namespace Scanner
             return result;
         }
 
-        public void OnCaptureButtonPressed()
-        {
-            scanButton.interactable = false;
-            scanButton.GetComponentInChildren<TextMeshProUGUI>().text = ". . .";
-            foreach (Image img in scanFrameSprites)
-                img.color = disabledColor;
-            ExecuteML();
-        }
-
         private IEnumerator ScanDelay()
         {
             yield return new WaitForSeconds(3f);
-            scanButton.interactable = true;
-            scanButton.GetComponentInChildren<TextMeshProUGUI>().text = "SCAN";
-            foreach (Image img in scanFrameSprites)
-                img.color = normalColor;
+            scannerUI.OnScanFinished();
         }
     }
 }

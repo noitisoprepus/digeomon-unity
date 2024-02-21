@@ -14,7 +14,7 @@ namespace Scanner
         [SerializeField] private DialogueManager dialogueManager;
 
         private DigeomonData currDigeomon;
-        private CaptureUI captureUI;
+        private ScannerUI scannerUI;
         private GameObject arObject;
         private GameObject spawnedObject;
         private Pose placementPose;
@@ -23,7 +23,7 @@ namespace Scanner
 
         private void Awake()
         {
-            captureUI = GetComponent<CaptureUI>();
+            scannerUI = GetComponent<ScannerUI>();
         }
 
         private void Start()
@@ -37,7 +37,7 @@ namespace Scanner
             currDigeomon = digeomon;
             arObject = currDigeomon.modelPrefab;
             isInitialized = true;
-            captureUI.ShowSummonHelp();
+            scannerUI.ShowSummonHelp();
         }
 
         private void Update()
@@ -86,7 +86,7 @@ namespace Scanner
             // Populate hologram screen
             dialogueManager.StartDialogue(currDigeomon.introDialogue);
             isInitialized = false;
-            captureUI.ShowCaptureButton();
+            scannerUI.ShowCaptureButton();
         }
     }
 }

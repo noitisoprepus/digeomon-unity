@@ -1,22 +1,29 @@
 using DG.Tweening;
 using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class CaptureUI : MonoBehaviour
+    public class ScannerUI : MonoBehaviour
     {
+        public delegate void ScanDelegate();
+        public static event ScanDelegate OnScanAction;
+
         public delegate void SummonDelegate();
         public static event SummonDelegate OnSummonAction;
-
-        public delegate void ScanFailDelegate();
-        public static event ScanFailDelegate OnScanFailAction;
 
         public static event Action<string> OnGoToSceneRequested;
 
         [Header("Scanner UI")]
         [SerializeField] private GameObject scannerPanel;
+        [SerializeField] private Button scanButton;
+        [SerializeField] private List<Image> scanFrameSprites;
+        [SerializeField] private Color normalColor;
+        [SerializeField] private Color disabledColor;
+        [SerializeField] private TextMeshProUGUI detectedObjText;
 
         [Header("Capture UI")]
         [SerializeField] private GameObject successPanel;
@@ -41,6 +48,23 @@ namespace UI
             failDialog.SetActive(false);
             helpPanel.SetActive(false);
             captureButton.SetActive(false);
+        }
+
+        public void OnScanButtonPressed()
+        {
+            scanButton.interactable = false;
+            scanButton.GetComponentInChildren<TextMeshProUGUI>().text = ". . .";
+            foreach (Image img in scanFrameSprites)
+                img.color = disabledColor;
+            OnScanAction?.Invoke();
+        }
+
+        public void OnScanFinished()
+        {
+            scanButton.interactable = true;
+            scanButton.GetComponentInChildren<TextMeshProUGUI>().text = "SCAN";
+            foreach (Image img in scanFrameSprites)
+                img.color = normalColor;
         }
 
         public void ShowCaptureDialog(DigeomonData digeomon)

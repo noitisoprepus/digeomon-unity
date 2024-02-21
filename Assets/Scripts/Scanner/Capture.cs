@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.XR.CoreUtils;
 using Core;
 using UI;
 
@@ -12,7 +11,7 @@ namespace Scanner
 
         private GameManager gameManager;
         private JournalManager journalManager;
-        private CaptureUI captureUI;
+        private ScannerUI scannerUI;
 
         private List<DigeomonData> digeomons;
         private ARPlaceObject arPlaceObject;
@@ -24,7 +23,7 @@ namespace Scanner
 
             gameManager = GameManager.Instance;
             journalManager = gameManager.gameObject.GetComponent<JournalManager>();
-            captureUI = GetComponent<CaptureUI>();
+            scannerUI = GetComponent<ScannerUI>();
         }
 
         private void Start()
@@ -34,18 +33,16 @@ namespace Scanner
 
         private void OnEnable()
         {
-            digeomonCaptureData.OnDigeomonCapture.AddListener(journalManager.AddDigeomon);
-            
-            CaptureUI.OnSummonAction += SummonDigeomon;
-            CaptureUI.OnGoToSceneRequested += gameManager.GoToScene;
+            DigeomonCaptureData.OnDigeomonCapture += journalManager.AddDigeomon;
+            ScannerUI.OnSummonAction += SummonDigeomon;
+            ScannerUI.OnGoToSceneRequested += gameManager.GoToScene;
         }
 
         private void OnDisable()
         {
-            digeomonCaptureData.OnDigeomonCapture.RemoveListener(journalManager.AddDigeomon);
-
-            CaptureUI.OnSummonAction -= SummonDigeomon;
-            CaptureUI.OnGoToSceneRequested -= gameManager.GoToScene;
+            DigeomonCaptureData.OnDigeomonCapture -= journalManager.AddDigeomon;
+            ScannerUI.OnSummonAction -= SummonDigeomon;
+            ScannerUI.OnGoToSceneRequested -= gameManager.GoToScene;
         }
 
         public void SearchDigeomon(string label, double acc)
@@ -60,7 +57,7 @@ namespace Scanner
                 if (!digeomonCaptureData.captureData.ContainsKey(digeomon.name))
                 {
                     PersistentData.targetDigeomon = digeomon;
-                    captureUI.ShowCaptureDialog(digeomon);
+                    scannerUI.ShowCaptureDialog(digeomon);
                     return;
                 }
                 else
@@ -69,7 +66,7 @@ namespace Scanner
                 }
             }
 
-            captureUI.ShowFailDialog();
+            scannerUI.ShowFailDialog();
         }
 
         private void SummonDigeomon()

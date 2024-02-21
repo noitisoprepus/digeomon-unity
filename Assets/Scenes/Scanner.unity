@@ -155,21 +155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33962d66a32d95b44bb4f4126d5a5f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraRenderTexture: {fileID: 8400000, guid: d73f6f58784fd804b9cf67029d8c2a44, type: 2}
+  m_ARCameraBackground: {fileID: 778948418}
   modelFile: {fileID: 5022602860645237092, guid: 38d46cf52bb6a47ffa2039c7c86b2be6,
     type: 3}
   classesTxt: {fileID: 4900000, guid: 987dcb6c33fd1b040a4dab4d5e991aa0, type: 3}
   preprocessMaterial: {fileID: 2100000, guid: adf9bc017eac04893a7736db6e05a86d, type: 2}
-  scanButton: {fileID: 4466936100500265666}
-  scanFrameSprites:
-  - {fileID: 5643872107941196604}
-  - {fileID: 1674238090039413567}
-  - {fileID: 6444901568463320595}
-  - {fileID: 4939948764541972090}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  disabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-  detectedObjText: {fileID: 4837705506719134711}
-  cameraRenderTexture: {fileID: 8400000, guid: d73f6f58784fd804b9cf67029d8c2a44, type: 2}
-  m_ARCameraBackground: {fileID: 778948418}
 --- !u!4 &51421845
 Transform:
   m_ObjectHideFlags: 0
@@ -212,6 +203,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scannerPanel: {fileID: 2758460878643040060}
+  scanButton: {fileID: 4466936100500265666}
+  scanFrameSprites:
+  - {fileID: 5643872107941196604}
+  - {fileID: 1674238090039413567}
+  - {fileID: 6444901568463320595}
+  - {fileID: 4939948764541972090}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  detectedObjText: {fileID: 4837705506719134711}
   successPanel: {fileID: 1749948455}
   captureDialog: {fileID: 117179310929956480}
   failDialog: {fileID: 5190280629637315698}
@@ -2192,7 +2192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues: []
-  textSpeed: 0.05
+  textSpeed: 0.025
   startOnReady: 0
   onDialogueFinished:
     m_PersistentCalls:
@@ -3023,7 +3023,7 @@ PrefabInstance:
     - target: {fileID: 3584065837945045766, guid: bdcf20fa9a0ec8c4891aeb11194d08e1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7364293314832453431, guid: bdcf20fa9a0ec8c4891aeb11194d08e1,
         type: 3}
@@ -4228,9 +4228,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 51421844}
-        m_TargetAssemblyTypeName: Classification, Assembly-CSharp
-        m_MethodName: OnCaptureButtonPressed
+      - m_Target: {fileID: 51421847}
+        m_TargetAssemblyTypeName: UI.ScannerUI, UI
+        m_MethodName: OnScanButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
