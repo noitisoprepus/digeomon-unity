@@ -1,4 +1,5 @@
 using Firebase.Auth;
+using Firebase.Database;
 using System.Collections;
 using UI;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace Core
         public static event LoginSuccessDelegate OnLoginSuccessAction;
 
         private FirebaseAuth auth;
+        private DatabaseReference databaseReference;
         private MainMenuManager mainMenuManager;
 
         private void OnEnable()
@@ -28,6 +30,7 @@ namespace Core
         private void Start()
         {
             auth = FirebaseAuth.DefaultInstance;
+            databaseReference = FirebaseDatabase.GetInstance(GameManager.Instance.databaseUri).GetReference("users");
             mainMenuManager = GetComponent<MainMenuManager>();
         }
 
@@ -63,6 +66,9 @@ namespace Core
         private IEnumerator CreateUserProfile(string username)
         {
             FirebaseUser user = auth.CurrentUser;
+
+            databaseReference.Child(user.UserId).Child("username").SetValueAsync(username);
+
             UserProfile profile = new UserProfile
             {
                 DisplayName = username,
