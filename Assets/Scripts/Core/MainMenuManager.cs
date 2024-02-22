@@ -34,12 +34,19 @@ namespace Core
         {
             AccountManager.OnLoginSuccessAction += journalManager.InitializeCaptureData;
             JournalManager.OnFetchSuccessAction += journalUI.PopulateJournal;
+            JournalManager.OnCaptureSuccessAction += journalUI.PopulateJournal;
         }
 
         private void OnDisable()
         {
             AccountManager.OnLoginSuccessAction -= journalManager.InitializeCaptureData;
             JournalManager.OnFetchSuccessAction -= journalUI.PopulateJournal;
+            JournalManager.OnCaptureSuccessAction -= journalUI.PopulateJournal;
+        }
+
+        private void Start()
+        {
+            journalUI.PopulateJournal();
         }
 
         public void MainMenuHome()

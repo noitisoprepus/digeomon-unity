@@ -11,24 +11,36 @@ namespace UI
         [Header("GUI")]
         [SerializeField] private GameObject journalContent;
         [SerializeField] private GameObject entryBox;
-        
+
+        private void OnEnable()
+        {
+            UpdateJournal();
+        }
+
         public void PopulateJournal()
         {
-            foreach (KeyValuePair<string, DigeomonData> digeomon in digeomonCaptureData.digeomonData)
+            if (journalContent.transform.childCount == 0)
             {
-                GameObject entry = Instantiate(entryBox, journalContent.transform);
-                JournalEntryButton entryButton = entry.GetComponent<JournalEntryButton>();
-                DigeomonData data = digeomon.Value;
-                entryButton.InitializeJournalEntry(data, digeomonCaptureData.captureData[data.name]);
+                foreach (KeyValuePair<string, DigeomonData> digeomon in digeomonCaptureData.digeomonData)
+                {
+                    GameObject entry = Instantiate(entryBox, journalContent.transform);
+                    JournalEntryButton entryButton = entry.GetComponent<JournalEntryButton>();
+                    DigeomonData data = digeomon.Value;
+                    entryButton.InitializeJournalEntry(data, digeomonCaptureData.captureData[data.name]);
+                }
+            }
+            else
+            {
+                UpdateJournal();
             }
         }
 
-        //public void UpdateJournal()
-        //{
-        //    foreach (Transform entry in transform)
-        //    {
-        //        entry.GetComponent<JournalEntryButton>().UpdateJournalEntry();
-        //    }
-        //}
+        private void UpdateJournal()
+        {
+            foreach (Transform entry in journalContent.transform)
+            {
+                entry.GetComponent<JournalEntryButton>().UpdateJournalEntry(digeomonCaptureData.captureData);
+            }
+        }
     }
 }
