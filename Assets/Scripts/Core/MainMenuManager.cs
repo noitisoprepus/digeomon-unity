@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Firebase.Auth;
 using UI;
 using UnityEngine;
@@ -8,7 +9,14 @@ namespace Core
     {
         [SerializeField] private GameObject mainMenuGroup;
         [SerializeField] private GameObject accountMenuGroup;
-        [SerializeField] private GameObject journalGroup;
+
+        [Header("Mobile Phone GUI")]
+        [SerializeField] private RectTransform mobilePhone;
+
+        [Header("Mobile Phone Views")]
+        [SerializeField] private GameObject journalView;
+        [SerializeField] private GameObject leaderboardsView;
+        [SerializeField] private GameObject settingsView;
 
         private GameManager gameManager;
         private JournalManager journalManager;
@@ -46,12 +54,13 @@ namespace Core
 
         private void Start()
         {
+            ResetMobilePhone();
             journalUI.PopulateJournal();
         }
 
         public void MainMenuHome()
         {
-            journalGroup.SetActive(false);
+            ResetMobilePhone();
             accountMenuGroup.SetActive(false);
             mainMenuGroup.SetActive(true);
         }
@@ -63,8 +72,23 @@ namespace Core
 
         public void OnJournalButtonPressed()
         {
-            mainMenuGroup.SetActive(false);
-            journalGroup.SetActive(true);
+            ResetMobilePhone();
+            journalView.SetActive(true);
+            ShowMobilePhone();
+        }
+
+        public void OnLeaderboardsButtonPressed()
+        {
+            ResetMobilePhone();
+            leaderboardsView.SetActive(true);
+            ShowMobilePhone();
+        }
+
+        public void OnSettingsButtonPressed()
+        {
+            ResetMobilePhone();
+            settingsView.SetActive(true);
+            ShowMobilePhone();
         }
 
         public void OnLogoutButtonPressed()
@@ -77,6 +101,25 @@ namespace Core
         {
             mainMenuGroup.SetActive(false);
             accountMenuGroup.SetActive(true);
+        }
+
+        private void ShowMobilePhone()
+        {
+            mobilePhone.DOAnchorPosY(960f, 1f).SetEase(Ease.OutQuad);
+        }
+
+        public void HideMobilePhones()
+        {
+            mobilePhone.DOAnchorPosY(-960f, 0.6f).SetEase(Ease.InQuad);
+        }
+
+        private void ResetMobilePhone()
+        {
+            journalView.SetActive(false);
+            leaderboardsView.SetActive(false);
+            settingsView.SetActive(false);
+
+            mobilePhone.anchoredPosition = new Vector3(0, -960f, 0f);
         }
     }
 }
