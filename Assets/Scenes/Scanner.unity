@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 51421847}
   - component: {fileID: 51421848}
   - component: {fileID: 51421849}
+  - component: {fileID: 51421850}
   m_Layer: 0
   m_Name: Scanner Manager
   m_TagString: Untagged
@@ -251,6 +252,21 @@ MonoBehaviour:
   journalContent: {fileID: 739641965}
   entryBox: {fileID: 9125329814322496563, guid: 5b376e942949d2344864737c4074f71c,
     type: 3}
+--- !u!114 &51421850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51421842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a73f50dc49ec6d4fb50d9e0c9467f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: ftue_scanner
+  dialogueManager: {fileID: 1316460830}
+  ftueDialogue: {fileID: 11400000, guid: bd401033b8188ef4c9f8c2fad004fdc9, type: 2}
 --- !u!1 &88540193
 GameObject:
   m_ObjectHideFlags: 0
@@ -3580,52 +3596,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1595325169}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1707309097
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1707309099}
-  - component: {fileID: 1707309098}
-  m_Layer: 0
-  m_Name: FTUE Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1707309098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707309097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a73f50dc49ec6d4fb50d9e0c9467f3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 1316460830}
-  ftueDialogue: {fileID: 11400000, guid: 2d067313c835fe44c929aee9c9eae8d9, type: 2}
---- !u!4 &1707309099
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707309097}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1707728646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5822,7 +5792,6 @@ SceneRoots:
   - {fileID: 348371572}
   - {fileID: 656880748}
   - {fileID: 51421845}
-  - {fileID: 1707309099}
   - {fileID: 1316460831}
   - {fileID: 2023325187}
   - {fileID: 378304417}

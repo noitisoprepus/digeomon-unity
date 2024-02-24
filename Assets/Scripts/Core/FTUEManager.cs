@@ -4,13 +4,16 @@ namespace Core
 {
     public class FTUEManager : MonoBehaviour
     {
+        [SerializeField] private string key;
         [SerializeField] private DialogueManager dialogueManager;
         [SerializeField] private DialogueData ftueDialogue;
 
-        private void Start()
+        private void OnEnable()
         {
-            // Check if FTUE is true
+            if (PlayerPrefs.HasKey(key)) return;
+
             dialogueManager.StartDialogue(ftueDialogue);
+            PlayerPrefs.SetInt(key, 1);
         }
     }
 }

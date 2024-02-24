@@ -1860,7 +1860,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 64}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &347317342
 GameObject:
@@ -2630,13 +2630,14 @@ GameObject:
   - component: {fileID: 601762574}
   - component: {fileID: 601762573}
   - component: {fileID: 601762572}
+  - component: {fileID: 601762575}
   m_Layer: 5
   m_Name: JournalView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &601762571
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2726,6 +2727,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601762570}
   m_CullTransparentMesh: 1
+--- !u!114 &601762575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601762570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a73f50dc49ec6d4fb50d9e0c9467f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: ftue_journal
+  dialogueManager: {fileID: 1157589989}
+  ftueDialogue: {fileID: 11400000, guid: f12a97ac613bdb043af1930d3ba8afdf, type: 2}
 --- !u!1 &617761313
 GameObject:
   m_ObjectHideFlags: 0
@@ -2967,7 +2983,7 @@ RectTransform:
   m_Father: {fileID: 347317343}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3331,13 +3347,14 @@ GameObject:
   - component: {fileID: 855856348}
   - component: {fileID: 855856347}
   - component: {fileID: 855856346}
+  - component: {fileID: 855856349}
   m_Layer: 5
   m_Name: LeaderboardsView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &855856345
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3427,6 +3444,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855856344}
   m_CullTransparentMesh: 1
+--- !u!114 &855856349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855856344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a73f50dc49ec6d4fb50d9e0c9467f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: ftue_leaderboards
+  dialogueManager: {fileID: 1157589989}
+  ftueDialogue: {fileID: 11400000, guid: b5f0bbbf348572d4c828f5229a7bf8b7, type: 2}
 --- !u!1 &947018202
 GameObject:
   m_ObjectHideFlags: 0
@@ -4481,6 +4513,7 @@ GameObject:
   - component: {fileID: 1157589988}
   - component: {fileID: 1157589987}
   - component: {fileID: 1157589989}
+  - component: {fileID: 1157589990}
   m_Layer: 0
   m_Name: Main Menu Manager
   m_TagString: Untagged
@@ -4608,10 +4641,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12cc17c9909b5334cbd0da64e72381f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogues:
-  - {fileID: 11400000, guid: 3b944f8d752a2ae4e93d9635c5e70a70, type: 2}
+  dialogues: []
   textSpeed: 0.025
-  startOnReady: 1
+  startOnReady: 0
   onDialogueFinished:
     m_PersistentCalls:
       m_Calls: []
@@ -4620,6 +4652,21 @@ MonoBehaviour:
   dialogueArrowRT: {fileID: 1965647195}
   charNameText: {fileID: 1865665764}
   dialogueText: {fileID: 1583085602}
+--- !u!114 &1157589990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157589979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a73f50dc49ec6d4fb50d9e0c9467f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: ftue_main_menu
+  dialogueManager: {fileID: 1157589989}
+  ftueDialogue: {fileID: 11400000, guid: e52c0e013243a7144b363020e437f879, type: 2}
 --- !u!1 &1172788745
 GameObject:
   m_ObjectHideFlags: 0
@@ -5053,7 +5100,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 64}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1248491000
 MonoBehaviour:
@@ -5717,7 +5764,7 @@ RectTransform:
   m_Father: {fileID: 21521384}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
