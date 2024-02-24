@@ -1657,6 +1657,7 @@ GameObject:
   - component: {fileID: 674814886}
   - component: {fileID: 674814885}
   - component: {fileID: 674814884}
+  - component: {fileID: 674814887}
   m_Layer: 5
   m_Name: CaptureButton
   m_TagString: Untagged
@@ -1778,6 +1779,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674814882}
   m_CullTransparentMesh: 1
+--- !u!114 &674814887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674814882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a73f50dc49ec6d4fb50d9e0c9467f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: ftue_capture
+  dialogueManager: {fileID: 1316460830}
+  ftueDialogue: {fileID: 11400000, guid: ac16042cd915b8e42afbfb2d985cbb6b, type: 2}
 --- !u!1 &739641965
 GameObject:
   m_ObjectHideFlags: 0
