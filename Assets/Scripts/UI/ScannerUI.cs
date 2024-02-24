@@ -86,8 +86,8 @@ namespace UI
         {
             failDialogRT.anchoredPosition = new Vector2(300f, failDialogRT.anchoredPosition.y);
             failDialog.SetActive(true);
-            failDialogRT.DOAnchorPosX(-300f, 1.25f).SetEase(Ease.OutQuad);
-            failDialogRT.DOAnchorPosX(300f, 0.75f).SetEase(Ease.InQuad).SetDelay(3f);
+            failDialogRT.DOAnchorPosX(-280f, 1.25f).SetEase(Ease.OutQuad);
+            failDialogRT.DOAnchorPosX(280f, 0.75f).SetEase(Ease.InQuad).SetDelay(3f);
         }
 
         public void OnSummonButtonPressed()
@@ -117,6 +117,11 @@ namespace UI
         {
             captureButton.SetActive(true);
             helpPanel.SetActive(false);
+        }
+
+        public void OnCloseScannerPressed()
+        {
+            OnGoToSceneRequested?.Invoke("Main Menu");
         }
     }
 }
