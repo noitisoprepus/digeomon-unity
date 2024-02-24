@@ -14,28 +14,14 @@ namespace Core
 
         [SerializeField] DigeomonCaptureData digeomonCaptureData;
 
-        private GameManager gameManager;
         private DatabaseReference databaseReference;
-
-        private void Start()
-        {
-            gameManager = GameManager.Instance;
-
-            InitializeCaptureData();
-        }
 
         public void InitializeCaptureData()
         {
-            if (gameManager.userID == null)
-                return;
+            databaseReference = FirebaseDatabase.GetInstance(GameManager.Instance.databaseUri)
+                .GetReference("users").Child(PlayerPrefs.GetString("userID")).Child("captureData");
 
-            if (databaseReference == null)
-            {
-                databaseReference = FirebaseDatabase.GetInstance(gameManager.databaseUri)
-                    .GetReference("users").Child(gameManager.userID).Child("captureData");
-
-                GetCaughtDigeomonData();
-            }
+            GetCaughtDigeomonData();
         }
 
         public void AddDigeomon(string digeomonName)

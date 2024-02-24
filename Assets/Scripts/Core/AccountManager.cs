@@ -102,6 +102,7 @@ namespace Core
                 Debug.LogFormat("User signed in successfully: {0} ({1})",
                     result.User.DisplayName, result.User.UserId);
 
+                PlayerPrefs.SetString("userID", result.User.UserId);
                 OnLoginSuccessAction?.Invoke();
                 mainMenuManager.MainMenuHome();
             }

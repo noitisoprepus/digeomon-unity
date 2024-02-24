@@ -37,7 +37,10 @@ namespace Core
             if (auth.CurrentUser == null)
                 ShowAccountMenu();
             else
-                gameManager.userID = auth.CurrentUser.UserId;
+            {
+                PlayerPrefs.SetString("userID", auth.CurrentUser.UserId);
+                journalManager.InitializeCaptureData();
+            }
         }
 
         private void OnEnable()
@@ -59,7 +62,6 @@ namespace Core
         private void Start()
         {
             ResetMobilePhone();
-            journalUI.PopulateJournal();
         }
 
         public void MainMenuHome()
