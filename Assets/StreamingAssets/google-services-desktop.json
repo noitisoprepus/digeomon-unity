@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "777976280214",
+    "project_id": "digeomon",
+    "storage_bucket": "digeomon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777976280214:android:b258e120c664440497feb7",
+        "android_client_info": {
+          "package_name": "com.digeomon.digeomon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHIZrF2jC2iDTU-L2mNYuVtWFgd7DgkHA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -18,7 +18,6 @@ namespace Core
         [SerializeField] private GameObject leaderboardsView;
         [SerializeField] private GameObject settingsView;
 
-        private GameManager gameManager;
         private JournalManager journalManager;
         private FirebaseAuth auth;
         
@@ -27,8 +26,7 @@ namespace Core
 
         private void Awake()
         {
-            gameManager = GameManager.Instance;
-            journalManager = gameManager.gameObject.GetComponent<JournalManager>();
+            journalManager = GameManager.Instance.gameObject.GetComponent<JournalManager>();
             auth = FirebaseAuth.DefaultInstance;
 
             journalUI = GetComponent<JournalUI>();
@@ -43,6 +41,8 @@ namespace Core
                 journalManager.InitializeCaptureData();
                 MainMenuHome();
             }
+
+            ResetMobilePhone();
         }
 
         private void OnEnable()
@@ -61,11 +61,6 @@ namespace Core
             LeaderboardsManager.OnFetchSuccessAction -= leaderboardsUI.PopulateLeaderboards;
         }
 
-        private void Start()
-        {
-            ResetMobilePhone();
-        }
-
         public void MainMenuHome()
         {
             ResetMobilePhone();
@@ -75,7 +70,7 @@ namespace Core
 
         public void OnPlayButtonPressed()
         {
-            gameManager.GoToScene("Scanner");
+            GameManager.Instance.GoToScene("Scanner");
         }
 
         public void OnJournalButtonPressed()
