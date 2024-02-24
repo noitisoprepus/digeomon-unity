@@ -118,5 +118,10 @@ namespace UI
             captureButton.SetActive(true);
             helpPanel.SetActive(false);
         }
+
+        public void OnCloseScannerPressed()
+        {
+            OnGoToSceneRequested?.Invoke("Main Menu");
+        }
     }
 }
