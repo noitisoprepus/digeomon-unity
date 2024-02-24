@@ -23,6 +23,7 @@ namespace Core
         private FirebaseAuth auth;
         
         private JournalUI journalUI;
+        private LeaderboardsUI leaderboardsUI;
 
         private void Awake()
         {
@@ -31,6 +32,7 @@ namespace Core
             auth = FirebaseAuth.DefaultInstance;
 
             journalUI = GetComponent<JournalUI>();
+            leaderboardsUI = GetComponent<LeaderboardsUI>();
 
             if (auth.CurrentUser == null)
                 ShowAccountMenu();
@@ -43,6 +45,7 @@ namespace Core
             AccountManager.OnLoginSuccessAction += journalManager.InitializeCaptureData;
             JournalManager.OnFetchSuccessAction += journalUI.PopulateJournal;
             JournalManager.OnCaptureSuccessAction += journalUI.PopulateJournal;
+            LeaderboardsManager.OnFetchSuccessAction += leaderboardsUI.PopulateLeaderboards;
         }
 
         private void OnDisable()
@@ -50,6 +53,7 @@ namespace Core
             AccountManager.OnLoginSuccessAction -= journalManager.InitializeCaptureData;
             JournalManager.OnFetchSuccessAction -= journalUI.PopulateJournal;
             JournalManager.OnCaptureSuccessAction -= journalUI.PopulateJournal;
+            LeaderboardsManager.OnFetchSuccessAction -= leaderboardsUI.PopulateLeaderboards;
         }
 
         private void Start()
