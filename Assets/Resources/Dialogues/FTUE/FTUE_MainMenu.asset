@@ -17,3 +17,10 @@ MonoBehaviour:
   dialogues:
   - Welcome to the world of <b>DiGeoMon</b>! I'm <b>Professor Euclid</b>, your guide
     on this exciting journey.
+  - DiGeoMon or Digital Geometric Monsters come to life through the magic of camera
+    scanning.
+  - As a new DiGeoMon Trainer, your journey begins with the ability to bring these
+    monsters into life by scanning everyday objects.
+  - But first, tell me about yourself. What grade level are you in?
+  - <<GradeLevel>>
+  - "Great! Let\u2019s get you started."

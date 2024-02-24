@@ -1365,9 +1365,9 @@ RectTransform:
   - {fileID: 2011075016}
   m_Father: {fileID: 1277704196}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 540, y: -72}
   m_SizeDelta: {x: 640, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &284260495
@@ -2775,9 +2775,9 @@ RectTransform:
   - {fileID: 947018203}
   m_Father: {fileID: 1277704196}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 540, y: -504}
   m_SizeDelta: {x: 640, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &617761315
@@ -4513,7 +4513,6 @@ GameObject:
   - component: {fileID: 1157589988}
   - component: {fileID: 1157589987}
   - component: {fileID: 1157589989}
-  - component: {fileID: 1157589990}
   m_Layer: 0
   m_Name: Main Menu Manager
   m_TagString: Untagged
@@ -4652,21 +4651,6 @@ MonoBehaviour:
   dialogueArrowRT: {fileID: 1965647195}
   charNameText: {fileID: 1865665764}
   dialogueText: {fileID: 1583085602}
---- !u!114 &1157589990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157589979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a73f50dc49ec6d4fb50d9e0c9467f3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: ftue_main_menu
-  dialogueManager: {fileID: 1157589989}
-  ftueDialogue: {fileID: 11400000, guid: e52c0e013243a7144b363020e437f879, type: 2}
 --- !u!1 &1172788745
 GameObject:
   m_ObjectHideFlags: 0
@@ -5297,13 +5281,14 @@ GameObject:
   - component: {fileID: 1277704196}
   - component: {fileID: 1277704197}
   - component: {fileID: 1277704198}
+  - component: {fileID: 1277704199}
   m_Layer: 5
   m_Name: Main Menu Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1277704196
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5325,7 +5310,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 500}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 576}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1277704197
 MonoBehaviour:
@@ -5367,6 +5352,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &1277704199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277704195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a73f50dc49ec6d4fb50d9e0c9467f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: ftue_main_menu
+  dialogueManager: {fileID: 1157589989}
+  ftueDialogue: {fileID: 11400000, guid: e52c0e013243a7144b363020e437f879, type: 2}
 --- !u!1 &1314985119
 GameObject:
   m_ObjectHideFlags: 0
@@ -6091,9 +6091,9 @@ RectTransform:
   - {fileID: 1917558308}
   m_Father: {fileID: 1277704196}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 540, y: -360}
   m_SizeDelta: {x: 640, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1490920763
@@ -7674,9 +7674,9 @@ RectTransform:
   - {fileID: 1093984159}
   m_Father: {fileID: 1277704196}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 540, y: -216}
   m_SizeDelta: {x: 640, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1872816927
@@ -9018,7 +9018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2116515535
 RectTransform:
   m_ObjectHideFlags: 0

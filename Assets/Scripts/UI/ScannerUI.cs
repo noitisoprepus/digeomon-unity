@@ -70,7 +70,7 @@ namespace UI
 
         public void ShowScanResults(string label, float accuracy)
         {
-            detectedObjText.text = $"{label}\n{Mathf.Round(accuracy * 100)}%";
+            detectedObjText.text = $"{label}\nAccuracy:{Mathf.Round(accuracy * 100)}%";
             detectedObjText.gameObject.SetActive(true);
         }
 

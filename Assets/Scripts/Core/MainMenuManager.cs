@@ -38,8 +38,10 @@ namespace Core
                 ShowAccountMenu();
             else
             {
-                PlayerPrefs.SetString("userID", auth.CurrentUser.UserId);
+                if (!PlayerPrefs.HasKey("userID"))
+                    PlayerPrefs.SetString("userID", auth.CurrentUser.UserId);
                 journalManager.InitializeCaptureData();
+                MainMenuHome();
             }
         }
 
@@ -99,6 +101,7 @@ namespace Core
 
         public void OnLogoutButtonPressed()
         {
+            PlayerPrefs.DeleteAll();
             auth.SignOut();
             ShowAccountMenu();
         }
