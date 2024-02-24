@@ -109,12 +109,12 @@ namespace Core
 
         private void ShowMobilePhone()
         {
-            mobilePhone.DOAnchorPosY(960f, 1f).SetEase(Ease.OutQuad);
+            mobilePhone.DOAnchorPosY(0f, 1f).SetEase(Ease.OutQuad);
         }
 
         public void HideMobilePhones()
         {
-            mobilePhone.DOAnchorPosY(-960f, 0.6f).SetEase(Ease.InQuad);
+            mobilePhone.DOAnchorPosY(-3000f, 0.8f).SetEase(Ease.InQuad);
         }
 
         private void ResetMobilePhone()
@@ -123,7 +123,7 @@ namespace Core
             leaderboardsView.SetActive(false);
             settingsView.SetActive(false);
 
-            mobilePhone.anchoredPosition = new Vector3(0, -960f, 0f);
+            mobilePhone.anchoredPosition = new Vector3(0, -3000f, 0f);
         }
     }
 }

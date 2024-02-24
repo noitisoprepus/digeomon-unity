@@ -10,7 +10,7 @@ namespace Core
 
         private void OnEnable()
         {
-            Debug.Log("FTUE: " + key);
+            //Debug.Log("FTUE: " + key);
             if (PlayerPrefs.HasKey(key)) return;
 
             dialogueManager.StartDialogue(ftueDialogue);
