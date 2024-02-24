@@ -1069,6 +1069,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   dialoguePanel: {fileID: 1938717546}
+  dialogueCharImage: {fileID: 1596892822}
   dialogueCharImageRT: {fileID: 1938717545}
   dialogueArrowRT: {fileID: 1938717542}
   charNameText: {fileID: 1938717543}
@@ -1254,6 +1255,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -10, y: 0, z: 0}
+--- !u!114 &1596892822 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7036369227419022534, guid: bdcf20fa9a0ec8c4891aeb11194d08e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1938717540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1630869375
 GameObject:
   m_ObjectHideFlags: 0

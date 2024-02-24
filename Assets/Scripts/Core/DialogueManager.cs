@@ -19,12 +19,12 @@ namespace Core
 
         [Header("Dialogue GUI")]
         [SerializeField] private GameObject dialoguePanel;
+        [SerializeField] private Image dialogueCharImage;
         [SerializeField] private RectTransform dialogueCharImageRT;
         [SerializeField] private RectTransform dialogueArrowRT;
         [SerializeField] private TextMeshProUGUI charNameText;
         [SerializeField] private TextMeshProUGUI dialogueText;
 
-        private Image dialogueCharImage;
         private Sequence arrowSequence;
         private Coroutine dialogueCoroutine;
         private DialogueData currDialogue;
@@ -36,7 +36,6 @@ namespace Core
 
         private void Awake()
         {
-            dialogueCharImage = dialogueCharImageRT.gameObject.GetComponent<Image>();
             dialoguePanel.GetComponentInChildren<DialogueInput>().onClick.AddListener(OnDialogueBoxTapped);
         }
 
