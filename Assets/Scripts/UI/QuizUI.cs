@@ -30,9 +30,9 @@ namespace UI
         [SerializeField] private TextMeshProUGUI questionText;
 
         [Header("Review GUI")]
-        [SerializeField] private GameObject scoreBox;
-        [SerializeField] private Button reviewButton;
-        [SerializeField] private Button nextReviewButton;
+        [SerializeField] private RectTransform scoreBoxRect;
+        [SerializeField] private GameObject reviewButton;
+        [SerializeField] private GameObject nextReviewButton;
         [SerializeField] private TextMeshProUGUI scoreText;
         [SerializeField] private Color normalCol;
         [SerializeField] private Color correctCol;
@@ -59,7 +59,7 @@ namespace UI
 
         private void Start()
         {
-            scoreBox.SetActive(false);
+            scoreBoxRect.anchoredPosition = new Vector2(0f, 256f);
         }
 
         public void ShowQuestion(QuestionData q)
@@ -80,17 +80,13 @@ namespace UI
 
         public void ShowScoreDialog(int score)
         {
-            RectTransform scoreBoxRect = scoreBox.GetComponent<RectTransform>();
-            scoreBoxRect.anchoredPosition = new Vector2(0f, 250f);
-
             questionBox.SetActive(false);
             choicesBox.SetActive(false);
-            reviewButton.gameObject.SetActive(true);
-            nextReviewButton.gameObject.SetActive(false);
+            reviewButton.SetActive(true);
+            nextReviewButton.SetActive(false);
 
             scoreText.text = "SCORE: " + score;
-            scoreBox.SetActive(true);
-            scoreBoxRect.DOAnchorPosY(-250f, 1f).SetEase(Ease.OutQuad);
+            scoreBoxRect.DOAnchorPosY(-224f, 0.6f).SetEase(Ease.OutQuad);
         }
 
         public void OnRecapButtonPressed()
@@ -98,8 +94,8 @@ namespace UI
             OnStartRecapAction?.Invoke();
             questionBox.SetActive(true);
             choicesBox.SetActive(true);
-            reviewButton.gameObject.SetActive(false);
-            nextReviewButton.gameObject.SetActive(true);
+            reviewButton.SetActive(false);
+            nextReviewButton.SetActive(true);
         }
 
         public void ShowRecapQuestion(QuestionData q, int userAnswer)
