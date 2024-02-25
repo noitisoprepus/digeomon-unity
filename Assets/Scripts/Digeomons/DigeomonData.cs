@@ -16,4 +16,7 @@ public class DigeomonData : ScriptableObject
     [Header("Capturing Info")]
     public DialogueData introDialogue;
     public QuizData quiz;
+
+    [Header("Evolution Info")]
+    public DigeomonData evolution;
 }
