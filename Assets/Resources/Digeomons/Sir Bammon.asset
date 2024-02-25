@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b445772f754eda54f878c1ab6f03bbae, type: 3}
+  m_Name: Sir Bammon
+  m_EditorClassIdentifier: 
+  charName: Sir Bammon
+  description: Round and rolls, used for playing games or bouncing.
+  keys:
+  - ball
+  modelPrefab: {fileID: 6861391827474254873, guid: db1b57d4c6db6dc4e897cfa7e6bd56d4,
+    type: 3}
+  modelSprite: {fileID: 21300000, guid: ad211c140073bb54cb2cc3ca5172d709, type: 3}
+  type: {fileID: 11400000, guid: d57c460a49ad0d343bbf0cf39c002412, type: 2}
+  introDialogue: {fileID: 11400000, guid: 590f920bce9dd1548b947e2fa38ffd9a, type: 2}
+  quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
+  evolution: {fileID: 0}
