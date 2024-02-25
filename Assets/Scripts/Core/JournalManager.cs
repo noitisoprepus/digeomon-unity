@@ -79,6 +79,12 @@ namespace Core
 
         public void EvolveDigeomon(DigeomonData digeomonData)
         {
+            if (digeomonCaptureData.captureData[digeomonData.name])
+            {
+                // Tell user that Digeomon evolution has been captured already
+                return;
+            }
+
             PersistentData.targetDigeomon = digeomonData;
             PersistentData.toSummon = false;
             GameManager.Instance.GoToScene("Sandbox");

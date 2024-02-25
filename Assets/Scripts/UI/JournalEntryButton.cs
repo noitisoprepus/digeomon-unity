@@ -59,9 +59,7 @@ namespace UI
 
         public void OnEvolveButtonPressed()
         {
-            // Target digeomon = digeomon.evolution
-            // Go to sandbox
-            OnEvolveDigeomonAction?.Invoke(digeomon);
+            OnEvolveDigeomonAction?.Invoke(digeomon.evolution);
         }
 
         public void OnShowInfoButtonPressed()
