@@ -31,13 +31,14 @@ namespace Scanner
             placementIndicator.SetActive(false);
         }
 
-        public void InitializeARObject(DigeomonData digeomon)
+        private void OnEnable()
         {
-            spawnedObject = null;
-            currDigeomon = digeomon;
-            arObject = currDigeomon.modelPrefab;
-            isInitialized = true;
-            scannerUI.ShowSummonHelp();
+            JournalManager.OnSummonAction += DirectSetupARObject;
+        }
+
+        private void OnDisable()
+        {
+            JournalManager.OnSummonAction -= DirectSetupARObject;
         }
 
         private void Update()
@@ -52,6 +53,20 @@ namespace Scanner
                 UpdatePlacePose();
                 UpdatePlacementIndicator();
             }
+        }
+
+        public void InitializeARObject(DigeomonData digeomon)
+        {
+            spawnedObject = null;
+            currDigeomon = digeomon;
+            arObject = currDigeomon.modelPrefab;
+            isInitialized = true;
+            scannerUI.ShowSummonHelp();
+        }
+
+        private void DirectSetupARObject()
+        {
+            InitializeARObject(PersistentData.targetDigeomon);
         }
 
         private void UpdatePlacementIndicator()
@@ -82,11 +97,20 @@ namespace Scanner
 
         private void PlaceObject()
         {
-            spawnedObject = Instantiate(arObject, placementPose.position, placementPose.rotation);
-            // Populate hologram screen
-            dialogueManager.StartDialogue(currDigeomon.introDialogue);
             isInitialized = false;
+            spawnedObject = Instantiate(arObject, placementPose.position, placementPose.rotation);
+            
+            // TODO: Populate hologram screen
+
+            if (PersistentData.toSummon)
+            {
+                PersistentData.toSummon = false;
+                scannerUI.ShowScanner();
+                return;
+            }
+
             scannerUI.ShowCaptureButton();
+            dialogueManager.StartDialogue(currDigeomon.introDialogue);
         }
     }
 }

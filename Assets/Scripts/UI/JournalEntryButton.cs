@@ -7,14 +7,24 @@ namespace UI
 {
     public class JournalEntryButton : MonoBehaviour
     {
+        public delegate void SummonDigeomon(DigeomonData digeomon);
+        public static event SummonDigeomon OnSummonDigeomonAction;
+
+        public delegate void EvolveDigeomon(DigeomonData digeomon);
+        public static event EvolveDigeomon OnEvolveDigeomonAction;
+
         public delegate void ShowInfo(DigeomonType infoType);
         public static event ShowInfo OnShowInfoAction;
 
         [SerializeField] private Image previewImage;
         [SerializeField] private GameObject checkmarkObj;
-        [SerializeField] private GameObject evolveButton;
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI descriptionText;
+
+        [Header("Bottom Bar Buttons")]
+        [SerializeField] private Button summonButton;
+        [SerializeField] private Button evolveButton;
+        [SerializeField] private Button infoButton;
 
         private DigeomonData digeomon;
 
@@ -31,6 +41,10 @@ namespace UI
             previewImage.color = isCaught ? Color.white : Color.black;
             checkmarkObj.SetActive(!isCaught);
             nameText.text = (isCaught) ? digeomon.name : "???";
+
+            summonButton.interactable = isCaught;
+            evolveButton.interactable = isCaught;
+            infoButton.interactable = isCaught;
         }
 
         public void UpdateJournalEntry(Dictionary<string, bool> captureData)
@@ -40,14 +54,14 @@ namespace UI
 
         public void OnSummonButtonPressed()
         {
-            // If current scene is MainMenu, Go to scanner
-            // Else, proceed to summoning directly
+            OnSummonDigeomonAction?.Invoke(digeomon);
         }
 
         public void OnEvolveButtonPressed()
         {
             // Target digeomon = digeomon.evolution
             // Go to sandbox
+            OnEvolveDigeomonAction?.Invoke(digeomon);
         }
 
         public void OnShowInfoButtonPressed()

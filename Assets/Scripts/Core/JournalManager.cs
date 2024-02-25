@@ -1,11 +1,15 @@
 using Firebase.Database;
 using Firebase.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Core
 {
     public class JournalManager : MonoBehaviour
     {
+        public delegate void SummonDelegate();
+        public static event SummonDelegate OnSummonAction;
+
         public delegate void FetchSuccessDelegate();
         public static event FetchSuccessDelegate OnFetchSuccessAction;
 
@@ -60,6 +64,24 @@ namespace Core
                     OnFetchSuccessAction?.Invoke();
                 }
             });
+        }
+
+        public void SummonDigeomon(DigeomonData digeomonData)
+        {
+            PersistentData.targetDigeomon = digeomonData;
+            PersistentData.toSummon = true;
+
+            if (SceneManager.GetActiveScene().name == "Main Menu")
+                GameManager.Instance.GoToScene("Scanner");
+            else
+                OnSummonAction?.Invoke();
+        }
+
+        public void EvolveDigeomon(DigeomonData digeomonData)
+        {
+            PersistentData.targetDigeomon = digeomonData;
+            PersistentData.toSummon = false;
+            GameManager.Instance.GoToScene("Sandbox");
         }
     }
 }

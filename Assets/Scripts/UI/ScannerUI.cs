@@ -40,10 +40,7 @@ namespace UI
         private void Awake()
         {
             failDialogRT = failDialog.GetComponent<RectTransform>();
-        }
 
-        private void Start()
-        {
             successPanel.SetActive(false);
             failDialog.SetActive(false);
             helpPanel.SetActive(false);
@@ -90,15 +87,26 @@ namespace UI
             failDialogRT.DOAnchorPosX(280f, 0.75f).SetEase(Ease.InQuad).SetDelay(3f);
         }
 
+        public void ShowScanner()
+        {
+            scannerPanel.SetActive(true);
+        }
+
+        public void HideScanner()
+        {
+            scannerPanel.SetActive(false);
+        }
+
         public void OnSummonButtonPressed()
         {
             OnSummonAction?.Invoke();
-            scannerPanel.SetActive(false);
-            OnCloseButtonPressed();
+            HideScanner();
+            successPanel.SetActive(false);
         }
 
         public void OnCloseButtonPressed()
         {
+            ShowScanner();
             successPanel.SetActive(false);
         }
 

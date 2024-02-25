@@ -37,17 +37,27 @@ namespace Core
         private void OnEnable()
         {
             AccountManager.OnLoginSuccessAction += journalManager.InitializeCaptureData;
+
             JournalManager.OnFetchSuccessAction += journalUI.PopulateJournal;
             JournalManager.OnCaptureSuccessAction += journalUI.PopulateJournal;
+
             LeaderboardsManager.OnFetchSuccessAction += leaderboardsUI.PopulateLeaderboards;
+
+            JournalEntryButton.OnSummonDigeomonAction += journalManager.SummonDigeomon;
+            JournalEntryButton.OnEvolveDigeomonAction += journalManager.EvolveDigeomon;
         }
 
         private void OnDisable()
         {
             AccountManager.OnLoginSuccessAction -= journalManager.InitializeCaptureData;
+
             JournalManager.OnFetchSuccessAction -= journalUI.PopulateJournal;
             JournalManager.OnCaptureSuccessAction -= journalUI.PopulateJournal;
+
             LeaderboardsManager.OnFetchSuccessAction -= leaderboardsUI.PopulateLeaderboards;
+
+            JournalEntryButton.OnSummonDigeomonAction -= journalManager.SummonDigeomon;
+            JournalEntryButton.OnEvolveDigeomonAction -= journalManager.EvolveDigeomon;
         }
 
         public void MainMenuHome()
@@ -58,6 +68,7 @@ namespace Core
 
         public void OnPlayButtonPressed()
         {
+            PersistentData.toSummon = false;
             GameManager.Instance.GoToScene("Scanner");
         }
 
