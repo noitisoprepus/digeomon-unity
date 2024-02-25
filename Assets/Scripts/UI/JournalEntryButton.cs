@@ -10,6 +10,7 @@ namespace UI
         [SerializeField] private Image previewImage;
         [SerializeField] private GameObject checkmarkObj;
         [SerializeField] private TextMeshProUGUI nameText;
+        [SerializeField] private TextMeshProUGUI descriptionText;
 
         private DigeomonData digeomon;
 
@@ -17,6 +18,7 @@ namespace UI
         {
             digeomon = data;
             previewImage.sprite = digeomon.modelSprite;
+            descriptionText.text = digeomon.description;
             UpdateJournalEntry(isCaught);
         }
 
