@@ -8,6 +8,7 @@ namespace UI
         public delegate void LogoutPlayer();
         public static event LogoutPlayer OnLogoutPlayerAction;
 
+        [SerializeField] private MobilePhoneUI mobilePhoneUI;
         [SerializeField] private Toggle verboseScannerToggle;
 
         // Add music slider
@@ -27,6 +28,7 @@ namespace UI
         public void OnLogoutButtonPressed()
         {
             OnLogoutPlayerAction?.Invoke();
+            mobilePhoneUI.HideMobilePhones();
         }
 
         public void OnResetPlayerPrefsButtonPressed()
