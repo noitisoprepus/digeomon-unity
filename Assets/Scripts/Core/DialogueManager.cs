@@ -48,8 +48,6 @@ namespace Core
 
             if (startOnReady)
                 StartDialogue();
-            else
-                dialoguePanel.SetActive(false);
         }
 
         private void OnDialogueBoxTapped()

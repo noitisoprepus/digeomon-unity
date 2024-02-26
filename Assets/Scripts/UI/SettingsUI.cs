@@ -6,16 +6,9 @@ namespace UI
 {
     public class SettingsUI : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        public void OnResetPlayerPrefsButtonPressed()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            PlayerPrefs.DeleteAll();
         }
     }
 }

@@ -3602,6 +3602,7 @@ GameObject:
   - component: {fileID: 1157589988}
   - component: {fileID: 1157589987}
   - component: {fileID: 1157589989}
+  - component: {fileID: 1157589990}
   m_Layer: 0
   m_Name: Main Menu Manager
   m_TagString: Untagged
@@ -3737,6 +3738,18 @@ MonoBehaviour:
   dialogueArrowRT: {fileID: 1965647195}
   charNameText: {fileID: 1865665764}
   dialogueText: {fileID: 1583085602}
+--- !u!114 &1157589990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157589979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4afd8feb44d33e4408c3b2fd5b39dcc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1172788745
 GameObject:
   m_ObjectHideFlags: 0
