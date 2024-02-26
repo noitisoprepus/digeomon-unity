@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afd8feb44d33e4408c3b2fd5b39dcc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mobilePhoneUI: {fileID: 4438908041695135427}
   verboseScannerToggle: {fileID: 6182402751628877505}
 --- !u!1 &3317038520572669495
 GameObject:
