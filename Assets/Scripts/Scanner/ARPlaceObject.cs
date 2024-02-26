@@ -99,12 +99,11 @@ namespace Scanner
         {
             isInitialized = false;
             spawnedObject = Instantiate(arObject, placementPose.position, placementPose.rotation);
-            
-            // TODO: Populate hologram screen
 
             if (PersistentData.toSummon)
             {
                 PersistentData.toSummon = false;
+                scannerUI.HideCaptureUI();
                 scannerUI.ShowScanner();
                 return;
             }

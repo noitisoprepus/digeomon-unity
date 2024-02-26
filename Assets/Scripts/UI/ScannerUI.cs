@@ -43,8 +43,7 @@ namespace UI
 
             successPanel.SetActive(false);
             failDialog.SetActive(false);
-            helpPanel.SetActive(false);
-            captureButton.SetActive(false);
+            HideCaptureUI();
         }
 
         public void OnScanButtonPressed()
@@ -125,6 +124,12 @@ namespace UI
         {
             captureButton.SetActive(true);
             helpPanel.SetActive(false);
+        }
+
+        public void HideCaptureUI()
+        {
+            helpPanel.SetActive(false);
+            captureButton.SetActive(false);
         }
 
         public void OnCloseScannerPressed()
