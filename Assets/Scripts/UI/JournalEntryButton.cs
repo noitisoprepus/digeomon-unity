@@ -64,7 +64,6 @@ namespace UI
 
         public void OnShowInfoButtonPressed()
         {
-            // Add ShowInfo function in JournalUI
             OnShowInfoAction?.Invoke(digeomon.type);
         }
     }

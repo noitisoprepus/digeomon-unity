@@ -45,6 +45,8 @@ namespace Core
 
             JournalEntryButton.OnSummonDigeomonAction += journalManager.SummonDigeomon;
             JournalEntryButton.OnEvolveDigeomonAction += journalManager.EvolveDigeomon;
+
+            SettingsUI.OnLogoutPlayerAction += LogoutPlayer;
         }
 
         private void OnDisable()
@@ -58,6 +60,8 @@ namespace Core
 
             JournalEntryButton.OnSummonDigeomonAction -= journalManager.SummonDigeomon;
             JournalEntryButton.OnEvolveDigeomonAction -= journalManager.EvolveDigeomon;
+
+            SettingsUI.OnLogoutPlayerAction -= LogoutPlayer;
         }
 
         public void MainMenuHome()
@@ -72,7 +76,7 @@ namespace Core
             GameManager.Instance.GoToScene("Scanner");
         }
 
-        public void OnLogoutButtonPressed()
+        private void LogoutPlayer()
         {
             PlayerPrefs.DeleteAll();
             auth.SignOut();

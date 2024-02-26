@@ -96,7 +96,7 @@ namespace Scanner
             var accuracy = output[res];
             capture.SearchDigeomon(label);
             
-            if (PlayerPrefs.GetInt("verboseScaner") == 1)
+            if (PlayerPrefs.GetInt("verboseScanner") == 1)
                 scannerUI.ShowScanResults(label, accuracy);
 
             StartCoroutine(ScanDelay());

@@ -3750,6 +3750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afd8feb44d33e4408c3b2fd5b39dcc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  verboseScannerToggle: {fileID: 0}
 --- !u!1 &1172788745
 GameObject:
   m_ObjectHideFlags: 0
