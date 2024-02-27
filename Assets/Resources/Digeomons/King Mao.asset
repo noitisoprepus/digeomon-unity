@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b445772f754eda54f878c1ab6f03bbae, type: 3}
   m_Name: King Mao
   m_EditorClassIdentifier: 
-  charName: 
-  description: 
+  charName: King Mao
+  description: Evolution of Mao
   keys: []
-  modelPrefab: {fileID: 0}
-  modelSprite: {fileID: 0}
+  modelPrefab: {fileID: 7172477701037125517, guid: 78c79085dae0731458ab529ad3ef4282,
+    type: 3}
+  modelSprite: {fileID: 21300000, guid: dc4357c7cf0d4344498819fb7059c9e0, type: 3}
   type: {fileID: 0}
   introDialogue: {fileID: 0}
-  quiz: {fileID: 0}
+  quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
   evolution: {fileID: 0}
