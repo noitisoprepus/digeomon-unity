@@ -45,6 +45,8 @@ namespace UI
             summonButton.interactable = isCaught;
             evolveButton.interactable = isCaught;
             infoButton.interactable = isCaught;
+
+            evolveButton.gameObject.SetActive(digeomon.evolution != null);
         }
 
         public void UpdateJournalEntry(Dictionary<string, bool> captureData)
