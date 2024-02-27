@@ -1,21 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Hologram
 {
     public class HologramDisplay : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] private DigeomonData digeomonData;
+
+        [SerializeField] private TextMeshProUGUI titleText;
+        [SerializeField] private TextMeshProUGUI contentText;
+
+        public void SetContentText(string content)
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            contentText.text = content;
         }
     }
 }

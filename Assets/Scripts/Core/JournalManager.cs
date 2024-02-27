@@ -71,7 +71,7 @@ namespace Core
             PersistentData.targetDigeomon = digeomonData;
             PersistentData.toSummon = true;
 
-            if (SceneManager.GetActiveScene().name == "Main Menu")
+            if (SceneManager.GetActiveScene().name.Equals("Main Menu"))
                 GameManager.Instance.GoToScene("Scanner");
             else
                 OnSummonAction?.Invoke();
