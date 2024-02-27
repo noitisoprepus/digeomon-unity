@@ -1,23 +1,26 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
     public class HologramDisplay : MonoBehaviour
     {
-        [SerializeField] private DigeomonData digeomonData;
-
-        [SerializeField] private GameObject informationPanel;
         [SerializeField] private GameObject digeomonModel;
         [SerializeField] private GameObject digeomonShape;
+        [SerializeField] private GameObject informationPanel;
 
-        [SerializeField] private TextMeshProUGUI titleText;
-        [SerializeField] private TextMeshProUGUI contentText;
-        [SerializeField] private RectTransform arrowRT;
-
-        public void SetContentText(string content)
+        private void Start()
         {
-            contentText.text = content;
+            if (SceneManager.GetActiveScene().name.Equals("Sandbox"))
+            {
+                gameObject.SetActive(false);
+                return;
+            }
+        }
+
+        public void ToggleModel()
+        {
+            // Switch between digeomonModel and digeomonShape
         }
 
         public void ToggleInformationPanel()

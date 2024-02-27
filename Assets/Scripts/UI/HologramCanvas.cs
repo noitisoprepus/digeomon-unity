@@ -1,21 +1,32 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace UI
 {
     public class HologramCanvas : MonoBehaviour
     {
+        [Header("Information Panel GUI")]
+        [SerializeField] private TextMeshProUGUI titleText;
+        [SerializeField] private TextMeshProUGUI contentText;
+        [SerializeField] private RectTransform arrowRT;
+
+        [Header("Informational Data")]
+        [SerializeField] private List<InformationalData> informationalContent;
+
         private void Start()
         {
-            if (SceneManager.GetActiveScene().name.Equals("Sandbox"))
-            {
-                gameObject.SetActive(false);
-                return;
-            }
+            // Show first slide right away
+        }
 
-            Camera eventCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-            Canvas canvas = GetComponent<Canvas>();
-            canvas.worldCamera = eventCamera;
+        private void SetContentText(string content)
+        {
+            contentText.text = content;
+        }
+
+        public void GoToNextSlide()
+        {
+
         }
     }
 }
