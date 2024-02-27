@@ -6,6 +6,12 @@ namespace Core
 {
     public class QuizManager : MonoBehaviour
     {
+        public delegate void AnswerCorrect();
+        public static event AnswerCorrect OnAnswerCorrectAction;
+
+        public delegate void AnswerIncorrect();
+        public static event AnswerIncorrect OnAnswerIncorrectAction;
+
         [SerializeField] DigeomonCaptureData digeomonCaptureData;
 
         [Header("Quiz Data (Check only one)")]
@@ -138,7 +144,14 @@ namespace Core
         {
             userAnswers.Add(index);
             if (index == currQuestions[currQIndex].answerIndex)
+            {
+                OnAnswerCorrectAction?.Invoke();
                 score++;
+            }
+            else
+            {
+                OnAnswerIncorrectAction?.Invoke();
+            }
             NextQuestion();
         }
     }
