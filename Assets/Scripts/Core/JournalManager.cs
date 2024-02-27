@@ -81,7 +81,7 @@ namespace Core
         {
             if (digeomonCaptureData.captureData[digeomonData.name])
             {
-                // Tell user that Digeomon evolution has been captured already
+                GameManager.Instance.ShowDialog("The evolution for this \n digeomon has already been \ncaptured");
                 return;
             }
 

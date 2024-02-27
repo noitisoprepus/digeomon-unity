@@ -98,8 +98,6 @@ namespace Scanner
             
             if (PlayerPrefs.GetInt("verboseScanner") == 1)
                 scannerUI.ShowScanResults(label, accuracy);
-
-            StartCoroutine(ScanDelay());
         }
 
         Texture PrepareTextureForInput(Texture2D src)
@@ -111,12 +109,6 @@ namespace Scanner
             result.ReadPixels(new Rect(0, 0, targetRT.width, targetRT.height), 0, 0);
             result.Apply();
             return result;
-        }
-
-        private IEnumerator ScanDelay()
-        {
-            yield return new WaitForSeconds(3f);
-            scannerUI.OnScanFinished();
         }
     }
 }

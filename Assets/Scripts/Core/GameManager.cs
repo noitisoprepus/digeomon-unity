@@ -9,9 +9,8 @@ namespace Core
         public static GameManager Instance;
 
         public string databaseUri { get; } = "https://digeomon-default-rtdb.asia-southeast1.firebasedatabase.app/";
-
-        [SerializeField] private GlobalUI globalUI;
-
+        
+        private GlobalUI globalUI;
         private DigeomonList digeomonData;
 
         private void Awake()
@@ -26,6 +25,7 @@ namespace Core
                 DontDestroyOnLoad(gameObject);
             }
 
+            globalUI = GetComponentInChildren<GlobalUI>();
             digeomonData = GetComponent<DigeomonList>();
         }
 
