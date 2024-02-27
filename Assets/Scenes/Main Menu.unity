@@ -1544,8 +1544,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5446,8 +5446,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 375, y: -132}
-  m_SizeDelta: {x: 750, y: 30}
+  m_AnchoredPosition: {x: 375, y: -148}
+  m_SizeDelta: {x: 750, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1577370378
 MonoBehaviour:
@@ -6359,8 +6359,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7750,8 +7750,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 375, y: -132}
-  m_SizeDelta: {x: 750, y: 30}
+  m_AnchoredPosition: {x: 375, y: -148}
+  m_SizeDelta: {x: 750, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2105517794
 MonoBehaviour:
@@ -7860,6 +7860,11 @@ PrefabInstance:
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1157589989}
+    - target: {fileID: 3317038520572669495, guid: e1745052968279542bb6d9a8b0ff0d71,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4094965232808977935, guid: e1745052968279542bb6d9a8b0ff0d71,
         type: 3}
       propertyPath: m_Name
@@ -7970,6 +7975,26 @@ PrefabInstance:
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1157589989}
+    - target: {fileID: 7164927738623578126, guid: e1745052968279542bb6d9a8b0ff0d71,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164927738623578126, guid: e1745052968279542bb6d9a8b0ff0d71,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164927738623578126, guid: e1745052968279542bb6d9a8b0ff0d71,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164927738623578126, guid: e1745052968279542bb6d9a8b0ff0d71,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
