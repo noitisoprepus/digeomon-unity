@@ -67,6 +67,7 @@ namespace Scanner
         private void DirectSetupARObject()
         {
             InitializeARObject(PersistentData.targetDigeomon);
+            scannerUI.HideScanner();
         }
 
         private void UpdatePlacementIndicator()
