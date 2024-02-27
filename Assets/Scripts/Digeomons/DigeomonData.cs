@@ -19,4 +19,5 @@ public class DigeomonData : ScriptableObject
 
     [Header("Evolution Info")]
     public DigeomonData evolution;
+    public DigeomonData preEvolution;
 }
