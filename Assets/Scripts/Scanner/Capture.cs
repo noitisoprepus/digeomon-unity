@@ -80,7 +80,7 @@ namespace Scanner
                 }
                 else
                 {
-                    // Tell user that digeomon has been captured already for this particular label
+                    gameManager.ShowDialog(digeomon.name + "has \nalready been found");
                 }
             }
 

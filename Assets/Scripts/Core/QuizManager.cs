@@ -98,6 +98,17 @@ namespace Core
             if (currQIndex == currQuestions.Count)
             {
                 quizUI.ShowScoreDialog(score);
+
+                if (score >= quiz.passingScore)
+                {
+                    digeomonCaptureData.CaptureDigeomon(targetDigeomon);
+                    GameManager.Instance.ShowDialog("<color=#008A03>Capture Success</color>");
+                }
+                else
+                {
+                    GameManager.Instance.ShowDialog("<color=#CF2E2E>Capture Failed</color>");
+                }
+
                 return;
             }
 
@@ -116,8 +127,6 @@ namespace Core
 
             if (currQIndex == currQuestions.Count)
             {
-                // TODO: Show capturing of Digeomon
-                digeomonCaptureData.CaptureDigeomon(targetDigeomon);
                 quizUI.OnHomeButtonPressed();
                 return;
             }

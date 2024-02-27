@@ -10,6 +10,8 @@ namespace Core
 
         public string databaseUri { get; } = "https://digeomon-default-rtdb.asia-southeast1.firebasedatabase.app/";
 
+        [SerializeField] private GlobalUI globalUI;
+
         private DigeomonList digeomonData;
 
         private void Awake()
@@ -35,6 +37,11 @@ namespace Core
         public List<DigeomonData> GetDigeomonList()
         {
             return digeomonData.digeomons;
+        }
+
+        public void ShowDialog(string message)
+        {
+            globalUI.ShowCustomDialog(message);
         }
     }
 }
