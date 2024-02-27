@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2437c7df214d7754e993fda577fe7ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globalUI: {fileID: 0}
 --- !u!114 &5666727383316651135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +66,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8f1df1cf56cafa74999eabbc342110e1, type: 2}
   - {fileID: 11400000, guid: 7e45654b52db5e24c9b1f182aa03b810, type: 2}
   - {fileID: 11400000, guid: b0673adfb7b1c5f46a05800489b16ba2, type: 2}
+  - {fileID: 11400000, guid: bed1963b98d521e4badcdb91b571839e, type: 2}
 --- !u!114 &1970135302922319195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +93,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GlobalUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188560147801402398, guid: f472493507027e94aad821a7227ad979,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188560147801402398, guid: f472493507027e94aad821a7227ad979,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188560147801402398, guid: f472493507027e94aad821a7227ad979,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188560147801402398, guid: f472493507027e94aad821a7227ad979,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188560147801402398, guid: f472493507027e94aad821a7227ad979,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188560147801402398, guid: f472493507027e94aad821a7227ad979,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7304684700908313420, guid: f472493507027e94aad821a7227ad979,
         type: 3}
@@ -192,6 +222,16 @@ PrefabInstance:
     - target: {fileID: 7304684700908313420, guid: f472493507027e94aad821a7227ad979,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9214663798911974015, guid: f472493507027e94aad821a7227ad979,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9214663798911974015, guid: f472493507027e94aad821a7227ad979,
+        type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

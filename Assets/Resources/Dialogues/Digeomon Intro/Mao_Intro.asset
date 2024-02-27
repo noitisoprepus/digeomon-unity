@@ -15,8 +15,9 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Ding-dong! It's time for the <b>clock Digeomon, Wanos</b>!
-  - <i>Heh</i>
-  - Wanos is based on the 2D shape, <b>Circle</b>, which does not have any sides.
-    Can you believe that?
-  - Now go capture that guy before the time runs out.
+  - What a sneaky fella! You found <b>Mao, the Mouse Mouse Digeomon</b>!
+  - Pretty confusing right? Mao is a combination of a mouse animal and a computer
+    mouse.
+  - Mao is based on the 2D shape <b>Oval</b> which has rounded sides and no corners,
+    similar to a circle. and 3D shape <b>Ellipsoid</b>
+  - Go capture it before it gets away!
