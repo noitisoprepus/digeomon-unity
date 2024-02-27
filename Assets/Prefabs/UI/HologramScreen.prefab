@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7e501db260a3703419461eb2f900393d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0ee3b265e5a6f54bb7fbb6fdeb648df, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -196,9 +196,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1636387601331390631}
+      - m_Target: {fileID: 6080290460444581951}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+        m_MethodName: 
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -517,12 +517,12 @@ GameObject:
   - component: {fileID: 2013039857760848208}
   - component: {fileID: 8495145647224776648}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Information Panel
   m_TagString: ARButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2263473146186273247
 RectTransform:
   m_ObjectHideFlags: 0
@@ -727,7 +727,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6dc137a6e7b2b104f931ece25669a84e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c3bcc6db956d834b9dfb6737f3af4c8, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -781,10 +781,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1636387601331390631}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 375083541629870314}
+        m_TargetAssemblyTypeName: UI.HologramDisplay, UI
+        m_MethodName: ToggleInformationPanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -873,8 +873,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   digeomonData: {fileID: 0}
-  titleText: {fileID: 0}
-  contentText: {fileID: 0}
+  informationPanel: {fileID: 3766385970215101283}
+  digeomonModel: {fileID: 0}
+  digeomonShape: {fileID: 0}
+  titleText: {fileID: 4264127616662087659}
+  contentText: {fileID: 7039269028073295182}
+  arrowRT: {fileID: 3737449376625557224}
 --- !u!1 &7234368081485770821
 GameObject:
   m_ObjectHideFlags: 0
