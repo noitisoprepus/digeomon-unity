@@ -35,9 +35,9 @@ namespace Core
                     DataSnapshot snapshot = task.Result;
                     if (snapshot.Exists && snapshot.HasChildren)
                     {
+                        userCaptureData = new Dictionary<string, int>();
                         foreach (DataSnapshot childSnapshot in snapshot.Children)
                         {
-                            userCaptureData = new Dictionary<string, int>();
                             string username = childSnapshot.Child("username").Value.ToString();
                             int captureCount = (int)childSnapshot.Child("captureData").ChildrenCount;
                             userCaptureData.Add(username, captureCount);
