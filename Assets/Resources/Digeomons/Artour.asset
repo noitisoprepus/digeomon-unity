@@ -18,8 +18,8 @@ MonoBehaviour:
   - fountain pen
   modelPrefab: {fileID: 4217290122905702582, guid: 4dee463c5ff6d614e864ce72bfdc5353,
     type: 3}
-  modelSprite: {fileID: 0}
-  type: {fileID: 0}
+  modelSprite: {fileID: 21300000, guid: 8519ba336899b9240a41afd36814b327, type: 3}
+  relevantInfos: []
   introDialogue: {fileID: 0}
   quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
   evolution: {fileID: 11400000, guid: 092724e4d49b05443901c2262c584bc0, type: 2}
