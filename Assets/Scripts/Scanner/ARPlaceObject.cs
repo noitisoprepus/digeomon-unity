@@ -13,6 +13,8 @@ namespace Scanner
         [SerializeField] private GameObject placementIndicator;
         [SerializeField] private DialogueManager dialogueManager;
 
+        [SerializeField] private InformationalData placeholderInfo;
+
         private DigeomonData currDigeomon;
         private ScannerUI scannerUI;
         private GameObject arObject;
@@ -100,6 +102,14 @@ namespace Scanner
         {
             isInitialized = false;
             spawnedObject = Instantiate(arObject, placementPose.position, placementPose.rotation);
+
+            HologramCanvas hologram = spawnedObject.GetComponentInChildren<HologramCanvas>();
+            List<InformationalData> infoList = new List<InformationalData>();
+            if (currDigeomon.relevantInfos.Count != 0)
+                infoList = currDigeomon.relevantInfos;
+            else
+                infoList.Add(placeholderInfo);
+            hologram.InitializeInformationalData(infoList);
 
             if (PersistentData.toSummon)
             {

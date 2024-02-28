@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using DG.Tweening;
-using UI;
 using UnityEngine;
 
 namespace Core
@@ -8,7 +6,6 @@ namespace Core
     public class SandboxManager : MonoBehaviour
     {
         [SerializeField] private Transform digeomonModelT;
-        [SerializeField] private InformationalData placeholderInfo;
 
         private GameObject digeomonObj;
 
@@ -28,14 +25,6 @@ namespace Core
         {
             DigeomonData digeomon = PersistentData.targetDigeomon;
             digeomonObj = Instantiate(digeomon.modelPrefab, digeomonModelT);
-            
-            HologramCanvas hologram = digeomonObj.GetComponentInChildren<HologramCanvas>();
-            if (digeomon.relevantInfos != null)
-                hologram.informationalContent = digeomon.relevantInfos;
-            else
-                hologram.informationalContent = new List<InformationalData>() { placeholderInfo };
-
-            hologram.StartPresentation();
         }
 
         private void ViolentShakeDigeomon()

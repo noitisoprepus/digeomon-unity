@@ -12,13 +12,12 @@ namespace UI
         [SerializeField] private TextMeshProUGUI contentText;
         [SerializeField] private RectTransform arrowRT;
 
-        public List<InformationalData> informationalContent;
-
-        private Sequence arrowSequence;
-        private InformationalData currData;
+        private List<InformationalData> informationalContent;
         private List<string> currContent;
-        private int currDataIndex = 0;
-        private int currContentIndex = 0;
+        private InformationalData currData;
+        private Sequence arrowSequence;
+        private int currDataIndex;
+        private int currContentIndex;
 
         private void Start()
         {
@@ -34,7 +33,15 @@ namespace UI
             contentText.text = content;
         }
 
-        public void StartPresentation()
+        public void InitializeInformationalData(List<InformationalData> informationalDatas)
+        {
+            currDataIndex = 0;
+            currContentIndex = 0;
+            informationalContent = new List<InformationalData>(informationalDatas);
+            StartPresentation();
+        }
+
+        private void StartPresentation()
         {
             currData = informationalContent[currDataIndex];
             ShowPresentation(currData);

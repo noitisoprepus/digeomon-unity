@@ -1099,6 +1099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   digeomonModelT: {fileID: 1449933197}
   placeholderInfo: {fileID: 11400000, guid: 7bc05141b4c4c084cb9e81b278d85a38, type: 2}
+  testDigeomon: {fileID: 11400000, guid: 2d166a10708099f4083efd8fb57c2674, type: 2}
 --- !u!114 &1213532103
 MonoBehaviour:
   m_ObjectHideFlags: 0

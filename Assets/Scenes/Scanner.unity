@@ -235,6 +235,7 @@ MonoBehaviour:
   raycastManager: {fileID: 348371574}
   placementIndicator: {fileID: 507672721}
   dialogueManager: {fileID: 1316460830}
+  placeholderInfo: {fileID: 11400000, guid: 7bc05141b4c4c084cb9e81b278d85a38, type: 2}
 --- !u!114 &51421849
 MonoBehaviour:
   m_ObjectHideFlags: 0
