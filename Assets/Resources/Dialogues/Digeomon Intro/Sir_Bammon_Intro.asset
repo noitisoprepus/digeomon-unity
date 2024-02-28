@@ -17,6 +17,6 @@ MonoBehaviour:
   dialogues:
   - Ding-dong! It's time for the <b>clock Digeomon, Wanos</b>!
   - <i>Heh</i>
-  - Wanos is based on the 2D shape, <b>Circle</b>, which does not have any sides.
-    and 3D shape <b>Sphere</b>. Can you believe that?
+  - <b>Wanos</b> is based on the 2D shape, <b>Circle</b>, which does not have any
+    sides. and 3D shape <b>Sphere</b>. Can you believe that?
   - Now go capture that guy before the time runs out.

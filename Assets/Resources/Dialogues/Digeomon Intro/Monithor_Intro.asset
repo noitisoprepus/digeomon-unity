@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 832428c249f030043a47ae6bb0480cb6, type: 3}
-  m_Name: Tableh_Intro
+  m_Name: Monithor_Intro
   m_EditorClassIdentifier: 
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Cool! You found <b>Tableh, the table DiGeoMon</b>.
-  - <b>Tableh</b> is based on the 2D shape, <b>Rectangle</b>, and 3D shape, <b>Cuboid</b>.
-  - Be careful not to touch his tongue. It's quite sensitive.
+  - 'Congratulations! You have evolved <b>Monitaur</b> to <b>Minothor</b> '
+  - <b>Minothor</b> takes it to the next step of mythology. It now has the power
+    of lightning and pixels.

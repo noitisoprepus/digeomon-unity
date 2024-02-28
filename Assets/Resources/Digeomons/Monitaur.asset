@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b445772f754eda54f878c1ab6f03bbae, type: 3}
-  m_Name: Lad
+  m_Name: Monitaur
   m_EditorClassIdentifier: 
-  charName: Lad
-  description: Evolution of Lappy
-  keys: []
-  modelPrefab: {fileID: 5696720915265435717, guid: e3b43b46be871a941935d12bd3381698,
+  charName: Monitaur
+  description: Device connected to a computer that displays visual information.
+  keys:
+  - monitor
+  modelPrefab: {fileID: 2507935511161724132, guid: 2b67590e4542bbe478f9939933ab5432,
     type: 3}
-  modelSprite: {fileID: 21300000, guid: ad6a5de2029cac44faa8fbfa869e2298, type: 3}
+  modelSprite: {fileID: 21300000, guid: b0953909a8801244e9a55f605960f335, type: 3}
   type: {fileID: 11400000, guid: 61e26b874e89a0c4c81a3b41b9519f50, type: 2}
-  introDialogue: {fileID: 11400000, guid: 05f119075d84acb4f84a98305b221938, type: 2}
+  introDialogue: {fileID: 11400000, guid: e98b7e128f4d0ca4e952e2a6cf7c7a74, type: 2}
   quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
-  evolution: {fileID: 0}
-  preEvolution: {fileID: 11400000, guid: 5dd3b7604b555b1488e26c8d4eedf044, type: 2}
+  evolution: {fileID: 11400000, guid: 296ceda346160f9488fb456a1d12fab6, type: 2}
+  preEvolution: {fileID: 0}

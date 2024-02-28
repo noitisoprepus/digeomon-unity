@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chairizard
   m_EditorClassIdentifier: 
   charName: Chairizard
-  description: A small seat with a back for sitting.
+  description: Evolution of Chairmander
   keys: []
   modelPrefab: {fileID: 5077006761132032497, guid: 1952c9250e2b2114f96efdf696dd7e41,
     type: 3}

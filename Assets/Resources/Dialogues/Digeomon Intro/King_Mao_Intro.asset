@@ -15,7 +15,7 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Congratulations, you have evolved Mao to King Mao!
-  - 'King Mao is the ruler of all the Mao''s and reigns over the Mao Kingdom!
+  - Congratulations, you have evolved <b>Mao</b> to <b>King Mao</b>!
+  - '<b>King Mao</b> is the ruler of all the Mao''s and reigns over the Mao Kingdom!
 
 '
