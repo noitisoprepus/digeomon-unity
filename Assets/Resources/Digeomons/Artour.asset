@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b445772f754eda54f878c1ab6f03bbae, type: 3}
+  m_Name: Artour
+  m_EditorClassIdentifier: 
+  charName: Artour
+  description: Draw and write your ideas into reality!
+  keys:
+  - fountain pen
+  modelPrefab: {fileID: 4217290122905702582, guid: 4dee463c5ff6d614e864ce72bfdc5353,
+    type: 3}
+  modelSprite: {fileID: 0}
+  type: {fileID: 0}
+  introDialogue: {fileID: 0}
+  quiz: {fileID: 0}
+  evolution: {fileID: 11400000, guid: 092724e4d49b05443901c2262c584bc0, type: 2}
+  preEvolution: {fileID: 0}

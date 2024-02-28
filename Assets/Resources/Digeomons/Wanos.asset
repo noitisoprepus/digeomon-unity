@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wanos
   m_EditorClassIdentifier: 
   charName: Wanos
-  description: Shows them time with numbers and moving hands.
+  description: Shows the time with numbers and moving hands.
   keys:
   - watch
   - clock
@@ -29,3 +29,4 @@ MonoBehaviour:
   introDialogue: {fileID: 11400000, guid: 57d49dabc78930243b8bc3694361e3aa, type: 2}
   quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
   evolution: {fileID: 0}
+  preEvolution: {fileID: 0}
