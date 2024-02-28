@@ -11,6 +11,7 @@ namespace UI
 
         private void Start()
         {
+            digeomonShape.SetActive(false);
             if (SceneManager.GetActiveScene().name.Equals("Sandbox"))
             {
                 gameObject.SetActive(false);
@@ -20,16 +21,16 @@ namespace UI
 
         public void ToggleModel()
         {
-            //if (digeomonModel.activeInHierarchy)
-            //{
-            //    digeomonModel.SetActive(false);
-            //    digeomonShape.SetActive(true);
-            //}
-            //else
-            //{
-            //    digeomonShape.SetActive(false);
-            //    digeomonModel.SetActive(true);
-            //}
+            if (digeomonModel.activeInHierarchy)
+            {
+                digeomonModel.SetActive(false);
+                digeomonShape.SetActive(true);
+            }
+            else
+            {
+                digeomonShape.SetActive(false);
+                digeomonModel.SetActive(true);
+            }
         }
 
         public void ToggleInformationPanel()
