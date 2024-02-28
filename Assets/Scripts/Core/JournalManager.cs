@@ -87,6 +87,7 @@ namespace Core
 
             PersistentData.targetDigeomon = digeomonData;
             PersistentData.toSummon = false;
+            PersistentData.toEvolve = true;
             GameManager.Instance.GoToScene("Sandbox");
         }
     }

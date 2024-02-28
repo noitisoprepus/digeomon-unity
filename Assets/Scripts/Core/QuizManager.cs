@@ -12,6 +12,9 @@ namespace Core
         public delegate void AnswerIncorrect();
         public static event AnswerIncorrect OnAnswerIncorrectAction;
 
+        public delegate void EvolutionSuccess();
+        public static event EvolutionSuccess OnEvolutionSuccessAction;
+
         [SerializeField] DigeomonCaptureData digeomonCaptureData;
 
         [Header("Quiz Data (Check only one)")]
@@ -108,6 +111,13 @@ namespace Core
                 if (score >= quiz.passingScore)
                 {
                     digeomonCaptureData.CaptureDigeomon(targetDigeomon);
+                    
+                    if (PersistentData.toEvolve)
+                    {
+                        OnEvolutionSuccessAction?.Invoke();
+                        return;
+                    }
+                    
                     GameManager.Instance.ShowDialog("<color=#008A03>Capture Success</color>");
                 }
                 else

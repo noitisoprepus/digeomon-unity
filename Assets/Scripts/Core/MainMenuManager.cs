@@ -39,6 +39,11 @@ namespace Core
             }
         }
 
+        private void Start()
+        {
+            PersistentData.toEvolve = false;
+        }
+
         private void OnEnable()
         {
             AccountManager.OnLoginSuccessAction += journalManager.InitializeCaptureData;
