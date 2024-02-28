@@ -68,5 +68,32 @@ namespace UI
 
             ShowContent(currContent[currContentIndex]);
         }
+
+        // Testing
+        int testIndex = 0;
+        List<string> testContent;
+        InformationalData testData;
+
+        public void InitializeContent(InformationalData contentData)
+        {
+            testData = contentData;
+            StartContent();
+        }
+
+        public void StartContent()
+        {
+            testIndex = 0;
+            testContent = new List<string>(testData.content);
+            titleText.text = testData.title;
+            ShowContent(testContent[testIndex]);
+        }
+
+        public void NextContent()
+        {
+            testIndex++;
+            if (testIndex >= testContent.Count)
+                StartContent();
+            ShowContent(testContent[testIndex]);
+        }
     }
 }
