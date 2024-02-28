@@ -66,7 +66,7 @@ namespace UI
 
         public void OnShowInfoButtonPressed()
         {
-            OnShowInfoAction?.Invoke(digeomon.type);
+            //OnShowInfoAction?.Invoke(digeomon.type);
         }
     }
 }

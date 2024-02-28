@@ -12,8 +12,7 @@ namespace UI
         [SerializeField] private TextMeshProUGUI contentText;
         [SerializeField] private RectTransform arrowRT;
 
-        [Header("Informational Data")]
-        [SerializeField] private List<InformationalData> informationalContent;
+        public List<InformationalData> informationalContent;
 
         private Sequence arrowSequence;
         private InformationalData currData;
@@ -28,8 +27,6 @@ namespace UI
             arrowSequence.Append(arrowRT.DOAnchorPosX(-0.12f, 0.5f));
             arrowSequence.SetLoops(-1, LoopType.Yoyo).SetSpeedBased();
             arrowSequence.Play();
-
-            StartPresentation();
         }
 
         private void ShowContent(string content)
@@ -37,7 +34,7 @@ namespace UI
             contentText.text = content;
         }
 
-        private void StartPresentation()
+        public void StartPresentation()
         {
             currData = informationalContent[currDataIndex];
             ShowPresentation(currData);

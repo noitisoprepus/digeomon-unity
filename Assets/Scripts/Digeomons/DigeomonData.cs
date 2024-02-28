@@ -11,7 +11,9 @@ public class DigeomonData : ScriptableObject
     public List<string> keys;
     public GameObject modelPrefab;
     public Sprite modelSprite;
-    public DigeomonType type;
+
+    [Header("Informational Data")]
+    public List<InformationalData> relevantInfos;
 
     [Header("Capturing Info")]
     public DialogueData introDialogue;
