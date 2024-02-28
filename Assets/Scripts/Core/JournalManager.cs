@@ -71,7 +71,7 @@ namespace Core
             PersistentData.targetDigeomon = digeomonData;
             PersistentData.toSummon = true;
 
-            if (SceneManager.GetActiveScene().name == "Main Menu")
+            if (SceneManager.GetActiveScene().name.Equals("Main Menu"))
                 GameManager.Instance.GoToScene("Scanner");
             else
                 OnSummonAction?.Invoke();
@@ -81,7 +81,7 @@ namespace Core
         {
             if (digeomonCaptureData.captureData[digeomonData.name])
             {
-                // Tell user that Digeomon evolution has been captured already
+                GameManager.Instance.ShowDialog("The evolution for this \n digeomon has already been \ncaptured");
                 return;
             }
 

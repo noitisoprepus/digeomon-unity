@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charName: Chairizard
   description: A small seat with a back for sitting.
-  keys:
-  - chair
-  - stool
-  - seat
-  modelPrefab: {fileID: 0}
+  keys: []
+  modelPrefab: {fileID: 5077006761132032497, guid: 1952c9250e2b2114f96efdf696dd7e41,
+    type: 3}
   modelSprite: {fileID: 21300000, guid: d4d0c7b7a7e28964fab88aa6f88c8fae, type: 3}
-  type: {fileID: 0}
-  introDialogue: {fileID: 0}
-  quiz: {fileID: 0}
+  type: {fileID: 11400000, guid: 61e26b874e89a0c4c81a3b41b9519f50, type: 2}
+  introDialogue: {fileID: 11400000, guid: 870354dd857b04741a49e7c081bcfde5, type: 2}
+  quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
+  evolution: {fileID: 0}
+  preEvolution: {fileID: 11400000, guid: 6e46d2a61fe22b8428c762b11669d254, type: 2}

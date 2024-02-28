@@ -68,23 +68,32 @@ namespace Scanner
         {
             foreach (DigeomonData digeomon in digeomons)
             {
-                if (!digeomon.keys.Contains(label))
-                    continue;
-
-                if (!digeomonCaptureData.captureData.ContainsKey(digeomon.name))
+                foreach(string key in digeomon.keys)
                 {
-                    currDigeomon = digeomon;
-                    PersistentData.targetDigeomon = digeomon;
-                    scannerUI.ShowCaptureDialog(digeomon);
-                    return;
-                }
-                else
-                {
-                    gameManager.ShowDialog(digeomon.name + "has \nalready been found");
+                    if (label.Contains(key))
+                    {
+                        TriggerCapture(digeomon);
+                        scannerUI.OnScanFinished();
+                        return;
+                    }
                 }
             }
-
+            scannerUI.OnScanFinished();
             scannerUI.ShowFailDialog();
+        }
+
+        private void TriggerCapture(DigeomonData digeomon)
+        {
+            if (!digeomonCaptureData.captureData[digeomon.name])
+            {
+                currDigeomon = digeomon;
+                PersistentData.targetDigeomon = digeomon;
+                scannerUI.ShowCaptureDialog(digeomon);
+            }
+            else
+            {
+                gameManager.ShowDialog(digeomon.name + " has \nalready been found");
+            }
         }
 
         private void SummonDigeomon()

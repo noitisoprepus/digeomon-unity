@@ -51,7 +51,7 @@ namespace Core
 
             if (task.Exception != null)
             {
-                Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                GameManager.Instance.ShowDialog("An error has occured.\nPlease try again later.");
             }
             else
             {
@@ -94,7 +94,7 @@ namespace Core
             
             if (task.Exception != null)
             {
-                Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                GameManager.Instance.ShowDialog("An error has occured.\nPlease try again later.");
             }
             else
             {

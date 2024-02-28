@@ -15,12 +15,15 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Welcome to the world of <b>DiGeoMon</b>! I'm <b>Professor Euclid</b>, your guide
-    on this exciting journey.
-  - DiGeoMon or Digital Geometric Monsters come to life through the magic of camera
-    scanning.
-  - As a new DiGeoMon Trainer, your journey begins with the ability to bring these
-    monsters into life by scanning everyday objects.
-  - But first, tell me about yourself. What grade level are you in?
-  - <<GradeLevel>>
-  - "Great! Let\u2019s get you started."
+  - Welcome to the world of <b>DiGeoMon</b>! I'm <b>Professor Euclid</b>, known as
+    the father of Geometry, and your guide on this exciting journey.
+  - DiGeoMons, which is short for <b>Digital Geometric Monsters</b>, come to life
+    through the magic of camera scanning.
+  - I'm gonna install a special chip to your mobile device so you too can scan DiGeoMons.
+  - ...
+  - Done! Your mobile device is now capable of recognizing DiGeoMons.
+  - As a new DiGeoMon catcher, your journey begins by scanning everyday objects to
+    bring the monsters to life.
+  - Click <b><color=#A63C41>PLAY</color></b> now, and capture them all!
+  - You can also check the <b><color=#456896>JOURNAL</color></b> for hints on which
+    objects can be transformed into DiGeoMons.

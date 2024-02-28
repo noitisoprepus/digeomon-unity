@@ -23,9 +23,13 @@ namespace UI
             {
                 foreach (KeyValuePair<string, DigeomonData> digeomon in digeomonCaptureData.digeomonData)
                 {
+                    DigeomonData data = digeomon.Value;
+
+                    if (data.preEvolution != null && !digeomonCaptureData.captureData[data.preEvolution.name])
+                        continue;
+
                     GameObject entry = Instantiate(entryBox, journalContent.transform);
                     JournalEntryButton entryButton = entry.GetComponent<JournalEntryButton>();
-                    DigeomonData data = digeomon.Value;
                     entryButton.InitializeJournalEntry(data, digeomonCaptureData.captureData[data.name]);
                 }
             }

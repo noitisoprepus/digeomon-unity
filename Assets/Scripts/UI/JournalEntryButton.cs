@@ -39,7 +39,7 @@ namespace UI
         public void UpdateJournalEntry(bool isCaught)
         {
             previewImage.color = isCaught ? Color.white : Color.black;
-            checkmarkObj.SetActive(!isCaught);
+            //checkmarkObj.SetActive(!isCaught);
             nameText.text = (isCaught) ? digeomon.name : "???";
 
             summonButton.interactable = isCaught;
