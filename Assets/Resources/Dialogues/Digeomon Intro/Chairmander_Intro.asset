@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832428c249f030043a47ae6bb0480cb6, type: 3}
+  m_Name: Chairmander_Intro
+  m_EditorClassIdentifier: 
+  charName: Professor Euclid
+  charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
+  dialogues:
+  - Woah! You found <b>Chairmander</b>! The salamander-chair hybrid DiGeoMon.
+  - 'Chairmander is based on the 2D shape <b>Rectangle</b> and consists of multiple
+    2D shapes. '
+  - It is also based on the 3D shape <b>Cuboid</b>
+  - Capture him before he escapes!
