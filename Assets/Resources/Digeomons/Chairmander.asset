@@ -15,12 +15,12 @@ MonoBehaviour:
   charName: Chairmander
   description: Shows them time with numbers and moving hands.
   keys:
-  - watch
+  - chair
   modelPrefab: {fileID: 8738733055650236793, guid: 66ba4686664b7aa4ba71d4ec4f1ddafd,
     type: 3}
   modelSprite: {fileID: 21300000, guid: 64a8a7e57e50bd84f918ce296a6e726d, type: 3}
   type: {fileID: 11400000, guid: 61e26b874e89a0c4c81a3b41b9519f50, type: 2}
-  introDialogue: {fileID: 11400000, guid: 57d49dabc78930243b8bc3694361e3aa, type: 2}
+  introDialogue: {fileID: 11400000, guid: a4d15cad5905bc746aa700dcd3ecd01a, type: 2}
   quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
-  evolution: {fileID: 0}
+  evolution: {fileID: 11400000, guid: 399eef69ad05b4c40afe16de126a5ecf, type: 2}
   preEvolution: {fileID: 0}

@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 832428c249f030043a47ae6bb0480cb6, type: 3}
-  m_Name: King_Mao_Intro
+  m_Name: Chairizard_Intro
   m_EditorClassIdentifier: 
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Congratulations, you have evolved Mao to King Mao!
-  - 'King Mao is the ruler of all the Mao''s and reigns over the Mao Kingdom!
-
-'
+  - 'Congratulations! You have evolved <b>Chairmander</b> to <b>Chairizard</b>. '
+  - Chairizard is the cooler version of Chairmander and has the ability to fly!
