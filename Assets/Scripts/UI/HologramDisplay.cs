@@ -21,6 +21,9 @@ namespace UI
 
         public void ToggleModel()
         {
+            if (digeomonModel == null || digeomonShape == null)
+                return;
+
             if (digeomonModel.activeInHierarchy)
             {
                 digeomonModel.SetActive(false);
