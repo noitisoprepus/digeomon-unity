@@ -10,21 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b445772f754eda54f878c1ab6f03bbae, type: 3}
-  m_Name: Tableh
+  m_Name: Rood
   m_EditorClassIdentifier: 
-  charName: Tableh
-  description: An item with four legs used for eating or drawing.
-  keys:
-  - table
-  - desk
-  - counter
-  - workbench
-  - worktop
-  modelPrefab: {fileID: 3399232411543423267, guid: bad8915da73c02e42825166618d90893,
+  charName: Rood
+  description: Evolution of Dur
+  keys: []
+  modelPrefab: {fileID: 5969211438257332347, guid: f667dc7641cd8524c9a59ebd368cb4a0,
     type: 3}
-  modelSprite: {fileID: 21300000, guid: 6b244cd8c6be87d478ae336ff7ba87af, type: 3}
+  modelSprite: {fileID: 21300000, guid: dbe5c7d5b623cf2459dd95901519dd3f, type: 3}
   type: {fileID: 11400000, guid: 61e26b874e89a0c4c81a3b41b9519f50, type: 2}
-  introDialogue: {fileID: 11400000, guid: c3a9fc1387010fb42bfc54af988fd326, type: 2}
+  introDialogue: {fileID: 11400000, guid: fb0f74bf20a180147b5a70852d4dc579, type: 2}
   quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
-  evolution: {fileID: 11400000, guid: 0afb5152cc78feb4d8890bfbcd051187, type: 2}
-  preEvolution: {fileID: 0}
+  evolution: {fileID: 0}
+  preEvolution: {fileID: 11400000, guid: 726fd0d011381d24184b68754ee4538e, type: 2}

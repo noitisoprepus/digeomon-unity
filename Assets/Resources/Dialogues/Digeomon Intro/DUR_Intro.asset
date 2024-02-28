@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 832428c249f030043a47ae6bb0480cb6, type: 3}
-  m_Name: Lappy_Intro
+  m_Name: DUR_Intro
   m_EditorClassIdentifier: 
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Nice! You have discovered <b>Lappy</b> The happy laptop DiGeoMon.
-  - "<b>Lappy</b> is a people pleaser DiGeoMon. \n"
-  - '<b>Lappy</b> is based on the 2D shape <b>Rectangle</b> and 3D shape <b>Cuboid</b>
-
-'
-  - Capture it before it folds away!
+  - Woah! You found <b>Dur</b>! The Door DiGeoMon.
+  - <b>Dur</b> is based on the 2D shape <b>Rectangle</b> and the 3D shape <b>Cuboid</b>
+  - Capture him before he escapes!

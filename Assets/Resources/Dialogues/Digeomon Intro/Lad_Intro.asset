@@ -15,4 +15,6 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - What's up madlang people
+  - Congratulations, you have evolved <b>Lappy</b> to <b>Lad</b>!
+  - <b>Lad</b> is the version of Lappy when things get hard in life. He is in worse
+    condition mentally but stronger physically.
