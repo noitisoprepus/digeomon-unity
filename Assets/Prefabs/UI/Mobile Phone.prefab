@@ -412,6 +412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afd8feb44d33e4408c3b2fd5b39dcc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  digeomonCaptureData: {fileID: 11400000, guid: 9d893d9c73b019f4f9695295f390f5e2,
+    type: 2}
   mobilePhoneUI: {fileID: 4438908041695135427}
   verboseScannerToggle: {fileID: 6182402751628877505}
 --- !u!1 &3317038520572669495

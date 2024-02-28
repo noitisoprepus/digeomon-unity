@@ -8,6 +8,8 @@ namespace UI
         public delegate void LogoutPlayer();
         public static event LogoutPlayer OnLogoutPlayerAction;
 
+        [SerializeField] private DigeomonCaptureData digeomonCaptureData;
+
         [SerializeField] private MobilePhoneUI mobilePhoneUI;
         [SerializeField] private Toggle verboseScannerToggle;
 
@@ -27,6 +29,7 @@ namespace UI
 
         public void OnLogoutButtonPressed()
         {
+            digeomonCaptureData.ResetCaptureData();
             OnLogoutPlayerAction?.Invoke();
             mobilePhoneUI.HideMobilePhones();
         }

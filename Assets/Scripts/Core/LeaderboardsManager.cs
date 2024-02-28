@@ -14,7 +14,7 @@ namespace Core
         private DatabaseReference databaseReference;
         private Dictionary<string, int> userCaptureData;
 
-        private void Start()
+        public void InitializeLeaderboardsData()
         {
             databaseReference = FirebaseDatabase
                 .GetInstance(GameManager.Instance.databaseUri)

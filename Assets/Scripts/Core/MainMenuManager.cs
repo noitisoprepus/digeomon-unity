@@ -10,6 +10,8 @@ namespace Core
         [SerializeField] private GameObject accountMenuGroup;
 
         private JournalManager journalManager;
+        private LeaderboardsManager leaderboardsManager;
+
         private FirebaseAuth auth;
         
         private JournalUI journalUI;
@@ -18,6 +20,8 @@ namespace Core
         private void Awake()
         {
             journalManager = GameManager.Instance.gameObject.GetComponent<JournalManager>();
+            leaderboardsManager = GetComponent<LeaderboardsManager>();
+
             auth = FirebaseAuth.DefaultInstance;
 
             journalUI = GetComponent<JournalUI>();
@@ -30,6 +34,7 @@ namespace Core
                 if (!PlayerPrefs.HasKey("userID"))
                     PlayerPrefs.SetString("userID", auth.CurrentUser.UserId);
                 journalManager.InitializeCaptureData();
+                leaderboardsManager.InitializeLeaderboardsData();
                 MainMenuHome();
             }
         }
@@ -37,6 +42,7 @@ namespace Core
         private void OnEnable()
         {
             AccountManager.OnLoginSuccessAction += journalManager.InitializeCaptureData;
+            AccountManager.OnLoginSuccessAction += leaderboardsManager.InitializeLeaderboardsData;
 
             JournalManager.OnFetchSuccessAction += journalUI.PopulateJournal;
             JournalManager.OnCaptureSuccessAction += journalUI.PopulateJournal;
@@ -47,11 +53,14 @@ namespace Core
             JournalEntryButton.OnEvolveDigeomonAction += journalManager.EvolveDigeomon;
 
             SettingsUI.OnLogoutPlayerAction += LogoutPlayer;
+            SettingsUI.OnLogoutPlayerAction += journalUI.ResetJournal;
+            SettingsUI.OnLogoutPlayerAction += leaderboardsUI.ResetLeaderboards;
         }
 
         private void OnDisable()
         {
             AccountManager.OnLoginSuccessAction -= journalManager.InitializeCaptureData;
+            AccountManager.OnLoginSuccessAction -= leaderboardsManager.InitializeLeaderboardsData;
 
             JournalManager.OnFetchSuccessAction -= journalUI.PopulateJournal;
             JournalManager.OnCaptureSuccessAction -= journalUI.PopulateJournal;
@@ -62,6 +71,8 @@ namespace Core
             JournalEntryButton.OnEvolveDigeomonAction -= journalManager.EvolveDigeomon;
 
             SettingsUI.OnLogoutPlayerAction -= LogoutPlayer;
+            SettingsUI.OnLogoutPlayerAction -= journalUI.ResetJournal;
+            SettingsUI.OnLogoutPlayerAction -= leaderboardsUI.ResetLeaderboards;
         }
 
         public void MainMenuHome()

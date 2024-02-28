@@ -46,5 +46,12 @@ namespace UI
                 entry.GetComponent<JournalEntryButton>().UpdateJournalEntry(digeomonCaptureData.captureData);
             }
         }
+
+        public void ResetJournal()
+        {
+            foreach (Transform entry in journalContent.transform)
+                Destroy(entry.gameObject);
+            journalContent.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        }
     }
 }

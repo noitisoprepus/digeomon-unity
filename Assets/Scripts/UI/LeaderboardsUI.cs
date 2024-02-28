@@ -23,5 +23,12 @@ namespace UI
                 }
             }
         }
+
+        public void ResetLeaderboards()
+        {
+            foreach (Transform entry in leaderboardsContent.transform)
+                Destroy(entry.gameObject);
+            leaderboardsContent.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        }
     }
 }

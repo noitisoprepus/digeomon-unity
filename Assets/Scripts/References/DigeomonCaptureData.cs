@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DigeomonCaptureData", menuName = "ScriptableObject/DigeomonCaptureData")]
@@ -14,6 +15,13 @@ public class DigeomonCaptureData : ScriptableObject
     {
         captureData.Add(digeomonData.name, false);
         this.digeomonData.Add(digeomonData.name, digeomonData);
+    }
+
+    public void ResetCaptureData()
+    {
+        List<string> keys = captureData.Keys.ToList<string>();
+        foreach (string key in keys)
+            captureData[key] = false;
     }
 
     public void SyncDigeomonData(string digeomonName)
