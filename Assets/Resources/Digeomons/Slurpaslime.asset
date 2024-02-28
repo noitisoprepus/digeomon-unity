@@ -16,13 +16,12 @@ MonoBehaviour:
   description: 'Quench your thirst.
 
 '
-  keys:
-  - bottle
+  keys: []
   modelPrefab: {fileID: 8271476178577663497, guid: e4e0cbc42c10d4c4f94e4b07de48937f,
     type: 3}
   modelSprite: {fileID: 0}
   type: {fileID: 0}
   introDialogue: {fileID: 0}
-  quiz: {fileID: 0}
+  quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
   evolution: {fileID: 0}
   preEvolution: {fileID: 11400000, guid: 33cf00022a97c10499c4b82e659b96a0, type: 2}

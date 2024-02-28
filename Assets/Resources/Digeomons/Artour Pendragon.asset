@@ -16,13 +16,12 @@ MonoBehaviour:
   description: 'Ink your ideas into reality!
 
 '
-  keys:
-  - fountain pen
+  keys: []
   modelPrefab: {fileID: 776636643465505558, guid: f4689701b3d4e9b42a220e48eba88e00,
     type: 3}
   modelSprite: {fileID: 0}
   type: {fileID: 0}
   introDialogue: {fileID: 0}
-  quiz: {fileID: 0}
+  quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
   evolution: {fileID: 0}
   preEvolution: {fileID: 11400000, guid: cf5f0490f7d09f6449556e5dda9d80b5, type: 2}

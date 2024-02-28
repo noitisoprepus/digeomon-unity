@@ -21,6 +21,6 @@ MonoBehaviour:
   modelSprite: {fileID: 0}
   type: {fileID: 11400000, guid: 61e26b874e89a0c4c81a3b41b9519f50, type: 2}
   introDialogue: {fileID: 0}
-  quiz: {fileID: 0}
+  quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
   evolution: {fileID: 11400000, guid: 4fd326a68391d9e4cb8bfe76f32d8787, type: 2}
   preEvolution: {fileID: 0}

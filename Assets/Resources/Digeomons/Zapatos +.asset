@@ -14,15 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charName: Zapatos +
   description: Run with comfort. Trendy with boys.
-  keys:
-  - shoe
-  - sandal
-  - slipper
+  keys: []
   modelPrefab: {fileID: 5539829673537948937, guid: d759524843c15ba478d0da515ece1813,
     type: 3}
   modelSprite: {fileID: 0}
   type: {fileID: 0}
   introDialogue: {fileID: 0}
-  quiz: {fileID: 0}
+  quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
   evolution: {fileID: 0}
   preEvolution: {fileID: 11400000, guid: e9390a5e405b6ba4eb43126d155526fe, type: 2}
