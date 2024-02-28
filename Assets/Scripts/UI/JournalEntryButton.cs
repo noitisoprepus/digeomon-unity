@@ -13,7 +13,7 @@ namespace UI
         public delegate void EvolveDigeomon(DigeomonData digeomon);
         public static event EvolveDigeomon OnEvolveDigeomonAction;
 
-        public delegate void ShowInfo(DigeomonType infoType);
+        public delegate void ShowInfo();
         public static event ShowInfo OnShowInfoAction;
 
         [SerializeField] private Image previewImage;
