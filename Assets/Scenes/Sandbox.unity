@@ -2687,7 +2687,7 @@ PrefabInstance:
     - target: {fileID: 5666727383316651135, guid: 33a0ea6bcec607043b5d19792332a0a2,
         type: 3}
       propertyPath: digeomons.Array.size
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5666727383316651135, guid: 33a0ea6bcec607043b5d19792332a0a2,
         type: 3}
