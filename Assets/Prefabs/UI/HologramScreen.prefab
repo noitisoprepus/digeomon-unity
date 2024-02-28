@@ -633,7 +633,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7951000755953227120}
         m_TargetAssemblyTypeName: UI.HologramCanvas, UI
-        m_MethodName: GoToNextSlide
+        m_MethodName: OnNextSlideTriggered
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

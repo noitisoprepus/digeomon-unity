@@ -20,7 +20,16 @@ namespace UI
 
         public void ToggleModel()
         {
-            // Switch between digeomonModel and digeomonShape
+            //if (digeomonModel.activeInHierarchy)
+            //{
+            //    digeomonModel.SetActive(false);
+            //    digeomonShape.SetActive(true);
+            //}
+            //else
+            //{
+            //    digeomonShape.SetActive(false);
+            //    digeomonModel.SetActive(true);
+            //}
         }
 
         public void ToggleInformationPanel()
