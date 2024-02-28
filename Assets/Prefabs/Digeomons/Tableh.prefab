@@ -121,6 +121,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: HologramScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 7951000755953227120, guid: 3456e828d1f1d9c42afd2f2c00e8b006,
+        type: 3}
+      propertyPath: informationalContent.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951000755953227120, guid: 3456e828d1f1d9c42afd2f2c00e8b006,
+        type: 3}
+      propertyPath: informationalContent.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bc05141b4c4c084cb9e81b278d85a38,
+        type: 2}
     - target: {fileID: 8807223788686428460, guid: 3456e828d1f1d9c42afd2f2c00e8b006,
         type: 3}
       propertyPath: m_LocalPosition.x
