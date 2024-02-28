@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customDialog: {fileID: 7467627129263794151}
+  customDialogPanel: {fileID: 9214663798911974015}
   customDialogText: {fileID: 810863442905755371}
 --- !u!1 &6628344271128960668
 GameObject:
