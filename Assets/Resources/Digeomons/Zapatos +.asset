@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b445772f754eda54f878c1ab6f03bbae, type: 3}
+  m_Name: Zapatos +
+  m_EditorClassIdentifier: 
+  charName: Zapatos +
+  description: Run with comfort. Trendy with boys.
+  keys:
+  - shoe
+  - sandal
+  - slipper
+  modelPrefab: {fileID: 5539829673537948937, guid: d759524843c15ba478d0da515ece1813,
+    type: 3}
+  modelSprite: {fileID: 0}
+  type: {fileID: 0}
+  introDialogue: {fileID: 0}
+  quiz: {fileID: 0}
+  evolution: {fileID: 0}
+  preEvolution: {fileID: 11400000, guid: e9390a5e405b6ba4eb43126d155526fe, type: 2}

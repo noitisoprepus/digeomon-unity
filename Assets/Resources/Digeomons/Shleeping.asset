@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b445772f754eda54f878c1ab6f03bbae, type: 3}
+  m_Name: Shleeping
+  m_EditorClassIdentifier: 
+  charName: Shleeping
+  description: The perfect thing to sleep on.
+  keys:
+  - pillow
+  modelPrefab: {fileID: 8648027974712419388, guid: 11c316eb4c00df14e977734fd7f934e3,
+    type: 3}
+  modelSprite: {fileID: 0}
+  type: {fileID: 11400000, guid: 61e26b874e89a0c4c81a3b41b9519f50, type: 2}
+  introDialogue: {fileID: 0}
+  quiz: {fileID: 0}
+  evolution: {fileID: 0}
+  preEvolution: {fileID: 11400000, guid: 921ede5d36902c649b48746bc2091ac1, type: 2}
