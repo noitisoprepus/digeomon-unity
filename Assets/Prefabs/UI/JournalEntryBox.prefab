@@ -606,8 +606,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This description also serves as a hint to the players. Blah blah blah blah
-    blah blah.
+  m_text: The evolution of Clos. Controls time with his four axis.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5fc69cd8b402674fbf3f54871d895d8, type: 2}
   m_sharedMaterial: {fileID: 7386269702063622224, guid: c5fc69cd8b402674fbf3f54871d895d8,

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b445772f754eda54f878c1ab6f03bbae, type: 3}
+  m_Name: Sanazie Pro
+  m_EditorClassIdentifier: 
+  charName: Sanazie Pro
+  description: A corrupted evolution of Sanazie. Able to take a picture of ghosts
+    and hidden entities among us.
+  keys: []
+  modelPrefab: {fileID: 3018725767995809339, guid: 6a9e49e5b33032a43bbab29fc18e427a,
+    type: 3}
+  modelSprite: {fileID: 21300000, guid: ce84df11acba099468fa9983575b6569, type: 3}
+  relevantInfos: []
+  introDialogue: {fileID: 11400000, guid: b586154d22003e74783322deac084a32, type: 2}
+  quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
+  evolution: {fileID: 0}
+  preEvolution: {fileID: 11400000, guid: 60fbb1c0b84754c43a3ee5d57d5178f7, type: 2}
