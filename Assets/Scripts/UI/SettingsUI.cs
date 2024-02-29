@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 namespace UI
@@ -13,13 +14,42 @@ namespace UI
         [SerializeField] private MobilePhoneUI mobilePhoneUI;
         [SerializeField] private Toggle verboseScannerToggle;
 
-        // Add music slider
-        // Add sfx slider
+        [SerializeField] private Slider musicSlider;
+        [SerializeField] private Slider sfxSlider;
+
+        [SerializeField] private AudioMixer musicMixer;
+        [SerializeField] private AudioMixer sfxMixer;
 
         private void OnEnable()
         {
             if (verboseScannerToggle != null && PlayerPrefs.HasKey("verboseScanner"))
                 verboseScannerToggle.isOn = PlayerPrefs.GetInt("verboseScanner") == 1;
+        }
+
+        public void OnMusicSliderChanged()
+        {
+            if (musicSlider.value > 0)
+            {
+                float volume = Mathf.Log10(musicSlider.value) * 20;
+                musicMixer.SetFloat("Music_Volume", volume);
+            }
+            else
+            {
+                musicMixer.SetFloat("Music_Volume", -80f);
+            }
+        }
+
+        public void OnSFXSliderChanged()
+        {
+            if (sfxSlider.value > 0)
+            {
+                float volume = Mathf.Log10(sfxSlider.value) * 20;
+                sfxMixer.SetFloat("SFX_Volume", volume);
+            }
+            else
+            {
+                sfxMixer.SetFloat("SFX_Volume", -80f);
+            }
         }
 
         public void OnVerboseScannerToggleValueChanged()
