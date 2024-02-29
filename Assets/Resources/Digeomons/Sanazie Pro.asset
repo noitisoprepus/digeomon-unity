@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Sanazie Pro
   m_EditorClassIdentifier: 
   charName: Sanazie Pro
-  description: A corrupted evolution of Sanazie. Able to take a picture of ghosts
-    and hidden entities among us.
+  description: A corrupted evolution of Sanazie. Can take a pictures of ghosts the
+    hides among us.
   keys: []
   modelPrefab: {fileID: 3018725767995809339, guid: 6a9e49e5b33032a43bbab29fc18e427a,
     type: 3}

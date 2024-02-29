@@ -16,8 +16,6 @@ MonoBehaviour:
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
   - "Do you like reading? Well you just found <b>Vampage, the book DiGeoMon</b>.\t"
-  - Here's a joke for you.
-  - Why do you think the book go to the gym?
-  - Because it wanted to work on its four "covers"!
-  - Not funny, huh? Well books has four sides. That's why.
-  - I'll go now.
+  - A mysterious book with ancient text that hides knowledge of the past.
+  - Beware of what it might conjure, for there is no certainty in mysteries.
+  - Read at your own risk.

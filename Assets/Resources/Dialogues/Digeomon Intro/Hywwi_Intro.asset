@@ -15,6 +15,6 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Cool! You found <b>Hywwi</b>! UwU.
-  - <b>Hywwi</b> is based on the 2D shape, <b>Rectangle</b>, and 3D shape, <b>Cuboid</b>.
-  - Be careful not to touch his tongue. It's quite sensitive.
+  - 'Congratulations! You have evolved <b>Miwwy</b> to <b>Hywwi!</b>. '
+  - <b>Hywwi</b> blows a gentle breeze at night to make you sleepy.
+  - He can be your best friend at nap time!

@@ -15,6 +15,7 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - 'Congratulations! You have evolved <b>Vampage</b> to <b>Blood Vampage</b>. '
+  - 'Congratulations! You have evolved <b>Vampage</b> to <b>Blood Vampage!</b>. '
   - <b>Blood Vampage</b> uses the blood of his master to cast deadly spells on the
     battlefield.
+  - A tool for war and conquer, borne through battle.

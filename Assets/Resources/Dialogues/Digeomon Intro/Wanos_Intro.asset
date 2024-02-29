@@ -15,8 +15,9 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Ding-dong! It's time for the <b>clock Digeomon, Wanos</b>!
-  - <i>Heh</i>
-  - Wanos is based on the 2D shape, <b>Circle</b>, which does not have any sides.
-    Can you believe that?
-  - Now go capture that guy before the time runs out.
+  - 'Congratulations! You have evolved <b>Clos</b> to <b>Wanos!</b>. '
+  - <b>Wanos</b> controls the primordial of time by his four axis. Bestows you with
+    endless time to complete anything.
+  - <b>Heh~</b>
+  - More time equals more <b>Freedom!</b> You can play all you want!
+  - But there is always a cost for everything.

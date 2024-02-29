@@ -15,6 +15,8 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - 'Congratulations! You have evolved <b>Sanazie</b> to <b>Sanazie Pro</b>. '
+  - 'Congratulations! You have evolved <b>Sanazie</b> to <b>Sanazie Pro!</b>. '
   - <b>Sanazie</b> was corrupted by ghosts and turned into <b>Sanazie Pro</b>. Beware
     of taking pictures with it, because ghosts are likely to say hello.
+  - You can use it to check under your bed~
+  - There might be something below...

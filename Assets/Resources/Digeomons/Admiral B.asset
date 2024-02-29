@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Admiral B
   m_EditorClassIdentifier: 
   charName: Admiral B
-  description: The evolution of Vampage. A powerful DiGeoMon, destroyer of planets
-    and the enemy of many.
+  description: The evolution of Sir Bammon, destroyer of planets and the enemy of
+    many.
   keys: []
   modelPrefab: {fileID: 2787783310766100514, guid: 4019c2a1e40334d48a2c3e6f38d76714,
     type: 3}
   modelSprite: {fileID: 21300000, guid: 77506a93423f0724aaa69ba9bc4fcf0e, type: 3}
   relevantInfos: []
-  introDialogue: {fileID: 0}
+  introDialogue: {fileID: 11400000, guid: 899ca8120fc314c4dafde6eaeb60c9b3, type: 2}
   quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
   evolution: {fileID: 0}
   preEvolution: {fileID: 11400000, guid: b0673adfb7b1c5f46a05800489b16ba2, type: 2}

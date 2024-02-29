@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Vampage
   m_EditorClassIdentifier: 
   charName: Vampage
-  description: Pages full of stories or pictures to see.
+  description: A magical grimoire, full of mysterious and deadly knowledge.
   keys:
   - book
   - document
@@ -38,5 +38,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8f6db61298723004e9d03645fc7f261b, type: 2}
   introDialogue: {fileID: 11400000, guid: 28145b55d468b50438eaa5ea0b6fd475, type: 2}
   quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
-  evolution: {fileID: 0}
+  evolution: {fileID: 11400000, guid: 7f680e4ff29b15e4cbf1c1acdc401ebb, type: 2}
   preEvolution: {fileID: 0}

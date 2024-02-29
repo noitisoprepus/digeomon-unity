@@ -15,7 +15,7 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Woah! You found <b>Clos</b>! The Clock DiGeoMon.
+  - Tic-toc, you found <b>Clos</b>! The Clock DiGeoMon.
   - <b>Clos</b> is based on the 2D shape <b>Circle</b>. Like a smol alarm clock that
     you can smash in the morning.
-  - <s>Capture</s>Smash him before he escapes!
+  - <s>Capture</s> Smash him before time runs out!

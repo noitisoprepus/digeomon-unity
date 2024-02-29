@@ -15,8 +15,7 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Ding-dong! It's time for the <b>clock Digeomon, Wanos</b>!
-  - <i>Heh</i>
-  - <b>Wanos</b> is based on the 2D shape, <b>Circle</b>, which does not have any
-    sides. and 3D shape <b>Sphere</b>. Can you believe that?
-  - Now go capture that guy before the time runs out.
+  - Hellow there, its <b>Sir Bammon!</b>
+  - <b>Sir Bammon</b> is based on a 3d shape <b>Sphere</b>.
+  - A trusty companion to support you in any tasks!
+  - He's dutiful any time, any day.

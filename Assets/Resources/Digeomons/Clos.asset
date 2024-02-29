@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Clos
   m_EditorClassIdentifier: 
   charName: Clos
-  description: Smol clock.
+  description: Smol clock. Your best alarm in the morning.
   keys:
   - watch
   - clock

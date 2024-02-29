@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Sanazie
   m_EditorClassIdentifier: 
   charName: Sanazie
-  description: Your trusty companion that captures interesting moments of you and
-    the things around you.
+  description: Your trusty buddy that captures cool moments and vast landscapes.
   keys:
   - tripod
   - camera

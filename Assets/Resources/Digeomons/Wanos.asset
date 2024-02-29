@@ -13,15 +13,8 @@ MonoBehaviour:
   m_Name: Wanos
   m_EditorClassIdentifier: 
   charName: Wanos
-  description: Shows the time with numbers and moving hands.
-  keys:
-  - watch
-  - clock
-  - timepiece
-  - timekeeper
-  - chronometer
-  - chronograph
-  - stopwatch
+  description: The evolution of Clos. Controls time with his four axis.
+  keys: []
   modelPrefab: {fileID: 1123036940919854466, guid: 737438b1f4255994a936d7bc46c3b61b,
     type: 3}
   modelSprite: {fileID: 21300000, guid: f295648f996e567438bf1fc65c93e7cf, type: 3}
@@ -30,4 +23,4 @@ MonoBehaviour:
   introDialogue: {fileID: 11400000, guid: 57d49dabc78930243b8bc3694361e3aa, type: 2}
   quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
   evolution: {fileID: 0}
-  preEvolution: {fileID: 0}
+  preEvolution: {fileID: 11400000, guid: d6ced220a52cbd94aa7834eb1e22ad36, type: 2}

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Blood Vampage
   m_EditorClassIdentifier: 
   charName: Blood Vampage
-  description: The evolution of Vampage. Borne through war and conquer, using his
-    extensive knowledge of the art of war. He conquers lands and kingdoms by force!
+  description: The evolution of Vampage. Contains with vast knowledge of the art
+    of war.
   keys: []
   modelPrefab: {fileID: 1390356308876422076, guid: 8eff78fe8dd6e324b8afe73f4a152259,
     type: 3}
