@@ -18,7 +18,8 @@ MonoBehaviour:
   modelPrefab: {fileID: 8648027974712419388, guid: 11c316eb4c00df14e977734fd7f934e3,
     type: 3}
   modelSprite: {fileID: 21300000, guid: 6a8330788dde85e45b40166d32f44674, type: 3}
-  relevantInfos: []
+  relevantInfos:
+  - {fileID: 11400000, guid: 8f6db61298723004e9d03645fc7f261b, type: 2}
   introDialogue: {fileID: 0}
   quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
   evolution: {fileID: 0}
