@@ -12,8 +12,14 @@ namespace Core
         [SerializeField] private Material evolutionMat;
         [SerializeField] private ParticleSystem evolutionVFX;
 
+        private DialogueManager dialogueManager;
         private GameObject digeomonObj;
         private GameObject evolutionObj;
+
+        private void Awake()
+        {
+            dialogueManager = GetComponent<DialogueManager>();
+        }
 
         private void OnEnable()
         {
@@ -70,6 +76,7 @@ namespace Core
             evolutionObj.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
             digeomonObj.SetActive(false);
             evolutionVFX.Play();
+            dialogueManager.StartDialogue(PersistentData.targetDigeomon.introDialogue);
         }
 
         // Testing

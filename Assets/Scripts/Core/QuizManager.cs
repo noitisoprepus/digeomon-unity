@@ -28,7 +28,12 @@ namespace Core
         [SerializeField] private int itemNumbers;
         [SerializeField] private int passingScore;
 
+        [Header("Quiz SFX")]
+        [SerializeField] private AudioClip quizSuccessSFX;
+        [SerializeField] private AudioClip quizFailSFX;
+
         private QuizUI quizUI;
+        private AudioSource quizAudioSource;
         private JournalManager journalManager;
         private DigeomonData targetDigeomon;
         private List<QuestionData> currQuestions;
@@ -39,6 +44,7 @@ namespace Core
         private void Awake()
         {
             quizUI = GetComponent<QuizUI>();
+            quizAudioSource = GetComponent<AudioSource>();
             journalManager = GameManager.Instance.gameObject.GetComponent<JournalManager>();
         }
 
@@ -112,6 +118,9 @@ namespace Core
                 {
                     digeomonCaptureData.CaptureDigeomon(targetDigeomon);
                     
+                    quizAudioSource.clip = quizSuccessSFX;
+                    quizAudioSource.Play();
+
                     if (PersistentData.toEvolve)
                     {
                         OnEvolutionSuccessAction?.Invoke();
@@ -122,6 +131,8 @@ namespace Core
                 }
                 else
                 {
+                    quizAudioSource.clip = quizFailSFX;
+                    quizAudioSource.Play();
                     GameManager.Instance.ShowDialog("<color=#CF2E2E>Capture Failed</color>");
                 }
 
