@@ -16,6 +16,7 @@ namespace Scanner
 
         [SerializeField] private InformationalData placeholderInfo;
 
+        private AudioSource audioSource;
         private DigeomonData currDigeomon;
         private ScannerUI scannerUI;
         private GameObject arObject;
@@ -26,6 +27,7 @@ namespace Scanner
 
         private void Awake()
         {
+            audioSource = GetComponent<AudioSource>();
             scannerUI = GetComponent<ScannerUI>();
         }
 
@@ -105,6 +107,7 @@ namespace Scanner
             spawnedObject = Instantiate(arObject, placementPose.position, placementPose.rotation);
             spawnedObject.transform.localScale = Vector3.zero;
             spawnedObject.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
+            audioSource.Play();
 
             HologramCanvas hologram = spawnedObject.GetComponentInChildren<HologramCanvas>();
             List<InformationalData> infoList = new List<InformationalData>();
