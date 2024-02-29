@@ -25,6 +25,7 @@ namespace Core
         [SerializeField] private TextMeshProUGUI charNameText;
         [SerializeField] private TextMeshProUGUI dialogueText;
 
+        private AudioSource dialogueTextAudio;
         private Sequence arrowSequence;
         private Coroutine dialogueCoroutine;
         private DialogueData currDialogue;
@@ -37,6 +38,7 @@ namespace Core
         private void Awake()
         {
             dialoguePanel.GetComponentInChildren<DialogueInput>().onClick.AddListener(OnDialogueBoxTapped);
+            dialogueTextAudio = dialogueText.gameObject.GetComponent<AudioSource>();
         }
 
         private void Start()
@@ -120,6 +122,7 @@ namespace Core
 
             while (dialogueText.maxVisibleCharacters != line.Length)
             {
+                dialogueTextAudio.Play();
                 dialogueText.maxVisibleCharacters++;
                 yield return new WaitForSeconds(textSpeed);
             }
