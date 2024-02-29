@@ -37,7 +37,7 @@ namespace Core
             {
                 digeomonObj = Instantiate(digeomon.preEvolution.modelPrefab, digeomonModelT);
                 evolutionObj = Instantiate(digeomon.modelPrefab, digeomonModelT);
-                evolutionObj.SetActive(false);
+                evolutionObj.transform.localScale = Vector3.zero;
                 return;
             }
 
@@ -66,8 +66,8 @@ namespace Core
             digeomonObj.transform.DOShakeScale(3f, 0.4f, 5, 90, true, ShakeRandomnessMode.Harmonic);
 
             yield return new WaitForSeconds(3f);
-            
-            evolutionObj.SetActive(true);
+
+            evolutionObj.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
             digeomonObj.SetActive(false);
             evolutionVFX.Play();
         }
@@ -76,8 +76,8 @@ namespace Core
         public void ShakeObject(GameObject obj)
         {
             GameObject go = Instantiate(obj, digeomonModelT);
-            go.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = evolutionMat;
-            go.transform.DOShakeScale(3f, 0.4f, 5, 90, true, ShakeRandomnessMode.Harmonic);
+            go.transform.localScale = Vector3.zero;
+            go.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
         }
     }
 }

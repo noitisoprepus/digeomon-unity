@@ -1,4 +1,5 @@
 using Core;
+using DG.Tweening;
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
@@ -102,6 +103,8 @@ namespace Scanner
         {
             isInitialized = false;
             spawnedObject = Instantiate(arObject, placementPose.position, placementPose.rotation);
+            spawnedObject.transform.localScale = Vector3.zero;
+            spawnedObject.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
 
             HologramCanvas hologram = spawnedObject.GetComponentInChildren<HologramCanvas>();
             List<InformationalData> infoList = new List<InformationalData>();
