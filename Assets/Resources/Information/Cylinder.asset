@@ -14,12 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Cylinder
   content:
-  - '* Is a three-dimensional geometric shape characterized by <mark=#00563B40>two
-    parallel circular bases</mark> connected by a curved surface.
-
-    * The <mark=#00563B40>bases</mark>
-    are <mark=#00563B40>congruent</mark> and lie in <mark=#00563B40>parallel planes</mark>,
-    while the curved surface forms the lateral surface of the cylinder
-
-    * Examples
-    are paper rolls, cans, candles, etc...'
+  - A three-dimensional shape characterized by <mark=#00563B40>two parallel circular
+    bases</mark> connected by a curved surface.
+  - The <mark=#00563B40>bases</mark> are <mark=#00563B40>congruent</mark> and lie
+    in <mark=#00563B40>parallel planes</mark>, while the curved surface forms the
+    lateral surface of the cylinder.
+  - Examples are paper rolls, cans, and candles.

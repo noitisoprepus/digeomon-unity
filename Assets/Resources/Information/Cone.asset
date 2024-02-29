@@ -14,11 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Cone
   content:
-  - '* Is a three-dimensional shape that narrows smoothly from a <mark=#00563B40>flat
-    circular base</mark> to a point called the <mark=#00563B40>apex</mark> or <mark=#00563B40>vertex</mark>
-
-    *
-    A cone consists of a single base, curved surface, and point.
-
-    * Examples
-    are ice cream cones, party hat, traffic cones, and etc...'
+  - A three-dimensional shape that narrows smoothly from a <mark=#00563B40>flat circular
+    base</mark> to a point called the <mark=#00563B40>apex</mark> or <mark=#00563B40>vertex</mark>.
+  - A cone consists of a single base, curved surface, and point.
+  - Examples are ice cream cones, party hat, and traffic cones.

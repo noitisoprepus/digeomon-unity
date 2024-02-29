@@ -14,11 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Ellipsoid
   content:
-  - '* Is a three-dimensional geometric shape characterized by its smooth, curved
-    surface, which resembles a <mark=#00563B40>squashed sphere</mark>.
-
-    * Imagine
-    stretching a balloon, it will look like a longer or flatter sphere.
-
-    * Examples
-    are eggs, lemon, football, etc...'
+  - A three-dimensional shape characterized by its smooth, curved surface, which
+    resembles a <mark=#00563B40>squashed sphere</mark>.
+  - Imagine stretching a balloon, it will look like a longer or flatter sphere.
+  - Examples are eggs, lemon, and football.

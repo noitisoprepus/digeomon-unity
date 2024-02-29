@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Cuboid
   content:
-  - "* A three-dimensional geometric shape characterized by six faces, all of which
-    are rectangles. \n* Unlike a cube, a cuboid does not have all sides of equal
-    length. Instead, it has <mark=#00563B40>six rectangular faces</mark>, where the
-    opposite faces are equal to each other.\n\n"
+  - 'A three-dimensional shape characterized by six faces, all of which are rectangles. '
+  - 'Unlike a cube, a cuboid does not have all sides of equal length.
+
+
+'
+  - 'Instead, it has <mark=#00563B40>six rectangular faces</mark>, where the opposite
+    faces are equal to each other.
+
+
+'

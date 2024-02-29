@@ -14,11 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Sphere
   content:
-  - '* Is a three-dimensional shape that looks the same from all angles.
-
-    * Spheres
-    do not have any corners, edges, or flat sides. Instead, they are completely <mark=#00563B40>smooth</mark>
-    and <mark=#00563B40>round.</mark>
-
-    * Examples are balls, marbles, bubbles,
-    and etc...'
+  - A three-dimensional shape that looks the same from all angles.
+  - Spheres do not have any corners, edges, or flat sides. Instead, they are completely
+    <mark=#00563B40>smooth</mark> and <mark=#00563B40>round.</mark>
+  - Examples are basketball, marbles, and bubbles.
