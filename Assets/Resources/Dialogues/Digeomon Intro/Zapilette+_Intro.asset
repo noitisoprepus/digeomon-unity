@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832428c249f030043a47ae6bb0480cb6, type: 3}
   m_Name: Zapilette+_Intro
   m_EditorClassIdentifier: 
-  charName: 
-  charSprite: {fileID: 0}
-  dialogues: []
+  charName: Professor Euclid
+  charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
+  dialogues:
+  - Sheesh! Look at that! You have found <b> Zapilette+</b>, one of the two footwear
+    based DiGeoMons!
+  - <b> Zapilette+</b> is based on the 3d shape, <b>Ellipsoid</b>.
+  - This version is said to be popular with males.
+  - Capture it before it runs away!

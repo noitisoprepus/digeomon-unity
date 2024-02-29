@@ -15,4 +15,12 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Scanner FTUE script.
+  - Welcome to the scanner!
+  - 'With this, you can <b>scan</b> real-world objects to discover DiGeoMons. '
+  - Simply <b>point your camera</b> at objects like books and, and watch as they
+    come to life!
+  - Each scanned object will spawn a DiGeoMon for you to capture. Who knows what
+    you'll see?
+  - So be ready to use your phone, explore the world, and let the adventure begin
+    with DiGeoMon!
+  - 'Your DiGeoMon journey starts now! '

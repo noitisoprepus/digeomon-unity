@@ -15,4 +15,8 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Journal FTUE script.
+  - Welcome to your Journal.
+  - Your Journal is like a backpack for your journey. It keeps track of all the DiGeoMon
+    you capture  and important information.
+  - When you capture a DiGeoMon, it is automatically recorded in your journal. Details
+    about your captured pokemon can be read here as well.

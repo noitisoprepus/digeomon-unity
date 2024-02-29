@@ -15,4 +15,7 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Capture FTUE script.
+  - 'Nice! You spawned a DiGeoMon! '
+  - Notice that there are details about the shape it is based on. That may be useful
+    in capturing it as there will be a quiz.
+  - Press capture to attempt to capture it.

@@ -15,4 +15,6 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - Quiz FTUE script.
+  - To capture the DiGeoMon, you have to answer some questions first.
+  - 'Do not be afraid though. If you study well, I''m sure you can do it! '
+  - Now go and capture them DiGeoMons!

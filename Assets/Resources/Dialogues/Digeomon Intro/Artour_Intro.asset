@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832428c249f030043a47ae6bb0480cb6, type: 3}
   m_Name: Artour_Intro
   m_EditorClassIdentifier: 
-  charName: 
-  charSprite: {fileID: 0}
-  dialogues: []
+  charName: Professor Euclid
+  charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
+  dialogues:
+  - Hiya! You have found <b>Artour</b> ! The pen-using DiGeomon!
+  - <b>Artour</b> loves using his <b>Cylinder</b> pencil.
+  - He trains everyday to improve his pencil-wielding skills. Hoping to make his
+    dreams come true one day!
+  - Maybe <b>Artour</b> can be an inspiration to you, young trainer.
+  - Go ahead and capture him!

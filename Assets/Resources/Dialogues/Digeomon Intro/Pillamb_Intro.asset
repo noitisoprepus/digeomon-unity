@@ -15,4 +15,9 @@ MonoBehaviour:
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - 
+  - <b> *yawn* </b> I feel sleepy...
+  - You must have found <b>Pillamb</b>, the pillow-lamb DiGeoMon.
+  - '<b>Pillamb</b> is based on the 2D shape <b>Rectangle</b> and 3D shape <b>Cuboid</b>
+
+'
+  - Go ahead and capture it! It is very cuddly!
