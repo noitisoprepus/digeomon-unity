@@ -506,7 +506,6 @@ MonoBehaviour:
   titleText: {fileID: 4264127616662087659}
   contentText: {fileID: 7039269028073295182}
   arrowRT: {fileID: 3737449376625557224}
-  informationalContent: []
 --- !u!1 &3766385970215101283
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2263473146186273247
 RectTransform:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,9 +10,12 @@ namespace UI
         [SerializeField] private GameObject digeomonShape;
         [SerializeField] private GameObject informationPanel;
 
+        private bool infoToggle = false;
+
         private void Start()
         {
             digeomonShape.SetActive(false);
+            informationPanel.transform.localScale = new Vector3(1f, 0f, 1f);
             if (SceneManager.GetActiveScene().name.Equals("Sandbox"))
             {
                 gameObject.SetActive(false);
@@ -38,7 +42,17 @@ namespace UI
 
         public void ToggleInformationPanel()
         {
-            informationPanel.SetActive(!informationPanel.activeInHierarchy);
+            //informationPanel.SetActive(!informationPanel.activeInHierarchy);
+            if (!infoToggle)
+            {
+                informationPanel.transform.DOScaleY(1f, 0.75f).SetEase(Ease.OutQuart);
+                infoToggle = true;
+            }
+            else
+            {
+                informationPanel.transform.DOScaleY(0f, 0.6f).SetEase(Ease.OutExpo);
+                infoToggle = false;
+            }
         }
     }
 }
