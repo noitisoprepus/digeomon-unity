@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b445772f754eda54f878c1ab6f03bbae, type: 3}
+  m_Name: Sanazie
+  m_EditorClassIdentifier: 
+  charName: Sanazie
+  description: Your trusty companion that captures interesting moments of you and
+    the things around you.
+  keys:
+  - tripod
+  - camera
+  - microphone stand
+  modelPrefab: {fileID: 1720527734203568595, guid: f9d6dfa9550b4ad47abd4c679890a6b7,
+    type: 3}
+  modelSprite: {fileID: 21300000, guid: ff3edd88eab7c164fbee80f0a360b0a8, type: 3}
+  relevantInfos: []
+  introDialogue: {fileID: 11400000, guid: cbb25212e96a4364885d205cbc6c2fad, type: 2}
+  quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
+  evolution: {fileID: 11400000, guid: ea0996ab233144a41890203020bf4734, type: 2}
+  preEvolution: {fileID: 0}
