@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 
   questions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8e88e4a6fe82a58409afb39927c4aafa, type: 2}
+  - {fileID: 11400000, guid: 061183b53ef2f8a4792735258d9b228e, type: 2}
+  - {fileID: 11400000, guid: c454417edc54af846816536d338311a8, type: 2}
   passingScore: 2
