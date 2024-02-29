@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shleeping
   m_EditorClassIdentifier: 
   charName: Shleeping
-  description: The perfect thing to sleep on.
+  description: Evolution of Pillamb.
   keys: []
   modelPrefab: {fileID: 8648027974712419388, guid: 11c316eb4c00df14e977734fd7f934e3,
     type: 3}

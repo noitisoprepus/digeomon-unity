@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Slurpaslime
   m_EditorClassIdentifier: 
   charName: Slurpaslime
-  description: 'Quench your thirst.
-
-'
+  description: Evolution of Smugma
   keys: []
   modelPrefab: {fileID: 8271476178577663497, guid: e4e0cbc42c10d4c4f94e4b07de48937f,
     type: 3}

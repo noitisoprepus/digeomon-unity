@@ -19,6 +19,12 @@ MonoBehaviour:
   keys:
   - coffee mug
   - bottle
+  - cup
+  - beverage
+  - coffee
+  - tea
+  - espresso
+  - drink
   modelPrefab: {fileID: 2860392435255365074, guid: dbf4cce933b5e1248830af055d130dab,
     type: 3}
   modelSprite: {fileID: 21300000, guid: fd91af7efa918ce40bd39d7fd9bcaf3b, type: 3}

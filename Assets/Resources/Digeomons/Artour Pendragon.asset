@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Artour Pendragon
   m_EditorClassIdentifier: 
   charName: Artour Pendragon
-  description: 'Ink your ideas into reality!
-
-'
+  description: Evolution of Artour
   keys: []
   modelPrefab: {fileID: 776636643465505558, guid: f4689701b3d4e9b42a220e48eba88e00,
     type: 3}

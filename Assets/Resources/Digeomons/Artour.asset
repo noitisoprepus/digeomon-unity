@@ -16,6 +16,9 @@ MonoBehaviour:
   description: Draw and write your ideas into reality!
   keys:
   - fountain pen
+  - rubber eraser
+  - ballpoint
+  - quill
   modelPrefab: {fileID: 4217290122905702582, guid: 4dee463c5ff6d614e864ce72bfdc5353,
     type: 3}
   modelSprite: {fileID: 21300000, guid: 8519ba336899b9240a41afd36814b327, type: 3}

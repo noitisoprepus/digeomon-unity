@@ -16,6 +16,7 @@ MonoBehaviour:
   description: Cuddly and makes you sleep comfortably.
   keys:
   - pillow
+  - quilt
   modelPrefab: {fileID: 4177513823997343724, guid: 24505c55dcbdde446bf07321d389fd03,
     type: 3}
   modelSprite: {fileID: 21300000, guid: b01b157232a5544488e96411c4661af4, type: 3}
