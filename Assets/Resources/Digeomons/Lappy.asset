@@ -22,6 +22,6 @@ MonoBehaviour:
   relevantInfos:
   - {fileID: 11400000, guid: 8f6db61298723004e9d03645fc7f261b, type: 2}
   introDialogue: {fileID: 11400000, guid: de5ea71715f96c14c8dbc23d05745baa, type: 2}
-  quiz: {fileID: 11400000, guid: e770bbaca2d1dba4ab22345f4719f435, type: 2}
+  quiz: {fileID: 11400000, guid: 2500730c9aaec2247b8ed043e349450b, type: 2}
   evolution: {fileID: 11400000, guid: dd3bc7683be4770408384d821142569b, type: 2}
   preEvolution: {fileID: 0}
