@@ -16,6 +16,7 @@ MonoBehaviour:
   description: A portable personal computer.
   keys:
   - laptop
+  - notebook
   modelPrefab: {fileID: 4557409906133879582, guid: 41405a44eb909d1448b5bac348a2d222,
     type: 3}
   modelSprite: {fileID: 21300000, guid: 36c135f92af0de746a3209c16a7ef6e9, type: 3}
