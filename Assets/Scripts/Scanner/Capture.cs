@@ -68,11 +68,12 @@ namespace Scanner
 
         public void SearchDigeomon(string label)
         {
+            string labelLowerCase = label.ToLower();
             foreach (DigeomonData digeomon in digeomons)
             {
                 foreach(string key in digeomon.keys)
                 {
-                    if (label.Contains(key.ToLower()))
+                    if (labelLowerCase.Contains(key.ToLower()))
                     {
                         TriggerCapture(digeomon);
                         scannerUI.OnScanFinished();
