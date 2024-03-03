@@ -17,6 +17,7 @@ MonoBehaviour:
   keys:
   - wardrobe
   - sliding door
+  - china cabinet
   modelPrefab: {fileID: 387576844591098948, guid: 9b1e36513e21d6e41ae6073f7a8abce3,
     type: 3}
   modelSprite: {fileID: 21300000, guid: 20a1f6fc04ece54418edda9a73448693, type: 3}
