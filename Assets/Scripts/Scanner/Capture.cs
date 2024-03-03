@@ -72,7 +72,7 @@ namespace Scanner
             {
                 foreach(string key in digeomon.keys)
                 {
-                    if (label.Contains(key))
+                    if (label.Contains(key.ToLower()))
                     {
                         TriggerCapture(digeomon);
                         scannerUI.OnScanFinished();
