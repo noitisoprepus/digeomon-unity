@@ -65,6 +65,8 @@ MonoBehaviour:
   digeomons:
   - {fileID: 11400000, guid: 2d166a10708099f4083efd8fb57c2674, type: 2}
   - {fileID: 11400000, guid: 0afb5152cc78feb4d8890bfbcd051187, type: 2}
+  - {fileID: 11400000, guid: 5dd3b7604b555b1488e26c8d4eedf044, type: 2}
+  - {fileID: 11400000, guid: dd3bc7683be4770408384d821142569b, type: 2}
   - {fileID: 11400000, guid: 8f1df1cf56cafa74999eabbc342110e1, type: 2}
   - {fileID: 11400000, guid: 7f680e4ff29b15e4cbf1c1acdc401ebb, type: 2}
   - {fileID: 11400000, guid: 7e45654b52db5e24c9b1f182aa03b810, type: 2}
@@ -73,8 +75,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4e7570eda2fafca49b728b6f1b3530d2, type: 2}
   - {fileID: 11400000, guid: bed1963b98d521e4badcdb91b571839e, type: 2}
   - {fileID: 11400000, guid: 9386fe958c954104e9375038a188824a, type: 2}
-  - {fileID: 11400000, guid: dd3bc7683be4770408384d821142569b, type: 2}
-  - {fileID: 11400000, guid: 5dd3b7604b555b1488e26c8d4eedf044, type: 2}
   - {fileID: 11400000, guid: 6e46d2a61fe22b8428c762b11669d254, type: 2}
   - {fileID: 11400000, guid: 399eef69ad05b4c40afe16de126a5ecf, type: 2}
   - {fileID: 11400000, guid: 3fcd287b9a010e24aba2e6b99a85b8cb, type: 2}
