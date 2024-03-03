@@ -15,10 +15,10 @@ MonoBehaviour:
   charName: Zapilette +
   description: Cozy comfort for every step. Trendy with boys.
   keys:
+  - Loafer
   - shoe
   - slipper
   - sandal
-  - Loafer
   - clog
   - footwear
   - boot

@@ -15,11 +15,10 @@ MonoBehaviour:
   charName: Vampage
   description: A magical grimoire, full of mysterious and deadly knowledge.
   keys:
-  - book
   - document
   - folder
+  - book
   - binder
-  - notepad
   - diary
   - journal
   - logbook
