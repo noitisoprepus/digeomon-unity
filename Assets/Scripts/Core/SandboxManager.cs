@@ -8,6 +8,10 @@ namespace Core
     {
         [SerializeField] private Transform digeomonModelT;
 
+        [Header("Feedback VFX")]
+        [SerializeField] private ParticleSystem successParticleSystem;
+        [SerializeField] private ParticleSystem failParticleSystem;
+
         [Header("Evolution")]
         [SerializeField] private Material evolutionMat;
         [SerializeField] private ParticleSystem evolutionVFX;
@@ -23,15 +27,15 @@ namespace Core
 
         private void OnEnable()
         {
-            QuizManager.OnAnswerCorrectAction += GentleShakeDigeomon;
-            QuizManager.OnAnswerIncorrectAction += ViolentShakeDigeomon;
+            QuizManager.OnAnswerCorrectAction += OnDigeomonExcited;
+            QuizManager.OnAnswerIncorrectAction += OnDigeomonInfuriated;
             QuizManager.OnEvolutionSuccessAction += OnEvolutionSuccessful;
         }
 
         private void OnDisable()
         {
-            QuizManager.OnAnswerCorrectAction -= GentleShakeDigeomon;
-            QuizManager.OnAnswerIncorrectAction -= ViolentShakeDigeomon;
+            QuizManager.OnAnswerCorrectAction -= OnDigeomonExcited;
+            QuizManager.OnAnswerIncorrectAction -= OnDigeomonInfuriated;
             QuizManager.OnEvolutionSuccessAction -= OnEvolutionSuccessful;
         }
 
@@ -50,14 +54,16 @@ namespace Core
             digeomonObj = Instantiate(digeomon.modelPrefab, digeomonModelT);
         }
 
-        private void ViolentShakeDigeomon()
+        private void OnDigeomonInfuriated()
         {
             digeomonObj.transform.DOShakePosition(1f, 0.25f, 12, 90);
+            failParticleSystem.Play();
         }
 
-        private void GentleShakeDigeomon()
+        private void OnDigeomonExcited()
         {
             digeomonObj.transform.DOShakePosition(1f, 0.1f, 1, 10);
+            successParticleSystem.Play();
         }
 
         private void OnEvolutionSuccessful()
