@@ -161,6 +161,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chairmander_nowings
       objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: d54d95587a87d7f489e9a4dd01a6180a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
