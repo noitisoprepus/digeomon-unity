@@ -278,17 +278,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a13bbe2b303dbf24ea41364586519077,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06
+      value: 0.044
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a13bbe2b303dbf24ea41364586519077,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5075
+      value: 0.317
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a13bbe2b303dbf24ea41364586519077,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.037
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a13bbe2b303dbf24ea41364586519077,
         type: 3}
@@ -329,6 +329,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tableh_prevolve
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: a13bbe2b303dbf24ea41364586519077,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
