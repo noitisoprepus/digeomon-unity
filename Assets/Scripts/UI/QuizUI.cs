@@ -65,10 +65,10 @@ namespace UI
         public void ShowQuestion(QuestionData q)
         {
             questionText.text = q.question;
-            choiceAText.text = q.choices[0];
-            choiceBText.text = q.choices[1];
-            choiceCText.text = q.choices[2];
-            choiceDText.text = q.choices[3];
+            choiceAText.text = "A. " + q.choices[0];
+            choiceBText.text = "B. " + q.choices[1];
+            choiceCText.text = "C. " + q.choices[2];
+            choiceDText.text = "D. " + q.choices[3];
 
             panel.SetActive(true);
         }

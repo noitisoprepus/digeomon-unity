@@ -70,6 +70,7 @@ namespace Core
         {
             targetDigeomon = PersistentData.targetDigeomon;
             quiz = targetDigeomon.quiz;
+            QuizShuffler.RandomizeQuiz(quiz);
             useQuiz = true;
             StartQuiz();
         }
