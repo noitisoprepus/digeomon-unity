@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Miwwy
   m_EditorClassIdentifier: 
   charName: Miwwy
-  description: Meet Miwwy, the electric summer fan! With a playful and curious nature.
+  description: Your best friend in the summer. Blows wind on your face.
   keys:
   - electric fan
   modelPrefab: {fileID: 1884937031595657483, guid: 7b274d776ec15a542bf2873e7aee6397,
