@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: How many dimensions does an ellipsoid have?
   choices:
-  - One
-  - Two
-  - Three
-  - Four
+  - XD
+  - 2D
+  - 3D
+  - 4D
   answerIndex: 2
