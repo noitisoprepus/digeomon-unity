@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: Which of the following is NOT a characteristic of a cylinder?
   choices:
-  - It has a flat surface
+  - It has a point
   - It has a curved surface
   - It has no edges or vertices
   - 'It is perfectly symmetrical  '

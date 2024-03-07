@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ddc2241def1e6448a83b08368027d83, type: 3}
   m_Name: question 1
   m_EditorClassIdentifier: 
-  question: How many edges does a cuboid have?
+  question: How many edges does a Cuboid have?
   choices:
   - 4
   - 6
