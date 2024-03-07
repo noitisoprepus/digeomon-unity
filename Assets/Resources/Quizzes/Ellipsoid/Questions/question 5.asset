@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ddc2241def1e6448a83b08368027d83, type: 3}
   m_Name: question 5
   m_EditorClassIdentifier: 
-  question: Where can you find examples of ellipsoids in real life?
+  question: Example of ellipsoids in real life?
   choices:
   - A box
   - A flat sheet of paper

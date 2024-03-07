@@ -15,7 +15,7 @@ MonoBehaviour:
   question: Which of the following objects resembles a cone?
   choices:
   - Basketball
-  - Cube
+  - Box
   - Ice cream
   - Notebook
   answerIndex: 2

@@ -15,7 +15,7 @@ MonoBehaviour:
   question: What object is a cylinder?
   choices:
   - Phone
-  - Mug
+  - Cup
   - TV
   - Chair
   answerIndex: 1

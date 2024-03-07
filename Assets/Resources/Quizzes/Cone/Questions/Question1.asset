@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: What is the main feature of a cone?
   choices:
-  - It has six sides
-  - It has a round base and a pointed top
-  - It has straight edges
-  - It has no corners
+  - Six sides
+  - Round base and a pointed top
+  - Straight edges
+  - No corners
   answerIndex: 1

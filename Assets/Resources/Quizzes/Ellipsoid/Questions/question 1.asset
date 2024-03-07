@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: Which of the following is NOT true about an ellipsoid?
   choices:
-  - It has three axes of symmetry
-  - All its cross-sections are circles
+  - Egg shaped
+  - Shaped like a book
   - It can be made by stretching or squeezing a sphere
   - It is a three-dimensional shape
   answerIndex: 1
