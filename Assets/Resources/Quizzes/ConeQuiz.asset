@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12393da86a4493d4fbfe06435f109ae3, type: 3}
   m_Name: ConeQuiz
   m_EditorClassIdentifier: 
-  key: 
   questions:
   - {fileID: 11400000, guid: b5b8108b313f2944ea8960570f4b0585, type: 2}
   - {fileID: 11400000, guid: 2eedcee2df6ce874db044cadf2903527, type: 2}
   - {fileID: 11400000, guid: ede4cda747106a94493fba0a52ac51c6, type: 2}
+  - {fileID: 11400000, guid: fac5d529e61dc334ba04004c1376fd2a, type: 2}
+  - {fileID: 11400000, guid: 2d7ca000fa9120945ae30f1da4c270b5, type: 2}
+  - {fileID: 11400000, guid: ee50159f687592d449c4be75b1cce3da, type: 2}
   passingScore: 2
