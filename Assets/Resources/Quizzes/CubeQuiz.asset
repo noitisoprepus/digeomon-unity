@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12393da86a4493d4fbfe06435f109ae3, type: 3}
-  m_Name: Quiz 2
+  m_Name: CubeQuiz
   m_EditorClassIdentifier: 
   key: 
   questions:
-  - {fileID: 11400000, guid: 68587d1b4c11efc4a8c3e8ae7ea4e32d, type: 2}
-  - {fileID: 11400000, guid: d79402961566c334d85a15865910e5e4, type: 2}
-  - {fileID: 11400000, guid: 9cd9ea154e820344cadaf6e691d7f8f8, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   passingScore: 2

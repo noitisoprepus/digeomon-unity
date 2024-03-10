@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12393da86a4493d4fbfe06435f109ae3, type: 3}
-  m_Name: Quiz 4
+  m_Name: SphereQuiz
   m_EditorClassIdentifier: 
   key: 
   questions:
-  - {fileID: 11400000, guid: 8e88e4a6fe82a58409afb39927c4aafa, type: 2}
-  - {fileID: 11400000, guid: 52a1ba9e10343224b834d7dbdda0a6a3, type: 2}
-  - {fileID: 11400000, guid: d381db7a9cd14a2458085c0eeb15eedb, type: 2}
+  - {fileID: 11400000, guid: e5a7b0f503efc2545a40febb501e25ec, type: 2}
+  - {fileID: 11400000, guid: c35823ddade1b2c459b67cedb29741b7, type: 2}
+  - {fileID: 11400000, guid: 067fee18ba2ff374d920db332b7bed51, type: 2}
   passingScore: 2

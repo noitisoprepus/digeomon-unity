@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12393da86a4493d4fbfe06435f109ae3, type: 3}
-  m_Name: Quiz 2
+  m_Name: CuboidQuiz
   m_EditorClassIdentifier: 
   key: 
   questions:
-  - {fileID: 11400000, guid: fbd67436a3e1a3c4e8e13f0ad0ae65a8, type: 2}
-  - {fileID: 11400000, guid: 2cf6131ee5c5e324bb25b8305775f62b, type: 2}
-  - {fileID: 11400000, guid: 088efe8d4125ee84ebd1ed997e8bc63b, type: 2}
+  - {fileID: 11400000, guid: b336bb378a4cd0d4aa938a12e6ca15b3, type: 2}
+  - {fileID: 11400000, guid: 8be4d15097f44c04484015017bf1a889, type: 2}
+  - {fileID: 11400000, guid: fb65e9a742a20a34e9bb5a608356b6ea, type: 2}
   passingScore: 2
