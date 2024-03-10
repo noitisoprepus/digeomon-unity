@@ -17,17 +17,6 @@ namespace Core
 
         [SerializeField] DigeomonCaptureData digeomonCaptureData;
 
-        [Header("Quiz Data (Check only one)")]
-        [Header("Pre-made Quiz")]
-        [SerializeField] private bool useQuiz;
-        [SerializeField] private QuizData quiz;
-        [Header("Custom Quiz")]
-        [SerializeField] private bool useCustom;
-        [SerializeField] private List<QuestionData> questions;
-        [SerializeField] private bool isRandom;
-        [SerializeField] private int itemNumbers;
-        [SerializeField] private int passingScore;
-
         [Header("Quiz SFX")]
         [SerializeField] private AudioClip quizSuccessSFX;
         [SerializeField] private AudioClip quizFailSFX;
@@ -36,6 +25,7 @@ namespace Core
         private AudioSource quizAudioSource;
         private JournalManager journalManager;
         private DigeomonData targetDigeomon;
+        private QuizData currQuiz;
         private List<QuestionData> currQuestions;
         private List<int> userAnswers;
         private int currQIndex;
@@ -69,9 +59,7 @@ namespace Core
         private void Start()
         {
             targetDigeomon = PersistentData.targetDigeomon;
-            quiz = targetDigeomon.quiz;
-            QuizShuffler.RandomizeQuiz(quiz);
-            useQuiz = true;
+            currQuiz = QuizShuffler.GenerateQuiz(targetDigeomon.quiz, 3, 2);
             StartQuiz();
         }
 
@@ -79,31 +67,7 @@ namespace Core
         {
             userAnswers = new List<int>();
             currQIndex = 0;
-
-            if (useQuiz)
-            {
-                currQuestions = new List<QuestionData>(quiz.questions);
-            }
-            else if (useCustom)
-            {
-                if (isRandom)
-                {
-                    List<QuestionData> tempList = new List<QuestionData>(questions);
-                    for (int i = 0; i < tempList.Count; i++)
-                    {
-                        QuestionData temp = tempList[i];
-                        int randomIndex = Random.Range(i, tempList.Count);
-                        tempList[i] = tempList[randomIndex];
-                        tempList[randomIndex] = temp;
-                    }
-
-                    for (int i = 0; i < itemNumbers; i++)
-                    {
-                        currQuestions.Add(tempList[i]);
-                    }
-                }
-            }
-
+            currQuestions = new List<QuestionData>(currQuiz.questions);
             quizUI.ShowQuestion(currQuestions[currQIndex]);
         }
 
@@ -115,7 +79,7 @@ namespace Core
             {
                 quizUI.ShowScoreDialog(score);
 
-                if (score >= quiz.passingScore)
+                if (score >= currQuiz.passingScore)
                 {
                     digeomonCaptureData.CaptureDigeomon(targetDigeomon);
                     
