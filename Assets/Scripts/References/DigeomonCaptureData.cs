@@ -37,7 +37,6 @@ public class DigeomonCaptureData : ScriptableObject
     public void CaptureDigeomon(DigeomonData digeomonData)
     {
         SyncDigeomonData(digeomonData.name);
-        if (PlayerPrefs.GetInt("guest") == 0)
-            OnDigeomonCapture?.Invoke(digeomonData.name);
+        OnDigeomonCapture?.Invoke(digeomonData.name);
     }
 }

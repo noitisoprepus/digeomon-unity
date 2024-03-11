@@ -10,21 +10,12 @@ namespace UI
         public delegate void SummonDigeomon(DigeomonData digeomon);
         public static event SummonDigeomon OnSummonDigeomonAction;
 
-        public delegate void EvolveDigeomon(DigeomonData digeomon);
-        public static event EvolveDigeomon OnEvolveDigeomonAction;
-
-        public delegate void ShowInfo();
-        public static event ShowInfo OnShowInfoAction;
-
         [SerializeField] private Image previewImage;
-        [SerializeField] private GameObject checkmarkObj;
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI descriptionText;
 
         [Header("Bottom Bar Buttons")]
         [SerializeField] private Button summonButton;
-        [SerializeField] private Button evolveButton;
-        [SerializeField] private Button infoButton;
 
         private DigeomonData digeomon;
 
@@ -39,14 +30,9 @@ namespace UI
         public void UpdateJournalEntry(bool isCaught)
         {
             previewImage.color = isCaught ? Color.white : Color.black;
-            //checkmarkObj.SetActive(!isCaught);
             nameText.text = (isCaught) ? digeomon.name : "???";
 
             summonButton.interactable = isCaught;
-            evolveButton.interactable = isCaught;
-            infoButton.interactable = isCaught;
-
-            evolveButton.gameObject.SetActive(digeomon.evolution != null);
         }
 
         public void UpdateJournalEntry(Dictionary<string, bool> captureData)
@@ -57,16 +43,6 @@ namespace UI
         public void OnSummonButtonPressed()
         {
             OnSummonDigeomonAction?.Invoke(digeomon);
-        }
-
-        public void OnEvolveButtonPressed()
-        {
-            OnEvolveDigeomonAction?.Invoke(digeomon.evolution);
-        }
-
-        public void OnShowInfoButtonPressed()
-        {
-            //OnShowInfoAction?.Invoke(digeomon.type);
         }
     }
 }

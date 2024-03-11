@@ -62,7 +62,6 @@ namespace Core
             LeaderboardsManager.OnFetchCancelAction += leaderboardsUI.ShowGuestWarning;
 
             JournalEntryButton.OnSummonDigeomonAction += journalManager.SummonDigeomon;
-            JournalEntryButton.OnEvolveDigeomonAction += journalManager.EvolveDigeomon;
 
             SettingsUI.OnLogoutPlayerAction += LogoutPlayer;
             SettingsUI.OnLogoutPlayerAction += journalUI.ResetJournal;
@@ -81,7 +80,6 @@ namespace Core
             LeaderboardsManager.OnFetchCancelAction -= leaderboardsUI.ShowGuestWarning;
 
             JournalEntryButton.OnSummonDigeomonAction -= journalManager.SummonDigeomon;
-            JournalEntryButton.OnEvolveDigeomonAction -= journalManager.EvolveDigeomon;
 
             SettingsUI.OnLogoutPlayerAction -= LogoutPlayer;
             SettingsUI.OnLogoutPlayerAction -= journalUI.ResetJournal;

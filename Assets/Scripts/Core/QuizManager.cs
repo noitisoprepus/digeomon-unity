@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Core
 {
@@ -17,12 +18,16 @@ namespace Core
 
         [SerializeField] DigeomonCaptureData digeomonCaptureData;
 
-        [Header("Quiz SFX")]
+        [Header("Quiz Audio")]
+        [SerializeField] private AudioSource musicSource;
+        [SerializeField] private AudioClip quizMusic;
         [SerializeField] private AudioClip quizSuccessSFX;
         [SerializeField] private AudioClip quizFailSFX;
 
-        private QuizUI quizUI;
+        [HideInInspector] public QuizUI quizUI;
+
         private AudioSource quizAudioSource;
+        private AudioClip prevMusic;
         private JournalManager journalManager;
         private DigeomonData targetDigeomon;
         private QuizData currQuiz;
@@ -33,7 +38,6 @@ namespace Core
 
         private void Awake()
         {
-            quizUI = GetComponent<QuizUI>();
             quizAudioSource = GetComponent<AudioSource>();
             journalManager = GameManager.Instance.gameObject.GetComponent<JournalManager>();
         }
@@ -58,17 +62,24 @@ namespace Core
 
         private void Start()
         {
-            targetDigeomon = PersistentData.targetDigeomon;
-            currQuiz = QuizShuffler.GenerateQuiz(targetDigeomon.quiz, 3, 2);
-            StartQuiz();
+            if (SceneManager.GetActiveScene().name.Equals("Sandbox"))
+                StartQuiz();
         }
 
         public void StartQuiz()
         {
+            targetDigeomon = PersistentData.targetDigeomon;
+            currQuiz = QuizShuffler.GenerateQuiz(targetDigeomon.quiz, 3, 2);
             userAnswers = new List<int>();
             currQIndex = 0;
             currQuestions = new List<QuestionData>(currQuiz.questions);
+            quizUI.OpenPanel();
             quizUI.ShowQuestion(currQuestions[currQIndex]);
+
+            musicSource.Stop();
+            prevMusic = musicSource.clip;
+            musicSource.clip = quizMusic;
+            musicSource.Play();
         }
 
         private void NextQuestion()
@@ -119,6 +130,10 @@ namespace Core
 
             if (currQIndex == currQuestions.Count)
             {
+                musicSource.Stop();
+                musicSource.clip = prevMusic;
+                musicSource.Play();
+
                 quizUI.OnHomeButtonPressed();
                 return;
             }

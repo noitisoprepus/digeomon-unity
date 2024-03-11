@@ -13,6 +13,7 @@ namespace Scanner
         [SerializeField] private ARRaycastManager raycastManager;
         [SerializeField] private GameObject placementIndicator;
         [SerializeField] private DialogueManager dialogueManager;
+        [SerializeField] private QuizManager quizManager;
 
         [SerializeField] private InformationalData placeholderInfo;
 
@@ -39,11 +40,13 @@ namespace Scanner
         private void OnEnable()
         {
             JournalManager.OnSummonAction += DirectSetupARObject;
+            ScannerUI.OnCaptureAction += quizManager.StartQuiz;
         }
 
         private void OnDisable()
         {
             JournalManager.OnSummonAction -= DirectSetupARObject;
+            ScannerUI.OnCaptureAction -= quizManager.StartQuiz;
         }
 
         private void Update()
@@ -108,6 +111,8 @@ namespace Scanner
             spawnedObject.transform.localScale = Vector3.zero;
             spawnedObject.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
             audioSource.Play();
+
+            quizManager.quizUI = spawnedObject.GetComponentInChildren<QuizUI>();
 
             HologramCanvas hologram = spawnedObject.GetComponentInChildren<HologramCanvas>();
             List<InformationalData> infoList = new List<InformationalData>();

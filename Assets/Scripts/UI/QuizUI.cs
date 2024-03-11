@@ -17,6 +17,9 @@ namespace UI
         public delegate void NextRecapDelegate();
         public static event NextRecapDelegate OnNextRecapAction;
 
+        public delegate void QuizConcludeDelegate();
+        public static event QuizConcludeDelegate OnQuizConcludeAction;
+
         public static event Action<string> OnGoToSceneRequested;
 
         [Header("Quiz GUI")]
@@ -57,9 +60,15 @@ namespace UI
             choiceButtonImages[3] = choiceDButton.GetComponent<Image>();
         }
 
-        private void Start()
+        public void OpenPanel()
         {
-            scoreBoxRect.anchoredPosition = new Vector2(0f, 256f);
+            scoreBoxRect.localScale = new Vector3(1f, 0f, 1f);
+            panel.transform.DOScaleY(1f, 0.75f).SetEase(Ease.OutQuart);
+        }
+
+        public void ClosePanel()
+        {
+            panel.transform.DOScaleY(0f, 0.6f).SetEase(Ease.OutExpo);
         }
 
         public void ShowQuestion(QuestionData q)
@@ -86,7 +95,7 @@ namespace UI
             nextReviewButton.SetActive(false);
 
             scoreText.text = "SCORE: " + score;
-            scoreBoxRect.DOAnchorPosY(-224f, 0.6f).SetEase(Ease.OutQuad);
+            scoreBoxRect.DOScaleY(1f, 0.75f).SetEase(Ease.OutQuart);
         }
 
         public void OnRecapButtonPressed()
@@ -126,7 +135,8 @@ namespace UI
 
         public void OnHomeButtonPressed()
         {
-            OnGoToSceneRequested?.Invoke("Scanner");
+            ClosePanel();
+            OnQuizConcludeAction?.Invoke();
         }
     }
 }

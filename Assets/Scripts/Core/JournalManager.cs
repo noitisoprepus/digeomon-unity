@@ -44,6 +44,12 @@ namespace Core
 
         public void AddDigeomon(string digeomonName)
         {
+            if (PlayerPrefs.GetInt("guest") == 1)
+            {
+                OnCaptureSuccessAction?.Invoke();
+                return;
+            }
+
             databaseReference.Push().SetValueAsync(digeomonName).ContinueWith(task =>
             {
                 if (task.IsFaulted)

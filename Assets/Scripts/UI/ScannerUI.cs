@@ -15,6 +15,9 @@ namespace UI
         public delegate void SummonDelegate();
         public static event SummonDelegate OnSummonAction;
 
+        public delegate void CaptureDelegate();
+        public static event CaptureDelegate OnCaptureAction;
+
         public static event Action<string> OnGoToSceneRequested;
 
         [Header("Scanner UI")]
@@ -44,6 +47,16 @@ namespace UI
             successPanel.SetActive(false);
             failDialog.SetActive(false);
             HideCaptureUI();
+        }
+
+        private void OnEnable()
+        {
+            QuizUI.OnQuizConcludeAction += ShowScanner;
+        }
+
+        private void OnDisable()
+        {
+            QuizUI.OnQuizConcludeAction -= ShowScanner;
         }
 
         public void OnScanButtonPressed()
@@ -111,7 +124,8 @@ namespace UI
 
         public void OnCaptureButtonPressed()
         {
-            OnGoToSceneRequested?.Invoke("Sandbox");
+            HideCaptureUI();
+            OnCaptureAction?.Invoke();
         }
 
         public void ShowSummonHelp()

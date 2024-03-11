@@ -48,7 +48,6 @@ namespace Scanner
             JournalManager.OnSummonAction += mobilePhoneUI.HideMobilePhones;
 
             JournalEntryButton.OnSummonDigeomonAction += journalManager.SummonDigeomon;
-            JournalEntryButton.OnEvolveDigeomonAction += journalManager.EvolveDigeomon;
 
             ScannerUI.OnSummonAction += SummonDigeomon;
             ScannerUI.OnGoToSceneRequested += gameManager.GoToScene;
@@ -60,7 +59,6 @@ namespace Scanner
             JournalManager.OnSummonAction -= mobilePhoneUI.HideMobilePhones;
 
             JournalEntryButton.OnSummonDigeomonAction -= journalManager.SummonDigeomon;
-            JournalEntryButton.OnEvolveDigeomonAction -= journalManager.EvolveDigeomon;
 
             ScannerUI.OnSummonAction -= SummonDigeomon;
             ScannerUI.OnGoToSceneRequested -= gameManager.GoToScene;
