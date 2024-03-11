@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12393da86a4493d4fbfe06435f109ae3, type: 3}
   m_Name: CuboidQuiz
   m_EditorClassIdentifier: 
-  key: 
   questions:
+  - {fileID: 11400000, guid: 2d64db310e709944784eee6feb47f402, type: 2}
   - {fileID: 11400000, guid: b336bb378a4cd0d4aa938a12e6ca15b3, type: 2}
+  - {fileID: 11400000, guid: 1a2f6d2860fc1d94db957df4b36c913b, type: 2}
   - {fileID: 11400000, guid: 8be4d15097f44c04484015017bf1a889, type: 2}
+  - {fileID: 11400000, guid: 7e3f860f687227a4e8ea130c32ddf8c3, type: 2}
   - {fileID: 11400000, guid: fb65e9a742a20a34e9bb5a608356b6ea, type: 2}
+  - {fileID: 11400000, guid: 7e632205985d71942ab36113b07b3392, type: 2}
+  - {fileID: 11400000, guid: 82fb507b79f2c2c4b85b8bbd032a9176, type: 2}
+  - {fileID: 11400000, guid: e9d144c508a440844928267d6dc0b3cf, type: 2}
+  - {fileID: 11400000, guid: c0e591289b337854ab003377195ad0f2, type: 2}
   passingScore: 2
