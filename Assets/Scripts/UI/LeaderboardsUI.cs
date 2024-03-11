@@ -8,6 +8,13 @@ namespace UI
         [Header("GUI")]
         [SerializeField] private GameObject leaderboardsContent;
         [SerializeField] private GameObject entryBox;
+        [SerializeField] private GameObject warningText;
+
+        //private void Start()
+        //{
+        //    if (PlayerPrefs.GetInt("guest") == 1)
+        //        ShowGuestWarning();
+        //}
 
         public void PopulateLeaderboards(List<KeyValuePair<string, int>> sortedUsersCaptureData)
         {
@@ -29,6 +36,11 @@ namespace UI
             foreach (Transform entry in leaderboardsContent.transform)
                 Destroy(entry.gameObject);
             leaderboardsContent.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        }
+
+        public void ShowGuestWarning()
+        {
+            warningText.SetActive(true);
         }
     }
 }

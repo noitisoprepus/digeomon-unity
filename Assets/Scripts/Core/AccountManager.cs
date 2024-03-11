@@ -19,12 +19,14 @@ namespace Core
         {
             AccountUI.OnRegisterAction += HandleAccountRegistration;
             AccountUI.OnLoginAction += HandleAccountLogin;
+            AccountUI.OnGuestAction += HandleGuestAccount;
         }
 
         private void OnDisable()
         {
             AccountUI.OnRegisterAction -= HandleAccountRegistration;
             AccountUI.OnLoginAction -= HandleAccountLogin;
+            AccountUI.OnGuestAction -= HandleGuestAccount;
         }
 
         private void Start()
@@ -42,6 +44,13 @@ namespace Core
         private void HandleAccountLogin(string email, string password)
         {
             StartCoroutine(LoginAccount(email, password));
+        }
+
+        private void HandleGuestAccount()
+        {
+            PlayerPrefs.SetInt("guest", 1);
+            mainMenuManager.MainMenuHome();
+            OnLoginSuccessAction?.Invoke();
         }
 
         private IEnumerator CreateAccount(string email, string password, string username)

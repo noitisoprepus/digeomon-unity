@@ -1,5 +1,6 @@
 using Firebase.Database;
 using Firebase.Extensions;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +23,19 @@ namespace Core
 
         public void InitializeCaptureData()
         {
+            // For guest mode
+            if (PlayerPrefs.GetInt("guest") == 1)
+            {
+                Dictionary<string, bool> captureData = new Dictionary<string, bool>(digeomonCaptureData.captureData);
+                foreach (KeyValuePair<string, bool> data in captureData)
+                {
+                    if (PlayerPrefs.HasKey(data.Key))
+                        digeomonCaptureData.captureData[data.Key] = true;
+                }
+                OnFetchSuccessAction?.Invoke();
+                return;
+            }
+
             databaseReference = FirebaseDatabase.GetInstance(GameManager.Instance.databaseUri)
                 .GetReference("users").Child(PlayerPrefs.GetString("userID")).Child("captureData");
 

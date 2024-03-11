@@ -11,6 +11,9 @@ namespace UI
         public delegate void LoginDelegate(string email, string password);
         public static event LoginDelegate OnLoginAction;
 
+        public delegate void GuestDelegate();
+        public static event GuestDelegate OnGuestAction;
+
         [Header("Login UI")]
         [SerializeField] private GameObject loginForm;
         [SerializeField] private TMP_InputField emailInputFieldL;
@@ -30,6 +33,11 @@ namespace UI
         public void OnLoginButtonPress()
         {
             OnLoginAction?.Invoke(emailInputFieldL.text, passwordInputFieldL.text);
+        }
+
+        public void OnGuestButtonPress()
+        {
+            OnGuestAction?.Invoke();
         }
 
         public void SwitchToRegistrationForm()

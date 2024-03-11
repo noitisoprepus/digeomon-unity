@@ -1858,9 +1858,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1157589980}
-        m_TargetAssemblyTypeName: UI.MainMenu, Core
-        m_MethodName: MainMenuHome
+      - m_Target: {fileID: 1157589986}
+        m_TargetAssemblyTypeName: UI.AccountUI, UI
+        m_MethodName: OnGuestButtonPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4142,6 +4142,7 @@ MonoBehaviour:
   leaderboardsContent: {fileID: 1248490998}
   entryBox: {fileID: 1992555281399444694, guid: 2c7c6eed3ce868e4db41f84e81b61b1d,
     type: 3}
+  warningText: {fileID: 5849747105664885580}
 --- !u!114 &1157589988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8567,7 +8568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2104718525
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9258,6 +9259,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1745052968279542bb6d9a8b0ff0d71, type: 3}
+--- !u!1 &5849747105664885580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6086700997685193778, guid: e1745052968279542bb6d9a8b0ff0d71,
+    type: 3}
+  m_PrefabInstance: {fileID: 5849747105664885579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

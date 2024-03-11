@@ -12,6 +12,12 @@ namespace UI
         [SerializeField] private GameObject journalContent;
         [SerializeField] private GameObject entryBox;
 
+        //private void Start()
+        //{
+        //    if (PlayerPrefs.GetInt("guest") == 1)
+        //        PopulateJournal();
+        //}
+
         private void OnEnable()
         {
             UpdateJournal();

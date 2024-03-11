@@ -11,14 +11,25 @@ namespace Core
         public delegate void FetchSuccessDelegate(List<KeyValuePair<string, int>> userCaptureData);
         public static event FetchSuccessDelegate OnFetchSuccessAction;
 
+        public delegate void FetchCancelDelegate();
+        public static event FetchCancelDelegate OnFetchCancelAction;
+
         private DatabaseReference databaseReference;
         private Dictionary<string, int> userCaptureData;
 
         public void InitializeLeaderboardsData()
         {
+            // For guest mode
+            if (PlayerPrefs.GetInt("guest") == 1)
+            {
+                OnFetchCancelAction?.Invoke();
+                return;
+            }
+
             databaseReference = FirebaseDatabase
                 .GetInstance(GameManager.Instance.databaseUri)
                 .GetReference("users");
+            
             GetLeaderboardsData();
         }
 

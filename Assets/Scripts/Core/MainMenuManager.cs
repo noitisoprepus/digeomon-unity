@@ -42,6 +42,12 @@ namespace Core
         private void Start()
         {
             PersistentData.toEvolve = false;
+            if (PlayerPrefs.GetInt("guest") == 1)
+            {
+                journalManager.InitializeCaptureData();
+                leaderboardsManager.InitializeLeaderboardsData();
+                MainMenuHome();
+            }
         }
 
         private void OnEnable()
@@ -53,6 +59,7 @@ namespace Core
             JournalManager.OnCaptureSuccessAction += journalUI.PopulateJournal;
 
             LeaderboardsManager.OnFetchSuccessAction += leaderboardsUI.PopulateLeaderboards;
+            LeaderboardsManager.OnFetchCancelAction += leaderboardsUI.ShowGuestWarning;
 
             JournalEntryButton.OnSummonDigeomonAction += journalManager.SummonDigeomon;
             JournalEntryButton.OnEvolveDigeomonAction += journalManager.EvolveDigeomon;
@@ -71,6 +78,7 @@ namespace Core
             JournalManager.OnCaptureSuccessAction -= journalUI.PopulateJournal;
 
             LeaderboardsManager.OnFetchSuccessAction -= leaderboardsUI.PopulateLeaderboards;
+            LeaderboardsManager.OnFetchCancelAction -= leaderboardsUI.ShowGuestWarning;
 
             JournalEntryButton.OnSummonDigeomonAction -= journalManager.SummonDigeomon;
             JournalEntryButton.OnEvolveDigeomonAction -= journalManager.EvolveDigeomon;

@@ -21,17 +21,23 @@ public class DigeomonCaptureData : ScriptableObject
     {
         List<string> keys = captureData.Keys.ToList<string>();
         foreach (string key in keys)
+        {
             captureData[key] = false;
+        }
     }
 
     public void SyncDigeomonData(string digeomonName)
     {
         captureData[digeomonName] = true;
+
+        // For guest data
+        PlayerPrefs.SetInt(digeomonName, 1);
     }
 
     public void CaptureDigeomon(DigeomonData digeomonData)
     {
         SyncDigeomonData(digeomonData.name);
-        OnDigeomonCapture?.Invoke(digeomonData.name);
+        if (PlayerPrefs.GetInt("guest") == 0)
+            OnDigeomonCapture?.Invoke(digeomonData.name);
     }
 }
