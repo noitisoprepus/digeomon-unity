@@ -1397,7 +1397,7 @@ MonoBehaviour:
         m_MethodName: InitializeContent
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 18435ce6b16c9604197c3e1019e9c61f,
+          m_ObjectArgument: {fileID: 11400000, guid: 7bc05141b4c4c084cb9e81b278d85a38,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: InformationalData, Dialogue
           m_IntArgument: 0

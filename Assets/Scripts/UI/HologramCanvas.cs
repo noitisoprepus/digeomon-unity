@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -11,9 +12,11 @@ namespace UI
         [SerializeField] private TextMeshProUGUI titleText;
         [SerializeField] private TextMeshProUGUI contentText;
         [SerializeField] private RectTransform arrowRT;
+        [SerializeField] private Image contextualImage;
 
         private List<InformationalData> informationalContent;
         private List<string> currContent;
+        private List<Sprite> currImages;
         private InformationalData currData;
         private Sequence arrowSequence;
         private int currDataIndex;
@@ -28,9 +31,19 @@ namespace UI
             arrowSequence.Play();
         }
 
-        private void ShowContent(string content)
+        private void ShowContent(int index)
         {
-            contentText.text = content;
+            contentText.text = currContent[index];
+            if (currImages[index] != null)
+            {
+                contextualImage.transform.localScale = new Vector3(1f, 0f, 1f);
+                contextualImage.sprite = currImages[index];
+                contextualImage.transform.DOScaleY(1f, 0.75f).SetEase(Ease.OutQuart);
+            }
+            else
+            {
+                contextualImage.transform.DOScaleY(0f, 0.6f).SetEase(Ease.OutExpo);
+            }
         }
 
         public void InitializeInformationalData(List<InformationalData> informationalDatas)
@@ -54,10 +67,11 @@ namespace UI
         private void ShowPresentation(InformationalData informationalData)
         {
             currContent = new List<string>(informationalData.content);
+            currImages = new List<Sprite>(informationalData.images);
             currContentIndex = 0;
 
             titleText.text = informationalData.title;
-            ShowContent(currContent[currContentIndex]);
+            ShowContent(currContentIndex);
         }
 
         public void OnNextSlideTriggered()
@@ -66,34 +80,24 @@ namespace UI
             if (currContentIndex >= currContent.Count)
                 StartPresentation();
 
-            ShowContent(currContent[currContentIndex]);
+            ShowContent(currContentIndex);
         }
 
         // Testing
-        int testIndex = 0;
-        List<string> testContent;
         InformationalData testData;
 
         public void InitializeContent(InformationalData contentData)
         {
             testData = contentData;
-            StartContent();
-        }
-
-        public void StartContent()
-        {
-            testIndex = 0;
-            testContent = new List<string>(testData.content);
-            titleText.text = testData.title;
-            ShowContent(testContent[testIndex]);
+            ShowPresentation(testData);
         }
 
         public void NextContent()
         {
-            testIndex++;
-            if (testIndex >= testContent.Count)
-                StartContent();
-            ShowContent(testContent[testIndex]);
+            currContentIndex++;
+            if (currContentIndex >= currContent.Count)
+                ShowPresentation(testData);
+            ShowContent(currContentIndex);
         }
     }
 }
