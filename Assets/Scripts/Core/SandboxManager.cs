@@ -92,5 +92,11 @@ namespace Core
             go.transform.localScale = Vector3.zero;
             go.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
         }
+
+        public void TestQuiz(DigeomonData target)
+        {
+            PersistentData.targetDigeomon = target;
+            GameManager.Instance.GoToScene("Sandbox");
+        }
     }
 }

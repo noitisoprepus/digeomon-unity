@@ -33,6 +33,7 @@ public static class QuizShuffler
         {
             passingScore = passingScore
         };
+        generatedQuiz.questions = new List<QuestionData>();
         for (int i = 0; i < items; i++)
         {
             generatedQuiz.questions.Add(quiz.questions[i]);
