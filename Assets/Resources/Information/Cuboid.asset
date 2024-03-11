@@ -33,17 +33,10 @@ MonoBehaviour:
     all three are the same in a cube. If one side is 5 units long, all sides are
     5 units long.'
   - Cubes are like dice, sugar cubes, or even some buildings like storage boxes.
-  - A rectangle is a flat, two-dimensional shape with four straight sides and four
-    right angles. It looks like a stretched-out square.
-  - A rectangle has four sides. Opposite sides are equal in length and parallel to
-    each other. A rectangle has four right angles, which are angles that measure
-    90 degrees.
   - A square is a flat, two-dimensional shape with four equal sides and four right
     angles. Squares are special types of rectangles where all sides are equal in
     length.
   images:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
