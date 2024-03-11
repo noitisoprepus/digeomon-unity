@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Cube
   content:
-  - A three-dimensional shape characterized by <mark=#00563B40>six identical square
-    faces.</mark>
+  - Meanwhile, a cube is a three-dimensional shape characterized by <mark=#00563B40>six
+    identical square faces.</mark>
   - Each face of the cube is congruent, meaning they all have <mark=#00563B40>equal
     sides and angles.</mark>

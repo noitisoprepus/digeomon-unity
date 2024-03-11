@@ -14,7 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Cone
   content:
-  - A three-dimensional shape that narrows smoothly from a <mark=#00563B40>flat circular
-    base</mark> to a point called the <mark=#00563B40>apex</mark> or <mark=#00563B40>vertex</mark>.
-  - A cone consists of a single base, curved surface, and point.
-  - Examples are ice cream cones, party hat, and traffic cones.
+  - A three-dimensional shape (3D) that narrows smoothly from a <mark=#00563B40>flat
+    circular base</mark> to a point called the <mark=#00563B40>apex</mark> or <mark=#00563B40>vertex</mark>.
+  - A cone consists of a <mark=#00563B40> single base, curved surface, and point.
+    </mark>
+  - A triangle is a two-dimensional (2D) shape with <mark=#00563B40> three sides,
+    three corners and three angles. </mark>
+  - Each side is a straight line that connects two corners. Each corner is called
+    a vertex. Angles are the spaces formed where two sides meet.
+  - The measure of all sides of a triangle equate to <mark=#00563B40>  180 degrees.
+    </mark>
+  - There are different types of triangles. If all three sides of a triangle are
+    the same length, it's called an <mark=#00563B40> equilateral</mark>. If two sides
+    are the same length, it's called an <mark=#00563B40> isosceles</mark>. And if
+    all three sides are different lengths, it's called a <mark=#00563B40> scalene</mark>.
+  - Real life examples of cones and triangles  are ice cream cones, party hat, and
+    traffic cones.
