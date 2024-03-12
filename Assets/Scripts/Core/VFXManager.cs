@@ -4,26 +4,20 @@ using UnityEngine;
 
 namespace Core
 {
-    public class SandboxManager : MonoBehaviour
+    public class VFXManager : MonoBehaviour
     {
-        [SerializeField] private Transform digeomonModelT;
-
         [Header("Quiz Feedback VFX")]
         [SerializeField] private ParticleSystem successParticleSystem;
         [SerializeField] private ParticleSystem failParticleSystem;
 
         [Header("Evolution")]
+        [SerializeField] private QuizManager quizManager;
         [SerializeField] private DialogueManager dialogueManager;
         [SerializeField] private Material evolutionMat;
-        [SerializeField] private ParticleSystem evolutionVFX;
+        [SerializeField] private GameObject evolutionVFX;
 
         private GameObject digeomonObj;
         private GameObject evolutionObj;
-
-        private void Awake()
-        {
-            dialogueManager = GetComponent<DialogueManager>();
-        }
 
         private void OnEnable()
         {
@@ -39,20 +33,6 @@ namespace Core
             QuizManager.OnEvolutionSuccessAction -= OnEvolutionSuccessful;
         }
 
-        private void Start()
-        {
-            DigeomonData digeomon = PersistentData.targetDigeomon;
-
-            if (PersistentData.toEvolve)
-            {
-                evolutionObj = Instantiate(digeomon.modelPrefab, digeomonModelT);
-                evolutionObj.transform.localScale = Vector3.zero;
-                return;
-            }
-
-            digeomonObj = Instantiate(digeomon.modelPrefab, digeomonModelT);
-        }
-
         private void OnDigeomonInfuriated()
         {
             digeomonObj.transform.DOShakePosition(1f, 0.25f, 12, 90);
@@ -63,6 +43,13 @@ namespace Core
         {
             digeomonObj.transform.DOShakePosition(1f, 0.1f, 1, 10);
             successParticleSystem.Play();
+        }
+
+        public void InitializeEvolution(GameObject digeomon, DigeomonData evolution)
+        {
+            digeomonObj = digeomon;
+            evolutionObj = Instantiate(evolution.modelPrefab, digeomon.transform.position, digeomon.transform.rotation);
+            evolutionObj.transform.localScale = Vector3.zero;
         }
 
         private void OnEvolutionSuccessful()
@@ -80,22 +67,8 @@ namespace Core
 
             evolutionObj.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
             digeomonObj.SetActive(false);
-            evolutionVFX.Play();
+            Instantiate(evolutionVFX, evolutionObj.transform.position, evolutionObj.transform.rotation);
             dialogueManager.StartDialogue(PersistentData.targetDigeomon.introDialogue);
-        }
-
-        // Testing
-        public void ShakeObject(GameObject obj)
-        {
-            GameObject go = Instantiate(obj, digeomonModelT);
-            go.transform.localScale = Vector3.zero;
-            go.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
-        }
-
-        public void TestQuiz(DigeomonData target)
-        {
-            PersistentData.targetDigeomon = target;
-            GameManager.Instance.GoToScene("Sandbox");
         }
     }
 }

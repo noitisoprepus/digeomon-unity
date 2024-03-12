@@ -16,6 +16,7 @@ namespace Scanner
         [SerializeField] private QuizManager quizManager;
 
         [SerializeField] private InformationalData placeholderInfo;
+        [SerializeField] private DigeomonCaptureData digeomonCaptureData;
 
         private AudioSource audioSource;
         private DigeomonData currDigeomon;
@@ -114,13 +115,21 @@ namespace Scanner
 
             quizManager.quizUI = spawnedObject.GetComponentInChildren<QuizUI>();
 
-            HologramCanvas hologram = spawnedObject.GetComponentInChildren<HologramCanvas>();
+            HologramDisplay hologramDisplay = spawnedObject.GetComponentInChildren<HologramDisplay>();
+            hologramDisplay.digeomon = currDigeomon;
+            if (digeomonCaptureData.captureData[currDigeomon.name] 
+                    && currDigeomon.evolution != null 
+                        && digeomonCaptureData.captureData[currDigeomon.evolution.name])
+                hologramDisplay.ShowEvolveButton();
+            else hologramDisplay.HideEvolveButton();
+
+            HologramCanvas hologramCanvas = spawnedObject.GetComponentInChildren<HologramCanvas>();
             List<InformationalData> infoList = new List<InformationalData>();
             if (currDigeomon.relevantInfos.Count != 0)
                 infoList = currDigeomon.relevantInfos;
             else
                 infoList.Add(placeholderInfo);
-            hologram.InitializeInformationalData(infoList);
+            hologramCanvas.InitializeInformationalData(infoList);
 
             if (PersistentData.toSummon)
             {

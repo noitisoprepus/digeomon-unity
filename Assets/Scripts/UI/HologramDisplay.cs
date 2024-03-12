@@ -6,11 +6,23 @@ namespace UI
 {
     public class HologramDisplay : MonoBehaviour
     {
+        public delegate void EvolveDigeomon(GameObject digeomon, DigeomonData evolutionData);
+        public static event EvolveDigeomon OnEvolveDigeomonAction;
+
+        [HideInInspector] public DigeomonData digeomon;
+
         [SerializeField] private GameObject digeomonModel;
         [SerializeField] private GameObject digeomonShape;
         [SerializeField] private GameObject informationPanel;
+        [SerializeField] private GameObject evolveButton;
 
+        private HologramCanvas hologramCanvas;
         private bool infoToggle = false;
+
+        private void Awake()
+        {
+            hologramCanvas = GetComponentInChildren<HologramCanvas>();
+        }
 
         private void Start()
         {
@@ -53,6 +65,23 @@ namespace UI
                 informationPanel.transform.DOScaleY(0f, 0.6f).SetEase(Ease.OutExpo);
                 infoToggle = false;
             }
+        }
+
+        public void ShowEvolveButton()
+        {
+            evolveButton.SetActive(true);
+        }
+
+        public void HideEvolveButton()
+        {
+            evolveButton.SetActive(false);
+        }
+
+        public void OnEvolveButtonPressed()
+        {
+            hologramCanvas.HideCanvas();
+            HideEvolveButton();
+            OnEvolveDigeomonAction?.Invoke(digeomonModel, digeomon.evolution);
         }
     }
 }

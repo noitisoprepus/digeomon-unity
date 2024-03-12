@@ -17,6 +17,9 @@ namespace UI
         public delegate void NextRecapDelegate();
         public static event NextRecapDelegate OnNextRecapAction;
 
+        public delegate void QuizBeginDelegate();
+        public static event QuizBeginDelegate OnQuizBeginAction;
+
         public delegate void QuizConcludeDelegate();
         public static event QuizConcludeDelegate OnQuizConcludeAction;
 
@@ -62,6 +65,7 @@ namespace UI
 
         public void OpenPanel()
         {
+            OnQuizBeginAction?.Invoke();
             scoreBoxRect.localScale = new Vector3(1f, 0f, 1f);
             panel.transform.DOScaleY(1f, 0.75f).SetEase(Ease.OutQuart);
         }

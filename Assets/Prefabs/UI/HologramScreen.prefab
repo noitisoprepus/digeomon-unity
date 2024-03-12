@@ -747,10 +747,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c285461dac533c4aa4c44172fff5e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  digeomon: {fileID: 0}
   titleText: {fileID: 4264127616662087659}
   contentText: {fileID: 7039269028073295182}
   arrowRT: {fileID: 3737449376625557224}
   contextualImage: {fileID: 3821995356556989266}
+  evolveButton: {fileID: 6349170528546963847}
 --- !u!1 &2639331802202711991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,9 +1740,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 375083541629870314}
-        m_TargetAssemblyTypeName: UI.HologramDisplay, UI
-        m_MethodName: 
+      - m_Target: {fileID: 7951000755953227120}
+        m_TargetAssemblyTypeName: UI.HologramCanvas, UI
+        m_MethodName: OnEvolveButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1910,8 +1912,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7838596808596344026}
-  - {fileID: 2258765101658144962}
   - {fileID: 4511460209980344971}
+  - {fileID: 2258765101658144962}
   m_Father: {fileID: 2011527164875253890}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -1937,7 +1939,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: -0.59
+  m_Spacing: -0.5
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0

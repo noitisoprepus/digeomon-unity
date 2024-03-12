@@ -12,18 +12,20 @@ namespace Scanner
         [SerializeField] private MobilePhoneUI mobilePhoneUI;
 
         private GameManager gameManager;
+        private VFXManager vfxManager;
+        private ARPlaceObject arPlaceObject;
         private JournalManager journalManager;
         private JournalUI journalUI;
         private ScannerUI scannerUI;
         private List<DigeomonData> digeomons;
-        private ARPlaceObject arPlaceObject;
         private DigeomonData currDigeomon;
 
         private void Awake()
         {
             gameManager = GameManager.Instance;
-            journalManager = gameManager.gameObject.GetComponent<JournalManager>();
+            vfxManager= GetComponent<VFXManager>();
             arPlaceObject = GetComponent<ARPlaceObject>();
+            journalManager = gameManager.gameObject.GetComponent<JournalManager>();
             scannerUI = GetComponent<ScannerUI>();
             journalUI = GetComponent<JournalUI>();
         }
@@ -49,6 +51,8 @@ namespace Scanner
 
             JournalEntryButton.OnSummonDigeomonAction += journalManager.SummonDigeomon;
 
+            HologramDisplay.OnEvolveDigeomonAction += vfxManager.InitializeEvolution;
+
             ScannerUI.OnSummonAction += SummonDigeomon;
             ScannerUI.OnGoToSceneRequested += gameManager.GoToScene;
         }
@@ -59,6 +63,8 @@ namespace Scanner
             JournalManager.OnSummonAction -= mobilePhoneUI.HideMobilePhones;
 
             JournalEntryButton.OnSummonDigeomonAction -= journalManager.SummonDigeomon;
+
+            HologramDisplay.OnEvolveDigeomonAction -= vfxManager.InitializeEvolution;
 
             ScannerUI.OnSummonAction -= SummonDigeomon;
             ScannerUI.OnGoToSceneRequested -= gameManager.GoToScene;
