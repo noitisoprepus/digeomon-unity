@@ -18,3 +18,11 @@ MonoBehaviour:
     identical square faces.</mark>
   - Each face of the cube is congruent, meaning they all have <mark=#00563B40>equal
     sides and angles.</mark>
+  - 'A cube has three dimensions: length, width, and height. Unlike some other shapes,
+    all three are the same in a cube. If one side is 5 units long, all sides are
+    5 units long.'
+  - Cubes are like dice, sugar cubes, or even some buildings like storage boxes.
+  images:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

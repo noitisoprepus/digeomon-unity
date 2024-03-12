@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e426929cd48a43458276639944a4e76, type: 3}
+  m_Name: Triangle
+  m_EditorClassIdentifier: 
+  title: 
+  content:
+  - A triangle is a two-dimensional (2D) shape with <mark=#00563B40> three sides,
+    three corners and three angles. </mark>
+  - Each side is a straight line that connects two corners. Each corner is called
+    a vertex. Angles are the spaces formed where two sides meet.
+  - The measure of all sides of a triangle equate to <mark=#00563B40>  180 degrees.
+    </mark>
+  - There are different types of triangles. If all three sides of a triangle are
+    the same length, it's called an <mark=#00563B40> equilateral</mark>. If two sides
+    are the same length, it's called an <mark=#00563B40> isosceles</mark>. And if
+    all three sides are different lengths, it's called a <mark=#00563B40> scalene</mark>.
+  images:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

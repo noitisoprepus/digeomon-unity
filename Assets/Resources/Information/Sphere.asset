@@ -22,10 +22,10 @@ MonoBehaviour:
     the <mark=#00563B40> radius.</mark>. The <mark=#00563B40> diameter</mark> of
     a sphere is the distance across it through its center. It is twice the length
     of the radius..
-  - A circle is a two-dimensional (2D) shape that looks like a perfectly round ring.
-    A circle is defined by a continuous curved line. This line is called the circumference
-    of the circle.
-  - A circle is symmetrical. This means that if you draw any line passing through
-    its center, you will divide the circle into two equal halves.
-  - Real life examples of sphere and circle are coins,plates, basketball, marbles,
+  - Real life examples of sphere and circle are coins, plates, basketball, marbles,
     and bubbles.
+  images:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

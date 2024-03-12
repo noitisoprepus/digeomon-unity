@@ -26,21 +26,7 @@ MonoBehaviour:
     long it is, the width is how wide it is, and the height is how tall it is.'
   - Cuboids are like shoeboxes, books, or even some buildings like houses. They're
     everywhere around us!
-  - Meanwhile, a cube is a three-dimensional shape characterized by <mark=#00563B40>six
-    identical square faces.</mark>. A cube is like a solid block or a box. It has
-    six faces, all of which are squares.
-  - 'A cube has three dimensions: length, width, and height. Unlike some other shapes,
-    all three are the same in a cube. If one side is 5 units long, all sides are
-    5 units long.'
-  - Cubes are like dice, sugar cubes, or even some buildings like storage boxes.
-  - A square is a flat, two-dimensional shape with four equal sides and four right
-    angles. Squares are special types of rectangles where all sides are equal in
-    length.
   images:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

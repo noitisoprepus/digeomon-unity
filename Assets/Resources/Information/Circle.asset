@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e426929cd48a43458276639944a4e76, type: 3}
-  m_Name: Cone
+  m_Name: Circle
   m_EditorClassIdentifier: 
-  title: Cone
+  title: 
   content:
-  - A three-dimensional shape (3D) that narrows smoothly from a <mark=#00563B40>flat
-    circular base</mark> to a point called the <mark=#00563B40>apex</mark> or <mark=#00563B40>vertex</mark>.
-  - A cone consists of a <mark=#00563B40> single base, curved surface, and point.
-    </mark>
-  - Real life examples of cones are ice cream cones, party hat, and traffic cones.
+  - A circle is a two-dimensional (2D) shape that looks like a perfectly round ring.
+    A circle is defined by a continuous curved line. This line is called the circumference
+    of the circle.
+  - A circle is symmetrical. This means that if you draw any line passing through
+    its center, you will divide the circle into two equal halves.
   images:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

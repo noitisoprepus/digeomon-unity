@@ -23,3 +23,8 @@ MonoBehaviour:
     far it is from the middle to the edge of one of the circles .The diameter is
     how wide the cylinder is across one of the circles.
   - Examples are paper rolls, cans, and candles which are all similar to a <mark=#00563B40>tube</mark>.
+  images:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
