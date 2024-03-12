@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e426929cd48a43458276639944a4e76, type: 3}
   m_Name: Triangle
   m_EditorClassIdentifier: 
-  title: 
+  title: Triangle
   content:
   - A triangle is a two-dimensional (2D) shape with <mark=#00563B40> three sides,
     three corners and three angles. </mark>

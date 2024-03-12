@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e426929cd48a43458276639944a4e76, type: 3}
   m_Name: Circle
   m_EditorClassIdentifier: 
-  title: 
+  title: Circle
   content:
   - A circle is a two-dimensional (2D) shape that looks like a perfectly round ring.
     A circle is defined by a continuous curved line. This line is called the circumference

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e426929cd48a43458276639944a4e76, type: 3}
   m_Name: Ellipse
   m_EditorClassIdentifier: 
-  title: 
+  title: Ellipse
   content:
   - An ellipse is a curved shape that looks like a flattened circle or a squished
     oval
