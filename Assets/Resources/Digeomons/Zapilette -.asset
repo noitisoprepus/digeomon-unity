@@ -31,6 +31,7 @@ MonoBehaviour:
   modelSprite: {fileID: 21300000, guid: f47dbd0f74dcd0d48bb3969e1a29935e, type: 3}
   relevantInfos:
   - {fileID: 11400000, guid: d43688ac38797624986cda98b54449c8, type: 2}
+  - {fileID: 11400000, guid: 3fb850abe229fff4d98099bfbb282a5c, type: 2}
   introDialogue: {fileID: 11400000, guid: 2954757b4e01e954598a3b04f3e61f54, type: 2}
   quiz: {fileID: 11400000, guid: ceeefefed770acf41b44c5bf337395a1, type: 2}
   evolution: {fileID: 11400000, guid: 6c1954ba58b1fce4b8b20c7d1ff41f4e, type: 2}

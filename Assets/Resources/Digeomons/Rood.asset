@@ -20,6 +20,9 @@ MonoBehaviour:
   modelSprite: {fileID: 21300000, guid: dbe5c7d5b623cf2459dd95901519dd3f, type: 3}
   relevantInfos:
   - {fileID: 11400000, guid: 8f6db61298723004e9d03645fc7f261b, type: 2}
+  - {fileID: 11400000, guid: 3e73c2ce678d1ec49ae5c598afce762b, type: 2}
+  - {fileID: 11400000, guid: 75c928295d87a88448a8268ff5fde468, type: 2}
+  - {fileID: 11400000, guid: 5baa7c38d0baf2644a50a545e88ba7da, type: 2}
   introDialogue: {fileID: 11400000, guid: fb0f74bf20a180147b5a70852d4dc579, type: 2}
   quiz: {fileID: 11400000, guid: eb0971bc258c1b0469915a1d5b84edf9, type: 2}
   evolution: {fileID: 0}
