@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using UI;
 using UnityEngine;
 
 namespace Core
@@ -29,14 +30,14 @@ namespace Core
         {
             QuizManager.OnAnswerCorrectAction += OnDigeomonExcited;
             QuizManager.OnAnswerIncorrectAction += OnDigeomonInfuriated;
-            QuizManager.OnEvolutionSuccessAction += OnEvolutionSuccessful;
+            QuizUI.OnEvolutionSuccessAction += OnEvolutionSuccessful;
         }
 
         private void OnDisable()
         {
             QuizManager.OnAnswerCorrectAction -= OnDigeomonExcited;
             QuizManager.OnAnswerIncorrectAction -= OnDigeomonInfuriated;
-            QuizManager.OnEvolutionSuccessAction -= OnEvolutionSuccessful;
+            QuizUI.OnEvolutionSuccessAction -= OnEvolutionSuccessful;
         }
 
         private void Start()

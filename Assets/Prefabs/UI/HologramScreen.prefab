@@ -747,12 +747,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c285461dac533c4aa4c44172fff5e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  digeomon: {fileID: 0}
   titleText: {fileID: 4264127616662087659}
   contentText: {fileID: 7039269028073295182}
   arrowRT: {fileID: 3737449376625557224}
   contextualImage: {fileID: 3821995356556989266}
-  evolveButton: {fileID: 6349170528546963847}
 --- !u!1 &2639331802202711991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,9 +1612,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa5dceb84aeb4d408de4e1cbb5faddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  digeomon: {fileID: 0}
   digeomonModel: {fileID: 0}
   digeomonShape: {fileID: 0}
   informationPanel: {fileID: 3766385970215101283}
+  evolveButton: {fileID: 6349170528546963847}
 --- !u!1 &6349170528546963847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1740,8 +1740,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7951000755953227120}
-        m_TargetAssemblyTypeName: UI.HologramCanvas, UI
+      - m_Target: {fileID: 375083541629870314}
+        m_TargetAssemblyTypeName: UI.HologramDisplay, UI
         m_MethodName: OnEvolveButtonPressed
         m_Mode: 1
         m_Arguments:

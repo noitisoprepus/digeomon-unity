@@ -23,6 +23,9 @@ namespace UI
         public delegate void QuizConcludeDelegate();
         public static event QuizConcludeDelegate OnQuizConcludeAction;
 
+        public delegate void EvolutionSuccess();
+        public static event EvolutionSuccess OnEvolutionSuccessAction;
+
         public static event Action<string> OnGoToSceneRequested;
 
         [Header("Quiz GUI")]
@@ -99,11 +102,13 @@ namespace UI
             nextReviewButton.SetActive(false);
 
             scoreText.text = "SCORE: " + score;
+            scoreBoxRect.anchoredPosition = Vector2.zero;
             scoreBoxRect.DOScaleY(1f, 0.75f).SetEase(Ease.OutQuart);
         }
 
         public void OnRecapButtonPressed()
         {
+            scoreBoxRect.DOAnchorPosY(0.34f, 0.75f).SetEase(Ease.OutQuad);
             OnStartRecapAction?.Invoke();
             questionBox.SetActive(true);
             choicesBox.SetActive(true);
@@ -139,6 +144,8 @@ namespace UI
 
         public void OnHomeButtonPressed()
         {
+            if (PersistentData.toEvolve)
+                OnEvolutionSuccessAction?.Invoke();
             ClosePanel();
             OnQuizConcludeAction?.Invoke();
         }

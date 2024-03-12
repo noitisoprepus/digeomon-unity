@@ -367,6 +367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64482971248b6041804b338ae6aa7dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  digeomonCaptureData: {fileID: 11400000, guid: 9d893d9c73b019f4f9695295f390f5e2,
+    type: 2}
   successParticleSystem: {fileID: 1524890848}
   failParticleSystem: {fileID: 182075999}
   quizManager: {fileID: 600588270}
@@ -13973,10 +13975,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4432577008395581486, guid: 33a0ea6bcec607043b5d19792332a0a2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432577008395581486, guid: 33a0ea6bcec607043b5d19792332a0a2,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432577008395581486, guid: 33a0ea6bcec607043b5d19792332a0a2,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432577008395581486, guid: 33a0ea6bcec607043b5d19792332a0a2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432577008395581486, guid: 33a0ea6bcec607043b5d19792332a0a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432577008395581486, guid: 33a0ea6bcec607043b5d19792332a0a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5421191823121235664, guid: 33a0ea6bcec607043b5d19792332a0a2,
         type: 3}
       propertyPath: globalUI
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646734094068657743, guid: 33a0ea6bcec607043b5d19792332a0a2,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646734094068657743, guid: 33a0ea6bcec607043b5d19792332a0a2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8548915976572885460, guid: 33a0ea6bcec607043b5d19792332a0a2,
         type: 3}

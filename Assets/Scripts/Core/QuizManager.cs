@@ -13,9 +13,6 @@ namespace Core
         public delegate void AnswerIncorrect();
         public static event AnswerIncorrect OnAnswerIncorrectAction;
 
-        public delegate void EvolutionSuccess();
-        public static event EvolutionSuccess OnEvolutionSuccessAction;
-
         [SerializeField] DigeomonCaptureData digeomonCaptureData;
 
         [Header("Quiz Audio")]
@@ -70,9 +67,11 @@ namespace Core
         {
             targetDigeomon = PersistentData.targetDigeomon;
             currQuiz = QuizShuffler.GenerateQuiz(targetDigeomon.quiz, 3, 2);
-            userAnswers = new List<int>();
-            currQIndex = 0;
             currQuestions = new List<QuestionData>(currQuiz.questions);
+            score = 0;
+            currQIndex = 0;
+            userAnswers = new List<int>();
+            
             quizUI.OpenPanel();
             quizUI.ShowQuestion(currQuestions[currQIndex]);
 
@@ -96,17 +95,13 @@ namespace Core
                     
                     quizAudioSource.clip = quizSuccessSFX;
                     quizAudioSource.Play();
-
-                    if (PersistentData.toEvolve)
-                    {
-                        OnEvolutionSuccessAction?.Invoke();
-                        return;
-                    }
                     
                     GameManager.Instance.ShowDialog("<color=#008A03>Capture Success</color>");
                 }
                 else
                 {
+                    PersistentData.toEvolve = false;
+
                     quizAudioSource.clip = quizFailSFX;
                     quizAudioSource.Play();
                     GameManager.Instance.ShowDialog("<color=#CF2E2E>Capture Failed</color>");

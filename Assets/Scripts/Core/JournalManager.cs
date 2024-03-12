@@ -96,19 +96,5 @@ namespace Core
             else
                 OnSummonAction?.Invoke();
         }
-
-        public void EvolveDigeomon(DigeomonData digeomonData)
-        {
-            if (digeomonCaptureData.captureData[digeomonData.name])
-            {
-                GameManager.Instance.ShowDialog("The evolution for this \n digeomon has already been \ncaptured");
-                return;
-            }
-
-            PersistentData.targetDigeomon = digeomonData;
-            PersistentData.toSummon = false;
-            PersistentData.toEvolve = true;
-            GameManager.Instance.GoToScene("Sandbox");
-        }
     }
 }

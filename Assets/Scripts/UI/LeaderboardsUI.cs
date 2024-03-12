@@ -10,14 +10,9 @@ namespace UI
         [SerializeField] private GameObject entryBox;
         [SerializeField] private GameObject warningText;
 
-        //private void Start()
-        //{
-        //    if (PlayerPrefs.GetInt("guest") == 1)
-        //        ShowGuestWarning();
-        //}
-
         public void PopulateLeaderboards(List<KeyValuePair<string, int>> sortedUsersCaptureData)
         {
+            HideGuestWarning();
             if (leaderboardsContent.transform.childCount == 0)
             {
                 int rank = 1;
@@ -41,6 +36,11 @@ namespace UI
         public void ShowGuestWarning()
         {
             warningText.SetActive(true);
+        }
+
+        public void HideGuestWarning()
+        {
+            warningText.SetActive(false);
         }
     }
 }

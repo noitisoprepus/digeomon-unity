@@ -79,6 +79,10 @@ namespace UI
 
         public void OnEvolveButtonPressed()
         {
+            PersistentData.targetDigeomon = digeomon.evolution;
+            PersistentData.toSummon = false;
+            PersistentData.toEvolve = true;
+
             hologramCanvas.HideCanvas();
             HideEvolveButton();
             OnEvolveDigeomonAction?.Invoke(digeomonModel, digeomon.evolution);
