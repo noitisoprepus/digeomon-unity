@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b445772f754eda54f878c1ab6f03bbae, type: 3}
   m_Name: Zapilette -
   m_EditorClassIdentifier: 
-  charName: Zapilette -
-  description: Cozy comfort for every step. Trendy with girls.
+  charName: Zapilette
+  description: Worn on feet, for walking or running. Cozy comfort for every step.
   keys:
   - sandal
   - slipper

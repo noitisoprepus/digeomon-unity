@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b445772f754eda54f878c1ab6f03bbae, type: 3}
   m_Name: Zapatos -
   m_EditorClassIdentifier: 
-  charName: Zapatos -
-  description: Run with comfort. Trendy with girls.
+  charName: Zapatos
+  description: Evolution of Zapilette. Run with comfort.
   keys: []
   modelPrefab: {fileID: 5768629933584393386, guid: 83412617da9a13c4fa001db6519ffdaa,
     type: 3}
