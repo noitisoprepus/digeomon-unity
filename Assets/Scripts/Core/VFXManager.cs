@@ -19,9 +19,16 @@ namespace Core
         [SerializeField] private DialogueManager dialogueManager;
         [SerializeField] private Material evolutionMat;
         [SerializeField] private GameObject evolutionVFX;
+        [SerializeField] private AudioClip evolutionSFX;
 
+        private AudioSource audioSource;
         private GameObject digeomonObj;
         private GameObject evolutionObj;
+
+        private void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
 
         private void OnEnable()
         {
@@ -82,6 +89,10 @@ namespace Core
             evolutionObj.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
             digeomonObj.transform.parent.gameObject.SetActive(false);
             Instantiate(evolutionVFX, evolutionObj.transform.position, evolutionObj.transform.rotation);
+
+            audioSource.clip = evolutionSFX;
+            audioSource.Play();
+
             dialogueManager.StartDialogue(PersistentData.targetDigeomon.introDialogue);
         }
     }

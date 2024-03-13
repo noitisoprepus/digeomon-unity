@@ -241,6 +241,7 @@ MonoBehaviour:
   placeholderInfo: {fileID: 11400000, guid: 7bc05141b4c4c084cb9e81b278d85a38, type: 2}
   digeomonCaptureData: {fileID: 11400000, guid: 9d893d9c73b019f4f9695295f390f5e2,
     type: 2}
+  summonSFX: {fileID: 8300000, guid: 1e7b6090f35c75145a924f9a434aa1b6, type: 3}
 --- !u!114 &51421849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,6 +377,7 @@ MonoBehaviour:
   evolutionMat: {fileID: 2100000, guid: d0d24907c01cfaf47be3d4c46a735724, type: 2}
   evolutionVFX: {fileID: 1729829223006317722, guid: 3c67979d97e27e146b7a312341904e1c,
     type: 3}
+  evolutionSFX: {fileID: 8300000, guid: fdc32bd60333da74884ab9b44b1c8a52, type: 3}
 --- !u!1 &88540193
 GameObject:
   m_ObjectHideFlags: 0

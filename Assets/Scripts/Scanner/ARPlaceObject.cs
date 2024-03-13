@@ -18,6 +18,9 @@ namespace Scanner
         [SerializeField] private InformationalData placeholderInfo;
         [SerializeField] private DigeomonCaptureData digeomonCaptureData;
 
+        [Header("SFX")]
+        [SerializeField] private AudioClip summonSFX;
+
         private AudioSource audioSource;
         private DigeomonData currDigeomon;
         private ScannerUI scannerUI;
@@ -111,6 +114,7 @@ namespace Scanner
             spawnedObject = Instantiate(arObject, placementPose.position, placementPose.rotation);
             spawnedObject.transform.localScale = Vector3.zero;
             spawnedObject.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
+            audioSource.clip = summonSFX;
             audioSource.Play();
 
             quizManager.quizUI = spawnedObject.GetComponentInChildren<QuizUI>();
