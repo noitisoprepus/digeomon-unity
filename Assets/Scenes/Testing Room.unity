@@ -1192,9 +1192,9 @@ MonoBehaviour:
   digeomonModelT: {fileID: 1449933197}
   hologramCanvas: {fileID: 496651055}
   informationalData:
-  - {fileID: 11400000, guid: 7bc05141b4c4c084cb9e81b278d85a38, type: 2}
-  - {fileID: 11400000, guid: d43688ac38797624986cda98b54449c8, type: 2}
-  - {fileID: 11400000, guid: 640b94b5f6dc9654c9459c560fce825d, type: 2}
+  - {fileID: 11400000, guid: 8f6db61298723004e9d03645fc7f261b, type: 2}
+  - {fileID: 11400000, guid: 5baa7c38d0baf2644a50a545e88ba7da, type: 2}
+  - {fileID: 11400000, guid: 75c928295d87a88448a8268ff5fde468, type: 2}
 --- !u!1 &1308103332
 GameObject:
   m_ObjectHideFlags: 0

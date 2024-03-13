@@ -17,8 +17,9 @@ MonoBehaviour:
   - A rectangle is a flat, two-dimensional shape with four straight sides and four
     right angles. It looks like a stretched-out square.
   - A rectangle has four sides. Opposite sides are equal in length and parallel to
-    each other. A rectangle has four right angles, which are angles that measure
-    90 degrees.
+    each other.
+  - A rectangle also has four right angles, which are angles that measure 90 degrees.
   images:
   - {fileID: 21300000, guid: c815bae1140febc418269a068d510240, type: 3}
   - {fileID: 21300000, guid: 287b6c857c7890344bf0f0fb035a54c7, type: 3}
+  - {fileID: 0}
