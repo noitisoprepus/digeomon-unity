@@ -24,18 +24,6 @@ namespace UI
         private int currDataIndex;
         private int currContentIndex;
 
-        private void OnEnable()
-        {
-            QuizUI.OnQuizBeginAction += HideCanvas;
-            QuizUI.OnQuizConcludeAction += ShowCanvas;
-        }
-
-        private void OnDisable()
-        {
-            QuizUI.OnQuizBeginAction -= HideCanvas;
-            QuizUI.OnQuizConcludeAction -= ShowCanvas;
-        }
-
         private void Start()
         {
             arrowLeftSequence = DOTween.Sequence();
@@ -126,16 +114,6 @@ namespace UI
             }
 
             ShowContent(currContentIndex);
-        }
-
-        public void ShowCanvas()
-        {
-            transform.DOScaleY(1f, 0.75f).SetEase(Ease.OutQuart);
-        }
-
-        public void HideCanvas()
-        {
-            transform.DOScaleY(0f, 0.6f).SetEase(Ease.OutExpo);
         }
     }
 }

@@ -115,14 +115,9 @@ namespace Scanner
 
             quizManager.quizUI = spawnedObject.GetComponentInChildren<QuizUI>();
 
-            // TODO: Put in its own class
             HologramDisplay hologramDisplay = spawnedObject.GetComponentInChildren<HologramDisplay>();
             hologramDisplay.digeomon = currDigeomon;
-            if (digeomonCaptureData.captureData[currDigeomon.name] 
-                    && currDigeomon.evolution != null 
-                        && !digeomonCaptureData.captureData[currDigeomon.evolution.name])
-                hologramDisplay.ShowEvolveButton();
-            else hologramDisplay.HideEvolveButton();
+            hologramDisplay.SetupEvolveButton();
 
             HologramCanvas hologramCanvas = spawnedObject.GetComponentInChildren<HologramCanvas>();
             List<InformationalData> infoList = new List<InformationalData>();

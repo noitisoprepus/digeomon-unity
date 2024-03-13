@@ -57,13 +57,7 @@ namespace Core
 
             HologramDisplay hologramDisplay = evolutionObj.GetComponentInChildren<HologramDisplay>();
             hologramDisplay.digeomon = evolution;
-            if (digeomonCaptureData.captureData[evolution.name] && evolution.evolution != null)
-            {
-                if (!digeomonCaptureData.captureData[evolution.evolution.name])
-                    hologramDisplay.ShowEvolveButton();
-                else hologramDisplay.HideEvolveButton();
-            }
-            else hologramDisplay.HideEvolveButton();
+            hologramDisplay.SetupEvolveButton();
 
             HologramCanvas hologramCanvas = evolutionObj.GetComponentInChildren<HologramCanvas>();
             List<InformationalData> infoList = new List<InformationalData>(evolution.relevantInfos);

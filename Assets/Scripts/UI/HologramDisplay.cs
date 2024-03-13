@@ -1,6 +1,5 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace UI
 {
@@ -11,6 +10,9 @@ namespace UI
 
         [HideInInspector] public DigeomonData digeomon;
 
+        [SerializeField] private DigeomonCaptureData digeomonCaptureData;
+
+        [Header("Hologram Elements")]
         [SerializeField] private GameObject digeomonModel;
         [SerializeField] private GameObject digeomonShape;
         [SerializeField] private GameObject informationPanel;
@@ -28,11 +30,29 @@ namespace UI
         {
             digeomonShape.SetActive(false);
             informationPanel.transform.localScale = new Vector3(1f, 0f, 1f);
-            if (SceneManager.GetActiveScene().name.Equals("Sandbox"))
-            {
-                gameObject.SetActive(false);
-                return;
-            }
+        }
+
+        private void OnEnable()
+        {
+            QuizUI.OnQuizBeginAction += HideCanvas;
+            QuizUI.OnQuizConcludeAction += ShowCanvas;
+        }
+
+        private void OnDisable()
+        {
+            QuizUI.OnQuizBeginAction -= HideCanvas;
+            QuizUI.OnQuizConcludeAction -= ShowCanvas;
+        }
+
+        public void ShowCanvas()
+        {
+            SetupEvolveButton();
+            hologramCanvas.gameObject.transform.DOScaleY(1f, 0.75f).SetEase(Ease.OutQuart);
+        }
+
+        public void HideCanvas()
+        {
+            hologramCanvas.gameObject.transform.DOScaleY(0f, 0.6f).SetEase(Ease.OutExpo);
         }
 
         public void ToggleModel()
@@ -67,14 +87,15 @@ namespace UI
             }
         }
 
-        public void ShowEvolveButton()
+        public void SetupEvolveButton()
         {
-            evolveButton.SetActive(true);
-        }
-
-        public void HideEvolveButton()
-        {
-            evolveButton.SetActive(false);
+            if (digeomonCaptureData.captureData[digeomon.name] && digeomon.evolution != null)
+            {
+                if (!digeomonCaptureData.captureData[digeomon.evolution.name])
+                    ShowEvolveButton();
+                else HideEvolveButton();
+            }
+            else HideEvolveButton();
         }
 
         public void OnEvolveButtonPressed()
@@ -83,9 +104,19 @@ namespace UI
             PersistentData.toSummon = false;
             PersistentData.toEvolve = true;
 
-            hologramCanvas.HideCanvas();
+            HideCanvas();
             HideEvolveButton();
             OnEvolveDigeomonAction?.Invoke(digeomonModel, digeomon.evolution);
+        }
+
+        private void ShowEvolveButton()
+        {
+            evolveButton.SetActive(true);
+        }
+
+        private void HideEvolveButton()
+        {
+            evolveButton.SetActive(false);
         }
     }
 }
