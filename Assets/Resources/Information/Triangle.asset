@@ -26,6 +26,6 @@ MonoBehaviour:
     all three sides are different lengths, it's called a <mark=#00563B40> scalene</mark>.
   images:
   - {fileID: 21300000, guid: ad6addf4dc41567478c71c763d493978, type: 3}
+  - {fileID: 21300000, guid: 42a332230ea0dd64795f3775c05ce2a3, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: bd1447280d3dc784898ef93522ea26e3, type: 3}
+  - {fileID: 21300000, guid: 6259c5a21b46b24468033243ec7e567e, type: 3}
