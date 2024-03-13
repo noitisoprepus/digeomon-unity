@@ -24,6 +24,6 @@ MonoBehaviour:
   - Real life examples of ellipsoid are eggs, lemon, and football.
   images:
   - {fileID: 21300000, guid: 3e06602f186d8534eab97a77e7fe233f, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 373331fa6dbd62c4984b485e9e4b9f5d, type: 3}
   - {fileID: 21300000, guid: 34e066c27c732df4c9054ed61bc83e90, type: 3}
   - {fileID: 21300000, guid: 9e1a1379244b3f24da20076ca39b4b1c, type: 3}
