@@ -68,7 +68,11 @@ namespace UI
 
         public void OpenPanel()
         {
+            questionBox.SetActive(true);
+            choicesBox.SetActive(true);
+
             OnQuizBeginAction?.Invoke();
+
             scoreBoxRect.localScale = new Vector3(1f, 0f, 1f);
             panel.transform.DOScaleY(1f, 0.75f).SetEase(Ease.OutQuart);
         }
@@ -85,8 +89,6 @@ namespace UI
             choiceBText.text = "B. " + q.choices[1];
             choiceCText.text = "C. " + q.choices[2];
             choiceDText.text = "D. " + q.choices[3];
-
-            panel.SetActive(true);
         }
 
         public void OnAnswerButtonPressed(int index)
