@@ -77,18 +77,25 @@ namespace UI
         private void StartPresentation()
         {
             currData = informationalContent[currDataIndex];
+            currContentIndex = 0;
             ShowPresentation(currData);
+        }
 
-            currDataIndex++;
-            if (currDataIndex >= informationalContent.Count)
-                currDataIndex = 0;  // Reset back to start, creating a loop.
+        private void PreviousPresentation()
+        {
+            currDataIndex--;
+            if (currDataIndex < 0)
+                currDataIndex = informationalContent.Count - 1;
+
+            currData = informationalContent[currDataIndex];
+            currContentIndex = currData.content.Count - 1;
+            ShowPresentation(currData);
         }
 
         private void ShowPresentation(InformationalData informationalData)
         {
             currContent = new List<string>(informationalData.content);
             currImages = new List<Sprite>(informationalData.images);
-            currContentIndex = 0;
 
             titleText.text = informationalData.title;
             ShowContent(currContentIndex);
@@ -99,6 +106,9 @@ namespace UI
             currContentIndex++;
             if (currContentIndex >= currContent.Count)
             {
+                currDataIndex++;
+                if (currDataIndex >= informationalContent.Count)
+                    currDataIndex = 0;  // Reset back to start, creating a loop.
                 StartPresentation();
                 return;
             }
@@ -111,10 +121,7 @@ namespace UI
             currContentIndex--;
             if (currContentIndex < 0)
             {
-                currDataIndex--;
-                if (currDataIndex < 0)
-                    currDataIndex = informationalContent.Count - 1;
-                StartPresentation();
+                PreviousPresentation();
                 return;
             }
 
@@ -129,23 +136,6 @@ namespace UI
         public void HideCanvas()
         {
             transform.DOScaleY(0f, 0.6f).SetEase(Ease.OutExpo);
-        }
-
-        // Testing
-        InformationalData testData;
-
-        public void InitializeContent(InformationalData contentData)
-        {
-            testData = contentData;
-            ShowPresentation(testData);
-        }
-
-        public void NextContent()
-        {
-            currContentIndex++;
-            if (currContentIndex >= currContent.Count)
-                ShowPresentation(testData);
-            ShowContent(currContentIndex);
         }
     }
 }
