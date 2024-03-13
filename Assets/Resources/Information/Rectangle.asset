@@ -20,5 +20,5 @@ MonoBehaviour:
     each other. A rectangle has four right angles, which are angles that measure
     90 degrees.
   images:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: c815bae1140febc418269a068d510240, type: 3}
+  - {fileID: 21300000, guid: 287b6c857c7890344bf0f0fb035a54c7, type: 3}

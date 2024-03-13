@@ -23,7 +23,7 @@ MonoBehaviour:
     5 units long.'
   - Cubes are like dice, sugar cubes, or even some buildings like storage boxes.
   images:
+  - {fileID: 21300000, guid: 2c74fa9eb624ce2488e57769d68c8aa6, type: 3}
+  - {fileID: 21300000, guid: a57fc43916c826441b998bdd491293ee, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 32984a7e30bd5b94db63225c9949aa30, type: 3}

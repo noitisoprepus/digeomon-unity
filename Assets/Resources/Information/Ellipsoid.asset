@@ -23,7 +23,7 @@ MonoBehaviour:
     These axes define the shape of the ellipsoid. '
   - Real life examples of ellipsoid are eggs, lemon, and football.
   images:
+  - {fileID: 21300000, guid: 3e06602f186d8534eab97a77e7fe233f, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: 15db6a0095af4b24c9a2d60315e18de6, type: 3}
+  - {fileID: 21300000, guid: 34e066c27c732df4c9054ed61bc83e90, type: 3}
+  - {fileID: 21300000, guid: 9e1a1379244b3f24da20076ca39b4b1c, type: 3}

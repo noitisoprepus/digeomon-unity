@@ -19,5 +19,5 @@ MonoBehaviour:
   - It looks like an oval but don't be confused as the two are different. All ellipses
     are ovals, but not all ovals are ellipses.
   images:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 8b39d687779bb7641ad06104219ae6e1, type: 3}
+  - {fileID: 21300000, guid: ac49475f45f6440408550ffe9328c3de, type: 3}

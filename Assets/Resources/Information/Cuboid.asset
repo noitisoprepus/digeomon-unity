@@ -27,7 +27,7 @@ MonoBehaviour:
   - Cuboids are like shoeboxes, books, or even some buildings like houses. They're
     everywhere around us!
   images:
+  - {fileID: 21300000, guid: 3836b9b6a9db9cd419e2f98a717979b1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 820dca25440e10646a0446e9ea59ef4f, type: 3}

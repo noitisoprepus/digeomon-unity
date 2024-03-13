@@ -25,7 +25,7 @@ MonoBehaviour:
     are the same length, it's called an <mark=#00563B40> isosceles</mark>. And if
     all three sides are different lengths, it's called a <mark=#00563B40> scalene</mark>.
   images:
+  - {fileID: 21300000, guid: ad6addf4dc41567478c71c763d493978, type: 3}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: bd1447280d3dc784898ef93522ea26e3, type: 3}
