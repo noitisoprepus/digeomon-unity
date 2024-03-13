@@ -11,14 +11,16 @@ namespace UI
         [Header("Information Panel GUI")]
         [SerializeField] private TextMeshProUGUI titleText;
         [SerializeField] private TextMeshProUGUI contentText;
-        [SerializeField] private RectTransform arrowRT;
+        [SerializeField] private RectTransform arrowLeftRT;
+        [SerializeField] private RectTransform arrowRightRT;
         [SerializeField] private Image contextualImage;
 
         private List<InformationalData> informationalContent;
         private List<string> currContent;
         private List<Sprite> currImages;
         private InformationalData currData;
-        private Sequence arrowSequence;
+        private Sequence arrowLeftSequence;
+        private Sequence arrowRightSequence;
         private int currDataIndex;
         private int currContentIndex;
 
@@ -36,11 +38,17 @@ namespace UI
 
         private void Start()
         {
-            arrowSequence = DOTween.Sequence();
-            arrowSequence.Append(arrowRT.DOAnchorPosX(-0.08f, 0.5f));
-            arrowSequence.Append(arrowRT.DOAnchorPosX(-0.12f, 0.5f));
-            arrowSequence.SetLoops(-1, LoopType.Yoyo).SetSpeedBased();
-            arrowSequence.Play();
+            arrowLeftSequence = DOTween.Sequence();
+            arrowLeftSequence.Append(arrowLeftRT.DOAnchorPosX(-0.06f, 0.5f));
+            arrowLeftSequence.Append(arrowLeftRT.DOAnchorPosX(-0.08f, 0.5f));
+            arrowLeftSequence.SetLoops(-1, LoopType.Yoyo).SetSpeedBased();
+            arrowLeftSequence.Play();
+
+            arrowRightSequence = DOTween.Sequence();
+            arrowRightSequence.Append(arrowRightRT.DOAnchorPosX(-0.34f, 0.5f));
+            arrowRightSequence.Append(arrowRightRT.DOAnchorPosX(-0.32f, 0.5f));
+            arrowRightSequence.SetLoops(-1, LoopType.Yoyo).SetSpeedBased();
+            arrowRightSequence.Play();
         }
 
         private void ShowContent(int index)
@@ -90,7 +98,25 @@ namespace UI
         {
             currContentIndex++;
             if (currContentIndex >= currContent.Count)
+            {
                 StartPresentation();
+                return;
+            }
+
+            ShowContent(currContentIndex);
+        }
+
+        public void OnPreviousSlideTriggered()
+        {
+            currContentIndex--;
+            if (currContentIndex < 0)
+            {
+                currDataIndex--;
+                if (currDataIndex < 0)
+                    currDataIndex = informationalContent.Count - 1;
+                StartPresentation();
+                return;
+            }
 
             ShowContent(currContentIndex);
         }
