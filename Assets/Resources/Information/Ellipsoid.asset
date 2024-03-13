@@ -16,14 +16,15 @@ MonoBehaviour:
   content:
   - A three-dimensional shape characterized by its smooth, curved surface, which
     resembles a <mark=#00563B40>squashed sphere</mark>.
-  - Imagine stretching a balloon, it will look like a longer or flatter sphere. While
-    an ellipsoid may not have perfect symmetry like a sphere, it still exhibits some
-    degree of symmetry depending on its shape.
+  - Imagine stretching a balloon, it will look like a longer or flatter sphere.
+  - An ellipsoid, though not perfectly symmetrical like a sphere, still shows some
+    symmetry based on its shape.
   - 'An ellipsoid has three axes, which are imaginary lines passing through its center.
     These axes define the shape of the ellipsoid. '
   - Real life examples of ellipsoid are eggs, lemon, and football.
   images:
   - {fileID: 21300000, guid: 3e06602f186d8534eab97a77e7fe233f, type: 3}
   - {fileID: 21300000, guid: 373331fa6dbd62c4984b485e9e4b9f5d, type: 3}
+  - {fileID: 0}
   - {fileID: 21300000, guid: 34e066c27c732df4c9054ed61bc83e90, type: 3}
   - {fileID: 21300000, guid: 9e1a1379244b3f24da20076ca39b4b1c, type: 3}

@@ -18,12 +18,11 @@ MonoBehaviour:
     three corners and three angles. </mark>
   - Each side is a straight line that connects two corners. Each corner is called
     a vertex. Angles are the spaces formed where two sides meet.
-  - The measure of all sides of a triangle equate to <mark=#00563B40>  180 degrees.
+  - The measure of all sides of a triangle equate to <mark=#00563B40> 180 degrees.
     </mark>
-  - There are different types of triangles. If all three sides of a triangle are
-    the same length, it's called an <mark=#00563B40> equilateral</mark>. If two sides
-    are the same length, it's called an <mark=#00563B40> isosceles</mark>. And if
-    all three sides are different lengths, it's called a <mark=#00563B40> scalene</mark>.
+  - 'Triangles vary in type: <mark=#00563B40>equilateral</mark> (all sides equal),
+    <mark=#00563B40>isosceles</mark> (two sides equal), and <mark=#00563B40>scalene</mark>
+    (all sides different).'
   images:
   - {fileID: 21300000, guid: ad6addf4dc41567478c71c763d493978, type: 3}
   - {fileID: 21300000, guid: 42a332230ea0dd64795f3775c05ce2a3, type: 3}

@@ -19,9 +19,8 @@ MonoBehaviour:
   - The <mark=#00563B40>bases</mark> are <mark=#00563B40>congruent</mark> and lie
     in <mark=#00563B40>parallel planes</mark>, while the curved surface forms the
     lateral surface of the cylinder.
-  - The height of a cylinder is how tall it is from top to bottom The radius is how
-    far it is from the middle to the edge of one of the circles .The diameter is
-    how wide the cylinder is across one of the circles.
+  - A cylinder's height is how tall it is. The diameter is how wide the circle on
+    the end is. The radius is from the middle of the circle to the edge.
   - Examples are paper rolls, cans, and candles which are all similar to a <mark=#00563B40>tube</mark>.
   images:
   - {fileID: 21300000, guid: 042e5346a28fc5d4f9c29a1f45a25b84, type: 3}

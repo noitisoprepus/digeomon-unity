@@ -15,10 +15,11 @@ MonoBehaviour:
   title: Circle
   content:
   - A circle is a two-dimensional (2D) shape that looks like a perfectly round ring.
-    A circle is defined by a continuous curved line. This line is called the circumference
+  - A circle is defined by a continuous curved line. This line is called the circumference
     of the circle.
-  - A circle is symmetrical. This means that if you draw any line passing through
-    its center, you will divide the circle into two equal halves.
+  - A circle is symmetrical, meaning any line through its center divides it into
+    two equal halves.
   images:
   - {fileID: 21300000, guid: 819e7581ca7dcdc4689e28586544319a, type: 3}
+  - {fileID: 21300000, guid: d85f1b6362283e24f9097e53e9155c5d, type: 3}
   - {fileID: 21300000, guid: 63422b0326d363b47840b2f67f394f9d, type: 3}
