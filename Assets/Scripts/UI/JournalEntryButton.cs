@@ -32,7 +32,7 @@ namespace UI
             previewImage.color = isCaught ? Color.white : Color.black;
             nameText.text = (isCaught) ? digeomon.name : "???";
 
-            summonButton.interactable = isCaught;
+            summonButton.transform.parent.gameObject.SetActive(isCaught);
         }
 
         public void UpdateJournalEntry(Dictionary<string, bool> captureData)
