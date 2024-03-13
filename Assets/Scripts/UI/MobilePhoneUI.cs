@@ -9,6 +9,7 @@ namespace UI
         [SerializeField] private GameObject journalView;
         [SerializeField] private GameObject leaderboardsView;
         [SerializeField] private GameObject settingsView;
+        [SerializeField] private GameObject creditsView;
 
         private RectTransform mobilePhone;
 
@@ -43,6 +44,13 @@ namespace UI
             ShowMobilePhone();
         }
 
+        public void OnCreditsButtonPressed()
+        {
+            ResetMobilePhone();
+            creditsView.SetActive(true);
+            ShowMobilePhone();
+        }
+
         private void ShowMobilePhone()
         {
             mobilePhone.DOAnchorPosY(0f, 1f).SetEase(Ease.OutQuad);
@@ -58,6 +66,7 @@ namespace UI
             journalView?.SetActive(false);
             leaderboardsView?.SetActive(false);
             settingsView?.SetActive(false);
+            creditsView?.SetActive(false);
 
             mobilePhone.anchoredPosition = new Vector3(0, -3000f, 0f);
         }
