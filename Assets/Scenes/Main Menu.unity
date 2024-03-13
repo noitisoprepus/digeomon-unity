@@ -2150,6 +2150,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5666727383316651135, guid: 33a0ea6bcec607043b5d19792332a0a2,
+        type: 3}
+      propertyPath: digeomons.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: d6ced220a52cbd94aa7834eb1e22ad36,
+        type: 2}
+    - target: {fileID: 5666727383316651135, guid: 33a0ea6bcec607043b5d19792332a0a2,
+        type: 3}
+      propertyPath: digeomons.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e45654b52db5e24c9b1f182aa03b810,
+        type: 2}
     - target: {fileID: 8548915976572885460, guid: 33a0ea6bcec607043b5d19792332a0a2,
         type: 3}
       propertyPath: m_LocalPosition.x
