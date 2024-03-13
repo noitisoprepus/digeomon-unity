@@ -66,14 +66,27 @@ namespace UI
             choiceButtonImages[3] = choiceDButton.GetComponent<Image>();
         }
 
-        public void OpenPanel()
+        private void ResetUI()
         {
             questionBox.SetActive(true);
             choicesBox.SetActive(true);
 
-            OnQuizBeginAction?.Invoke();
-
             scoreBoxRect.localScale = new Vector3(1f, 0f, 1f);
+            scoreBoxRect.anchoredPosition = Vector2.zero;
+
+            choiceCButton.interactable = true;
+            choiceBButton.interactable = true;
+            choiceDButton.interactable = true;
+            choiceAButton.interactable = true;
+
+            for (int i = 0; i < 4; i++)
+                choiceButtonImages[i].color = normalCol;
+        }
+
+        public void OpenPanel()
+        {
+            ResetUI();
+            OnQuizBeginAction?.Invoke();
             panel.transform.DOScaleY(1f, 0.75f).SetEase(Ease.OutQuart);
         }
 
