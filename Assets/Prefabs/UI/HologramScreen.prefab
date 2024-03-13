@@ -1849,6 +1849,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   digeomon: {fileID: 0}
+  digeomonCaptureData: {fileID: 11400000, guid: 9d893d9c73b019f4f9695295f390f5e2,
+    type: 2}
   digeomonModel: {fileID: 0}
   digeomonShape: {fileID: 0}
   informationPanel: {fileID: 3766385970215101283}
