@@ -24,6 +24,6 @@ MonoBehaviour:
   - Examples are paper rolls, cans, and candles which are all similar to a <mark=#00563B40>tube</mark>.
   images:
   - {fileID: 21300000, guid: 042e5346a28fc5d4f9c29a1f45a25b84, type: 3}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: 382e491e1a7d88e47b7ff7cf65740d39, type: 3}
+  - {fileID: 21300000, guid: acdc319bd8f6fc3408b7f181ee64a922, type: 3}
+  - {fileID: 21300000, guid: 127f607753979634493f7e2a022b3d08, type: 3}
   - {fileID: 21300000, guid: 46a1be49625b258449a730a04e052e31, type: 3}
