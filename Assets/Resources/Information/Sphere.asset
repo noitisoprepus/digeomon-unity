@@ -19,9 +19,9 @@ MonoBehaviour:
   - Spheres do not have any corners, edges, or flat sides. Instead, they are completely
     <mark=#00563B40>smooth</mark> and <mark=#00563B40>round.</mark>
   - The distance from the center of a sphere to any point on its surface is called
-    the <mark=#00563B40> radius.</mark>. ..
+    the <mark=#00563B40> radius.</mark>.
   - The <mark=#00563B40> diameter</mark> of a sphere is the distance across it through
-    its center. It is twice the length of the radius..
+    its center. It is twice the length of the radius.
   - Real life examples of sphere and circle are coins, plates, basketball, marbles,
     and bubbles.
   images:
