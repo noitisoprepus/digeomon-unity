@@ -11,6 +11,7 @@ namespace UI
         [Header("Information Panel GUI")]
         [SerializeField] private TextMeshProUGUI titleText;
         [SerializeField] private TextMeshProUGUI contentText;
+        [SerializeField] private TextMeshProUGUI slideNumText;
         [SerializeField] private RectTransform arrowLeftRT;
         [SerializeField] private RectTransform arrowRightRT;
         [SerializeField] private Image contextualImage;
@@ -23,6 +24,8 @@ namespace UI
         private Sequence arrowRightSequence;
         private int currDataIndex;
         private int currContentIndex;
+        private int currSlideIndex;
+        private int totalSlides;
 
         private void Start()
         {
@@ -41,6 +44,7 @@ namespace UI
 
         private void ShowContent(int index)
         {
+            slideNumText.text = currSlideIndex + "/" + totalSlides;
             contentText.text = currContent[index];
             if (currImages[index] != null)
             {
@@ -59,6 +63,12 @@ namespace UI
             currDataIndex = 0;
             currContentIndex = 0;
             informationalContent = new List<InformationalData>(informationalDatas);
+
+            currSlideIndex = 1;
+            totalSlides = 0;
+            foreach(InformationalData data in informationalContent)
+                totalSlides += data.content.Count;
+
             StartPresentation();
         }
 
@@ -73,7 +83,10 @@ namespace UI
         {
             currDataIndex--;
             if (currDataIndex < 0)
+            {
                 currDataIndex = informationalContent.Count - 1;
+                currSlideIndex = totalSlides;
+            }
 
             currData = informationalContent[currDataIndex];
             currContentIndex = currData.content.Count - 1;
@@ -91,12 +104,16 @@ namespace UI
 
         public void OnNextSlideTriggered()
         {
+            currSlideIndex++;
             currContentIndex++;
             if (currContentIndex >= currContent.Count)
             {
                 currDataIndex++;
                 if (currDataIndex >= informationalContent.Count)
+                {
                     currDataIndex = 0;  // Reset back to start, creating a loop.
+                    currSlideIndex = 1;
+                }
                 StartPresentation();
                 return;
             }
@@ -106,6 +123,7 @@ namespace UI
 
         public void OnPreviousSlideTriggered()
         {
+            currSlideIndex--;
             currContentIndex--;
             if (currContentIndex < 0)
             {
