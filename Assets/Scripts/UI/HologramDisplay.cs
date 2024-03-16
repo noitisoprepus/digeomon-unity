@@ -34,12 +34,14 @@ namespace UI
 
         private void OnEnable()
         {
+            QuizUI.OnQuizBeginAction += DisableModel;
             QuizUI.OnQuizBeginAction += HideCanvas;
             QuizUI.OnQuizConcludeAction += ShowCanvas;
         }
 
         private void OnDisable()
         {
+            QuizUI.OnQuizBeginAction += DisableModel;
             QuizUI.OnQuizBeginAction -= HideCanvas;
             QuizUI.OnQuizConcludeAction -= ShowCanvas;
         }
@@ -70,6 +72,12 @@ namespace UI
                 digeomonShape.SetActive(false);
                 digeomonModel.SetActive(true);
             }
+        }
+
+        public void DisableModel()
+        {
+            digeomonShape.SetActive(true);
+            digeomonModel.SetActive(false);
         }
 
         public void ToggleInformationPanel()

@@ -25,7 +25,6 @@ namespace Core
         [SerializeField] private GameObject evolutionVFX;
         [SerializeField] private AudioClip evolutionSFX;
 
-        private DigeomonData targetDigeomon;
         private AudioSource audioSource;
         private GameObject digeomonObj;
         private GameObject evolutionObj;
@@ -63,9 +62,11 @@ namespace Core
 
         private void OnDigeomonCapture()
         {
-            if (PersistentData.toEvolve && digeomonCaptureData.captureData[PersistentData.targetDigeomon.name])
+            if (PersistentData.toEvolve)
             {
-                OnEvolutionSuccessful();
+                PersistentData.toEvolve = false;
+                if (digeomonCaptureData.captureData[PersistentData.targetDigeomon.name])
+                    OnEvolutionSuccessful();
                 return;
             }
 
@@ -74,7 +75,7 @@ namespace Core
             else
             {
                 Instantiate(disintegrateVFX, digeomonObj.transform.position, digeomonObj.transform.rotation);
-                digeomonObj.SetActive(false);
+                digeomonObj.transform.parent.gameObject.SetActive(false);
             }
         }
 
@@ -91,8 +92,7 @@ namespace Core
 
         public void InitializeDigeomon(GameObject digeomon, DigeomonData digeomonData)
         {
-            digeomonObj = digeomon;
-            targetDigeomon = digeomonData;
+            digeomonObj = digeomon.transform.GetChild(0).gameObject;
             SetupHologram(digeomon, digeomonData);
         }
 
@@ -110,7 +110,6 @@ namespace Core
         private void OnEvolutionSuccessful()
         {
             StartCoroutine(EvolveDigeomon());
-            PersistentData.toEvolve = false;
         }
 
         private IEnumerator EvolveDigeomon()
