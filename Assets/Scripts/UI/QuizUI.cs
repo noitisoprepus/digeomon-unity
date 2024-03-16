@@ -42,6 +42,7 @@ namespace UI
         [SerializeField] private RectTransform scoreBoxRect;
         [SerializeField] private GameObject reviewButton;
         [SerializeField] private GameObject nextReviewButton;
+        [SerializeField] private TextMeshProUGUI statusText;
         [SerializeField] private TextMeshProUGUI scoreText;
         [SerializeField] private Color normalCol;
         [SerializeField] private Color correctCol;
@@ -72,7 +73,7 @@ namespace UI
             choicesBox.SetActive(true);
 
             scoreBoxRect.localScale = new Vector3(1f, 0f, 1f);
-            scoreBoxRect.anchoredPosition = Vector2.zero;
+            scoreBoxRect.anchoredPosition = new Vector2(0, 0.33f);
 
             choiceCButtonCol.enabled = true;
             choiceBButtonCol.enabled = true;
@@ -109,15 +110,16 @@ namespace UI
             OnAnswerAction?.Invoke(index);
         }
 
-        public void ShowScoreDialog(int score)
+        public void ShowScoreDialog(int score, bool status)
         {
             questionBox.SetActive(false);
             choicesBox.SetActive(false);
             reviewButton.SetActive(true);
             nextReviewButton.SetActive(false);
 
+            statusText.text = status ? "<color=#008A03>Capture Success</color>" : "<color=#CF2E2E>Capture Failed</color>";
             scoreText.text = "SCORE: " + score;
-            scoreBoxRect.anchoredPosition = Vector2.zero;
+            scoreBoxRect.anchoredPosition = new Vector2(0, -0.33f);
             scoreBoxRect.DOScaleY(1f, 0.75f).SetEase(Ease.OutQuart);
         }
 

@@ -87,16 +87,15 @@ namespace Core
 
             if (currQIndex == currQuestions.Count)
             {
-                quizUI.ShowScoreDialog(score);
+                bool success = score >= currQuiz.passingScore;
+                quizUI.ShowScoreDialog(score, success);
 
-                if (score >= currQuiz.passingScore)
+                if (success)
                 {
                     digeomonCaptureData.CaptureDigeomon(targetDigeomon);
                     
                     quizAudioSource.clip = quizSuccessSFX;
                     quizAudioSource.Play();
-                    
-                    GameManager.Instance.ShowDialog("<color=#008A03>Capture Success</color>");
                 }
                 else
                 {
@@ -104,7 +103,6 @@ namespace Core
 
                     quizAudioSource.clip = quizFailSFX;
                     quizAudioSource.Play();
-                    GameManager.Instance.ShowDialog("<color=#CF2E2E>Capture Failed</color>");
                 }
 
                 return;
