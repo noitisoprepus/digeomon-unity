@@ -13,7 +13,10 @@ namespace Core
         [Header("Quiz Feedback VFX")]
         [SerializeField] private ParticleSystem successParticleSystem;
         [SerializeField] private ParticleSystem failParticleSystem;
+
+        [Header("Capture Feedback VFX")]
         [SerializeField] private ParticleSystem confettiParticleSystem;
+        [SerializeField] private ParticleSystem disintegrateVFX;
 
         [Header("Evolution")]
         [SerializeField] private QuizManager quizManager;
@@ -69,7 +72,10 @@ namespace Core
             if (digeomonCaptureData.captureData[PersistentData.targetDigeomon.name])
                 confettiParticleSystem.Play();
             else
-                digeomonObj.transform.DOScale(0f, 0.5f).SetEase(Ease.InQuint);
+            {
+                Instantiate(disintegrateVFX, digeomonObj.transform.position, digeomonObj.transform.rotation);
+                digeomonObj.SetActive(false);
+            }
         }
 
         private void SetupHologram(GameObject digeomon, DigeomonData digeomonData)

@@ -279,7 +279,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 115
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -374,6 +374,8 @@ MonoBehaviour:
   successParticleSystem: {fileID: 1524890848}
   failParticleSystem: {fileID: 182075999}
   confettiParticleSystem: {fileID: 1126457775}
+  disintegrateVFX: {fileID: 3767605106017982350, guid: 3123ca02ed2b20f439bea15a2a2a899c,
+    type: 3}
   quizManager: {fileID: 600588270}
   dialogueManager: {fileID: 1316460830}
   evolutionMat: {fileID: 2100000, guid: d0d24907c01cfaf47be3d4c46a735724, type: 2}
