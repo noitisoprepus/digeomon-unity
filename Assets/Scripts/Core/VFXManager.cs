@@ -13,6 +13,7 @@ namespace Core
         [Header("Quiz Feedback VFX")]
         [SerializeField] private ParticleSystem successParticleSystem;
         [SerializeField] private ParticleSystem failParticleSystem;
+        [SerializeField] private ParticleSystem confettiParticleSystem;
 
         [Header("Evolution")]
         [SerializeField] private QuizManager quizManager;
@@ -21,6 +22,7 @@ namespace Core
         [SerializeField] private GameObject evolutionVFX;
         [SerializeField] private AudioClip evolutionSFX;
 
+        private DigeomonData targetDigeomon;
         private AudioSource audioSource;
         private GameObject digeomonObj;
         private GameObject evolutionObj;
@@ -34,41 +36,67 @@ namespace Core
         {
             QuizManager.OnAnswerCorrectAction += OnDigeomonExcited;
             QuizManager.OnAnswerIncorrectAction += OnDigeomonInfuriated;
-            QuizUI.OnEvolutionSuccessAction += OnEvolutionSuccessful;
+            QuizUI.OnQuizConcludeAction += OnDigeomonCapture;
         }
 
         private void OnDisable()
         {
             QuizManager.OnAnswerCorrectAction -= OnDigeomonExcited;
             QuizManager.OnAnswerIncorrectAction -= OnDigeomonInfuriated;
-            QuizUI.OnEvolutionSuccessAction -= OnEvolutionSuccessful;
+            QuizUI.OnQuizConcludeAction -= OnDigeomonCapture;
         }
 
         private void OnDigeomonInfuriated()
         {
-            //digeomonObj.transform.DOShakePosition(1f, 0.25f, 12, 90);
+            digeomonObj.transform.DOShakePosition(1f, 0.25f, 12, 90);
             failParticleSystem.Play();
         }
 
         private void OnDigeomonExcited()
         {
-            //digeomonObj.transform.DOShakePosition(1f, 0.1f, 1, 10);
+            digeomonObj.transform.DOShakePosition(1f, 0.1f, 1, 10);
             successParticleSystem.Play();
         }
 
-        public void InitializeEvolution(GameObject digeomon, DigeomonData evolution)
+        private void OnDigeomonCapture()
         {
-            digeomonObj = digeomon;
-            evolutionObj = Instantiate(evolution.modelPrefab, digeomon.transform.position, digeomon.transform.rotation);
-            evolutionObj.transform.localScale = Vector3.zero;
+            if (PersistentData.toEvolve && digeomonCaptureData.captureData[PersistentData.targetDigeomon.name])
+            {
+                OnEvolutionSuccessful();
+                return;
+            }
 
-            HologramDisplay hologramDisplay = evolutionObj.GetComponentInChildren<HologramDisplay>();
-            hologramDisplay.digeomon = evolution;
+            if (digeomonCaptureData.captureData[PersistentData.targetDigeomon.name])
+                confettiParticleSystem.Play();
+            else
+                digeomonObj.transform.DOScale(0f, 0.5f).SetEase(Ease.InQuint);
+        }
+
+        private void SetupHologram(GameObject digeomon, DigeomonData digeomonData)
+        {
+            HologramDisplay hologramDisplay = digeomon.GetComponentInChildren<HologramDisplay>();
+            hologramDisplay.digeomon = digeomonData;
             hologramDisplay.SetupEvolveButton();
 
-            HologramCanvas hologramCanvas = evolutionObj.GetComponentInChildren<HologramCanvas>();
-            List<InformationalData> infoList = new List<InformationalData>(evolution.relevantInfos);
+            HologramCanvas hologramCanvas = digeomon.GetComponentInChildren<HologramCanvas>();
+            List<InformationalData> infoList = new List<InformationalData>(digeomonData.relevantInfos);
             hologramCanvas.InitializeInformationalData(infoList);
+        }
+
+        public void InitializeDigeomon(GameObject digeomon, DigeomonData digeomonData)
+        {
+            digeomonObj = digeomon;
+            targetDigeomon = digeomonData;
+            SetupHologram(digeomon, digeomonData);
+        }
+
+        public void InitializeEvolution(GameObject digeomon, DigeomonData evolutionData)
+        {
+            digeomonObj = digeomon;
+
+            evolutionObj = Instantiate(evolutionData.modelPrefab, digeomon.transform.position, digeomon.transform.rotation);
+            evolutionObj.transform.localScale = Vector3.zero;
+            SetupHologram(evolutionObj, evolutionData);
 
             quizManager.StartQuiz();
         }

@@ -23,9 +23,6 @@ namespace UI
         public delegate void QuizConcludeDelegate();
         public static event QuizConcludeDelegate OnQuizConcludeAction;
 
-        public delegate void EvolutionSuccess();
-        public static event EvolutionSuccess OnEvolutionSuccessAction;
-
         public static event Action<string> OnGoToSceneRequested;
 
         [Header("Quiz GUI")]
@@ -161,8 +158,6 @@ namespace UI
 
         public void OnHomeButtonPressed()
         {
-            if (PersistentData.toEvolve)
-                OnEvolutionSuccessAction?.Invoke();
             ClosePanel();
             OnQuizConcludeAction?.Invoke();
         }

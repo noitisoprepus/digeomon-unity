@@ -14,6 +14,7 @@ namespace Scanner
         [SerializeField] private GameObject placementIndicator;
         [SerializeField] private DialogueManager dialogueManager;
         [SerializeField] private QuizManager quizManager;
+        [SerializeField] private VFXManager vfxManager;
 
         [SerializeField] private InformationalData placeholderInfo;
         [SerializeField] private DigeomonCaptureData digeomonCaptureData;
@@ -24,7 +25,6 @@ namespace Scanner
         private AudioSource audioSource;
         private DigeomonData currDigeomon;
         private ScannerUI scannerUI;
-        private GameObject arObject;
         private GameObject spawnedObject;
         private Pose placementPose;
         private bool poseIsValid = false;
@@ -71,7 +71,6 @@ namespace Scanner
         {
             spawnedObject = null;
             currDigeomon = digeomon;
-            arObject = currDigeomon.modelPrefab;
             isInitialized = true;
             scannerUI.ShowSummonHelp();
         }
@@ -111,25 +110,16 @@ namespace Scanner
         private void PlaceObject()
         {
             isInitialized = false;
-            spawnedObject = Instantiate(arObject, placementPose.position, placementPose.rotation);
+            
+            spawnedObject = Instantiate(currDigeomon.modelPrefab, placementPose.position, placementPose.rotation);
             spawnedObject.transform.localScale = Vector3.zero;
             spawnedObject.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
+            
             audioSource.clip = summonSFX;
             audioSource.Play();
 
             quizManager.quizUI = spawnedObject.GetComponentInChildren<QuizUI>();
-
-            HologramDisplay hologramDisplay = spawnedObject.GetComponentInChildren<HologramDisplay>();
-            hologramDisplay.digeomon = currDigeomon;
-            hologramDisplay.SetupEvolveButton();
-
-            HologramCanvas hologramCanvas = spawnedObject.GetComponentInChildren<HologramCanvas>();
-            List<InformationalData> infoList = new List<InformationalData>();
-            if (currDigeomon.relevantInfos.Count != 0)
-                infoList = currDigeomon.relevantInfos;
-            else
-                infoList.Add(placeholderInfo);
-            hologramCanvas.InitializeInformationalData(infoList);
+            vfxManager.InitializeDigeomon(spawnedObject, currDigeomon);
 
             if (PersistentData.toSummon)
             {
