@@ -32,10 +32,10 @@ namespace UI
         [SerializeField] private GameObject panel;
         [SerializeField] private GameObject questionBox;
         [SerializeField] private GameObject choicesBox;
-        [SerializeField] private Button choiceAButton;
-        [SerializeField] private Button choiceBButton;
-        [SerializeField] private Button choiceCButton;
-        [SerializeField] private Button choiceDButton;
+        [SerializeField] private BoxCollider choiceBButtonCol;
+        [SerializeField] private BoxCollider choiceAButtonCol;
+        [SerializeField] private BoxCollider choiceCButtonCol;
+        [SerializeField] private BoxCollider choiceDButtonCol;
         [SerializeField] private TextMeshProUGUI questionText;
 
         [Header("Review GUI")]
@@ -55,15 +55,15 @@ namespace UI
 
         private void Awake()
         {
-            choiceAText = choiceAButton.GetComponentInChildren<TextMeshProUGUI>();
-            choiceBText = choiceBButton.GetComponentInChildren<TextMeshProUGUI>();
-            choiceCText = choiceCButton.GetComponentInChildren<TextMeshProUGUI>();
-            choiceDText = choiceDButton.GetComponentInChildren<TextMeshProUGUI>();
+            choiceAText = choiceAButtonCol.GetComponentInChildren<TextMeshProUGUI>();
+            choiceBText = choiceBButtonCol.GetComponentInChildren<TextMeshProUGUI>();
+            choiceCText = choiceCButtonCol.GetComponentInChildren<TextMeshProUGUI>();
+            choiceDText = choiceDButtonCol.GetComponentInChildren<TextMeshProUGUI>();
 
-            choiceButtonImages[0] = choiceAButton.GetComponent<Image>();
-            choiceButtonImages[1] = choiceBButton.GetComponent<Image>();
-            choiceButtonImages[2] = choiceCButton.GetComponent<Image>();
-            choiceButtonImages[3] = choiceDButton.GetComponent<Image>();
+            choiceButtonImages[0] = choiceAButtonCol.GetComponent<Image>();
+            choiceButtonImages[1] = choiceBButtonCol.GetComponent<Image>();
+            choiceButtonImages[2] = choiceCButtonCol.GetComponent<Image>();
+            choiceButtonImages[3] = choiceDButtonCol.GetComponent<Image>();
         }
 
         private void ResetUI()
@@ -74,10 +74,10 @@ namespace UI
             scoreBoxRect.localScale = new Vector3(1f, 0f, 1f);
             scoreBoxRect.anchoredPosition = Vector2.zero;
 
-            choiceCButton.interactable = true;
-            choiceBButton.interactable = true;
-            choiceDButton.interactable = true;
-            choiceAButton.interactable = true;
+            choiceCButtonCol.enabled = true;
+            choiceBButtonCol.enabled = true;
+            choiceDButtonCol.enabled = true;
+            choiceAButtonCol.enabled = true;
 
             for (int i = 0; i < 4; i++)
                 choiceButtonImages[i].color = normalCol;
@@ -135,10 +135,10 @@ namespace UI
         {
             ShowQuestion(q);
 
-            choiceAButton.interactable = false;
-            choiceBButton.interactable = false;
-            choiceCButton.interactable = false;
-            choiceDButton.interactable = false;
+            choiceAButtonCol.enabled = false;
+            choiceBButtonCol.enabled = false;
+            choiceCButtonCol.enabled = false;
+            choiceDButtonCol.enabled = false;
 
             for (int i = 0; i < 4; i++)
                 choiceButtonImages[i].color = normalCol;
