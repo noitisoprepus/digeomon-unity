@@ -1143,8 +1143,8 @@ MonoBehaviour:
   panel: {fileID: 3941623655345119750}
   questionBox: {fileID: 7387242784805024930}
   choicesBox: {fileID: 3794840826487636043}
-  choiceBButtonCol: {fileID: 9110076424641587770}
-  choiceAButtonCol: {fileID: 5797533292986446613}
+  choiceAButtonCol: {fileID: 9110076424641587770}
+  choiceBButtonCol: {fileID: 5797533292986446613}
   choiceCButtonCol: {fileID: 2340815179560778959}
   choiceDButtonCol: {fileID: 6934329655570583098}
   questionText: {fileID: 5556043657961853651}

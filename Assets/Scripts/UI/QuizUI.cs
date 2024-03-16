@@ -29,8 +29,8 @@ namespace UI
         [SerializeField] private GameObject panel;
         [SerializeField] private GameObject questionBox;
         [SerializeField] private GameObject choicesBox;
-        [SerializeField] private BoxCollider choiceBButtonCol;
         [SerializeField] private BoxCollider choiceAButtonCol;
+        [SerializeField] private BoxCollider choiceBButtonCol;
         [SerializeField] private BoxCollider choiceCButtonCol;
         [SerializeField] private BoxCollider choiceDButtonCol;
         [SerializeField] private TextMeshProUGUI questionText;
