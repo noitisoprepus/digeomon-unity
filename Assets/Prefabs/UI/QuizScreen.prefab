@@ -1151,7 +1151,7 @@ MonoBehaviour:
   scoreBoxRect: {fileID: 6189392874717011469}
   reviewButton: {fileID: 1504049096621135394}
   nextReviewButton: {fileID: 9145749422595304255}
-  statusText: {fileID: 0}
+  statusText: {fileID: 7873682928048597839}
   scoreText: {fileID: 3900207952560965437}
   normalCol: {r: 0.9843137, g: 0.99215686, b: 1, a: 1}
   correctCol: {r: 0.3882353, g: 0.8862745, b: 0.3882353, a: 1}
@@ -1519,7 +1519,7 @@ RectTransform:
   m_GameObject: {fileID: 3941623655345119750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6221619368581322412}
