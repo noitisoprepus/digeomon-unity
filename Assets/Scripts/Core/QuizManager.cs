@@ -42,6 +42,9 @@ namespace Core
         private void OnEnable()
         {
             DigeomonCaptureData.OnDigeomonCapture += journalManager.AddDigeomon;
+            
+            ScannerUI.OnCaptureAction += StartQuiz;
+            
             QuizUI.OnAnswerAction += CheckAnswer;
             QuizUI.OnStartRecapAction += StartRecap;
             QuizUI.OnNextRecapAction += NextRecapQuestion;
@@ -51,6 +54,9 @@ namespace Core
         private void OnDisable()
         {
             DigeomonCaptureData.OnDigeomonCapture -= journalManager.AddDigeomon;
+            
+            ScannerUI.OnCaptureAction += StartQuiz;
+
             QuizUI.OnAnswerAction -= CheckAnswer;
             QuizUI.OnStartRecapAction -= StartRecap;
             QuizUI.OnNextRecapAction -= NextRecapQuestion;

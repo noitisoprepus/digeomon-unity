@@ -13,7 +13,6 @@ namespace Scanner
         [SerializeField] private ARRaycastManager raycastManager;
         [SerializeField] private GameObject placementIndicator;
         [SerializeField] private DialogueManager dialogueManager;
-        [SerializeField] private QuizManager quizManager;
         [SerializeField] private VFXManager vfxManager;
 
         [SerializeField] private InformationalData placeholderInfo;
@@ -44,13 +43,11 @@ namespace Scanner
         private void OnEnable()
         {
             JournalManager.OnSummonAction += DirectSetupARObject;
-            ScannerUI.OnCaptureAction += quizManager.StartQuiz;
         }
 
         private void OnDisable()
         {
             JournalManager.OnSummonAction -= DirectSetupARObject;
-            ScannerUI.OnCaptureAction -= quizManager.StartQuiz;
         }
 
         private void Update()
@@ -118,7 +115,6 @@ namespace Scanner
             audioSource.clip = summonSFX;
             audioSource.Play();
 
-            quizManager.quizUI = spawnedObject.GetComponentInChildren<QuizUI>();
             vfxManager.InitializeDigeomon(spawnedObject, currDigeomon);
 
             if (PersistentData.toSummon)

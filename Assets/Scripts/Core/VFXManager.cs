@@ -81,6 +81,8 @@ namespace Core
 
         private void SetupHologram(GameObject digeomon, DigeomonData digeomonData)
         {
+            quizManager.quizUI = digeomon.GetComponentInChildren<QuizUI>();
+
             HologramDisplay hologramDisplay = digeomon.GetComponentInChildren<HologramDisplay>();
             hologramDisplay.digeomon = digeomonData;
             hologramDisplay.SetupEvolveButton();
