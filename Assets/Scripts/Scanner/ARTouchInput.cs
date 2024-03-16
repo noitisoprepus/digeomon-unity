@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class ARTouchInput : MonoBehaviour
 {
@@ -10,10 +11,10 @@ public class ARTouchInput : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            if (IsPointerOverUIObject(touch))
                 return;
 
-            if (touch.phase == TouchPhase.Began)
+            if (touch.phase == TouchPhase.Ended)
             {
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 RaycastHit hit;
@@ -28,5 +29,14 @@ public class ARTouchInput : MonoBehaviour
                 }
             }
         }
+    }
+
+    private bool IsPointerOverUIObject(Touch touch)
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(touch.position.x, touch.position.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 }

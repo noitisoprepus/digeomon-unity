@@ -35,8 +35,6 @@ namespace Scanner
             digeomons = gameManager.GetDigeomonList();
             journalUI.PopulateJournal();
 
-            PersistentData.toEvolve = false;
-
             if (PersistentData.toSummon)
             {
                 scannerUI.HideScanner();

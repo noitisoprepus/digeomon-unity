@@ -64,9 +64,9 @@ namespace Core
         {
             if (PersistentData.toEvolve)
             {
-                PersistentData.toEvolve = false;
                 if (digeomonCaptureData.captureData[PersistentData.targetDigeomon.name])
                     OnEvolutionSuccessful();
+                PersistentData.toEvolve = false;
                 return;
             }
 
@@ -81,8 +81,6 @@ namespace Core
 
         private void SetupHologram(GameObject digeomon, DigeomonData digeomonData)
         {
-            quizManager.quizUI = digeomon.GetComponentInChildren<QuizUI>();
-
             HologramDisplay hologramDisplay = digeomon.GetComponentInChildren<HologramDisplay>();
             hologramDisplay.digeomon = digeomonData;
             hologramDisplay.SetupEvolveButton();
@@ -95,13 +93,14 @@ namespace Core
         public void InitializeDigeomon(GameObject digeomon, DigeomonData digeomonData)
         {
             digeomonObj = digeomon.transform.GetChild(0).gameObject;
+            quizManager.quizUI = digeomon.GetComponentInChildren<QuizUI>();
             SetupHologram(digeomon, digeomonData);
         }
 
         public void InitializeEvolution(GameObject digeomon, DigeomonData evolutionData)
         {
             digeomonObj = digeomon;
-
+            quizManager.quizUI = digeomonObj.transform.parent.gameObject.GetComponentInChildren<QuizUI>();
             evolutionObj = Instantiate(evolutionData.modelPrefab, digeomon.transform.position, digeomon.transform.rotation);
             evolutionObj.transform.localScale = Vector3.zero;
             SetupHologram(evolutionObj, evolutionData);
@@ -124,6 +123,7 @@ namespace Core
             evolutionObj.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
             digeomonObj.transform.parent.gameObject.SetActive(false);
             Instantiate(evolutionVFX, evolutionObj.transform.position, evolutionObj.transform.rotation);
+            confettiParticleSystem.Play();
 
             audioSource.clip = evolutionSFX;
             audioSource.Play();

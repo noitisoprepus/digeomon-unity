@@ -55,7 +55,7 @@ namespace Core
         {
             DigeomonCaptureData.OnDigeomonCapture -= journalManager.AddDigeomon;
             
-            ScannerUI.OnCaptureAction += StartQuiz;
+            ScannerUI.OnCaptureAction -= StartQuiz;
 
             QuizUI.OnAnswerAction -= CheckAnswer;
             QuizUI.OnStartRecapAction -= StartRecap;
@@ -105,8 +105,6 @@ namespace Core
                 }
                 else
                 {
-                    PersistentData.toEvolve = false;
-
                     quizAudioSource.clip = quizFailSFX;
                     quizAudioSource.Play();
                 }

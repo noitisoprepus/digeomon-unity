@@ -41,7 +41,6 @@ namespace Core
 
         private void Start()
         {
-            PersistentData.toEvolve = false;
             if (PlayerPrefs.GetInt("guest") == 1)
             {
                 journalManager.InitializeCaptureData();

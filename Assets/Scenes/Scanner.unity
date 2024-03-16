@@ -237,7 +237,6 @@ MonoBehaviour:
   raycastManager: {fileID: 348371574}
   placementIndicator: {fileID: 507672721}
   dialogueManager: {fileID: 1316460830}
-  quizManager: {fileID: 600588270}
   vfxManager: {fileID: 51421851}
   placeholderInfo: {fileID: 11400000, guid: 7bc05141b4c4c084cb9e81b278d85a38, type: 2}
   digeomonCaptureData: {fileID: 11400000, guid: 9d893d9c73b019f4f9695295f390f5e2,
