@@ -29,6 +29,7 @@ MonoBehaviour:
   - envelope
   - magazine
   - reading
+  - menu
   modelPrefab: {fileID: 9142499175294605807, guid: a5dd81537b06e4e4daf262ca630d2bb3,
     type: 3}
   modelSprite: {fileID: 21300000, guid: 363b35ad1d7a90046823ade113c3d07f, type: 3}
