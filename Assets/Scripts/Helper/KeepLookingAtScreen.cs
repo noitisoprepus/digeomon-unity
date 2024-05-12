@@ -4,9 +4,9 @@ namespace Helper
 {
     public class KeepLookingAtScreen : MonoBehaviour
     {
-        void Update()
+        void LateUpdate()
         {
-            transform.LookAt(Camera.main.transform);
+            transform.forward = Camera.main.transform.forward;
         }
     }
 }

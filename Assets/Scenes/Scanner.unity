@@ -5391,7 +5391,6 @@ GameObject:
   - component: {fileID: 348371570}
   - component: {fileID: 348371575}
   - component: {fileID: 348371574}
-  - component: {fileID: 348371576}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
   m_TagString: Untagged
@@ -5473,18 +5472,6 @@ MonoBehaviour:
   m_PlanePrefab: {fileID: 4776765576899091622, guid: 3738bd65ede154463b2c35064b9e5fdb,
     type: 3}
   m_DetectionMode: 1
---- !u!114 &348371576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348371569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1656305e570fb414db5067ba8ea2e232, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &378304414
 GameObject:
   m_ObjectHideFlags: 0
