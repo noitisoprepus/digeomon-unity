@@ -36,8 +36,8 @@ namespace UI
             arrowLeftSequence.Play();
 
             arrowRightSequence = DOTween.Sequence();
-            arrowRightSequence.Append(arrowRightRT.DOAnchorPosX(-0.34f, 0.5f));
-            arrowRightSequence.Append(arrowRightRT.DOAnchorPosX(-0.32f, 0.5f));
+            arrowRightSequence.Append(arrowRightRT.DOAnchorPosX(-0.53f, 0.5f));
+            arrowRightSequence.Append(arrowRightRT.DOAnchorPosX(-0.51f, 0.5f));
             arrowRightSequence.SetLoops(-1, LoopType.Yoyo).SetSpeedBased();
             arrowRightSequence.Play();
         }
