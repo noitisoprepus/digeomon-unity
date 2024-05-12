@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ddc2241def1e6448a83b08368027d83, type: 3}
   m_Name: question 8
   m_EditorClassIdentifier: 
-  question: What is the volume of a cuboid formula?
+  question: What is the formula for the volume of a cuboid?
   choices:
   - V= Length x Width x Height
   - V = Length x Height
