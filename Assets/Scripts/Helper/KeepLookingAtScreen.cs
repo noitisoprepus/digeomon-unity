@@ -4,9 +4,17 @@ namespace Helper
 {
     public class KeepLookingAtScreen : MonoBehaviour
     {
+        Camera mainCamera;
+
+        private void Start()
+        {
+            mainCamera = Camera.main;
+        }
+
         void LateUpdate()
         {
-            transform.forward = Camera.main.transform.forward;
+            transform.LookAt(mainCamera.transform);
+            transform.Rotate(0, 180, 0);
         }
     }
 }
