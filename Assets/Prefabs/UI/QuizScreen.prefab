@@ -148,7 +148,6 @@ GameObject:
   - component: {fileID: 6760276479048694001}
   - component: {fileID: 4221159255534157664}
   - component: {fileID: 6826320474971164113}
-  - component: {fileID: 7481437987930657629}
   m_Layer: 5
   m_Name: Button
   m_TagString: ARButton
@@ -379,27 +378,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &7481437987930657629
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069059029491404555}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.375, y: 0.07, z: 0.01}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1504049096621135394
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +467,6 @@ GameObject:
   - component: {fileID: 3827142544925504661}
   - component: {fileID: 9190560964207260761}
   - component: {fileID: 7012194802190418092}
-  - component: {fileID: 2340815179560778959}
   m_Layer: 5
   m_Name: AnswerButtonC
   m_TagString: ARButton
@@ -720,27 +697,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &2340815179560778959
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2194209647518141232}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.565, y: 0.06, z: 0.01}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2239656652933474405
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,7 +786,6 @@ GameObject:
   - component: {fileID: 1871881022966216436}
   - component: {fileID: 3069026142341770309}
   - component: {fileID: 3513829969700934605}
-  - component: {fileID: 5797533292986446613}
   m_Layer: 5
   m_Name: AnswerButtonB
   m_TagString: ARButton
@@ -1061,27 +1016,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &5797533292986446613
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2520403541076738575}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.565, y: 0.06, z: 0.01}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3458822370140524297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,10 +1077,10 @@ MonoBehaviour:
   panel: {fileID: 3941623655345119750}
   questionBox: {fileID: 7387242784805024930}
   choicesBox: {fileID: 3794840826487636043}
-  choiceAButtonCol: {fileID: 9110076424641587770}
-  choiceBButtonCol: {fileID: 5797533292986446613}
-  choiceCButtonCol: {fileID: 2340815179560778959}
-  choiceDButtonCol: {fileID: 6934329655570583098}
+  choiceAButtonCol: {fileID: 0}
+  choiceBButtonCol: {fileID: 0}
+  choiceCButtonCol: {fileID: 0}
+  choiceDButtonCol: {fileID: 0}
   questionText: {fileID: 5556043657961853651}
   scoreBoxRect: {fileID: 6189392874717011469}
   reviewButton: {fileID: 1504049096621135394}
@@ -1952,7 +1886,6 @@ GameObject:
   - component: {fileID: 6171363711384440072}
   - component: {fileID: 2628368774134884872}
   - component: {fileID: 7724491835658942732}
-  - component: {fileID: 8709444267100964276}
   m_Layer: 5
   m_Name: Button
   m_TagString: ARButton
@@ -2183,27 +2116,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &8709444267100964276
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5987552274917343974}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.375, y: 0.07, z: 0.01}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6289660653055884083
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,7 +2264,6 @@ GameObject:
   - component: {fileID: 4118935426284144539}
   - component: {fileID: 5769980736845047047}
   - component: {fileID: 4710148955318678433}
-  - component: {fileID: 1874809912066294787}
   m_Layer: 5
   m_Name: Button
   m_TagString: ARButton
@@ -2583,27 +2494,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &1874809912066294787
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6836848686774236871}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.375, y: 0.07, z: 0.01}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7387242784805024930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2693,7 +2583,6 @@ GameObject:
   - component: {fileID: 1144900653106578195}
   - component: {fileID: 8981491378766775418}
   - component: {fileID: 4940347014506092732}
-  - component: {fileID: 9110076424641587770}
   m_Layer: 5
   m_Name: AnswerButtonA
   m_TagString: ARButton
@@ -2924,27 +2813,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &9110076424641587770
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7416456567526773571}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.565, y: 0.06, z: 0.01}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8296818785279189622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3335,7 +3203,6 @@ GameObject:
   - component: {fileID: 3328825846356774469}
   - component: {fileID: 8732074347638166339}
   - component: {fileID: 1185728480640798882}
-  - component: {fileID: 6934329655570583098}
   m_Layer: 5
   m_Name: AnswerButtonD
   m_TagString: ARButton
@@ -3566,27 +3433,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &6934329655570583098
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8949271410603096372}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.565, y: 0.06, z: 0.01}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8984710971530323124
 GameObject:
   m_ObjectHideFlags: 0

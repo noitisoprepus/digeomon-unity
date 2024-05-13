@@ -164,7 +164,6 @@ GameObject:
   - component: {fileID: 5650805152370242355}
   - component: {fileID: 2315311386265356182}
   - component: {fileID: 3312563384646800931}
-  - component: {fileID: 9149914421400590768}
   - component: {fileID: 5196547079548847309}
   m_Layer: 5
   m_Name: NavigateRight
@@ -298,27 +297,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!65 &9149914421400590768
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 792877155731168952}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.3, y: 0.75, z: 0.1}
-  m_Center: {x: 0.15, y: 0, z: 0}
 --- !u!82 &5196547079548847309
 AudioSource:
   m_ObjectHideFlags: 0
@@ -428,7 +406,6 @@ GameObject:
   - component: {fileID: 6044158144429286030}
   - component: {fileID: 5082541340379036776}
   - component: {fileID: 8607037796091703988}
-  - component: {fileID: 1472755824280246385}
   - component: {fileID: 3461821018583461296}
   m_Layer: 5
   m_Name: ModelToggle
@@ -563,27 +540,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!65 &1472755824280246385
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136294605885991599}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.125, y: 0.125, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &3461821018583461296
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1630,7 +1586,6 @@ GameObject:
   - component: {fileID: 7898872821840862742}
   - component: {fileID: 1295675230766441656}
   - component: {fileID: 7812731286695590211}
-  - component: {fileID: 2834172719128669880}
   - component: {fileID: 3687551034115189346}
   m_Layer: 5
   m_Name: InfoButton
@@ -1765,27 +1720,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!65 &2834172719128669880
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5024957710067875552}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.125, y: 0.125, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &3687551034115189346
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2035,7 +1969,6 @@ GameObject:
   - component: {fileID: 4383455243241304245}
   - component: {fileID: 6281388945981687243}
   - component: {fileID: 4631936354153483319}
-  - component: {fileID: 4280108429294245578}
   - component: {fileID: 9154037102144962332}
   m_Layer: 5
   m_Name: EvolutionButton
@@ -2170,27 +2103,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!65 &4280108429294245578
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6349170528546963847}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.125, y: 0.125, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &9154037102144962332
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2515,7 +2427,6 @@ GameObject:
   - component: {fileID: 3354012048555373652}
   - component: {fileID: 9191689084844707278}
   - component: {fileID: 4517617101965135266}
-  - component: {fileID: 5263117484914925512}
   - component: {fileID: 4986626449161827940}
   m_Layer: 5
   m_Name: NavigateLeft
@@ -2649,27 +2560,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!65 &5263117484914925512
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8012314936226045754}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.3, y: 0.75, z: 0.1}
-  m_Center: {x: -0.15, y: 0, z: 0}
 --- !u!82 &4986626449161827940
 AudioSource:
   m_ObjectHideFlags: 0
