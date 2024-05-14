@@ -51,7 +51,7 @@ namespace UI
         private TextMeshProUGUI choiceDText;
         private Image[] choiceButtonImages = new Image[4];
 
-        private void Awake()
+        private void Start()
         {
             choiceAText = choiceAButtonCol.GetComponentInChildren<TextMeshProUGUI>();
             choiceBText = choiceBButtonCol.GetComponentInChildren<TextMeshProUGUI>();
