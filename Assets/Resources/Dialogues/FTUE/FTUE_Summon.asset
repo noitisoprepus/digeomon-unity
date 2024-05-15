@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 832428c249f030043a47ae6bb0480cb6, type: 3}
-  m_Name: FTUE_Capture
+  m_Name: FTUE_Summon
   m_EditorClassIdentifier: 
   charName: Professor Euclid
   charSprite: {fileID: 21300000, guid: 24178c7c53c1a344d8294ce40ee12754, type: 3}
   dialogues:
-  - 'Nice! You summoned a DiGeoMon! '
-  - Notice that there are details about the shape it is based on. That may be useful
-    in capturing it as there will be a quiz.
-  - Press capture to attempt to capture it.
+  - Now let's summon the DiGeoMon you found.
+  - "First, scan your environment for a flat surface.\t"
+  - Once a flat AR surface has been recognized, click anywhere to summon.
