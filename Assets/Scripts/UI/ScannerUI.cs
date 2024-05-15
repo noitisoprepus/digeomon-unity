@@ -18,6 +18,12 @@ namespace UI
         public delegate void CaptureDelegate();
         public static event CaptureDelegate OnCaptureAction;
 
+        public delegate void SuccessShowDelegate();
+        public static event SuccessShowDelegate OnSuccessShowAction;
+
+        public delegate void SuccessHideDelegate();
+        public static event SuccessHideDelegate OnSuccessHideAction;
+
         public static event Action<string> OnGoToSceneRequested;
 
         [Header("Scanner UI")]
@@ -85,6 +91,7 @@ namespace UI
 
         public void ShowCaptureDialog(DigeomonData digeomon)
         {
+            OnSuccessShowAction?.Invoke();
             successPanel.SetActive(true);
             silhouette.sprite = digeomon.modelSprite;
             captureDialog.transform.localScale = Vector3.zero;
@@ -111,6 +118,7 @@ namespace UI
 
         public void OnSummonButtonPressed()
         {
+            OnSuccessHideAction?.Invoke();
             OnSummonAction?.Invoke();
             HideScanner();
             successPanel.SetActive(false);
@@ -118,6 +126,7 @@ namespace UI
 
         public void OnCloseButtonPressed()
         {
+            OnSuccessHideAction?.Invoke();
             ShowScanner();
             successPanel.SetActive(false);
         }

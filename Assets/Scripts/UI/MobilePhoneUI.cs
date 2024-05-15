@@ -5,6 +5,12 @@ namespace UI
 {
     public class MobilePhoneUI : MonoBehaviour
     {
+        public delegate void MobilePhoneShowDelegate();
+        public static event MobilePhoneShowDelegate OnMobilePhoneShowAction;
+
+        public delegate void MobilePhoneHideDelegate();
+        public static event MobilePhoneHideDelegate OnMobilePhoneHideAction;
+
         [Header("Mobile Phone Views")]
         [SerializeField] private GameObject journalView;
         [SerializeField] private GameObject leaderboardsView;
@@ -53,11 +59,13 @@ namespace UI
 
         private void ShowMobilePhone()
         {
+            OnMobilePhoneShowAction?.Invoke();
             mobilePhone.DOAnchorPosY(0f, 1f).SetEase(Ease.OutQuad);
         }
 
         public void HideMobilePhones()
         {
+            OnMobilePhoneHideAction?.Invoke();
             mobilePhone.DOAnchorPosY(-3000f, 0.8f).SetEase(Ease.InQuad);
         }
 

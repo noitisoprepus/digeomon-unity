@@ -15,12 +15,14 @@ namespace Scanner
 
         [Header("SFX")]
         [SerializeField] private AudioClip summonSFX;
+        
 
         private AudioSource audioSource;
         private DigeomonData currDigeomon;
         private ScannerUI scannerUI;
         private GameObject spawnedObject;
         private bool isSpawned = true;
+        private bool toSpawn = false;
 
         private void Awake()
         {
@@ -31,21 +33,38 @@ namespace Scanner
         private void OnEnable()
         {
             JournalManager.OnSummonAction += DirectSetupARObject;
+
+            DialogueManager.OnDialogueStartAction += DisablePlacement;
+            DialogueManager.OnDialogueEndAction += EnablePlacement;
+            MobilePhoneUI.OnMobilePhoneShowAction += DisablePlacement;
+            MobilePhoneUI.OnMobilePhoneHideAction += EnablePlacement;
+            ScannerUI.OnSuccessShowAction += DisablePlacement;
+            ScannerUI.OnSuccessHideAction += EnablePlacement;
+
             aRPlacementInteractable.objectPlaced.AddListener(ObjectPlaced);
         }
 
         private void OnDisable()
         {
             JournalManager.OnSummonAction -= DirectSetupARObject;
+
+            DialogueManager.OnDialogueStartAction -= DisablePlacement;
+            DialogueManager.OnDialogueEndAction -= EnablePlacement;
+            MobilePhoneUI.OnMobilePhoneShowAction -= DisablePlacement;
+            MobilePhoneUI.OnMobilePhoneHideAction -= EnablePlacement;
+            ScannerUI.OnSuccessShowAction -= DisablePlacement;
+            ScannerUI.OnSuccessHideAction -= EnablePlacement;
+
             aRPlacementInteractable.objectPlaced.RemoveAllListeners();
         }
 
         public void InitializeARObject(DigeomonData digeomon)
         {
+            scannerUI.ShowSummonHelp();
             spawnedObject = null;
             currDigeomon = digeomon;
-            scannerUI.ShowSummonHelp();
-            StartCoroutine(StartPlacementDelay());
+            aRPlacementInteractable.placementPrefab = currDigeomon.modelPrefab;
+            toSpawn = true;
         }
 
         private void DirectSetupARObject()
@@ -54,22 +73,15 @@ namespace Scanner
             scannerUI.HideScanner();
         }
 
-        private IEnumerator StartPlacementDelay()
-        {
-            yield return new WaitForSeconds(1f);
-            aRPlacementInteractable.placementPrefab = currDigeomon.modelPrefab;
-            isSpawned = false;
-        }
-
         private void ObjectPlaced(ARObjectPlacementEventArgs args)
         {
-            if (isSpawned)
+            if (isSpawned || !toSpawn)
             {
                 Destroy(args.placementObject);
                 return;
             }
             isSpawned = true;
-            //aRPlacementInteractable.placementPrefab = null;
+            toSpawn = false;
 
             spawnedObject = args.placementObject;
             spawnedObject.transform.localScale = Vector3.zero;
@@ -90,6 +102,23 @@ namespace Scanner
 
             scannerUI.ShowCaptureButton();
             dialogueManager.StartDialogue(currDigeomon.introDialogue);
+        }
+
+        private void DisablePlacement()
+        {
+            StopAllCoroutines();
+            isSpawned = true;
+        }
+
+        private void EnablePlacement()
+        {
+            StartCoroutine(EnablePlacementDelayedEnum());
+        }
+
+        private IEnumerator EnablePlacementDelayedEnum()
+        {
+            yield return new WaitForSeconds(1.5f);
+            isSpawned = false;
         }
     }
 }

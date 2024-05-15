@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 using Dialogue;
 
@@ -11,11 +10,15 @@ namespace Core
 {
     public class DialogueManager : MonoBehaviour
     {
+        public delegate void DialogueStartDelegate();
+        public static event DialogueStartDelegate OnDialogueStartAction;
+
+        public delegate void DialogueEndDelegate();
+        public static event DialogueEndDelegate OnDialogueEndAction;
+
         [Header("Dialogue Data")]
         [SerializeField] private List<DialogueData> dialogues;
         [SerializeField] private float textSpeed = 0.2f;
-        [SerializeField] private bool startOnReady;
-        [SerializeField] private UnityEvent onDialogueFinished;
 
         [Header("Dialogue GUI")]
         [SerializeField] private GameObject dialoguePanel;
@@ -47,9 +50,6 @@ namespace Core
             arrowSequence.Append(dialogueArrowRT.DOAnchorPosX(-80f, 0.5f));
             arrowSequence.Append(dialogueArrowRT.DOAnchorPosX(-100f, 0.5f));
             arrowSequence.SetLoops(-1, LoopType.Yoyo).SetSpeedBased();
-
-            if (startOnReady)
-                StartDialogue();
         }
 
         private void OnDialogueBoxTapped()
@@ -60,6 +60,7 @@ namespace Core
 
         public void StartDialogue()
         {
+            OnDialogueStartAction?.Invoke();
             currDialogueIndex = 0;
             SetupDialogueUI(dialogues[currDialogueIndex]);
             currDialogue = dialogues[currDialogueIndex];
@@ -68,6 +69,7 @@ namespace Core
 
         public void StartDialogue(DialogueData dialogue)
         {
+            OnDialogueStartAction?.Invoke();
             SetupDialogueUI(dialogue);
             RunDialogue(dialogue);
         }
@@ -94,9 +96,9 @@ namespace Core
             if (currLineIndex.Equals(currLines.Count - 1))
             {
                 currDialogueIndex++;
-                onDialogueFinished?.Invoke();
                 isRunning = false;
                 dialoguePanel.SetActive(false);
+                OnDialogueEndAction?.Invoke();
                 return;
             }
 
