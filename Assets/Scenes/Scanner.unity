@@ -19507,7 +19507,8 @@ MonoBehaviour:
   m_XROrigin: {fileID: 348371571}
   m_ExcludeUITouches: 1
   m_ARSessionOrigin: {fileID: 0}
-  m_PlacementPrefab: {fileID: 0}
+  m_PlacementPrefab: {fileID: 7414126791596113512, guid: fe573e7abb8af466791f07600c0785e3,
+    type: 3}
   m_FallbackLayerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -19564,7 +19565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_BlockingObjects: 3
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295

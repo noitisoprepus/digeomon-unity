@@ -1,3 +1,4 @@
+using System.Collections;
 using Core;
 using DG.Tweening;
 using UI;
@@ -9,7 +10,6 @@ namespace Scanner
     public class ARPlaceObject : MonoBehaviour
     {
         [SerializeField] private ARPlacementInteractable aRPlacementInteractable;
-        //[SerializeField] private GameObject placementIndicator;
         [SerializeField] private DialogueManager dialogueManager;
         [SerializeField] private VFXManager vfxManager;
 
@@ -20,18 +20,13 @@ namespace Scanner
         private DigeomonData currDigeomon;
         private ScannerUI scannerUI;
         private GameObject spawnedObject;
-        //private Pose placementPose;
+        private bool isSpawned = true;
 
         private void Awake()
         {
             audioSource = GetComponent<AudioSource>();
             scannerUI = GetComponent<ScannerUI>();
         }
-
-        //private void Start()
-        //{
-        //    placementIndicator.SetActive(false);
-        //}
 
         private void OnEnable()
         {
@@ -45,27 +40,12 @@ namespace Scanner
             aRPlacementInteractable.objectPlaced.RemoveAllListeners();
         }
 
-        //private void Update()
-        //{
-        //    if (isInitialized)
-        //    {
-        //        if (spawnedObject == null && poseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        //        {
-        //            PlaceObject();
-        //        }
-
-        //        UpdatePlacePose();
-        //        UpdatePlacementIndicator();
-        //    }
-        //}
-
         public void InitializeARObject(DigeomonData digeomon)
         {
-            //isInitialized = true;
             spawnedObject = null;
             currDigeomon = digeomon;
-            aRPlacementInteractable.placementPrefab = digeomon.modelPrefab;
             scannerUI.ShowSummonHelp();
+            StartCoroutine(StartPlacementDelay());
         }
 
         private void DirectSetupARObject()
@@ -74,60 +54,22 @@ namespace Scanner
             scannerUI.HideScanner();
         }
 
-        //private void UpdatePlacementIndicator()
-        //{
-        //    if (spawnedObject == null && poseIsValid)
-        //    {
-        //        placementIndicator.SetActive(true);
-        //        placementIndicator.transform.SetPositionAndRotation(placementPose.position, placementPose.rotation);
-        //    }
-        //    else
-        //    {
-        //        placementIndicator.SetActive(false);
-        //    }
-        //}
-
-        //private void UpdatePlacePose()
-        //{
-        //    var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
-        //    var hits = new List<ARRaycastHit>();
-        //    raycastManager.Raycast(screenCenter, hits, TrackableType.Planes);
-
-        //    poseIsValid = hits.Count > 0;
-        //    if (poseIsValid)
-        //    {
-        //        placementPose = hits[0].pose;
-        //    }
-        //}
-
-        //private void PlaceObject()
-        //{
-        //    isInitialized = false;
-            
-        //    spawnedObject = Instantiate(currDigeomon.modelPrefab, placementPose.position, placementPose.rotation);
-        //    spawnedObject.transform.localScale = Vector3.zero;
-        //    spawnedObject.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuint);
-            
-        //    audioSource.clip = summonSFX;
-        //    audioSource.Play();
-
-        //    vfxManager.InitializeDigeomon(spawnedObject, currDigeomon);
-
-        //    if (PersistentData.toSummon)
-        //    {
-        //        PersistentData.toSummon = false;
-        //        scannerUI.HideCaptureUI();
-        //        scannerUI.ShowScanner();
-        //        return;
-        //    }
-
-        //    scannerUI.ShowCaptureButton();
-        //    dialogueManager.StartDialogue(currDigeomon.introDialogue);
-        //}
+        private IEnumerator StartPlacementDelay()
+        {
+            yield return new WaitForSeconds(1f);
+            aRPlacementInteractable.placementPrefab = currDigeomon.modelPrefab;
+            isSpawned = false;
+        }
 
         private void ObjectPlaced(ARObjectPlacementEventArgs args)
         {
-            aRPlacementInteractable.placementPrefab = null;
+            if (isSpawned)
+            {
+                Destroy(args.placementObject);
+                return;
+            }
+            isSpawned = true;
+            //aRPlacementInteractable.placementPrefab = null;
 
             spawnedObject = args.placementObject;
             spawnedObject.transform.localScale = Vector3.zero;
