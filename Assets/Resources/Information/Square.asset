@@ -17,6 +17,20 @@ MonoBehaviour:
   - A square is a flat, two-dimensional shape with four equal sides and four right
     angles.
   - Squares are special types of rectangles where all sides are equal in length.
+  - "To calculate the area of the square, the formula above can be used. \nWhere
+    s is the length of the side"
+  - To calculate the perimeter of the square, the formula above can be used.
+  - 'Here is an example problem:
+
+    Find the area of a square with a side length
+    of 6 cm.'
+  - 'Solution:
+
+    A=s<sup>2</sup> = 6<sup>2</sup> = 36 cm <sup>2</sup>'
   images:
   - {fileID: 21300000, guid: a57fc43916c826441b998bdd491293ee, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: a57fc43916c826441b998bdd491293ee, type: 3}
+  - {fileID: 21300000, guid: c24dd3d37107a9b43bf5406537b3e789, type: 3}
+  - {fileID: 21300000, guid: c24dd3d37107a9b43bf5406537b3e789, type: 3}
+  - {fileID: 21300000, guid: c24dd3d37107a9b43bf5406537b3e789, type: 3}
+  - {fileID: 21300000, guid: c24dd3d37107a9b43bf5406537b3e789, type: 3}

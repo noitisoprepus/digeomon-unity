@@ -18,6 +18,19 @@ MonoBehaviour:
     oval
   - It looks like an oval but don't be confused as the two are different. All ellipses
     are ovals, but not all ovals are ellipses.
+  - "To calculate the area of the ellipse, the formula above can be used. \nWhere
+    a is the semi-major axis\nand b is the semi-minor axis"
+  - 'Here is an example problem:
+
+    Find the area of an ellipse with a semi-major
+    axis of 4 cm and a semi-minor axis of 3 cm.'
+  - 'Solution:
+
+    A= (<sprite name="icon-pi"> ab = (<sprite name="icon-pi">(4)(3)
+    = 12(<sprite name="icon-pi"> = 37.70 cm <sup>2</sup>'
   images:
   - {fileID: 21300000, guid: 8b39d687779bb7641ad06104219ae6e1, type: 3}
+  - {fileID: 21300000, guid: ac49475f45f6440408550ffe9328c3de, type: 3}
+  - {fileID: 21300000, guid: ac49475f45f6440408550ffe9328c3de, type: 3}
+  - {fileID: 21300000, guid: ac49475f45f6440408550ffe9328c3de, type: 3}
   - {fileID: 21300000, guid: ac49475f45f6440408550ffe9328c3de, type: 3}

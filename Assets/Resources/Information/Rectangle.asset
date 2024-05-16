@@ -21,8 +21,24 @@ MonoBehaviour:
   - A rectangle also has four right angles, which are angles that measure 90 degrees.
   - A rectangle can be seen as doors, refrigirators, and some windows. They're the
     parts of our house!
+  - "To calculate the area of the rectangle, the formula above can be used. \nWhere
+    l is the length and\nw is the width"
+  - To calculate the perimeter of the rectangle, the formula above can be used.
+  - 'Here is an example problem:
+
+    Find the area of a rectangle with a length
+    of 8 cm and a width of 5 cm.'
+  - 'Solution:
+
+    A= 8 x 5 = 40 cm<sup>2</sup>
+
+'
   images:
   - {fileID: 21300000, guid: c815bae1140febc418269a068d510240, type: 3}
   - {fileID: 0}
   - {fileID: 21300000, guid: 8ce9fcb9e12ecd24ba0b9fe4fc4722a2, type: 3}
   - {fileID: 21300000, guid: 287b6c857c7890344bf0f0fb035a54c7, type: 3}
+  - {fileID: 21300000, guid: 3be157cea851eed4ea67e3d7c496b743, type: 3}
+  - {fileID: 21300000, guid: 3be157cea851eed4ea67e3d7c496b743, type: 3}
+  - {fileID: 21300000, guid: 3be157cea851eed4ea67e3d7c496b743, type: 3}
+  - {fileID: 21300000, guid: 3be157cea851eed4ea67e3d7c496b743, type: 3}

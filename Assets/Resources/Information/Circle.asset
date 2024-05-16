@@ -19,9 +19,22 @@ MonoBehaviour:
     of the circle.
   - A circle is symmetrical, meaning any line through its center divides it into
     two equal halves.
-  - To calculate the area of the circle, the formula above can be used.
+  - "To calculate the area of the circle, the formula above can be used. \nWhere
+    r is the radius."
+  - To calculate the circumference  of the circle, the formula above can be used.
+  - 'Here is an example problem:
+
+    Find the area of a circle with a radius of
+    5 cm.'
+  - 'Solution:
+
+    A=(<sprite name="icon-pi">)r <sup>2</sup> = (<sprite name="icon-pi">)
+    x (5)<sup>2</sup> =78.54 cm <sup>2</sup>'
   images:
   - {fileID: 21300000, guid: 819e7581ca7dcdc4689e28586544319a, type: 3}
   - {fileID: 21300000, guid: d85f1b6362283e24f9097e53e9155c5d, type: 3}
   - {fileID: 21300000, guid: 63422b0326d363b47840b2f67f394f9d, type: 3}
-  - {fileID: 21300000, guid: 344fd8db1cedd0f488db4f310cb5c60d, type: 3}
+  - {fileID: 21300000, guid: cc2113d7ddacbcf48a5fbc402092b3ec, type: 3}
+  - {fileID: 21300000, guid: cc2113d7ddacbcf48a5fbc402092b3ec, type: 3}
+  - {fileID: 21300000, guid: 80975ae91d0a0b34dbe74049bdf8f477, type: 3}
+  - {fileID: 21300000, guid: cc2113d7ddacbcf48a5fbc402092b3ec, type: 3}
