@@ -26,6 +26,12 @@ MonoBehaviour:
     long it is, the width is how wide it is, and the height is how tall it is.'
   - Cuboids are like shoeboxes, books, or even some buildings like houses. They're
     everywhere around us!
+  - To calculate the Volume of a Cuboid, the formula above can be used.
+  - 'Here is an example problem:
+
+    Find the Volume of a cuboid with a length of
+    7cm, a width of 3cm, and a height of 5cm.'
+  - 'Solution above:'
   images:
   - {fileID: 21300000, guid: 3836b9b6a9db9cd419e2f98a717979b1, type: 3}
   - {fileID: 21300000, guid: 4d8fdfd291985ad4da12ab460c37f2c7, type: 3}
@@ -33,3 +39,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 87d30007ec3e18942bc3549d7263fe7c, type: 3}
   - {fileID: 21300000, guid: cab14528f9d6b054cbce4a5ba6f22e20, type: 3}
   - {fileID: 21300000, guid: 820dca25440e10646a0446e9ea59ef4f, type: 3}
+  - {fileID: 21300000, guid: 00199ba85b3703043837d7521c318a75, type: 3}
+  - {fileID: 21300000, guid: 18d21fa55d44cfa4f9ba86d95f0e1142, type: 3}
+  - {fileID: 21300000, guid: d647448101ffb5f438fdf4d4288b7a59, type: 3}

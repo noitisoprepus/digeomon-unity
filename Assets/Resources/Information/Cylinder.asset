@@ -22,8 +22,19 @@ MonoBehaviour:
   - A cylinder's height is how tall it is. The diameter is how wide the circle on
     the end is. The radius is from the middle of the circle to the edge.
   - Examples are paper rolls, cans, and candles which are all similar to a <mark=#00563B40>tube</mark>.
+  - To calculate the Volume of a Cylinder, the formula above can be used.
+  - 'Here is an example problem:
+
+    Find the volume of a cylinder with a radius
+    of 4cm and a height of 10 cm
+
+'
+  - 'Solution above:'
   images:
   - {fileID: 21300000, guid: 042e5346a28fc5d4f9c29a1f45a25b84, type: 3}
   - {fileID: 21300000, guid: acdc319bd8f6fc3408b7f181ee64a922, type: 3}
   - {fileID: 21300000, guid: 127f607753979634493f7e2a022b3d08, type: 3}
   - {fileID: 21300000, guid: 46a1be49625b258449a730a04e052e31, type: 3}
+  - {fileID: 21300000, guid: 5c5e99ce47e6df74a8f9993cb08b48f5, type: 3}
+  - {fileID: 21300000, guid: efd97801e671da24da72404e98f27c3d, type: 3}
+  - {fileID: 21300000, guid: 1ce08f18f60b7ff48b21a91f1b68d11a, type: 3}
