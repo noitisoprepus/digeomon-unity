@@ -95,8 +95,17 @@ namespace UI
             panel.transform.DOScaleY(0f, 0.6f).SetEase(Ease.OutExpo);
         }
 
-        public void ShowQuestion(QuestionData q)
+        public void ShowQuestion(QuestionData q, bool showImages = true)
         {
+            questionText.text = q.question;
+            choiceAText.text = "A. " + q.choices[0];
+            choiceBText.text = "B. " + q.choices[1];
+            choiceCText.text = "C. " + q.choices[2];
+            choiceDText.text = "D. " + q.choices[3];
+
+            if (!showImages)
+                return;
+
             if (q.image != null)
             {
                 ShowImageBox();
@@ -106,12 +115,6 @@ namespace UI
             {
                 HideImageBox();
             }
-
-            questionText.text = q.question;
-            choiceAText.text = "A. " + q.choices[0];
-            choiceBText.text = "B. " + q.choices[1];
-            choiceCText.text = "C. " + q.choices[2];
-            choiceDText.text = "D. " + q.choices[3];
         }
 
         public void OnAnswerButtonPressed(int index)
@@ -145,7 +148,7 @@ namespace UI
 
         public void ShowRecapQuestion(QuestionData q, int userAnswer)
         {
-            ShowQuestion(q);
+            ShowQuestion(q, false);
 
             choiceAButton.enabled = false;
             choiceBButton.enabled = false;
