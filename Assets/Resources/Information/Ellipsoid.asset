@@ -22,9 +22,18 @@ MonoBehaviour:
   - 'An ellipsoid has three axes, which are imaginary lines passing through its center.
     These axes define the shape of the ellipsoid. '
   - Real life examples of ellipsoid are eggs, lemon, and football.
+  - To calculate the volume of an ellipsoid, the formula above can be used.
+  - 'Here is an example problem:
+
+    Find the volume of an ellipsoid with a=2cm,
+    b=3cm, and c=4cm'
+  - 'Solution above:'
   images:
   - {fileID: 21300000, guid: 3e06602f186d8534eab97a77e7fe233f, type: 3}
   - {fileID: 21300000, guid: 373331fa6dbd62c4984b485e9e4b9f5d, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 3e06602f186d8534eab97a77e7fe233f, type: 3}
   - {fileID: 21300000, guid: 34e066c27c732df4c9054ed61bc83e90, type: 3}
   - {fileID: 21300000, guid: 9e1a1379244b3f24da20076ca39b4b1c, type: 3}
+  - {fileID: 21300000, guid: 8e2cd02df4e1f7541b2e74e03c605b84, type: 3}
+  - {fileID: 21300000, guid: a989842101fca084e83b3b6db15b547c, type: 3}
+  - {fileID: 21300000, guid: 76b43fdace7b6ed4280483a284988a13, type: 3}
