@@ -27,6 +27,8 @@ namespace UI
 
         [Header("Quiz GUI")]
         [SerializeField] private GameObject panel;
+        [SerializeField] private GameObject imageBox;
+        [SerializeField] private Image contextualImage;
         [SerializeField] private GameObject questionBox;
         [SerializeField] private GameObject choicesBox;
         [SerializeField] private Button choiceAButton;
@@ -95,6 +97,16 @@ namespace UI
 
         public void ShowQuestion(QuestionData q)
         {
+            if (q.image != null)
+            {
+                ShowImageBox();
+                contextualImage.sprite = q.image;
+            }
+            else
+            {
+                HideImageBox();
+            }
+
             questionText.text = q.question;
             choiceAText.text = "A. " + q.choices[0];
             choiceBText.text = "B. " + q.choices[1];
@@ -109,6 +121,7 @@ namespace UI
 
         public void ShowScoreDialog(int score, bool status)
         {
+            HideImageBox();
             questionBox.SetActive(false);
             choicesBox.SetActive(false);
             reviewButton.SetActive(true);
@@ -160,6 +173,21 @@ namespace UI
         {
             ClosePanel();
             OnQuizConcludeAction?.Invoke();
+        }
+
+        private void ShowImageBox()
+        {
+            if (imageBox.transform.localScale.y > 0)
+                return;
+            imageBox.transform.localScale = new Vector3(1f, 0f, 1f);
+            imageBox.transform.DOScaleY(1f, 0.75f).SetEase(Ease.OutQuart);
+        }
+
+        private void HideImageBox()
+        {
+            if (imageBox.transform.localScale.y <= 0)
+                return;
+            imageBox.transform.DOScaleY(0f, 0.6f).SetEase(Ease.OutExpo);
         }
     }
 }

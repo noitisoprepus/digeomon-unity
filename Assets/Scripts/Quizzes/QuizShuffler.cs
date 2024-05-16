@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Random = System.Random;
+using UnityEngine;
 
 public static class QuizShuffler
 {
@@ -29,10 +30,8 @@ public static class QuizShuffler
             question.answerIndex = Array.IndexOf(question.choices, correctAnswer);
         }
 
-        QuizData generatedQuiz = new QuizData
-        {
-            passingScore = passingScore
-        };
+        QuizData generatedQuiz = ScriptableObject.CreateInstance<QuizData>();
+        generatedQuiz.passingScore = passingScore;
         generatedQuiz.questions = new List<QuestionData>();
         for (int i = 0; i < items; i++)
         {
