@@ -22,9 +22,16 @@ MonoBehaviour:
   - Unlike some other shapes, all three are the same in a cube. If one side is 5
     units long, all sides are 5 units long.
   - Cubes are like dice, sugar cubes, or even some buildings like storage boxes.
+  - To calculate the Volume of a Cube, the formula aboved can be used.
+  - 'Here is an example problem: Find the volume of a cube with a side length of
+    4 cm. '
+  - 'Solution: V = s<sup>3</sup> = 4<sup>3</sup> = 64 cm<sup>3</sup>'
   images:
   - {fileID: 21300000, guid: 2c74fa9eb624ce2488e57769d68c8aa6, type: 3}
   - {fileID: 21300000, guid: a57fc43916c826441b998bdd491293ee, type: 3}
   - {fileID: 21300000, guid: 79a02c52e67d9d74da220954ea09e79f, type: 3}
   - {fileID: 21300000, guid: aca17fcba5cec2440952e6ecfdde1f21, type: 3}
   - {fileID: 21300000, guid: 32984a7e30bd5b94db63225c9949aa30, type: 3}
+  - {fileID: 21300000, guid: 77bf472fa21311b40b61bc1ab3205f81, type: 3}
+  - {fileID: 21300000, guid: be75c97e47147154ea2395ec7ea27e68, type: 3}
+  - {fileID: 21300000, guid: 77bf472fa21311b40b61bc1ab3205f81, type: 3}
